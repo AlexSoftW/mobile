@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sallus-app</string>
+    <string name="text_configuration">Configurações</string>
 </resources>
