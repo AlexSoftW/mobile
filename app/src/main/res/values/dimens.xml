@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- text -->
+    <dimen name="x_small_font">12sp</dimen>
     <dimen name="small_font">16sp</dimen>
     <dimen name="average_font">20sp</dimen>
     <dimen name="large_font">24sp</dimen>
