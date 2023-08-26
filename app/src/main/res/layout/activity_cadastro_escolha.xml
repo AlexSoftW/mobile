@@ -108,7 +108,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/red_default"
-                android:text="Sou paciente"
+                android:text="Sou Nutricionista"
                 android:textSize="20sp"
 
                 >
