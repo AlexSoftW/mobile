@@ -17,4 +17,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"></include>
 
+    <include
+        layout="@layout/fragment_itens_home_paciente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/include_badge_paciente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_toolbar_home_paciente">
+
+    </include>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
