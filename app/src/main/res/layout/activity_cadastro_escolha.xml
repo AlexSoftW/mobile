@@ -43,7 +43,7 @@
                 android:layout_width="350dp"
                 android:layout_height="90dp"
                 android:layout_marginRight="80dp"
-                android:src="@mipmap/Breadcrumb"
+                android:src="@mipmap/caminhao_pao"
 
                 />
 
@@ -78,7 +78,7 @@
                 android:layout_height="100dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="@dimen/xx_small_margin"
-                android:src="@mipmap/iconPerfil" />
+                android:src="@mipmap/icon_perfil" />
 
         </LinearLayout>
 
