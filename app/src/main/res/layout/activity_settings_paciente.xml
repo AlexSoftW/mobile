@@ -7,7 +7,8 @@
 
     <include
         layout="@layout/toolbar_settings"
-        android:id="@+id/include_toolbar_settings"/>
+        android:id="@+id/include_toolbar_settings"
+        />
 
 <!--    <androidx.fragment.app.FragmentContainerView-->
 <!--        android:layout_width="match_parent"-->
@@ -27,6 +28,17 @@
         app:layout_constraintTop_toBottomOf="@+id/include_toolbar_settings"
         android:layout_marginLeft="@dimen/large_margin"
         android:layout_marginRight="@dimen/large_margin"/>
+
+<!--    <include-->
+<!--        layout="@layout/fragment_settings_password"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/include_toolbar_settings"-->
+<!--        android:layout_marginRight="@dimen/large_margin"-->
+<!--        android:layout_marginLeft="@dimen/large_margin"/>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
