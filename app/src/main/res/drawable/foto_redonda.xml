@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#DAD0D0" /> <!-- Define uma cor de preenchimento (será sobreposta pela imagem) -->
+    <corners android:radius="900dp" /> <!-- Define um raio de 50dp para criar uma forma circular -->
+</shape>

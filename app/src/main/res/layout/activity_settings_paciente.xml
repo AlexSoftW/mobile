@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <include
-        layout="@layout/toolbar_settings"
-        android:id="@+id/include_toolbar_settings"
-        />
+
 
 <!--    <androidx.fragment.app.FragmentContainerView-->
+
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="0dp"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
@@ -19,6 +19,12 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/include_toolbar_settings"-->
 <!--        app:layout_constraintTop_toEndOf="@+id/include_toolbar_settings"-->
 <!--        tools:foreground="@layout/fragment_settings_options"/>-->
+
+    <include
+        android:id="@+id/include_toolbar_settings"
+        layout="@layout/toolbar_settings"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <include
         layout="@layout/fragment_settings_options"
