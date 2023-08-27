@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Sallus-app</string>
     <string name="text_configuration">Configurações</string>
+    <string name="text_configuration_senha">Alteração de senha</string>
 </resources>
