@@ -2,4 +2,5 @@
     <string name="app_name">Sallus-app</string>
     <string name="text_configuration">Configurações</string>
     <string name="text_configuration_senha">Alteração de senha</string>
+    <string name="texto_senha" translatable="false">  A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
 </resources>
