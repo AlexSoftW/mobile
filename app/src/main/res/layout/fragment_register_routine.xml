@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin">
+
+        <TextView
+            android:id="@+id/textview_title_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_food_diary"
+            android:textSize="@dimen/x_large_font"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_subtitle_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sub_title_food_diary"
+            app:layout_constraintStart_toStartOf="@id/textview_title_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_title_register_routine" />
+
+        <TextView
+            android:id="@+id/textview_tag_food_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:text="@string/title_food"
+            android:textSize="@dimen/average_font"
+            app:layout_constraintStart_toStartOf="@id/textview_subtitle_register_routine"
+            app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_register_routine" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_register_routine"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintStart_toStartOf="@id/textview_tag_food_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_food_register_routine"
+            tools:listitem="@layout/item_recycler_view_register_routine" />
+
+        <TextView
+            android:id="@+id/textview_tag_total_calculated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:text="Total calculado"
+            android:textSize="@dimen/average_font"
+            app:layout_constraintStart_toStartOf="@id/recycler_view_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_register_routine" />
+
+        <FrameLayout
+            android:id="@+id/frama_layout_register_routine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_drawable"
+            app:layout_constraintStart_toStartOf="@id/textview_tag_total_calculated"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_total_calculated">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/average_padding">
+
+                <TextView
+                    android:id="@+id/textview_tag_carboidrato_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Carboidratos: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textview_value_carboidrato_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/small_font"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/textview_tag_carboidrato_register_routine"
+                    app:layout_constraintStart_toEndOf="@id/textview_tag_carboidrato_register_routine"
+                    tools:text="200g" />
+
+                <TextView
+                    android:id="@+id/textview_tag_proteina_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Proteínas: "
+                    app:layout_constraintStart_toStartOf="@id/textview_tag_carboidrato_register_routine"
+                    app:layout_constraintTop_toBottomOf="@id/textview_tag_carboidrato_register_routine" />
+
+                <TextView
+                    android:id="@+id/textview_value_proteina_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/small_font"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/textview_tag_proteina_register_routine"
+                    app:layout_constraintStart_toEndOf="@id/textview_tag_proteina_register_routine"
+                    tools:text="900g" />
+
+                <TextView
+                    android:id="@+id/textview_tag_gordura_total_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gordura total: "
+                    app:layout_constraintStart_toStartOf="@id/textview_tag_proteina_register_routine"
+                    app:layout_constraintTop_toBottomOf="@id/textview_tag_proteina_register_routine" />
+
+                <TextView
+                    android:id="@+id/textview_value_gordura_total_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/small_font"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/textview_tag_gordura_total_register_routine"
+                    app:layout_constraintStart_toEndOf="@id/textview_tag_gordura_total_register_routine"
+                    tools:text="500g" />
+
+                <TextView
+                    android:id="@+id/textview_tag_calorias_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calorias: "
+                    app:layout_constraintStart_toStartOf="@id/textview_tag_gordura_total_register_routine"
+                    app:layout_constraintTop_toBottomOf="@id/textview_tag_gordura_total_register_routine" />
+
+                <TextView
+                    android:id="@+id/textview_value_calorias_register_routine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/small_font"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/textview_tag_calorias_register_routine"
+                    app:layout_constraintStart_toEndOf="@id/textview_tag_calorias_register_routine"
+                    tools:text="3000" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/textview_tag_patients_data_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:text="Dados para o paciente"
+            android:textSize="@dimen/average_font"
+            app:layout_constraintStart_toStartOf="@id/frama_layout_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/frama_layout_register_routine" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/spinner_type_patients_register_routine"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:hint="Paciente"
+            app:layout_constraintStart_toStartOf="@id/textview_tag_patients_data_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_patients_data_register_routine">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:simpleItems="@array/spinner_option_type_food" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/spinner_type_turn_register_routine"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:hint="Turno"
+            app:layout_constraintStart_toStartOf="@id/spinner_type_patients_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/spinner_type_patients_register_routine">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:simpleItems="@array/spinner_option_type_food" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/date_picker_register_routine"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:hint="dd/mm/yyyy"
+            app:layout_constraintStart_toStartOf="@id/spinner_type_turn_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/spinner_type_turn_register_routine">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:focusable="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edittext_food_name"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="top"
+            android:hint="Anotações"
+            app:layout_constraintBottom_toTopOf="@id/button_back_register_routine"
+            app:layout_constraintStart_toStartOf="@id/date_picker_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/date_picker_register_routine">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_back_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="transparent"
+            android:text="@string/text_button_back"
+            android:textColor="@color/red_default"
+            app:layout_constraintBottom_toTopOf="@id/button_register_routine"
+            app:layout_constraintEnd_toEndOf="@id/button_register_routine"
+            app:layout_constraintStart_toStartOf="@id/button_register_routine" />
+
+        <Button
+            android:id="@+id/button_register_routine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/large_margin"
+            android:backgroundTint="@color/red_default"
+            android:text="Cadastrar rotina"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

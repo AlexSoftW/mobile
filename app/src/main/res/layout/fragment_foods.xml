@@ -11,7 +11,7 @@
         android:id="@+id/textview_title_foods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alimentos"
+        android:text="@string/title_food"
         android:textSize="@dimen/x_large_font"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/textview_subtitle_foods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Veja a lista completa de alimentos e seus benefícios"
+        android:text="@string/subtitle_food"
         app:layout_constraintStart_toStartOf="@id/textview_title_foods"
         app:layout_constraintTop_toBottomOf="@id/textview_title_foods" />
 
@@ -29,35 +29,32 @@
         android:id="@+id/textview_tag_category_foods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x_large_margin"
-        android:text="Categorias"
+        android:text="@string/tag_category"
         android:textSize="@dimen/average_font"
-        app:layout_constraintStart_toStartOf="@id/textview_subtitle_foods"
-        app:layout_constraintTop_toBottomOf="@id/textview_subtitle_foods" />
+        app:layout_constraintBottom_toBottomOf="@id/search_bar_foods"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.search.SearchBar
         android:id="@+id/search_bar_foods"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/large_margin"
-        android:hint="Busque pelo nome"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_tag_category_foods"
+        android:hint="@string/text_search_food_name"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_scrool_view_foods"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/textview_tag_category_foods"
-        app:layout_constraintTop_toTopOf="@+id/textview_tag_category_foods" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_foods" />
 
     <HorizontalScrollView
         android:id="@+id/horizontal_scrool_view_foods"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/x_large_margin"
+        android:layout_marginTop="@dimen/average_margin"
         app:layout_constraintStart_toStartOf="@id/textview_tag_category_foods"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_category_foods">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
 
             <ImageView
                 android:id="@+id/imageview_carnes_category_foods"
@@ -72,7 +69,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="carnes"
+                android:text="@string/text_option_meat"
                 app:layout_constraintEnd_toEndOf="@id/imageview_carnes_category_foods"
                 app:layout_constraintStart_toStartOf="@id/imageview_carnes_category_foods"
                 app:layout_constraintTop_toBottomOf="@id/imageview_carnes_category_foods" />
@@ -90,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="frutas"
+                android:text="@string/text_option_fruits"
                 app:layout_constraintEnd_toEndOf="@id/imageview_frutas_category_foods"
                 app:layout_constraintStart_toStartOf="@id/imageview_frutas_category_foods"
                 app:layout_constraintTop_toBottomOf="@id/imageview_frutas_category_foods" />
@@ -108,7 +105,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="graos"
+                android:text="@string/text_option_grain"
                 app:layout_constraintEnd_toEndOf="@id/imageview_graos_category_foods"
                 app:layout_constraintStart_toStartOf="@id/imageview_graos_category_foods"
                 app:layout_constraintTop_toBottomOf="@id/imageview_graos_category_foods" />
@@ -126,7 +123,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="massas"
+                android:text="@string/text_option_pasta"
                 app:layout_constraintEnd_toEndOf="@id/imageview_massas_category_foods"
                 app:layout_constraintStart_toStartOf="@id/imageview_massas_category_foods"
                 app:layout_constraintTop_toBottomOf="@id/imageview_massas_category_foods" />
@@ -144,7 +141,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verduras"
+                android:text="@string/text_option_greenery"
                 app:layout_constraintEnd_toEndOf="@id/imageview_verduras_category_foods"
                 app:layout_constraintStart_toStartOf="@id/imageview_verduras_category_foods"
                 app:layout_constraintTop_toBottomOf="@id/imageview_verduras_category_foods" />
@@ -163,7 +160,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Legumes"
+                android:text="@string/text_option_vegetables"
                 app:layout_constraintEnd_toEndOf="@id/imageview_legumes_category_foods"
                 app:layout_constraintStart_toStartOf="@id/imageview_legumes_category_foods"
                 app:layout_constraintTop_toBottomOf="@id/imageview_legumes_category_foods" />
@@ -178,7 +175,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
         android:src="@drawable/ic_diabetes"
-        app:layout_constraintStart_toStartOf="@id/horizontal_scrool_view_foods"
+        app:layout_constraintEnd_toStartOf="@+id/textview_tag_diabetes"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/horizontal_scrool_view_foods" />
 
     <TextView
@@ -186,9 +185,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/xx_small_margin"
-        android:text="Diabetes"
+        android:text="@string/tag_diabetes"
         app:layout_constraintBottom_toBottomOf="@id/imageview_icon_diabetes"
-        app:layout_constraintStart_toEndOf="@id/imageview_icon_diabetes"
+        app:layout_constraintEnd_toStartOf="@+id/imageview_icon_hipertensao"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageview_icon_diabetes"
         app:layout_constraintTop_toTopOf="@id/imageview_icon_diabetes" />
 
     <ImageView
@@ -197,7 +198,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
         android:src="@drawable/ic_hipertensao"
-        app:layout_constraintStart_toEndOf="@id/textview_tag_diabetes"
+        app:layout_constraintEnd_toStartOf="@+id/textview_tag_hipertensao"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textview_tag_diabetes"
         app:layout_constraintTop_toTopOf="@+id/imageview_icon_diabetes" />
 
     <TextView
@@ -205,9 +208,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/xx_small_margin"
-        android:text="Hipertensão"
+        android:text="@string/tag_hypertension"
         app:layout_constraintBottom_toBottomOf="@id/imageview_icon_hipertensao"
-        app:layout_constraintStart_toEndOf="@id/imageview_icon_hipertensao"
+        app:layout_constraintEnd_toStartOf="@+id/imageview_icon_colesterol"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageview_icon_hipertensao"
         app:layout_constraintTop_toTopOf="@id/imageview_icon_hipertensao" />
 
     <ImageView
@@ -216,7 +221,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
         android:src="@drawable/ic_colesterol"
-        app:layout_constraintStart_toEndOf="@id/textview_tag_hipertensao"
+        app:layout_constraintEnd_toStartOf="@+id/textview_tag_colesterol"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textview_tag_hipertensao"
         app:layout_constraintTop_toTopOf="@+id/imageview_icon_diabetes" />
 
     <TextView
@@ -224,18 +231,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/xx_small_margin"
-        android:text="Colesterol"
+        android:text="@string/tag_cholesterol"
         app:layout_constraintBottom_toBottomOf="@id/imageview_icon_colesterol"
-        app:layout_constraintStart_toEndOf="@id/imageview_icon_colesterol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageview_icon_colesterol"
         app:layout_constraintTop_toTopOf="@id/imageview_icon_colesterol" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/average_margin"
-        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/xx_small_margin"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageview_icon_diabetes"
+        app:spanCount="2"
         tools:listitem="@layout/item_recycler_view_foods" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
