@@ -6,7 +6,6 @@
     <string name="title_food">Foods</string>
     <string name="subtitle_food">See the full list of foods and their benefits</string>
     <string name="text_search_food_name">Search food\'s name</string>
-    <string name="tag_category">Category</string>
     <string name="text_option_meat">Meat</string>
     <string name="text_option_fruits">Fruits</string>
     <string name="text_option_grain">Grain</string>
@@ -16,4 +15,15 @@
     <string name="tag_diabetes">Diabetes</string>
     <string name="tag_hypertension">Hypertension</string>
     <string name="tag_cholesterol">Cholesterol</string>
+    <string name="title_add_food">Adding food</string>
+    <string name="subtitle_add_food">Can\'t find the food you want? register it in the database now</string>
+    <string name="text_food">Food</string>
+    <string name="tag_recommended_for">recommended for</string>
+    <string name="tag_nutritional_values">Nutritional values</string>
+    <string name="text_carbohydrates">Carbohydrates</string>
+    <string name="text_proteins">Proteins</string>
+    <string name="text_total_fat">Total</string>
+    <string name="text_selected_hint">*select*</string>
+    <string name="text_button_back">Back</string>
+    <string name="text_button_register_food">Register food</string>
 </resources>
