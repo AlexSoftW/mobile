@@ -58,7 +58,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textview_title_indicadopara"
+        android:id="@+id/textview_title_recommend_for"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
@@ -77,7 +77,7 @@
         android:textSize="@dimen/x_small_font"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_title_indicadopara"
+        app:layout_constraintTop_toBottomOf="@id/textview_title_recommend_for"
         app:switchPadding="2dp" />
 
     <com.google.android.material.materialswitch.MaterialSwitch
@@ -106,7 +106,7 @@
         app:switchPadding="2dp" />
 
     <TextView
-        android:id="@+id/textview_title_valoresNutri"
+        android:id="@+id/textview_title_values_nutritional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
@@ -124,7 +124,7 @@
         app:layout_constraintEnd_toStartOf="@+id/edittext_qtd_proteina"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_title_valoresNutri">
+        app:layout_constraintTop_toBottomOf="@id/textview_title_values_nutritional">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
