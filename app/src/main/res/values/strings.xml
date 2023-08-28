@@ -2,4 +2,17 @@
     <string name="app_name">Sallus-app</string>
     <string name="text_configuration">Configurações</string>
     <string name="text_configuration_senha">Alteração de senha</string>
+    <string name="title_food">Alimentos</string>
+    <string name="subtitle_food">Veja a lista completa de alimentos e seus benefícios</string>
+    <string name="tag_category">Categorias</string>
+    <string name="text_search_food_name">Busque pelo nome</string>
+    <string name="text_option_meat">Carnes</string>
+    <string name="text_option_fruits">Frutas</string>
+    <string name="text_option_grain">Grãos</string>
+    <string name="text_option_pasta">Massas</string>
+    <string name="text_option_greenery">Verduras</string>
+    <string name="text_option_vegetables">Legumes</string>
+    <string name="tag_diabetes">Diabetes</string>
+    <string name="tag_hypertension">Hipertensão</string>
+    <string name="tag_cholesterol">Colesterol</string>
 </resources>

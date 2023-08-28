@@ -3,4 +3,17 @@
     <string name="app_name">Sallus-app</string>
     <string name="text_configuration">Configuration</string>
     <string name="text_configuration_senha">Change password</string>
+    <string name="title_food">Foods</string>
+    <string name="subtitle_food">See the full list of foods and their benefits</string>
+    <string name="text_search_food_name">Search food\'s name</string>
+    <string name="tag_category">Category</string>
+    <string name="text_option_meat">Meat</string>
+    <string name="text_option_fruits">Fruits</string>
+    <string name="text_option_grain">Grain</string>
+    <string name="text_option_pasta">Pastas</string>
+    <string name="text_option_greenery">Greenery</string>
+    <string name="text_option_vegetables">Vegetables</string>
+    <string name="tag_diabetes">Diabetes</string>
+    <string name="tag_hypertension">Hypertension</string>
+    <string name="tag_cholesterol">Cholesterol</string>
 </resources>
