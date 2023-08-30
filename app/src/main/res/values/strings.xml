@@ -2,6 +2,9 @@
     <string name="app_name">Sallus-app</string>
     <string name="text_configuration">Configurações</string>
     <string name="text_configuration_senha">Alteração de senha</string>
+
+    <string name="texto_senha" translatable="false">  A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
+
     
     <string name="title_food">Alimentos</string>
     <string name="subtitle_food">Veja a lista completa de alimentos e seus benefícios</string>
@@ -39,4 +42,5 @@
         <item>Verduras</item>
         <item>Legumes</item>
     </string-array>
+
 </resources>
