@@ -2,9 +2,10 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="150dp"
-    android:layout_weight="1"
-    android:layout_height="200dp">
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="@dimen/xx_small_margin"
+    android:layout_marginTop="@dimen/average_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -67,8 +68,6 @@
             app:layout_constraintStart_toEndOf="@id/imageview_icon_hipertensao_item_alimento"
             app:layout_constraintTop_toTopOf="@id/imageview_icon_hipertensao_item_alimento" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.cardview.widget.CardView>
