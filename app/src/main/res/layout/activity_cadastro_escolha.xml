@@ -144,7 +144,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:backgroundTint="@color/white_100"
-                android:text="< voltar"
+                android:text="voltar"
                 android:textColor="@color/red_default" />
 
 
@@ -157,7 +157,7 @@
 
                 android:layout_marginEnd="40dp"
                 android:backgroundTint="@color/red_default"
-                android:text="proximo >" />
+                android:text="proximo" />
 
         </RelativeLayout>
 

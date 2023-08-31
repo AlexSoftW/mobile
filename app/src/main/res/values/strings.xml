@@ -33,6 +33,7 @@
     
     <string name="title_food_diary">Diário alimentar</string>
     <string name="sub_title_food_diary">Confirme os alimentos e adicione uma nova rotina para os seus pacientes</string>
+    <string name="teste">teste</string>
 
     <string-array name="spinner_option_type_food">
         <item>Carnes</item>

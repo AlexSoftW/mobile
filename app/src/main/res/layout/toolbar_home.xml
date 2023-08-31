@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/large_margin"
-            android:background="transparent"
+
             android:src="@drawable/ic_settings" />
 
         <ImageButton
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/average_margin"
-            android:background="transparent"
+
             android:src="@drawable/ic_notification" />
 
     </androidx.appcompat.widget.Toolbar>
