@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/large_margin"
+    android:layout_marginEnd="@dimen/large_margin">
+
+    <TextView
+        android:id="@+id/textview_title_foods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_food"
+        android:textSize="@dimen/x_large_font"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_subtitle_foods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subtitle_food"
+        app:layout_constraintStart_toStartOf="@id/textview_title_foods"
+        app:layout_constraintTop_toBottomOf="@id/textview_title_foods" />
+
+    <TextView
+        android:id="@+id/textview_tag_category_foods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        android:textSize="@dimen/average_font"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar_foods"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/search_bar_foods"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_search_food_name"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_scrool_view_foods"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_category_foods"
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_foods"
+        tools:ignore="VisualLintBounds,SpeakableTextPresentCheck" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontal_scrool_view_foods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/average_margin"
+        app:layout_constraintStart_toStartOf="@id/textview_tag_category_foods"
+        app:layout_constraintTop_toBottomOf="@id/textview_tag_category_foods">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintBounds">
+
+            <ImageView
+                android:id="@+id/imageview_carnes_category_foods"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/baseline_circle_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_option_meat"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageview_carnes_category_foods"
+                app:layout_constraintStart_toStartOf="@id/imageview_carnes_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/imageview_carnes_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/imageview_frutas_category_foods"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/baseline_circle_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/imageview_carnes_category_foods"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_option_fruits"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageview_frutas_category_foods"
+                app:layout_constraintStart_toStartOf="@id/imageview_frutas_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/imageview_frutas_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/imageview_graos_category_foods"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/baseline_circle_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/imageview_frutas_category_foods"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_option_grain"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageview_graos_category_foods"
+                app:layout_constraintStart_toStartOf="@id/imageview_graos_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/imageview_graos_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/imageview_massas_category_foods"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/baseline_circle_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/imageview_graos_category_foods"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_option_pasta"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageview_massas_category_foods"
+                app:layout_constraintStart_toStartOf="@id/imageview_massas_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/imageview_massas_category_foods" />
+
+            <ImageView
+                android:id="@+id/imageview_verduras_category_foods"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/baseline_circle_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/imageview_massas_category_foods"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_option_greenery"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageview_verduras_category_foods"
+                app:layout_constraintStart_toStartOf="@id/imageview_verduras_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/imageview_verduras_category_foods" />
+
+            <ImageView
+                android:id="@+id/imageview_legumes_category_foods"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/baseline_circle_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/imageview_verduras_category_foods"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_option_vegetables"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imageview_legumes_category_foods"
+                app:layout_constraintStart_toStartOf="@id/imageview_legumes_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/imageview_legumes_category_foods" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
+
+    <include
+        android:id="@+id/include_comorbidades_legends_fragment_foods"
+        layout="@layout/layout_comorbidades_legendas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_scrool_view_foods" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/xx_small_margin"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_comorbidades_legends_fragment_foods"
+        app:spanCount="2"
+        tools:listitem="@layout/item_recycler_view_foods" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

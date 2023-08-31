@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageview_food_item_register_routine"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_name_food_item_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/average_margin"
+            android:textSize="@dimen/large_font"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/imageview_food_item_register_routine"
+            app:layout_constraintTop_toTopOf="@id/imageview_food_item_register_routine"
+            tools:text="Picanha" />
+
+        <TextView
+            android:id="@+id/textview_tag_recommend_item_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="indicado para: "
+            app:layout_constraintStart_toStartOf="@id/textview_name_food_item_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_name_food_item_register_routine" />
+
+        <ImageView
+            android:id="@+id/imageview_diabetes_item_register_routine"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="@dimen/xx_small_margin"
+            android:src="@drawable/ic_diabetes"
+            app:layout_constraintBottom_toBottomOf="@id/textview_tag_recommend_item_register_routine"
+            app:layout_constraintStart_toEndOf="@id/textview_tag_recommend_item_register_routine" />
+
+        <ImageView
+            android:id="@+id/imageview_hipertensao_item_register_routine"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="@dimen/xx_small_margin"
+            android:src="@drawable/ic_hipertensao"
+            app:layout_constraintStart_toEndOf="@id/imageview_diabetes_item_register_routine"
+            app:layout_constraintTop_toTopOf="@id/imageview_diabetes_item_register_routine" />
+
+        <ImageView
+            android:id="@+id/imageview_colesterol_item_register_routine"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="@dimen/xx_small_margin"
+            android:src="@drawable/ic_colesterol"
+            app:layout_constraintStart_toEndOf="@id/imageview_hipertensao_item_register_routine"
+            app:layout_constraintTop_toTopOf="@+id/imageview_hipertensao_item_register_routine" />
+
+        <TextView
+            android:id="@+id/textview_tag_type_food_item_register_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/average_margin"
+            android:background="@color/green_default"
+            android:gravity="center"
+            android:minWidth="100dp"
+            android:padding="4dp"
+            android:text="Carne"
+            android:textColor="@color/white_100"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_food_item_register_routine"
+            app:layout_constraintStart_toEndOf="@id/imageview_food_item_register_routine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="transparent"
+            android:text="remover alimento"
+            android:textColor="@color/red_default"
+            app:layout_constraintBottom_toBottomOf="@id/textview_tag_type_food_item_register_routine"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

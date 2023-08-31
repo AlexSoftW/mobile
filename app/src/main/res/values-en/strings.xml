@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Sallus-app</string>
+
+    <string name="text_patient">Patient</string>
+    <string name="text_nutritionist">Nutritionist</string>
+
     <string name="text_configuration">Configuration</string>
+    <string name="text_configuration_senha">Change password</string>
+
+    <string name="title_food">Foods</string>
+    <string name="subtitle_food">See the full list of foods and their benefits</string>
+    <string name="text_search_food_name">Search food\'s name</string>
+    <string name="text_option_meat">Meat</string>
+    <string name="text_option_fruits">Fruits</string>
+    <string name="text_option_grain">Grain</string>
+    <string name="text_option_pasta">Pastas</string>
+    <string name="text_option_greenery">Greenery</string>
+    <string name="text_option_vegetables">Vegetables</string>
+    <string name="text_diabetes">Diabetes</string>
+    <string name="text_hypertension">Hypertension</string>
+    <string name="text_cholesterol">Cholesterol</string>
+
+    <string name="title_add_food">Adding food</string>
+    <string name="subtitle_add_food">Can\'t find the food you want? register it in the database now</string>
+    <string name="text_food">Food</string>
+    <string name="text_recommended_for">recommended for</string>
+    <string name="text_nutritional_values">Nutritional values</string>
+    <string name="text_carbohydrates">Carbohydrates</string>
+    <string name="text_proteins">Proteins</string>
+    <string name="text_total_fat">Total</string>
+    <string name="text_selected_hint">*select*</string>
+    <string name="text_button_back">Back</string>
+    <string name="text_button_register_food">Register food</string>
+
+    <string name="title_food_diary">Food diary</string>
+    <string name="sub_title_food_diary">Confirm the food and add a new routine for your patients</string>
+
+    <string name="title_yours_patients">Yours patients</string>
+    <string name="subtitle_yours_patients">See the full list of your patients and start an appointment</string>
+    <string name="text_comorbidity">comorbidity:</string>
+    <string name="text_telephone">Telephone:</string>
+
+    <string-array name="spinner_option_type_food">
+        <item>Meat</item>
+        <item>Fruit</item>
+        <item>Grain</item>
+        <item>Pastas</item>
+        <item>Greenery</item>
+        <item>Vegetable</item>
+    </string-array>
+
 </resources>
