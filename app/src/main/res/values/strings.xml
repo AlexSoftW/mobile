@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Sallus-app</string>
+
+    <string name="text_patient">Paciente</string>
+    <string name="text_nutritionist">Nutricionista</string>
+
     <string name="text_configuration">Configurações</string>
     <string name="text_configuration_senha">Alteração de senha</string>
+    <string name="text_senha" translatable="false">  A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
 
-    <string name="texto_senha" translatable="false">  A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
-
-    
     <string name="title_food">Alimentos</string>
     <string name="subtitle_food">Veja a lista completa de alimentos e seus benefícios</string>
     <string name="text_search_food_name">Busque pelo nome</string>
@@ -15,24 +17,29 @@
     <string name="text_option_pasta">Massas</string>
     <string name="text_option_greenery">Verduras</string>
     <string name="text_option_vegetables">Legumes</string>
-    <string name="tag_diabetes">Diabetes</string>
-    <string name="tag_hypertension">Hipertensão</string>
-    <string name="tag_cholesterol">Colesterol</string>
+    <string name="text_diabetes">Diabetes</string>
+    <string name="text_hypertension">Hipertensão</string>
+    <string name="text_cholesterol">Colesterol</string>
     
     <string name="title_add_food">Adicionar alimentos</string>
     <string name="subtitle_add_food">Não encontrou o alimento desejado? cadastre ele na base dados agora mesmo</string>
     <string name="text_food">Alimento</string>
-    <string name="tag_recommended_for">Indicado para</string>
-    <string name="tag_nutritional_values">Valores nutricionais</string>
+    <string name="text_recommended_for">Indicado para</string>
+    <string name="text_nutritional_values">Valores nutricionais</string>
     <string name="text_carbohydrates">Carboidratos</string>
     <string name="text_proteins">Proteínas</string>
     <string name="text_total_fat">Gord. totais</string>
     <string name="text_selected_hint">*selecione*</string>
     <string name="text_button_back">Voltar</string>
     <string name="text_button_register_food">Cadastrar alimento</string>
-    
+
     <string name="title_food_diary">Diário alimentar</string>
     <string name="sub_title_food_diary">Confirme os alimentos e adicione uma nova rotina para os seus pacientes</string>
+
+    <string name="title_yours_patients">Seus pacientes</string>
+    <string name="subtitle_yours_patients">Veja a lista completa dos seus pacientes e inicie uma consulta</string>
+    <string name="text_comorbidity">comorbidades:</string>
+    <string name="text_telephone">Telefone:</string>
 
     <string-array name="spinner_option_type_food">
         <item>Carnes</item>

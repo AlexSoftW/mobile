@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="@dimen/large_margin"
@@ -35,7 +36,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,7 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
-            app:simpleItems="@array/spinner_option_type_food" />
+            app:simpleItems="@array/spinner_option_type_food"
+            tools:ignore="LabelFor,TextContrastCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
-        android:text="@string/tag_recommended_for"
+        android:text="@string/text_recommended_for"
         android:textSize="@dimen/average_font"
         app:layout_constraintStart_toStartOf="@id/spinner_type_food"
         app:layout_constraintTop_toBottomOf="@id/spinner_type_food" />
@@ -73,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/x_small_margin"
         android:checked="false"
-        android:text="@string/tag_diabetes"
+        android:text="@string/text_diabetes"
         android:textSize="@dimen/x_small_font"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="false"
-        android:text="@string/tag_cholesterol"
+        android:text="@string/text_cholesterol"
         android:textSize="@dimen/x_small_font"
         app:layout_constraintEnd_toStartOf="@+id/switch_option_hipertensao"
         app:layout_constraintHorizontal_bias="0.5"
@@ -98,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="false"
-        android:text="Hipertensão"
+        android:text="@string/text_hypertension"
         android:textSize="@dimen/x_small_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -110,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
-        android:text="@string/tag_nutritional_values"
+        android:text="@string/text_nutritional_values"
         android:textSize="@dimen/average_font"
         app:layout_constraintStart_toStartOf="@id/switch_option_diabetes"
         app:layout_constraintTop_toBottomOf="@id/switch_option_diabetes" />
@@ -129,7 +132,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="number"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,7 +151,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="number"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,7 +171,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="number" />
+            android:inputType="number"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,7 +184,8 @@
         android:textColor="@color/red_default"
         app:layout_constraintBottom_toTopOf="@id/button_cadastrar_alimento"
         app:layout_constraintEnd_toEndOf="@id/button_cadastrar_alimento"
-        app:layout_constraintStart_toStartOf="@id/button_cadastrar_alimento" />
+        app:layout_constraintStart_toStartOf="@id/button_cadastrar_alimento"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button_cadastrar_alimento"
@@ -187,8 +194,10 @@
         android:layout_marginBottom="@dimen/large_margin"
         android:backgroundTint="@color/red_default"
         android:text="@string/text_button_register_food"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
