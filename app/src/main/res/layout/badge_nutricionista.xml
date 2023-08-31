@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_gravity="bottom"
@@ -7,33 +8,48 @@
     android:orientation="horizontal">
 
     <ImageButton
+        android:id="@+id/imagebutton_home"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_100"
+        android:src="@drawable/ic_home"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_patients"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_100"
+        android:src="@drawable/ic_patients"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_food"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_100"
+        android:src="@drawable/ic_food"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_add_food"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_100"
+        android:src="@drawable/ic_add_food"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_add_routine"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_100"
+        android:src="@drawable/ic_routine"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
