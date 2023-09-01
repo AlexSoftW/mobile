@@ -115,7 +115,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/texto_senha"></TextView>
+                android:text="@string/text_senha"></TextView>
         </LinearLayout>
 
         <RelativeLayout
@@ -133,7 +133,7 @@
                 android:layout_alignParentTop="true"
                 android:backgroundTint="@color/white_100"
                 android:textColor="@color/red_default"
-                android:text="< voltar" />
+                android:text="voltar" />
 
 
             <Button

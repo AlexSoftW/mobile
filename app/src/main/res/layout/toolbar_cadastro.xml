@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/green_default"
-            android:src="@mipmap/Logo"
+            android:src="@mipmap/logo"
             android:layout_gravity="end"
             />
 
