@@ -40,6 +40,10 @@
     <string name="subtitle_yours_patients">Veja a lista completa dos seus pacientes e inicie uma consulta</string>
     <string name="text_comorbidity">comorbidades:</string>
     <string name="text_telephone">Telefone:</string>
+    <string name="selecione_comorbidade">Possui alguma comorbidade? selecione uma (ou mais) opções</string>
+    <string name="texto_crn">Solicitamos esse dado cadastral, para que possamos validar sua identidade profissional, e que não aja nenhuma fraude em nosso aplicativo. A validação não demora muito. Após terminar o cadastro você recebera um email de aprovação sobre a existência do seu registro na base nacional.</string>
+    <string name="crn">CRN</string>
+    <string name="sou_nutricionista">Sou Nutricionista</string>
 
     <string-array name="spinner_option_type_food">
         <item>Carnes</item>

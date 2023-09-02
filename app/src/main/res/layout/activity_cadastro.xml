@@ -10,7 +10,7 @@
     </include>
 
     <include
-        layout="@layout/fragment_cadastro">
+        layout="@layout/fragment_cadastro_comorbidade">
     </include>
 
 
