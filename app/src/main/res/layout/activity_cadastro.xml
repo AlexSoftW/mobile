@@ -128,7 +128,8 @@
                 android:layout_alignParentTop="true"
                 android:backgroundTint="@color/white_100"
                 android:textColor="@color/red_default"
-                android:text="@string/text_button_back" />
+                android:text="voltar" />
+
 
 
             <Button

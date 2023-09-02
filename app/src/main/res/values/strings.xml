@@ -42,6 +42,11 @@
     <string name="text_comorbidity">comorbidades:</string>
     <string name="text_telephone">Telefone:</string>
 
+<!--    HOME/INDEX-->
+    <string name="text_index">Sua rotina e bem-estar começa aqui.</string>
+    <string name="text_button_index_home">Começar</string>
+    <string name="text_carrosel_home">Profissionais capacitados pronto para atender e entender você.</string>
+
     <string-array name="spinner_option_type_food">
         <item>Carnes</item>
         <item>Frutas</item>
