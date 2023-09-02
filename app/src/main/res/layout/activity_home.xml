@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/logo_salus_verde" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:src="@mipmap/img_home" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/average_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:text="@string/text_index"
+        android:textSize="@dimen/x_large_font" />
+
+    <Button
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:background="@color/red_default"
+        android:text="@string/text_button_index_home"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/large_font" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/black_200"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/average_margin"
+            android:src="@mipmap/img_bem_estar_home" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/line_home" />
+
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/average_margin"
+            android:padding="@dimen/small_margin"
+            android:text="@string/text_carrosel_home"
+            android:textColor="@color/white_100" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

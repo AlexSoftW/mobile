@@ -128,7 +128,7 @@
                 android:layout_alignParentTop="true"
                 android:backgroundTint="@color/white_100"
                 android:textColor="@color/red_default"
-                android:text="< voltar" />
+                android:text="voltar" />
 
 
             <Button
@@ -138,7 +138,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:backgroundTint="@color/red_default"
-                android:text="proximo >"
+                android:text="proximo"
                 android:layout_marginRight="30dp"/>
 
         </RelativeLayout>

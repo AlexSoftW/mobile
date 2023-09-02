@@ -6,7 +6,7 @@
 
     <string name="text_configuration">Configurações</string>
     <string name="text_configuration_senha">Alteração de senha</string>
-    <string name="text_senha" translatable="false">  A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
+    <string name="texto_senha" translatable="false">  A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
 
     <string name="title_food">Alimentos</string>
     <string name="subtitle_food">Veja a lista completa de alimentos e seus benefícios</string>
@@ -41,6 +41,11 @@
     <string name="subtitle_yours_patients">Veja a lista completa dos seus pacientes e inicie uma consulta</string>
     <string name="text_comorbidity">comorbidades:</string>
     <string name="text_telephone">Telefone:</string>
+
+<!--    HOME/INDEX-->
+    <string name="text_index">Sua rotina e bem-estar começa aqui.</string>
+    <string name="text_button_index_home">Começar</string>
+    <string name="text_carrosel_home">Profissionais capacitados pronto para atender e entender você.</string>
 
     <string-array name="spinner_option_type_food">
         <item>Carnes</item>
