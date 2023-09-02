@@ -15,20 +15,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/button_back_toolbar_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/green_default"
             android:src="@drawable/ic_arrow_back" />
 
-        <ImageButton
-            android:id="@+id/button_back_toolbar_logo"
+        <ImageView
+            android:id="@+id/button_back_toolbar_proximo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/green_default"
-            android:src="@mipmap/Logo"
             android:layout_gravity="end"
+            android:src="@mipmap/logo_salus"
             />
 
         <TextView

@@ -36,6 +36,7 @@
     <string name="title_food_diary">Diário alimentar</string>
     <string name="sub_title_food_diary">Confirme os alimentos e adicione uma nova rotina para os seus pacientes</string>
 
+
     <string name="title_yours_patients">Seus pacientes</string>
     <string name="subtitle_yours_patients">Veja a lista completa dos seus pacientes e inicie uma consulta</string>
     <string name="text_comorbidity">comorbidades:</string>
