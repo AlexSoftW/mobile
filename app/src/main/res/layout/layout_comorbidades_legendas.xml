@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageview_icon_diabetes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_diabetes"
+        app:layout_constraintEnd_toStartOf="@+id/textview_tag_diabetes"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textview_tag_diabetes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:text="@string/text_diabetes"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_icon_diabetes"
+        app:layout_constraintEnd_toStartOf="@+id/imageview_icon_hipertensao"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageview_icon_diabetes"
+        app:layout_constraintTop_toTopOf="@id/imageview_icon_diabetes" />
+
+    <ImageView
+        android:id="@+id/imageview_icon_hipertensao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/average_margin"
+        android:src="@drawable/ic_hipertensao"
+        app:layout_constraintEnd_toStartOf="@+id/textview_tag_hipertensao"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textview_tag_diabetes"
+        app:layout_constraintTop_toTopOf="@+id/imageview_icon_diabetes"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textview_tag_hipertensao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:text="@string/text_hypertension"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_icon_hipertensao"
+        app:layout_constraintEnd_toStartOf="@+id/imageview_icon_colesterol"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageview_icon_hipertensao"
+        app:layout_constraintTop_toTopOf="@id/imageview_icon_hipertensao" />
+
+    <ImageView
+        android:id="@+id/imageview_icon_colesterol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/average_margin"
+        android:src="@drawable/ic_colesterol"
+        app:layout_constraintEnd_toStartOf="@+id/textview_tag_colesterol"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textview_tag_hipertensao"
+        app:layout_constraintTop_toTopOf="@+id/imageview_icon_diabetes"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textview_tag_colesterol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:text="@string/text_cholesterol"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_icon_colesterol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageview_icon_colesterol"
+        app:layout_constraintTop_toTopOf="@id/imageview_icon_colesterol" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
