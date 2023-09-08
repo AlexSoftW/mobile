@@ -133,7 +133,7 @@
                 android:layout_alignParentTop="true"
                 android:backgroundTint="@color/white_100"
                 android:textColor="@color/red_default"
-                android:text="< voltar" />
+                android:text="voltar" />
 
 
             <Button

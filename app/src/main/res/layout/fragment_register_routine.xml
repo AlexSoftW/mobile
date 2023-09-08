@@ -239,7 +239,7 @@
             android:id="@+id/button_back_register_routine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="transparent"
+
             android:text="@string/text_button_back"
             android:textColor="@color/red_default"
             app:layout_constraintBottom_toTopOf="@id/button_register_routine"
