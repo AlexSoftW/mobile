@@ -115,10 +115,11 @@
                 android:layout_width="350dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/white_100"
+                android:backgroundTint="@drawable/borda_botao"
                 android:text="@string/sou_nutricionista"
-                android:textColor="@color/black_100"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                style="@style/borda"
+                />
 
 
         </LinearLayout>

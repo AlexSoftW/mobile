@@ -15,7 +15,7 @@
     android:layout_marginLeft="20dp">
     <include
 
-        layout="@layout/fragment_cadastro">
+        layout="@layout/fragment_cadastro_email">
     </include>
 </LinearLayout>
 
