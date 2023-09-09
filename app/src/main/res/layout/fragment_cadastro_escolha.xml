@@ -3,18 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/include_toolbar"
-        layout="@layout/toolbar_cadastro" />
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="100dp"
-        android:orientation="vertical">
+
+        android:orientation="vertical"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -90,7 +84,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Selecione seu perfil">
+                android:text="Selecione seu perfil"
+                android:fontFamily="@font/lato"
+                android:textSize="20sp">
 
             </TextView>
 
@@ -108,7 +104,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/red_default"
-                android:text="Sou Nutricionista"
+                android:text="Sou Paciente"
                 android:textSize="20sp"
 
                 >
@@ -119,13 +115,10 @@
                 android:layout_width="350dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/white_100"
-                android:textColor="@color/black_100"
-                android:text="Sou paciente"
-                android:textSize="20sp" >
-            </Button>
-
-
+                android:backgroundTint="@drawable/borda_botao"
+                android:text="Sou Nutricionista"
+                android:textSize="20sp"
+                />
 
 
         </LinearLayout>
