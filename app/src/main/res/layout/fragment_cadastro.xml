@@ -3,18 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/include_toolbar"
-        layout="@layout/toolbar_cadastro">
-
-    </include>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="100dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -44,52 +35,72 @@
                 android:layout_width="350dp"
                 android:layout_height="90dp"
                 android:layout_marginRight="80dp"
-                android:src="@mipmap/caminhao_pao_comorbidade"
+                android:src="@mipmap/caminhao_pao_cliente"
 
                 />
 
-        </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Possui alguma comorbidade? selecione uma (ou mais) opções">
 
-            </TextView>
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/checkbox_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Diabete"
-                android:layout_marginBottom="6dp"/>
+                android:hint="Nome">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
 
-            <CheckBox
-                android:id="@+id/checkbox_child_1"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/telefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Colesterol"
-                android:layout_marginBottom="6dp"/>
+                android:hint="Telefone">
 
-            <CheckBox
-                android:id="@+id/checkbox_child_2"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hipertensão"
-                android:layout_marginBottom="6dp"/>
+                android:hint="Endereço">
 
-            <CheckBox
-                android:id="@+id/checkbox_child_3"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/genero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nenhum" />
+                android:hint="Genero">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
         </LinearLayout>
@@ -102,14 +113,14 @@
 
             <Button
                 android:id="@+id/backButton2"
-
+                android:textColor="@color/black_100"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:backgroundTint="@color/white_100"
-                android:text="voltar"
-                android:textColor="@color/red_default" />
+                android:text="voltar"></Button>
+
 
 
             <Button
