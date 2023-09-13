@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:textSize="20sp"
-                android:text="@string/texto_crn"
+                android:text="@string/info_crn_register"
                 android:fontFamily="@font/lato"
                 >
 

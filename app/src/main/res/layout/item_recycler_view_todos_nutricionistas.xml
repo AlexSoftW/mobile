@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/average_margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/average_margin">
+
+        <View
+            android:id="@+id/view_banner_item_todos_nutricionistas"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/green_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageview_patient_item_todos_nutricionistas"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="@dimen/large_margin"
+            android:background="@drawable/foto_redonda"
+            app:layout_constraintBottom_toBottomOf="@+id/view_banner_item_todos_nutricionistas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_banner_item_todos_nutricionistas"
+            app:layout_constraintVertical_bias="0"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_name_patient_item_todos_nutricionistas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xx_small_margin"
+            android:maxWidth="200dp"
+            android:textSize="@dimen/average_font"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/imageview_patient_item_todos_nutricionistas"
+            app:layout_constraintTop_toBottomOf="@id/imageview_patient_item_todos_nutricionistas"
+            tools:text="Nome do nutricionista" />
+
+        <ImageView
+            android:id="@+id/imageview_gender_patient_item_todos_nutricionistas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_male_gender"
+            app:layout_constraintBottom_toBottomOf="@id/textview_name_patient_item_todos_nutricionistas"
+            app:layout_constraintStart_toEndOf="@+id/textview_name_patient_item_todos_nutricionistas"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textview_tag_nutritionist_item_todos_nutricionistas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/large_margin"
+            android:background="@color/green_default"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/text_nutritionist"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/small_font"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_gender_patient_item_todos_nutricionistas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_gender_patient_item_todos_nutricionistas" />
+
+        <TextView
+            android:id="@+id/textview_tag_telephone_item_todos_nutricionistas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:text="@string/text_telephone"
+            android:textSize="@dimen/small_font"
+            app:layout_constraintStart_toStartOf="@id/textview_name_patient_item_todos_nutricionistas"
+            app:layout_constraintTop_toBottomOf="@id/textview_name_patient_item_todos_nutricionistas" />
+
+        <TextView
+            android:id="@+id/textview_telephone_patient_item_todos_nutricionistas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/average_font"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/textview_tag_telephone_item_todos_nutricionistas"
+            app:layout_constraintStart_toEndOf="@id/textview_tag_telephone_item_todos_nutricionistas"
+            tools:text="(11) 91234-5678" />
+
+        <ImageButton
+            android:id="@+id/imagebutton_whatsapp_item_todos_nutricionistas"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/red_default"
+            android:src="@drawable/ic_whatsapp"
+            app:layout_constraintEnd_toEndOf="@id/textview_tag_nutritionist_item_todos_nutricionistas"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_nutritionist_item_todos_nutricionistas"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
