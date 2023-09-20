@@ -11,4 +11,7 @@ interface Service {
 
     @GET("alimentos/{id}")
     suspend fun getAlimentosPorId(@Path("id") id: Long): Alimentos
+
+    @GET("alimentos/")
+    suspend fun getTodosAlimentos(): List<Alimentos>
 }
