@@ -16,6 +16,6 @@ class RetrofitRepository {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    private val apiService = retrofit.create(Service::class.java)
+    val apiService: Service = retrofit.create(Service::class.java)
 
 }
