@@ -6,6 +6,14 @@ package com.application.sallus_app.model
 // passados entre componentes, armazenados em bancos de dados e assim por diante.
 // elas ajudam a manter o código limpo, legível e eficiente.
 
-data class NameData(
-    val fruta: String
+data class Alimentos(
+    val id: Long,
+    val nome: String,
+    val tipo: String,
+    val carboidrato: Double,
+    val proteina: Double,
+    val gorduraTotal: Double,
+    val indicadoDiabete: Boolean,
+    val indicadoColesterol: Boolean,
+    val indicadoHipertensao: Boolean
 )
