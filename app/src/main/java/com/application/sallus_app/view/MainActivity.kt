@@ -2,10 +2,8 @@ package com.application.sallus_app.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.application.sallus_app.R
 import com.application.sallus_app.databinding.Home2Binding
-import com.application.sallus_app.viewmodel.AlimentosViewModel
-import com.application.sallus_app.viewmodel.NutricionistaViewModel
+import com.application.sallus_app.viewmodel.NutritionistViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: Home2Binding
 
     //    private val alimentoViewModel: AlimentosViewModel by viewModel()
-    private val nutricionistaViewModel: NutricionistaViewModel by viewModel()
+    private val nutricionistaViewModel: NutritionistViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = Home2Binding.inflate(layoutInflater)

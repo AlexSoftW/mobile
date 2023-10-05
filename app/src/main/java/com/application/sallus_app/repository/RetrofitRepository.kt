@@ -1,9 +1,9 @@
 package com.application.sallus_app.repository
 
-import com.application.sallus_app.service.Service
+import com.application.sallus_app.service.FoodService
+import com.application.sallus_app.service.NutritionistService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 // nessa Classe a gente vai fazer a chamada no nosso end-point principal(https://nossaAPI/)
 // utilizaremos o retrofit para fazer as chamadas HTTP,
@@ -16,6 +16,10 @@ class RetrofitRepository {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val apiService: Service = retrofit.create(Service::class.java)
+    val apiServiceNutritionist: NutritionistService =
+        retrofit.create(NutritionistService::class.java)
+
+    val apiServiceFood: FoodService =
+        retrofit.create(FoodService::class.java)
 
 }

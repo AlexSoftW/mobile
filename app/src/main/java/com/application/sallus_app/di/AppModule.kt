@@ -1,8 +1,8 @@
 package com.application.sallus_app.di
 
 import com.application.sallus_app.repository.RetrofitRepository
-import com.application.sallus_app.viewmodel.AlimentosViewModel
-import com.application.sallus_app.viewmodel.NutricionistaViewModel
+import com.application.sallus_app.viewmodel.FoodViewModel
+import com.application.sallus_app.viewmodel.NutritionistViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -10,6 +10,6 @@ import org.koin.dsl.module
 
 val appModule = module {
     single { RetrofitRepository() }
-    viewModel { AlimentosViewModel() }
-    viewModel { NutricionistaViewModel() }
+    viewModel { FoodViewModel() }
+    viewModel { NutritionistViewModel() }
 }
