@@ -12,7 +12,7 @@ import retrofit2.create
 class RetrofitRepository {
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://sallusapp.com/api/")
+        .baseUrl("https://sallus.sytes.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

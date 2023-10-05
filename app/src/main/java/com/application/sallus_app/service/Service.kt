@@ -1,6 +1,7 @@
 package com.application.sallus_app.service
 
 import com.application.sallus_app.model.Alimentos
+import com.application.sallus_app.model.NutricionistaData
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -14,4 +15,7 @@ interface Service {
 
     @GET("alimentos/")
     suspend fun getTodosAlimentos(): List<Alimentos>
+
+    @GET("nutricionistas")
+    suspend fun getTodosNutricionistas(): List<NutricionistaData>
 }
