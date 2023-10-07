@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
+import okhttp3.internal.wait
 import java.lang.Exception
 
 // nessa Classe ViewModel, aqui que vai ficar toda a nossa regra de negócio.
@@ -37,19 +38,26 @@ class FoodViewModel : ViewModel() {
             try {
                 val todosAlimentos = repository.apiServiceFood.getTodosAlimentos()
                 _listaAlimentos.postValue(todosAlimentos)
+                Log.i(
+                    "logTodosAlimentos",
+                    "fetchTodosAlimentos: lista de todos alimentos: $todosAlimentos"
+                )
             } catch (e: Exception) {
                 Log.i("ERROR_FETCH_FOOD", "fetchTodosAlimentos: algo inesperado aconteceu")
             }
         }
     }
 
-    fun fetchAlimentoPorId(id: Long) {
+    fun addingNewFood(novoAlimento: FoodData) {
         viewModelScope.launch {
             try {
-                val alimentoPorId = repository.apiServiceFood.getAlimentoPorId(id)
-                _alimentoPorId.postValue(alimentoPorId)
+                val response = repository.apiServiceFood.adicionarNovoAlimento(novoAlimento)
+                Log.i("logAddingNewFood", "makeNewFood: alimento cadastrado com sucesso!")
             } catch (e: Exception) {
-                Log.i("ERROR_FETCH_FOOD_ID", "fetchAlimentoPorId: algo inesperado aconteceu")
+                Log.i(
+                    "logAddingNewFood",
+                    "makeNewFood: ocorreu algum erro ao cadastrar novo alimento $e"
+                )
             }
         }
     }

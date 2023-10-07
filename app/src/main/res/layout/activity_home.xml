@@ -24,6 +24,7 @@
         android:textSize="@dimen/x_large_font" />
 
     <Button
+        android:id="@+id/button_home_index"
         android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small_margin"
@@ -59,8 +60,6 @@
             android:text="@string/text_carrosel_home"
             android:textColor="@color/white_100" />
 
-
     </LinearLayout>
-
 
 </LinearLayout>

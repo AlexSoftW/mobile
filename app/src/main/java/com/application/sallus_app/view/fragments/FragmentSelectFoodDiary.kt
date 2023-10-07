@@ -5,20 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.application.sallus_app.databinding.FragmentHomeNutricionistaBinding
-import com.application.sallus_app.databinding.FragmentYoursPatientsBinding
+import com.application.sallus_app.databinding.FragmentFoodsBinding
 
-class FragmentNutritionist : Fragment() {
-    private lateinit var binding: FragmentHomeNutricionistaBinding
+class FragmentSelectFoodDiary : Fragment() {
+
+    private lateinit var binding: FragmentFoodsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeNutricionistaBinding.inflate(inflater, container, false)
 
-
+        binding = FragmentFoodsBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

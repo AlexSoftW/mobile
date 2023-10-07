@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/textview_title_add_foods" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edittext_food_name"
+        android:id="@+id/campo_tag_food_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
@@ -35,6 +35,7 @@
         app:layout_constraintTop_toBottomOf="@id/textview_subtitle_add_foods">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_food_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
@@ -42,16 +43,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/spinner_type_food"
+        android:id="@+id/campo_tag_type_food"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
         android:hint="@string/text_selected_hint"
-        app:layout_constraintStart_toStartOf="@id/edittext_food_name"
-        app:layout_constraintTop_toBottomOf="@id/edittext_food_name">
+        app:layout_constraintStart_toStartOf="@id/campo_tag_food_name"
+        app:layout_constraintTop_toBottomOf="@id/campo_tag_food_name">
 
         <AutoCompleteTextView
+            android:id="@+id/spinner_type_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
@@ -67,8 +69,8 @@
         android:layout_marginTop="@dimen/large_margin"
         android:text="@string/text_recommended_for"
         android:textSize="@dimen/average_font"
-        app:layout_constraintStart_toStartOf="@id/spinner_type_food"
-        app:layout_constraintTop_toBottomOf="@id/spinner_type_food" />
+        app:layout_constraintStart_toStartOf="@id/campo_tag_type_food"
+        app:layout_constraintTop_toBottomOf="@id/campo_tag_type_food" />
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/switch_option_diabetes"
@@ -119,17 +121,18 @@
         app:layout_constraintTop_toBottomOf="@id/switch_option_diabetes" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edittext_qtd_carboidrato"
+        android:id="@+id/campo_tag_qtd_carboidrato"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/x_small_margin"
         android:hint="@string/text_carbohydrates"
-        app:layout_constraintEnd_toStartOf="@+id/edittext_qtd_proteina"
+        app:layout_constraintEnd_toStartOf="@+id/campo_tag_qtd_proteina"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_title_values_nutritional">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_qtd_carboidrato"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -138,17 +141,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edittext_qtd_proteina"
+        android:id="@+id/campo_tag_qtd_proteina"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_margin"
         android:hint="@string/text_proteins"
-        app:layout_constraintEnd_toStartOf="@+id/edittext_qtd_gordTotal"
+        app:layout_constraintEnd_toStartOf="@+id/campo_tag_qtd_gordTotal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/edittext_qtd_carboidrato"
-        app:layout_constraintTop_toTopOf="@+id/edittext_qtd_carboidrato">
+        app:layout_constraintStart_toEndOf="@+id/campo_tag_qtd_carboidrato"
+        app:layout_constraintTop_toTopOf="@+id/campo_tag_qtd_carboidrato">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_qtd_proteina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -157,7 +161,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edittext_qtd_gordTotal"
+        android:id="@+id/campo_tag_qtd_gordTotal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_margin"
@@ -165,10 +169,11 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/edittext_qtd_proteina"
-        app:layout_constraintTop_toTopOf="@+id/edittext_qtd_proteina">
+        app:layout_constraintStart_toEndOf="@+id/campo_tag_qtd_proteina"
+        app:layout_constraintTop_toTopOf="@+id/campo_tag_qtd_proteina">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_qtd_gordTotal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="number"
@@ -179,6 +184,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white_100"
         android:text="@string/text_button_back"
         android:textColor="@color/red_default"
         app:layout_constraintBottom_toTopOf="@id/button_cadastrar_alimento"

@@ -219,7 +219,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edittext_food_name"
+            android:id="@+id/campo_tag_food_name"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="@dimen/small_margin"
