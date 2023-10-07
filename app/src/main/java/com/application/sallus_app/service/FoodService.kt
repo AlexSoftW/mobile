@@ -10,5 +10,5 @@ interface FoodService {
     suspend fun getTodosAlimentos(): List<FoodData>
 
     @GET("alimentos/{id}")
-    suspend fun getAlimentoPorId(@Path("id") id: Long): FoodData
+    suspend fun getAlimentoPorId(@retrofit2.http.Path("id") id: Long): FoodData
 }
