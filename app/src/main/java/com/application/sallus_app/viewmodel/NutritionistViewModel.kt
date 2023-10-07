@@ -16,10 +16,6 @@ class NutritionistViewModel : ViewModel() {
     private val _listaNutricionista = MutableLiveData<List<NutritionistData>>()
     val listNutricionista: MutableLiveData<List<NutritionistData>> = _listaNutricionista
 
-    fun obterTodosNutricionista(): MutableLiveData<List<NutritionistData>> {
-        return listNutricionista
-    }
-
     fun fetchTodosNutricionistas() {
         viewModelScope.launch {
             try {
@@ -33,6 +29,5 @@ class NutritionistViewModel : ViewModel() {
             }
         }
     }
-
 
 }

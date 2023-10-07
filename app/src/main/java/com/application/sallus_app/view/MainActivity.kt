@@ -1,5 +1,6 @@
 package com.application.sallus_app.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.application.sallus_app.databinding.ActivityHomeBinding
@@ -16,7 +17,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setupView() {
-        //Colocar o click do botão para ir para a próxima tela
+        binding.buttonHomeIndex.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }
