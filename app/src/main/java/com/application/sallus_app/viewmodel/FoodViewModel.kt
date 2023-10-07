@@ -23,14 +23,6 @@ class FoodViewModel : ViewModel() {
     private val _alimentoPorId = MutableLiveData<FoodData>()
     val alimentoPorId: MutableLiveData<FoodData> = _alimentoPorId
 
-    fun obterTodosAlimentos(): MutableLiveData<List<FoodData>> {
-        return listAlimentos
-    }
-
-    fun obterAlimentoPorId(): MutableLiveData<FoodData> {
-        return alimentoPorId
-    }
-
     //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData
     //por que os dados sempre vão mudar.
     fun fetchTodosAlimentos() {

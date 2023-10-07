@@ -17,7 +17,6 @@ class NutritionistActivity : AppCompatActivity() {
 
     private val nutritionistViewModel: NutritionistViewModel by viewModel()
     private lateinit var binding: ActivityNutricionistaBinding
-    lateinit var bundle: Bundle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,16 +60,14 @@ class NutritionistActivity : AppCompatActivity() {
         binding.includeBadgeNutricionista.imagebuttonAddRoutine.setOnClickListener {
             replaceFragmentManager(FragmentCreateRoutine())
         }
-
     }
 
     fun setupObservers() {
         nutritionistViewModel.fetchTodosNutricionistas()
 
-        nutritionistViewModel.obterTodosNutricionista().observe(this) {
+        nutritionistViewModel.listNutricionista.observe(this) {
             binding.includeToolbarPages.textviewNameCustomerToolbarPages.text = it[0].nome
         }
-
     }
 
 
