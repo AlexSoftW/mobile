@@ -1,5 +1,6 @@
 package com.application.sallus_app.repository
 
+import com.application.sallus_app.service.CadastroService
 import com.application.sallus_app.service.FoodService
 import com.application.sallus_app.service.NutritionistService
 import retrofit2.Retrofit
@@ -24,5 +25,8 @@ class RetrofitRepository {
 
     val apiServiceFood: FoodService =
         retrofit.create(FoodService::class.java)
+
+    val apiServiceCadastro: CadastroService =
+            retrofit.create(CadastroService::class.java)
 
 }
