@@ -1,6 +1,8 @@
 package com.application.sallus_app.view
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
@@ -13,22 +15,41 @@ import com.application.sallus_app.view.fragments.FragmentNutritionist
 import com.application.sallus_app.view.fragments.FragmentYoursPatients
 import com.application.sallus_app.viewmodel.CadastroViewModel
 import com.application.sallus_app.viewmodel.NutritionistViewModel
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CadastroActivity : AppCompatActivity() {
     private val cadastroViewModel: CadastroViewModel by viewModel()
     private lateinit var binding: ActivityCadastroBinding
 
+    private lateinit var nomeInputLayout: TextInputLayout
+    private lateinit var proximoButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCadastroBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_cadastro)
 
-        //setupView()
-       // cadastroViewModel.addingNewPaciente()
+
+        nomeInputLayout = findViewById(R.id.nome)
+        proximoButton = findViewById(R.id.proximo1)
+
+        proximoButton.setOnClickListener {
+            val nome = nomeInputLayout.toString()
+            enviarNomeParaAPI(nome)
+        }
     }
 
-    fun replaceFragmentManager(fragment: Fragment) {
+    private fun enviarNomeParaAPI(nome: String) {
+        Toast.makeText(this, "Enviando nome: $nome para a API", Toast.LENGTH_SHORT).show()
+    }
+
+
+
+
+
+
+fun replaceFragmentManager(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragment_container_nutricionista, fragment)
