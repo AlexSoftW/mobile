@@ -14,9 +14,10 @@
         <ImageView
             android:id="@+id/imageview_item_alimento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toTopOf="@+id/textview_nome_item_alimento"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,30 +26,29 @@
             android:id="@+id/textview_nome_item_alimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/xx_small_margin"
-            android:layout_marginTop="@dimen/x_small_margin"
             android:text="Picanha"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/imageview_item_alimento"
-            app:layout_constraintTop_toBottomOf="@id/imageview_item_alimento" />
+            app:layout_constraintBottom_toTopOf="@id/textview_tag_indicacao_item_alimento"
+            app:layout_constraintStart_toStartOf="@+id/textview_tag_indicacao_item_alimento" />
 
         <TextView
             android:id="@+id/textview_tag_indicacao_item_alimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xx_small_margin"
             android:text="Indicado para:"
-            app:layout_constraintStart_toStartOf="@id/textview_nome_item_alimento"
-            app:layout_constraintTop_toBottomOf="@id/textview_nome_item_alimento" />
+            app:layout_constraintBottom_toTopOf="@id/imageview_icon_diabetes_item_alimento"
+            app:layout_constraintStart_toStartOf="@id/imageview_icon_diabetes_item_alimento" />
 
         <ImageView
             android:id="@+id/imageview_icon_diabetes_item_alimento"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:layout_marginStart="@dimen/xx_small_margin"
+            android:layout_marginBottom="@dimen/xx_small_margin"
             android:src="@drawable/ic_diabetes"
-            app:layout_constraintStart_toStartOf="@id/textview_tag_indicacao_item_alimento"
-            app:layout_constraintTop_toBottomOf="@id/textview_tag_indicacao_item_alimento" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageview_icon_hipertensao_item_alimento"
