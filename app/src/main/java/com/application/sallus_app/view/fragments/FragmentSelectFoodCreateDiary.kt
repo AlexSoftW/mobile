@@ -1,6 +1,5 @@
 package com.application.sallus_app.view.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class FragmentSelectFoodCreateDiary : Fragment() {
 
     lateinit var binding: FragmentFoodsBinding
+    private lateinit var adapter: FoodCreateRoutineAdapter
     private val viewmodel: FoodViewModel by viewModel()
 
     override fun onCreateView(
@@ -33,15 +33,14 @@ class FragmentSelectFoodCreateDiary : Fragment() {
 
 
     fun setupView() {
+        adapter = FoodCreateRoutineAdapter()
+
         binding.textviewTitleFoods.text = "estou aqui em outra telinha"
-
         binding.buttonCriarRotina.visibility = View.VISIBLE
-
     }
 
     private fun setupObservers() {
 
-        val adapter = FoodCreateRoutineAdapter()
         binding.recyclerViewFood.adapter = adapter
 
         viewmodel.fetchTodosAlimentos()
@@ -50,21 +49,24 @@ class FragmentSelectFoodCreateDiary : Fragment() {
             adapter.submitList(it)
         }
 
-
         binding.buttonCriarRotina.setOnClickListener {
-            val sharedPreferences =
-                activity?.getSharedPreferences("key_value", Context.MODE_PRIVATE)
-            val editor = sharedPreferences?.edit()
-            editor?.putString("listaDeAlimentos", Gson().toJson(viewmodel.listAlimentos))
-            editor?.apply()
+            val bundle = Bundle()
+            val selectedFoods = adapter.selectedFoods
+            val gson = Gson()
+            val json = gson.toJson(selectedFoods)
+            val string = selectedFoods.toString()
+            bundle.putString("selectedFoods", json)
+//            Log.i("listFoodi", "listaDeAlimentos: ${adapter.selectedFoods}")
 
-            val fragmentCreateRoutine = FragmentCreateRoutine()
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container_nutricionista, fragmentCreateRoutine)
-            transaction.addToBackStack(null) // Opcional, adiciona a transação à pilha de volta
-            transaction.commit()
+            val fragment = FragmentCreateRoutine()
+            fragment.arguments = bundle
 
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_nutricionista, fragment)
+                .addToBackStack(null)
+                .commit()
         }
+
     }
 
 

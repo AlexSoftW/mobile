@@ -1,6 +1,7 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -21,14 +22,33 @@ class FoodCreateRoutineAdapter() :
     ): FoodCreateRoutineAdapterHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemRecyclerViewFoodsBinding.inflate(inflater, parent, false)
+
         return FoodCreateRoutineAdapterHolder(binding)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: FoodCreateRoutineAdapterHolder, position: Int) {
         val food = foodList[position]
         holder.bind(food)
 
         holder.itemView.setOnClickListener {
+
+            holder.foodSelected = !holder.foodSelected
+
+            holder.itemView.setBackgroundColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    if (holder.foodSelected) R.color.green_default else R.color.white_100
+                )
+            )
+
+            if (holder.foodSelected) {
+                selectedFoods.add(food)
+                Log.i("tagapert", "onBindViewHolder: foiClick $selectedFoods")
+            } else {
+                selectedFoods.remove(food)
+                Log.i("tagapert", "onBindViewHolder: foiDesClick $selectedFoods")
+            }
 
         }
     }
@@ -47,42 +67,12 @@ class FoodCreateRoutineAdapter() :
 
     inner class FoodCreateRoutineAdapterHolder(private val binding: ItemRecyclerViewFoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        var foodSelected = false
+
         @SuppressLint("NotifyDataSetChanged")
         fun bind(food: FoodData) {
-
             binding.imageviewItemAlimento.setImageResource(getImageResource(food.nome))
-
             binding.textviewNomeItemAlimento.text = food.nome
-
-            if (selectedFoods.contains(food)) {
-                binding.root.setBackgroundColor(
-                    ContextCompat.getColor(
-                        itemView.context, R.color.green_default
-                    )
-                )
-            } else {
-                binding.root.setBackgroundColor(
-                    ContextCompat.getColor(
-                        itemView.context, android.R.color.white
-                    )
-                )
-            }
-
-
-            binding.root.setOnClickListener {
-                toggleFoodSelection(food)
-                notifyDataSetChanged()
-            }
-
-
-        }
-
-        private fun toggleFoodSelection(food: FoodData) {
-            if (selectedFoods.contains(food)) {
-                selectedFoods.remove(food)
-            } else {
-                selectedFoods.add(food)
-            }
         }
 
         private fun getImageResource(foodName: String): Int {
@@ -93,7 +83,6 @@ class FoodCreateRoutineAdapter() :
                 else -> R.drawable.baseline_circle_24
             }
         }
-
     }
 
 }

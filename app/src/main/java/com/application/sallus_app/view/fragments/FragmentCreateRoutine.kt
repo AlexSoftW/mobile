@@ -1,22 +1,22 @@
 package com.application.sallus_app.view.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.application.sallus_app.databinding.FragmentRegisterRoutineBinding
 import com.application.sallus_app.model.FoodData
+import com.application.sallus_app.viewmodel.FoodViewModel
 import com.google.gson.Gson
-import com.google.gson.JsonParser
-import com.google.gson.reflect.TypeToken
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentCreateRoutine : Fragment() {
 
     private lateinit var binding: FragmentRegisterRoutineBinding
-    private var foodDataList = mutableListOf<FoodData>()
+    private val viewmodel: FoodViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,21 +26,18 @@ class FragmentCreateRoutine : Fragment() {
 
         binding = FragmentRegisterRoutineBinding.inflate(inflater, container, false)
 
-        val sharedPreferences =
-            activity?.getSharedPreferences("key_value", Context.MODE_PRIVATE)
-        val listaDeAlimentosString = sharedPreferences?.getString("listaDeAlimentos", null)
+        val bundle = arguments
+        val selectedFoods = bundle?.getString("selectedFoods")
 
-        val jsonElement = JsonParser().parse(listaDeAlimentosString)
-        if (jsonElement.isJsonArray) {
-            // É um array JSON, você pode analisá-lo como uma lista de objetos
-            foodDataList =
-                Gson().fromJson(jsonElement, object : TypeToken<List<FoodData>>() {}.type)
-            Log.i("respostaFragment", "onCreateView: no if esta caindo isso aqui: $foodDataList")
-        } else if (jsonElement.isJsonObject) {
-            // É um objeto JSON, você pode analisá-lo como um objeto único
-            val foodData = Gson().fromJson(jsonElement, FoodData::class.java)
-            // Faça o que for necessário com o objeto FoodData
-            Log.i("respostaFragment", "onCreateView: esta chegando isso aqui: $foodData")
+        if (selectedFoods != null) {
+            val gson = Gson()
+            val foodData: List<FoodData> =
+                gson.fromJson(selectedFoods, Array<FoodData>::class.java).toList()
+//            Log.i("alimentList", "alimentos no create routine: $selectedFoods")
+            Log.i("alimentList", "alimentos no create routine convertido: $foodData")
+            binding.textviewTitleRegisterRoutine.text = foodData[0].nome
+        } else {
+            Log.i("alimentList", "onCreateView: esta chegando vazio a lista")
         }
 
         return binding.root
