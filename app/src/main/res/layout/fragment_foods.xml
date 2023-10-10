@@ -63,7 +63,7 @@
                 android:id="@+id/imageview_carnes_category_foods"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/baseline_circle_24"
+                android:src="@mipmap/img_carnes_filtro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
                 android:id="@+id/imageview_frutas_category_foods"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/baseline_circle_24"
+                android:src="@mipmap/img_frutas_filtro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/imageview_carnes_category_foods"
@@ -105,7 +105,7 @@
                 android:id="@+id/imageview_graos_category_foods"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/baseline_circle_24"
+                android:src="@mipmap/img_graos_filtro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/imageview_frutas_category_foods"
@@ -126,7 +126,7 @@
                 android:id="@+id/imageview_massas_category_foods"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/baseline_circle_24"
+                android:src="@mipmap/img_massas_filtro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/imageview_graos_category_foods"
@@ -146,7 +146,7 @@
                 android:id="@+id/imageview_verduras_category_foods"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/baseline_circle_24"
+                android:src="@mipmap/img_legumes_filtro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/imageview_massas_category_foods"
@@ -166,7 +166,7 @@
                 android:id="@+id/imageview_legumes_category_foods"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/baseline_circle_24"
+                android:src="@mipmap/img_verdura_filtro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -198,7 +198,7 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontal_scrool_view_foods" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewFood"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/xx_small_margin"
@@ -209,5 +209,15 @@
         app:layout_constraintTop_toBottomOf="@+id/include_comorbidades_legends_fragment_foods"
         app:spanCount="2"
         tools:listitem="@layout/item_recycler_view_foods" />
+
+    <Button
+        android:id="@+id/button_criar_rotina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar nova rotina"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
