@@ -6,16 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import com.application.sallus_app.adapter.CreateRoutineAdapter
 import com.application.sallus_app.databinding.FragmentRegisterRoutineBinding
-import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.viewmodel.FoodViewModel
-import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentCreateRoutine : Fragment() {
 
     private lateinit var binding: FragmentRegisterRoutineBinding
+    private lateinit var adapter: CreateRoutineAdapter
     private val viewmodel: FoodViewModel by viewModel()
 
     override fun onCreateView(
@@ -26,20 +25,45 @@ class FragmentCreateRoutine : Fragment() {
 
         binding = FragmentRegisterRoutineBinding.inflate(inflater, container, false)
 
+//        val bundle = arguments
+//        val selectedFoods = bundle?.getString("selectedFoods")
+//        viewmodel.tratarAlimentosSelecionados(selectedFoods!!)
+
+//        viewmodel.listaAlimentosCriarRotina.observe(viewLifecycleOwner) {
+//            Log.i("alimentList", "alimentos no create routine convertido: $it")
+//        }
+
+        adapter = CreateRoutineAdapter()
+        binding.recyclerViewRegisterRoutine.adapter = adapter
+
         val bundle = arguments
         val selectedFoods = bundle?.getString("selectedFoods")
+        viewmodel.tratarAlimentosSelecionados(selectedFoods!!)
 
-        if (selectedFoods != null) {
-            val gson = Gson()
-            val foodData: List<FoodData> =
-                gson.fromJson(selectedFoods, Array<FoodData>::class.java).toList()
-//            Log.i("alimentList", "alimentos no create routine: $selectedFoods")
-            Log.i("alimentList", "alimentos no create routine convertido: $foodData")
-            binding.textviewTitleRegisterRoutine.text = foodData[0].nome
-        } else {
-            Log.i("alimentList", "onCreateView: esta chegando vazio a lista")
+        viewmodel.listaAlimentosCriarRotina.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+            Log.i("alimentList", "alimentos no create routine convertido: $it")
+
+            val valorTotalCarboidratos = it.sumOf { it.carboidrato }
+            val valorTotalProteinas = it.sumOf { it.proteina }
+            val valorTotalGordurasTotais = it.sumOf { it.gorduraTotal }
+            val valorTotalCalorias = it.sumOf { it.calorias!! }
+
+            binding.textviewValueCarboidratoRegisterRoutine.text =
+                valorTotalCarboidratos.toString()
+
+            binding.textviewValueProteinaRegisterRoutine.text =
+                valorTotalProteinas.toString()
+
+            binding.textviewValueGorduraTotalRegisterRoutine.text =
+                valorTotalGordurasTotais.toString()
+
+            binding.textviewValueCaloriasRegisterRoutine.text =
+                valorTotalCalorias.toString()
         }
 
         return binding.root
     }
+
+
 }

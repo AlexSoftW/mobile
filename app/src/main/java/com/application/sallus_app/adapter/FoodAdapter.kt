@@ -11,7 +11,6 @@ import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.view.fragments.FoodDetailsDialogFragment
 import java.util.Locale
 
-
 // nessa Classe vai ficar o extends Adapter.
 // aqui a gente vai manipular os itens de uma lista.
 // exemplo: em vez da gente criar fruta por fruta para exibir na tela(isso ia demorar uma eternidade),
@@ -36,7 +35,6 @@ class FoodAdapter() :
 
         holder.itemView.setOnClickListener {
             selectedFood = food
-//            alimentosSelecionados.add(foodList)
             val fragmentManager =
                 (holder.itemView.context as AppCompatActivity).supportFragmentManager
             val foodModalDialog = FoodDetailsDialogFragment()
@@ -55,7 +53,6 @@ class FoodAdapter() :
         this.foodList.addAll(alimentos)
         notifyDataSetChanged()
     }
-
 
     inner class FoodViewHolder(private val binding: ItemRecyclerViewFoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {

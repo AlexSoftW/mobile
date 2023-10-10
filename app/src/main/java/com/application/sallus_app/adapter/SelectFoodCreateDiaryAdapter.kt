@@ -11,23 +11,23 @@ import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
 import com.application.sallus_app.model.FoodData
 import java.util.Locale
 
-class FoodCreateRoutineAdapter() :
-    RecyclerView.Adapter<FoodCreateRoutineAdapter.FoodCreateRoutineAdapterHolder>() {
+class SelectFoodCreateDiaryAdapter() :
+    RecyclerView.Adapter<SelectFoodCreateDiaryAdapter.SelectFoodCreateDiaryAdapterHolder>() {
 
     private val foodList = mutableListOf<FoodData>()
     val selectedFoods = mutableListOf<FoodData>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
-    ): FoodCreateRoutineAdapterHolder {
+    ): SelectFoodCreateDiaryAdapterHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemRecyclerViewFoodsBinding.inflate(inflater, parent, false)
 
-        return FoodCreateRoutineAdapterHolder(binding)
+        return SelectFoodCreateDiaryAdapterHolder(binding)
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onBindViewHolder(holder: FoodCreateRoutineAdapterHolder, position: Int) {
+    override fun onBindViewHolder(holder: SelectFoodCreateDiaryAdapterHolder, position: Int) {
         val food = foodList[position]
         holder.bind(food)
 
@@ -65,7 +65,7 @@ class FoodCreateRoutineAdapter() :
     }
 
 
-    inner class FoodCreateRoutineAdapterHolder(private val binding: ItemRecyclerViewFoodsBinding) :
+    inner class SelectFoodCreateDiaryAdapterHolder(private val binding: ItemRecyclerViewFoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var foodSelected = false
 
