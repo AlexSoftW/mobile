@@ -2,6 +2,7 @@ package com.application.sallus_app.repository
 
 import com.application.sallus_app.service.FoodService
 import com.application.sallus_app.service.NutritionistService
+import com.application.sallus_app.service.PacienteService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -24,5 +25,8 @@ class RetrofitRepository {
 
     val apiServiceFood: FoodService =
         retrofit.create(FoodService::class.java)
+
+    val apiServicePaciente: PacienteService =
+        retrofit.create(PacienteService::class.java)
 
 }
