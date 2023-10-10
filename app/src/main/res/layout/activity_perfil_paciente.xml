@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/include_toolbar_settings"
+        layout="@layout/toolbar_settings"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -49,9 +57,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginRight="24dp"
+        android:layout_height="match_parent"
         android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -82,6 +90,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_nome_paciente_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -98,6 +107,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textFieldNomeCompleto">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_email_paciente_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -109,11 +119,12 @@
             android:id="@+id/textFieldPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="senha"
             android:layout_marginTop="20dp"
+            android:hint="senha"
             app:layout_constraintTop_toBottomOf="@+id/textFieldEmail">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_senha_paciente_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -149,11 +160,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Voltar"
-                android:textColor="@color/red_default"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:textColor="@color/red_default" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_salvar_alteracao_settings_paciente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -165,9 +176,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
