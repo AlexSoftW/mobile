@@ -15,7 +15,7 @@ class CadastroViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = repository.apiServiceCadastro.adicionarCliente(novoPaciente)
-                Log.i("logAddingNewFood", "makeNewPaciente: paciente cadastrado com sucesso!")
+                Log.i("logAddingPaciente", "makeNewPaciente: paciente cadastrado com sucesso!")
             } catch (e: Exception) {
                 Log.i(
                         "logAddingNewPaciente",

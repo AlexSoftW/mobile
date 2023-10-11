@@ -20,7 +20,7 @@ class FragmentComorbidade : Fragment(){
 
         val args = arguments
         if (args != null) {
-            val dados = args.getString("chave")
+            val dados = args.getString("Data")
 
             // Exibe os dados no console
             Log.d("MeuFragmentDestino", "Dados recebidos: $dados")
