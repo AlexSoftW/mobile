@@ -4,9 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--esse código na linha 17: android:networkSecurityConfig="@xml/network_security_config"
-     é somente para fazer requisição HTTP!, e foi adicionado mais 1 arquivo XML em:
-     res/xml/network_security_config-->
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -19,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sallusapp"
         tools:targetApi="31">
+
+        <activity
+            android:name=".view.SettingsPerfilPacienteActivity"
+            android:exported="false" />
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -28,11 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.NutritionistActivity"
             android:exported="false" />
