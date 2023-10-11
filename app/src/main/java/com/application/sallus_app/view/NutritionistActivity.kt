@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
+import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.view.fragments.FragmentAddFood
 import com.application.sallus_app.view.fragments.FragmentCreateRoutine
 import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.view.fragments.FragmentNutritionist
+import com.application.sallus_app.view.fragments.FragmentSelectFoodCreateDiary
 import com.application.sallus_app.view.fragments.FragmentYoursPatients
 import com.application.sallus_app.viewmodel.NutritionistViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -58,7 +60,7 @@ class NutritionistActivity : AppCompatActivity() {
         }
 
         binding.includeBadgeNutricionista.imagebuttonAddRoutine.setOnClickListener {
-            replaceFragmentManager(FragmentCreateRoutine())
+            replaceFragmentManager(FragmentSelectFoodCreateDiary())
         }
     }
 

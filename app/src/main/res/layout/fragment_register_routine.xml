@@ -45,6 +45,7 @@
             android:id="@+id/recycler_view_register_routine"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="@id/textview_tag_food_register_routine"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_food_register_routine"
             tools:listitem="@layout/item_recycler_view_register_routine" />
