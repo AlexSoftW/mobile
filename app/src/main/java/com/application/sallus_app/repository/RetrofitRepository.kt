@@ -1,6 +1,7 @@
 package com.application.sallus_app.repository
 
 import com.application.sallus_app.service.FoodService
+import com.application.sallus_app.service.HistoricoService
 import com.application.sallus_app.service.NutritionistService
 import com.application.sallus_app.service.PacienteService
 import retrofit2.Retrofit
@@ -29,4 +30,6 @@ class RetrofitRepository {
     val apiServicePaciente: PacienteService =
         retrofit.create(PacienteService::class.java)
 
+    val apiServiceHistorico: HistoricoService =
+        retrofit.create(HistoricoService::class.java)
 }
