@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sallusapp"
         tools:targetApi="31">
+
         <activity
             android:name=".view.SettingsPerfilPacienteActivity"
             android:exported="false" />
