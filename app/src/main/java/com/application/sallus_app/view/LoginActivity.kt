@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.buttonLogin.setOnClickListener {
-            val intent = Intent(this, NutritionistActivity::class.java)
+            val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
         }
     }

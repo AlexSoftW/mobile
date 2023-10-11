@@ -56,7 +56,7 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/checkbox_parent"
+                android:id="@+id/diabete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Diabete"
@@ -64,21 +64,21 @@
 
 
             <CheckBox
-                android:id="@+id/checkbox_child_1"
+                android:id="@+id/colesterol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Colesterol"
                 android:layout_marginBottom="6dp"/>
 
             <CheckBox
-                android:id="@+id/checkbox_child_2"
+                android:id="@+id/hipertensao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hipertensão"
                 android:layout_marginBottom="6dp"/>
 
             <CheckBox
-                android:id="@+id/checkbox_child_3"
+                android:id="@+id/nenhum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nenhum" />
