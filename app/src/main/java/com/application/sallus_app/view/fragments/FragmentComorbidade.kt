@@ -14,16 +14,22 @@ import com.application.sallus_app.databinding.FragmentCadastroEmailBinding
 class FragmentComorbidade : Fragment(){
 
     private lateinit var binding: FragmentCadastroComorbidadeBinding
-
+    val bundle = Bundle()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val args = arguments
         if (args != null) {
-            val dados = args.getString("Data")
+            val nome = args.getString("Nome")
+            val telefone = args.getString("Telefone")
+            val endereco = args.getString("Endereco")
+            val genero = args.getString("Genero")
+            bundle.putString("Nome" ,nome)
+            bundle.putString("Telefone" ,telefone)
+            bundle.putString("Endereco" ,endereco)
+            bundle.putString("Genero" ,genero)
 
-            // Exibe os dados no console
-            Log.d("MeuFragmentDestino", "Dados recebidos: $dados")
+            Log.d("MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero")
         }
     }
 
@@ -39,11 +45,18 @@ class FragmentComorbidade : Fragment(){
         val colesterol = binding.colesterol
         val hipertensao = binding.hipertensao
         val nenhum = binding.nenhum
-        val fragment = FragmentEmail()
+        val fragmentDestino = FragmentEmail()
 
         binding.nextButton1.setOnClickListener{
+
+            bundle.putBoolean("Diabete", binding.diabete.isChecked)
+            bundle.putBoolean("Colesterol", binding.colesterol.isChecked)
+            bundle.putBoolean("Hipertensao", binding.hipertensao.isChecked)
+            bundle.putBoolean("Nenhum", binding.nenhum.isChecked)
+            fragmentDestino.arguments = bundle
+            Log.d("Valores CheckBoxes", "Diabete = ${diabete.isChecked}, Hipertensao = ${hipertensao.isChecked}")
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_cadastro, fragment)
+                .replace(R.id.fragment_container_cadastro, fragmentDestino)
                 .addToBackStack(null)
                 .commit()
         }

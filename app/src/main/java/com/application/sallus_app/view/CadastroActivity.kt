@@ -1,5 +1,6 @@
 package com.application.sallus_app.view
 
+import FragmentDadosPessoais
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -13,7 +14,7 @@ import com.application.sallus_app.databinding.ActivityNutricionistaBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.view.fragments.FragmentAddFood
 import com.application.sallus_app.view.fragments.FragmentCreateRoutine
-import com.application.sallus_app.view.fragments.FragmentDadosPessoais
+
 import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.view.fragments.FragmentNutritionist
 import com.application.sallus_app.view.fragments.FragmentYoursPatients

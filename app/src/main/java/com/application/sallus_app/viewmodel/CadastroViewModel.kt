@@ -11,7 +11,7 @@ import java.lang.Exception
 class CadastroViewModel : ViewModel() {
     private val repository = RetrofitRepository()
 
-    fun addingNewPaciente(novoPaciente : PacienteData) {
+    fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
             try {
                 val response = repository.apiServiceCadastro.adicionarCliente(novoPaciente)

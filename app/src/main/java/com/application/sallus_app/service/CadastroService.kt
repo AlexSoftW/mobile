@@ -7,6 +7,6 @@ import retrofit2.http.POST
 
 interface CadastroService {
 
-    @POST("pacientes")
-    suspend fun adicionarCliente(@Body paciente: PacienteData): PacienteData
+    @POST("clientes")
+    suspend fun adicionarCliente(@Body cliente: PacienteData): PacienteData
 }
