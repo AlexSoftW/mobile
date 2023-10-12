@@ -1,6 +1,5 @@
 package com.application.sallus_app.view.fragments
 
-import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,14 +10,13 @@ import com.application.sallus_app.R
 
 import com.application.sallus_app.databinding.FragmentCadastroEmailBinding
 import com.application.sallus_app.model.PacienteData
-import com.application.sallus_app.viewmodel.CadastroViewModel
-import com.application.sallus_app.viewmodel.FoodViewModel
+import com.application.sallus_app.viewmodel.PacienteViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentEmail : Fragment() {
 
     private lateinit var binding: FragmentCadastroEmailBinding
-    private val viewModel: CadastroViewModel by viewModel()
+    private val viewModel: PacienteViewModel by viewModel()
 
     val bundle = Bundle()
 
@@ -61,9 +59,23 @@ class FragmentEmail : Fragment() {
                 fragmentDestino.arguments = bundle
                 Log.d("Valores ", "Email = $email, senha = $senha")
 
+                val pacienteData = PacienteData(
+                    nome ?: "",
+                    email,
+                    senha,
+                    0.0,
+                    0,
+                    genero ?: "",
+                    endereco ?: "",
+                    0,
+                    telefone ?: "",
+                    false,
+                    true
+
+                )
 
 
-               // viewModel.addingNewPaciente()
+                viewModel.addingNewPaciente(pacienteData)
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container_cadastro, fragmentDestino)
                     .addToBackStack(null)

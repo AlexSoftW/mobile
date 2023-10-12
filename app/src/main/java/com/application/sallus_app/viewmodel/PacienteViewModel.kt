@@ -8,14 +8,14 @@ import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class CadastroViewModel : ViewModel() {
+class PacienteViewModel : ViewModel() {
     private val repository = RetrofitRepository()
 
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
             try {
-                val response = repository.apiServiceCadastro.adicionarCliente(novoPaciente)
-                Log.i("logAddingPaciente", "makeNewPaciente: paciente cadastrado com sucesso!")
+                val response = repository.apiServicePaciente.adicionarCliente(novoPaciente)
+                Log.i("logAddingPaciente", "makeNewPaciente: paciente cadastrado com sucesso! $novoPaciente")
             } catch (e: Exception) {
                 Log.i(
                         "logAddingNewPaciente",
