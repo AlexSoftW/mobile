@@ -13,6 +13,7 @@ class PacienteViewModel : ViewModel() {
 
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
+            println(novoPaciente)
             try {
                 val response = repository.apiServicePaciente.adicionarCliente(novoPaciente)
                 Log.i("logAddingPaciente", "makeNewPaciente: paciente cadastrado com sucesso! $novoPaciente")

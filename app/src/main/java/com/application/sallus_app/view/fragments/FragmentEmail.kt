@@ -41,7 +41,6 @@ class FragmentEmail : Fragment() {
             val colesterol = args.getBoolean("Colesterol")
             val hipertensao = args.getBoolean("Hipertensao")
             val nenhum = args.getBoolean("Nenhum")
-
             Log.d(
                 "MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero " +
                         "$diabete, $colesterol, $hipertensao, $nenhum"

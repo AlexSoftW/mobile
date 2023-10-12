@@ -9,7 +9,7 @@ interface PacienteService {
 
     @GET("clientes")
     suspend fun getTodosPacientes(): List<PacienteData>
-    @POST("clientes")
+    @POST("clientes/cadastrar")
     suspend fun adicionarCliente(@Body cliente: PacienteData): PacienteData
 
 }
