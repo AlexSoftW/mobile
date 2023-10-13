@@ -24,6 +24,11 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     fun setupView() {
+        val activity = this
+
+        binding.includeToolbarSettings.buttonBackToolbarSettings.setOnClickListener {
+            activity.finish()
+        }
 
         binding.optionPerfil.setOnClickListener(){
             val intent = Intent(this, SettingsPerfilPacienteActivity::class.java)

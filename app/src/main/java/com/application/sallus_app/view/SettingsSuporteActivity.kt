@@ -19,6 +19,15 @@ class SettingsSuporteActivity : AppCompatActivity() {
     }
 
     fun setupView(){
+
+        binding.includeToolbarSettings.textviewToolbarSettings.text = "Suporte"
+
+        val activity = this
+        binding.includeToolbarSettings.buttonBackToolbarSettings.setOnClickListener {
+            activity.finish()
+        }
+
+
         binding.btnEnviarFormulario.setOnClickListener{
             val assunto = binding.textFieldAssunto.text.toString()
             val mensagem = binding.textFieldMensagem.text.toString()
