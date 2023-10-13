@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setupView() {
         binding.buttonHomeIndex.setOnClickListener {
-            val intent = Intent(this, CadastroActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
