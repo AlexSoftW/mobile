@@ -42,13 +42,13 @@
         android:layout_weight="1">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldAssunto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Assunto"
             app:hintAnimationEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldAssunto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=" "/>
@@ -64,12 +64,12 @@
         android:layout_weight="1">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldMensagem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mensagem">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldMensagem"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:text=" "/>
@@ -93,13 +93,13 @@
             android:textColor="#919191"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
             app:hintAnimationEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textFieldEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=" "/>
@@ -107,6 +107,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/btn_voltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voltar"
@@ -116,6 +117,7 @@
         android:layout_weight="1"/>
 
     <Button
+        android:id="@+id/btn_enviar_formulario"
         android:layout_marginLeft="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"
         android:layout_marginBottom="@dimen/small_margin"

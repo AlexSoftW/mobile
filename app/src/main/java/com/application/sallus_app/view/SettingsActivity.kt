@@ -20,19 +20,10 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsPacienteBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-    }
-
-    fun replaceFragmentManager(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container_nutricionista, fragment)
-        fragmentTransaction.commit()
+        setupView()
     }
 
     fun setupView() {
-        val fragmentHome = FragmentSettingsOptions()
-        replaceFragmentManager(fragmentHome)
 
         binding.optionPerfil.setOnClickListener(){
             val intent = Intent(this, SettingsPerfilPacienteActivity::class.java)

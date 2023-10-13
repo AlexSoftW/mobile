@@ -1,5 +1,6 @@
 package com.application.sallus_app.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -61,6 +62,11 @@ class NutritionistActivity : AppCompatActivity() {
 
         binding.includeBadgeNutricionista.imagebuttonAddRoutine.setOnClickListener {
             replaceFragmentManager(FragmentSelectFoodCreateDiary())
+        }
+
+        binding.includeToolbarPages.imagebuttonSettingsToolbarPages.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
 
