@@ -31,7 +31,7 @@ class HistoricoActivity : AppCompatActivity() {
     fun replaceFragmentManager(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container_nutricionista, fragment)
+        fragmentTransaction.replace(R.id.fragment_container_paciente, fragment)
         fragmentTransaction.commit()
 
         setupView()
