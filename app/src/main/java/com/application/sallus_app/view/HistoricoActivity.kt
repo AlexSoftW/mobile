@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
 import com.application.sallus_app.databinding.FragmentHistoricoBinding
+import com.application.sallus_app.databinding.ItemRecyclerViewHistoricoBinding
 import com.application.sallus_app.view.fragments.FragmentAddFood
 import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.view.fragments.FragmentNutritionist
@@ -19,11 +20,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HistoricoActivity : AppCompatActivity() {
 
     private val HistoricoViewModel: HistoricoViewModel by viewModel()
-    private lateinit var binding: FragmentHistoricoBinding
+    private lateinit var binding: ItemRecyclerViewHistoricoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentHistoricoBinding.inflate(layoutInflater)
+        binding = ItemRecyclerViewHistoricoBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
@@ -69,6 +70,8 @@ class HistoricoActivity : AppCompatActivity() {
         HistoricoViewModel.fetchTodosHistoricos()
 
         HistoricoViewModel.listHistorico.observe(this) {
+            binding.constraintLayout.textviewTagIndicacaoItemAlimento.text = it[0].alimentos
+
 //            binding.includeToolbarPages.textviewNameCustomerToolbarPages.text = it[0].nome
         }
     }
