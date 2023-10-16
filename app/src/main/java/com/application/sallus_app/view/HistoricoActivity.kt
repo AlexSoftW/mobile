@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
+import com.application.sallus_app.databinding.ActivityPacienteBinding
 import com.application.sallus_app.databinding.FragmentHistoricoBinding
 import com.application.sallus_app.databinding.ItemRecyclerViewHistoricoBinding
 import com.application.sallus_app.view.fragments.FragmentAddFood
@@ -20,11 +21,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HistoricoActivity : AppCompatActivity() {
 
     private val HistoricoViewModel: HistoricoViewModel by viewModel()
-    private lateinit var binding: ItemRecyclerViewHistoricoBinding
+    private lateinit var binding: ActivityPacienteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ItemRecyclerViewHistoricoBinding.inflate(layoutInflater)
+        binding = ActivityPacienteBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
@@ -45,24 +46,24 @@ class HistoricoActivity : AppCompatActivity() {
         val fragmentHome = FragmentNutritionist()
         replaceFragmentManager(fragmentHome)
 
-        binding.includeBadgeNutricionista.imagebuttonHome.setOnClickListener {
+        binding.includeBadgePaciente.imagebuttonHome.setOnClickListener {
             replaceFragmentManager(FragmentNutritionist())
         }
 
-        binding.includeBadgeNutricionista.imagebuttonPatients.setOnClickListener {
-            replaceFragmentManager(FragmentYoursPatients())
+        binding.includeBadgePaciente.imagebuttonNutricionista.setOnClickListener {
+            replaceFragmentManager(FragmentNutritionist())
         }
 
-        binding.includeBadgeNutricionista.imagebuttonFood.setOnClickListener {
-            replaceFragmentManager(FragmentFoods())
+        binding.includeBadgePaciente.imagebuttonFood.setOnClickListener {
+//            replaceFragmentManager()
         }
 
-        binding.includeBadgeNutricionista.imagebuttonAddFood.setOnClickListener {
-            replaceFragmentManager(FragmentAddFood())
+        binding.includeBadgePaciente.imagebuttonDiarioAlimentar.setOnClickListener {
+//            replaceFragmentManager()
         }
 
-        binding.includeBadgeNutricionista.imagebuttonAddRoutine.setOnClickListener {
-            replaceFragmentManager(FragmentSelectFoodCreateDiary())
+        binding.includeBadgePaciente.imagebuttonHistorico.setOnClickListener {
+//            replaceFragmentManager()
         }
     }
 
@@ -70,9 +71,8 @@ class HistoricoActivity : AppCompatActivity() {
         HistoricoViewModel.fetchTodosHistoricos()
 
         HistoricoViewModel.listHistorico.observe(this) {
-            binding.constraintLayout.textviewTagIndicacaoItemAlimento.text = it[0].alimentos
-
-//            binding.includeToolbarPages.textviewNameCustomerToolbarPages.text = it[0].nome
+//            binding.constraintLayout.textviewTagIndicacaoItemAlimento.text = it[0].alimentos
+//            binding.includeToolbarHomePaciente.textviewNameCustomerToolbarHome.text = it[0].
         }
     }
 }
