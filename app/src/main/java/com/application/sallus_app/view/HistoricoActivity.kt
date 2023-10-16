@@ -70,7 +70,11 @@ class HistoricoActivity : AppCompatActivity() {
     fun setupObservers() {
         HistoricoViewModel.fetchTodosHistoricos()
 
-        HistoricoViewModel.listHistorico.observe(this) {
+        HistoricoViewModel.listaHistorico.observe(this) {
+//            Como acessar o recycler view do histórico por aqui, já que o binding está na
+//            ActivityPaciente por conta dos botões do badge para mudar de fragment.
+
+
 //            binding.constraintLayout.textviewTagIndicacaoItemAlimento.text = it[0].alimentos
 //            binding.includeToolbarHomePaciente.textviewNameCustomerToolbarHome.text = it[0].
         }
