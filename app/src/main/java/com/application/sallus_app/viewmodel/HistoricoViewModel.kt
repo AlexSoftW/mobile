@@ -13,9 +13,9 @@ class HistoricoViewModel : ViewModel(){
     private val repository = RetrofitRepository()
 
     private val _listaHistorico = MutableLiveData<List<HistoricData>>()
-    val listHistorico: MutableLiveData<List<HistoricData>> = _listaHistorico
+    val listaHistorico: MutableLiveData<List<HistoricData>> = _listaHistorico
 
-    //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData
+    //aqui vai trazer todos o histórico das refeições do repository e vamos salvar em uma mutableLiveData
     //por que os dados sempre vão mudar.
     fun fetchTodosHistoricos() {
         viewModelScope.launch {
