@@ -2,6 +2,7 @@ package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -60,6 +61,30 @@ class FoodAdapter() :
             binding.imageviewItemAlimento.setImageResource(getImageResource(food.nome))
 
             binding.textviewNomeItemAlimento.text = food.nome
+
+            if (food.diabete) {
+                binding.imageviewIconDiabetesItemAlimento.visibility = View.VISIBLE
+            } else {
+                binding.imageviewIconDiabetesItemAlimento.visibility = View.GONE
+            }
+
+            if (food.colesterol) {
+                binding.imageviewIconColesterolItemAlimento.visibility = View.VISIBLE
+            } else {
+                binding.imageviewIconColesterolItemAlimento.visibility = View.GONE
+            }
+
+            if (food.hipertensao) {
+                binding.imageviewIconHipertensaoItemAlimento.visibility = View.VISIBLE
+            } else {
+                binding.imageviewIconHipertensaoItemAlimento.visibility = View.GONE
+            }
+
+            if (!food.diabete && !food.hipertensao && !food.colesterol) {
+                binding.textviewAlimentoNaoIndicado.visibility = View.VISIBLE
+            } else {
+                binding.textviewAlimentoNaoIndicado.visibility = View.GONE
+            }
         }
 
         private fun getImageResource(foodName: String): Int {
