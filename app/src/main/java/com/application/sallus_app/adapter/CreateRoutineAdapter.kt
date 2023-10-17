@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewRegisterRoutineBinding
 import com.application.sallus_app.model.FoodData
+import com.application.sallus_app.viewmodel.FoodViewModel
 
-class CreateRoutineAdapter() :
+class CreateRoutineAdapter(private val viewModel: FoodViewModel) :
     RecyclerView.Adapter<CreateRoutineAdapter.CreateRoutinerAdapterHolder>() {
 
     private val foodList = mutableListOf<FoodData>()
@@ -26,10 +27,6 @@ class CreateRoutineAdapter() :
     override fun onBindViewHolder(holder: CreateRoutinerAdapterHolder, position: Int) {
         val food = foodList[position]
         holder.bind(food)
-
-        holder.binding.buttonRemoverAlimentoRegisterRoutine.setOnClickListener {
-            removeItem(position)
-        }
     }
 
     override fun getItemCount(): Int {
@@ -45,28 +42,38 @@ class CreateRoutineAdapter() :
 
 
     fun removeItem(position: Int) {
-        if (position in 0 until foodList.size) {
-            foodList.removeAt(position)
-            notifyItemRemoved(position)
+        if (foodList.size == 1) {
+            foodList.removeAt(foodList.size - 1)
+            notifyItemRemoved(foodList.size)
+        } else {
+            if (position in 0 until foodList.size) {
+                foodList.removeAt(position)
+                notifyItemRemoved(position)
+            }
         }
     }
 
     inner class CreateRoutinerAdapterHolder(val binding: ItemRecyclerViewRegisterRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("NotifyDataSetChanged")
         fun bind(food: FoodData) {
             binding.imageviewFoodItemRegisterRoutine.setImageResource(R.drawable.baseline_circle_24)
             binding.textviewNameFoodItemRegisterRoutine.text = food.nome
 
-//            binding.buttonRemoverAlimentoRegisterRoutine.setOnClickListener {
-//                val position = adapterPosition
-//                if (position != RecyclerView.NO_POSITION) {
-//                    removeItem(position)
-//                }
-//                Log.i("adapterFoodCreate", "bind: cliquei no botão do alimento: $food")
-//                Log.i("adapterFoodCreateList", "bind: esta é a lista atual no adapter: $foodList")
-//            }
+            binding.buttonRemoverAlimentoRegisterRoutine.setOnClickListener {
+                val position = adapterPosition
+                if (position >= 0 && position < foodList.size) {
+                    val alimentoRemovido = foodList[position]
+                    removeItem(position)
+                    // Chame o método na ViewModel para remover o alimento da lista da rotina
+                    viewModel.removerAlimentoDaRotina(alimentoRemovido)
+                } else {
+                    Log.i("AdapterError", "Invalid position: $position")
+                }
+                Log.i("adapterFoodCreate", "bind: cliquei no botão do alimento: $food")
+                Log.i("adapterFoodCreateList", "bind: esta é a lista atual no adapter: $foodList")
+            }
+
 
             if (food.diabete) {
                 binding.imageviewDiabetesItemRegisterRoutine.visibility = View.VISIBLE

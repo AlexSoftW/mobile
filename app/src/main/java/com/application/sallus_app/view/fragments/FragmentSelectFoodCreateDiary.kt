@@ -58,7 +58,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
     private fun setupObservers() {
         binding.recyclerViewFood.adapter = adapter
 
-        viewmodel.fetchTodosAlimentos()
+        viewmodel.buscarTodosAlimentos()
 
         viewmodel.listAlimentos.observe(viewLifecycleOwner) {
             adapter.submitList(it)

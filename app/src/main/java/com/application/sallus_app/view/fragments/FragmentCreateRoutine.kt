@@ -2,6 +2,7 @@ package com.application.sallus_app.view.fragments
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.adapter.CreateRoutineAdapter
 import com.application.sallus_app.databinding.FragmentRegisterRoutineBinding
 import com.application.sallus_app.viewmodel.FoodViewModel
@@ -43,13 +43,15 @@ class FragmentCreateRoutine : Fragment() {
 
     @SuppressLint("ClickableViewAccessibility")
     fun setupView() {
-        adapter = CreateRoutineAdapter()
+        adapter = CreateRoutineAdapter(viewmodelFood)
         binding.recyclerViewRegisterRoutine.adapter = adapter
 
         autoCompleteAdapter = ArrayAdapter<String>(
             requireContext(),
             android.R.layout.simple_dropdown_item_1line
         )
+
+        binding.autoCompletePatientsList.setAdapter(autoCompleteAdapter)
 
         binding.editTextDatePicker.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -77,24 +79,28 @@ class FragmentCreateRoutine : Fragment() {
 
             datePickerDialog.show()
         }
+
+        binding.buttonBackRegisterRoutine.setOnClickListener {
+            retornarFragment()
+        }
     }
 
 
     fun setupObservers() {
         val bundle = arguments
         val selectedFoods = bundle?.getString("selectedFoods")
+
+        viewmodelPatient.fetchTodosPacientes()
         viewmodelFood.tratarAlimentosSelecionados(selectedFoods!!)
 
+        viewmodelFood.listaAlimentosCriarRotina.observe(viewLifecycleOwner) { alimento ->
+            adapter.submitList(alimento)
+            Log.i("alimentList", "alimentos no create routine convertido: $alimento")
 
-
-        viewmodelFood.listaAlimentosCriarRotina.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-            Log.i("alimentList", "alimentos no create routine convertido: $it")
-
-            val valorTotalCarboidratos = it.sumOf { it.carboidrato }
-            val valorTotalProteinas = it.sumOf { it.proteina }
-            val valorTotalGordurasTotais = it.sumOf { it.gorduraTotal }
-            val valorTotalCalorias = it.sumOf { it.calorias!! }
+            val valorTotalCarboidratos = alimento.sumOf { it.carboidrato }
+            val valorTotalProteinas = alimento.sumOf { it.proteina }
+            val valorTotalGordurasTotais = alimento.sumOf { it.gorduraTotal }
+            val valorTotalCalorias = alimento.sumOf { it.calorias!! }
 
             binding.textviewValueCarboidratoRegisterRoutine.text =
                 valorTotalCarboidratos.toString()
@@ -107,11 +113,19 @@ class FragmentCreateRoutine : Fragment() {
 
             binding.textviewValueCaloriasRegisterRoutine.text =
                 valorTotalCalorias.toString()
+
+            if (alimento.isEmpty()) {
+                binding.buttonRegisterRoutine.setBackgroundColor(Color.BLUE)
+                binding.buttonRegisterRoutine.text = "Adicione pelo menos 1 alimento antes"
+                binding.buttonRegisterRoutine.isClickable = false
+                binding.recyclerViewRegisterRoutine.visibility = View.INVISIBLE
+                binding.textviewListEmpty.visibility = View.VISIBLE
+            } else {
+                binding.buttonRegisterRoutine.setOnClickListener { btn ->
+                    Log.i("logiButtonTest", "setupObservers: LIBERADO TSUTSU, ${alimento}")
+                }
+            }
         }
-
-        viewmodelPatient.fetchTodosPacientes()
-
-        binding.autoCompletePatientsList.setAdapter(autoCompleteAdapter)
 
         viewmodelPatient.listaTodosPacientes.observe(viewLifecycleOwner) {
             autoCompleteAdapter.clear()
@@ -122,5 +136,9 @@ class FragmentCreateRoutine : Fragment() {
         }
     }
 
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
+    }
 
 }

@@ -41,6 +41,14 @@
             app:layout_constraintStart_toStartOf="@id/textview_subtitle_register_routine"
             app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_register_routine" />
 
+        <TextView
+            android:id="@+id/textview_list_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista vazia, volte e adicione pelo menos 1 item"
+            app:layout_constraintStart_toStartOf="@+id/textview_tag_food_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_food_register_routine" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_register_routine"
             android:layout_width="match_parent"
