@@ -29,10 +29,16 @@ class FoodViewModel : ViewModel() {
         _listaAlimentosCriarRotina.postValue(foodData)
     }
 
+    fun removerAlimentoDaRotina(alimento: FoodData) {
+        val currentList = _listaAlimentosCriarRotina.value.orEmpty().toMutableList()
+        currentList.remove(alimento)
+        _listaAlimentosCriarRotina.postValue(currentList)
+    }
+
 
     //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData
     //por que os dados sempre vão mudar.
-    fun fetchTodosAlimentos() {
+    fun buscarTodosAlimentos() {
         viewModelScope.launch {
             try {
                 val todosAlimentos = repository.apiServiceFood.getTodosAlimentos()
@@ -47,11 +53,11 @@ class FoodViewModel : ViewModel() {
         }
     }
 
-    fun addingNewFood(novoAlimento: FoodData) {
+    fun cadastrarNovoAlimento(novoAlimento: FoodData) {
         viewModelScope.launch {
             try {
-                val response = repository.apiServiceFood.adicionarNovoAlimento(novoAlimento)
-                Log.i("logAddingNewFood", "makeNewFood: alimento cadastrado com sucesso!")
+                repository.apiServiceFood.adicionarNovoAlimento(novoAlimento)
+                Log.i("logAddingNewFood", "makeNewFood: $novoAlimento!")
             } catch (e: Exception) {
                 Log.i(
                     "logAddingNewFood",

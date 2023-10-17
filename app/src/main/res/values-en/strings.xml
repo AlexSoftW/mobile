@@ -66,4 +66,11 @@
         <item>Vegetable</item>
     </string-array>
 
+    <string-array name="spinner_option_type_hour">
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
+    </string-array>
+
+
 </resources>

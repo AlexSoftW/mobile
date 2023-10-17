@@ -26,7 +26,7 @@ class FragmentFoods : Fragment() {
         val adapter = FoodAdapter()
         binding.recyclerViewFood.adapter = adapter
 
-        viewmodel.fetchTodosAlimentos()
+        viewmodel.buscarTodosAlimentos()
 
         viewmodel.listAlimentos.observe(viewLifecycleOwner) {
             adapter.submitList(it)
