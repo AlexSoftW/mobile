@@ -9,9 +9,9 @@ package com.application.sallus_app.model
 data class FoodData(
     val nome: String,
     val tipo: String,
-    val indicadoDiabete: Boolean,
-    val indicadoColesterol: Boolean,
-    val indicadoHipertensao: Boolean,
+    val diabete: Boolean,
+    val colesterol: Boolean,
+    val hipertensao: Boolean,
     val proteina: Double,
     val carboidrato: Double,
     val gorduraTotal: Double,

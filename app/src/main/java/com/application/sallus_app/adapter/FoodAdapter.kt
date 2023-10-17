@@ -21,7 +21,6 @@ class FoodAdapter() :
 
     private val foodList = mutableListOf<FoodData>()
     private var selectedFood: FoodData? = null
-//    val alimentosSelecionados = mutableListOf<List<FoodData>>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -61,33 +60,12 @@ class FoodAdapter() :
             binding.imageviewItemAlimento.setImageResource(getImageResource(food.nome))
 
             binding.textviewNomeItemAlimento.text = food.nome
-
-//            if (food.indicadoDiabete) {
-//                binding.imageviewIconDiabetesItemAlimento.visibility = View.VISIBLE
-//            } else {
-//                binding.imageviewIconDiabetesItemAlimento.visibility = View.GONE
-//            }
-//
-//            if (food.indicadoHipertensao) {
-//                binding.imageviewIconHipertensaoItemAlimento.visibility = View.VISIBLE
-//            } else {
-//                binding.imageviewIconHipertensaoItemAlimento.visibility = View.GONE
-//            }
-//
-//            if (food.indicadoColesterol) {
-//                binding.imageviewIconColesterolItemAlimento.visibility = View.VISIBLE
-//            } else {
-//                binding.imageviewIconColesterolItemAlimento.visibility = View.GONE
-//            }
-
         }
 
         private fun getImageResource(foodName: String): Int {
             return when (foodName.lowercase(Locale.ROOT)) {
-                "picanha" -> FoodImageEnum.PICANHA.imageResource
-                "alface" -> FoodImageEnum.ALFACE.imageResource
-                "arroz" -> FoodImageEnum.ARROZ.imageResource
-                else -> R.drawable.baseline_circle_24
+                "picanha" -> R.mipmap.food_default
+                else -> R.mipmap.food_default
             }
         }
 

@@ -54,6 +54,8 @@ class FragmentAddFood : Fragment() {
                 calorias
             )
 
+            Log.i("dadoAlimento", "cadastrarNovoAlimento: $novoAlimento")
+//
             viewModel.addingNewFood(novoAlimento)
         }
     }

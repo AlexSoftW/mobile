@@ -23,13 +23,13 @@ class FoodDetailsDialogFragment : DialogFragment() {
                         "Qtd de proteina:${selectedFood?.proteina}\n" +
                         "Gordura total:${selectedFood?.gorduraTotal}\n" +
                         "Indicado para diabéticos? ${
-                            if (selectedFood?.indicadoDiabete == true) "sim" else "não"
+                            if (selectedFood?.diabete == true) "sim" else "não"
                         }\n" +
                         "Indicado para hipertensos? ${
-                            if (selectedFood?.indicadoHipertensao == true) "sim" else "não"
+                            if (selectedFood?.hipertensao == true) "sim" else "não"
                         }\n" +
                         "Indicado para quem tem colesterol? ${
-                            if (selectedFood?.indicadoColesterol == true) "sim" else "não"
+                            if (selectedFood?.colesterol == true) "sim" else "não"
                         }\n"
             )
 

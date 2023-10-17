@@ -65,4 +65,10 @@
         <item>Legumes</item>
     </string-array>
 
+    <string-array name="spinner_option_type_hour">
+        <item>Manhã</item>
+        <item>Tarde</item>
+        <item>Noite</item>
+    </string-array>
+
 </resources>

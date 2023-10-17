@@ -50,8 +50,8 @@ class FoodViewModel : ViewModel() {
     fun addingNewFood(novoAlimento: FoodData) {
         viewModelScope.launch {
             try {
-                val response = repository.apiServiceFood.adicionarNovoAlimento(novoAlimento)
-                Log.i("logAddingNewFood", "makeNewFood: alimento cadastrado com sucesso!")
+                repository.apiServiceFood.adicionarNovoAlimento(novoAlimento)
+                Log.i("logAddingNewFood", "makeNewFood: $novoAlimento!")
             } catch (e: Exception) {
                 Log.i(
                     "logAddingNewFood",
