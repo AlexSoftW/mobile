@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Sallusapp" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="fontFamily">@font/lato</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.Sallusapp" parent="Base.Theme.Sallusapp" />

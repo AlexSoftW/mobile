@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setupView() {
-        binding.buttonHomeIndex.setOnClickListener {
+        binding.buttonHome.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }

@@ -19,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-    private val loginViewModel : LoginViewModel by viewModel()
+    private val loginViewModel: LoginViewModel by viewModel()
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,32 +39,37 @@ class LoginActivity : AppCompatActivity() {
 
 
         binding.buttonLogin.setOnClickListener {
-            Log.d("MeuApp1", "Botão clicado")
-            val textInputEditTextEmail = findViewById<EditText>(R.id.text_field_email)
-            val textInputEditTextSenha = findViewById<EditText>(R.id.text_field_senha)
-
-            val email = textInputEditTextEmail.text.toString()
-            val senha = textInputEditTextSenha.text.toString()
-            Log.d("MeuApp4", "Valor de email: $email")
-            Log.d("MeuApp4", "Valor de senha: $senha")
-
-            val dadosUsuario = UsuarioData(email, senha)
-            loginViewModel.loginUsuario(dadosUsuario)
-            loginViewModel.controle.observe(this){
-                when(it){
-                    1 -> {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-                    2 -> {
-                        val intent = Intent(this, NutritionistActivity::class.java)
-                        startActivity(intent)
-                    }
-                    else -> {
-                        Log.d("Gambeta", "deu ganbeta")
-                    }
-                }
-            }
+            val intent = Intent(this, NutritionistActivity::class.java)
+            startActivity(intent)
         }
+
+//        binding.buttonLogin.setOnClickListener {
+//            Log.d("MeuApp1", "Botão clicado")
+//            val textInputEditTextEmail = findViewById<EditText>(R.id.text_field_email)
+//            val textInputEditTextSenha = findViewById<EditText>(R.id.text_field_senha)
+//
+//            val email = textInputEditTextEmail.text.toString()
+//            val senha = textInputEditTextSenha.text.toString()
+//            Log.d("MeuApp4", "Valor de email: $email")
+//            Log.d("MeuApp4", "Valor de senha: $senha")
+//
+//            val dadosUsuario = UsuarioData(email, senha)
+//            loginViewModel.loginUsuario(dadosUsuario)
+//            loginViewModel.controle.observe(this){
+//                when(it){
+//                    1 -> {
+//                        val intent = Intent(this, MainActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                    2 -> {
+//                        val intent = Intent(this, NutritionistActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                    else -> {
+//                        Log.d("Gambeta", "deu ganbeta")
+//                    }
+//                }
+//            }
+//        }
     }
 }
