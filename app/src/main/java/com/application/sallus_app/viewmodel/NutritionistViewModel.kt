@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
-import java.lang.Exception
+import kotlin.Exception
 
 class NutritionistViewModel : ViewModel() {
 
@@ -15,6 +15,9 @@ class NutritionistViewModel : ViewModel() {
 
     private val _listaNutricionista = MutableLiveData<List<NutritionistData>>()
     val listNutricionista: MutableLiveData<List<NutritionistData>> = _listaNutricionista
+
+    private val _listNutricionistaPorNome = MutableLiveData<List<NutritionistData>>()
+    val listTodosNutricionistaPorNome: MutableLiveData<List<NutritionistData>> = _listNutricionistaPorNome
 
     fun fetchTodosNutricionistas() {
         viewModelScope.launch {
@@ -25,6 +28,21 @@ class NutritionistViewModel : ViewModel() {
                 Log.i(
                     "ERROR_FETCH_NUTRI",
                     "fetchTodosNutri: algo inesperado aconteceu no metodo fetchTodosNutricionistas: $e"
+                )
+            }
+        }
+    }
+
+    fun fetchNutricionistaPorNome(nomeNutricionista: String){
+        viewModelScope.launch{
+            try {
+                val nutricionistaPorNome = repository.apiServiceNutritionist.getNutricionistaPorNome(nomeNutricionista)
+                _listNutricionistaPorNome.postValue(nutricionistaPorNome)
+
+            } catch (e: Exception){
+                Log.i(
+                    "ERROR_FETCH_NUTRI",
+                    "fetchTodosNutri: algo inesperado aconteceu no metodo fetchNutricionistaPorNome: $e"
                 )
             }
         }

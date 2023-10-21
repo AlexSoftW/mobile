@@ -1,8 +1,11 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.databinding.ItemRecyclerViewTodosNutricionistasBinding
 import com.application.sallus_app.model.NutritionistData
@@ -36,10 +39,21 @@ class NutricionistaAdapter() :
     inner class NutricionistaViewHolder(private val binding: ItemRecyclerViewTodosNutricionistasBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+
+
         @SuppressLint("NotifyDataSetChanged")
         fun bind(item: NutritionistData) {
             binding.textviewNamePatientItemTodosNutricionistas.text = item.nome
             binding.textviewTagTelephoneItemTodosNutricionistas.text = item.telefone
+
+            binding.imagebuttonWhatsappItemTodosNutricionistas.setOnClickListener {
+                val link = "https://api.whatsapp.com/send?phone=${item.telefone.trim()}&text=ola"
+
+                val context = binding.root.context
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+
+                context.startActivity(intent)
+            }
 
         }
 

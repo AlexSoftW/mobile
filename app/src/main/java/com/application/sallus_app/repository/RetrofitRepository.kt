@@ -15,10 +15,16 @@ class RetrofitRepository {
 
     private val producao = "https://sallus.sytes.net/api/" //Esse é o IP(MAIN)
 
-    private val test = "http://3.90.254.175:8080/" //Esse é o IP do back-end individual da AWS
+
+//    private val test = "http://54.159.15.141:8080/" //Esse é o IP do back-end individual da AWS
+
+    private val test = "http://3.93.19.76:8080/" //Esse é o IP do back-end individual da AWS
+
+
+
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl(test)
+        .baseUrl(producao)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

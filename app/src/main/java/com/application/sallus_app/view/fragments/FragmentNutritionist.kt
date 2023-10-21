@@ -33,6 +33,14 @@ class FragmentNutritionist : Fragment() {
             adapter.subitList(it)
         }
 
+        // if else para quando clickar no botao de busca do edit text entrar nessa viewmodel
+//        viewmodel.fetchNutricionistaPorNome(binding.searchBarTodosNutricionistas.text.toString())
+//
+//        viewmodel.listTodosNutricionistaPorNome.observe(viewLifecycleOwner){
+//            adapter.subitList(it)
+//        }
+
+
         return binding.root
     }
 }
