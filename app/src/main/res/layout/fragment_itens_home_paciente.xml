@@ -68,6 +68,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/consultar_nutricionistas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -127,6 +128,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/consultar_aliementos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -186,6 +188,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/consultar_rotina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
