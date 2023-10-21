@@ -30,6 +30,14 @@ class LoginActivity : AppCompatActivity() {
         // pedro@oi.com
         // Pedro132
 
+
+//        Entrar na tela de nutricionista sem precisar fazer login para TESTES!!!!!
+//        binding.buttonLogin.setOnClickListener {
+//            val intent = Intent(this, NutritionistActivity::class.java)
+//            startActivity(intent)
+//        }
+
+
         binding.buttonLogin.setOnClickListener {
             Log.d("MeuApp1", "Botão clicado")
             val textInputEditTextEmail = findViewById<EditText>(R.id.text_field_email)

@@ -10,4 +10,7 @@ interface NutritionistService {
 
     @GET("nutricionistas")
     suspend fun getTodosNutricionistas(): List<NutritionistData>
+
+    @GET("nutricionistas/search/{nome}")
+    suspend fun getNutricionistaPorNome(nome: String): List<NutritionistData>
 }
