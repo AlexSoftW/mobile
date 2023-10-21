@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
@@ -32,23 +33,27 @@ class SelectFoodCreateDiaryAdapter() :
         val food = foodList[position]
         holder.bind(food)
 
-        holder.itemView.setOnClickListener {
+        holder.itemView.setBackgroundColor(
+            ContextCompat.getColor(
+                holder.itemView.context,
+                if (food.isSelected) R.color.green_default else R.color.white_100
+            )
+        )
 
-            holder.foodSelected = !holder.foodSelected
+        holder.itemView.setOnClickListener {
+            food.isSelected = !food.isSelected
 
             holder.itemView.setBackgroundColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
-                    if (holder.foodSelected) R.color.green_default else R.color.white_100
+                    if (food.isSelected) R.color.green_default else R.color.white_100
                 )
             )
 
-            if (holder.foodSelected) {
+            if (food.isSelected) {
                 selectedFoods.add(food)
-                Log.i("tagapert", "onBindViewHolder: foiClick $selectedFoods")
             } else {
                 selectedFoods.remove(food)
-                Log.i("tagapert", "onBindViewHolder: foiDesClick $selectedFoods")
             }
 
         }
@@ -62,6 +67,18 @@ class SelectFoodCreateDiaryAdapter() :
     fun submitList(alimentos: List<FoodData>) {
         this.foodList.clear()
         this.foodList.addAll(alimentos)
+
+        for (food in foodList) {
+            food.isSelected = selectedFoods.contains(food)
+        }
+
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun submitListOnlyFood(alimento: FoodData) {
+        this.foodList.clear()
+        this.foodList.add(alimento)
         notifyDataSetChanged()
     }
 

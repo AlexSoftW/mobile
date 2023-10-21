@@ -25,32 +25,43 @@
         app:layout_constraintStart_toStartOf="@id/textview_title_foods"
         app:layout_constraintTop_toBottomOf="@id/textview_title_foods" />
 
-    <TextView
-        android:id="@+id/textview_tag_category_foods"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categoria"
-        android:textSize="@dimen/average_font"
-        app:layout_constraintBottom_toBottomOf="@id/search_bar_foods"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.search.SearchBar
+    <AutoCompleteTextView
         android:id="@+id/search_bar_foods"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/text_search_food_name"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal_scrool_view_foods"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/textview_tag_category_foods"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_foods"
         tools:ignore="VisualLintBounds,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textview_tag_category_foods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/average_margin"
+        android:text="Categoria"
+        android:textSize="@dimen/average_font"
+        app:layout_constraintStart_toStartOf="@id/search_bar_foods"
+        app:layout_constraintTop_toBottomOf="@id/search_bar_foods"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textview_button_limpar_selecao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="limpar seleção"
+        android:textColor="@color/red_default"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_category_foods" />
 
     <HorizontalScrollView
         android:id="@+id/horizontal_scrool_view_foods"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/average_margin"
+        android:layout_marginTop="@dimen/xx_small_margin"
         app:layout_constraintStart_toStartOf="@id/textview_tag_category_foods"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_category_foods">
 
