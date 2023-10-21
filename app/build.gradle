@@ -3,6 +3,15 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+ext {
+    lifecycleVersion = "2.5.1"
+    recyclerViewVersion = "1.3.1"
+    retrofitVersion = "2.9.0"
+    okHttpVersion = "4.9.1"
+    coroutinesVersion = "1.5.1"
+    koinVersion = "3.4.2"
+}
+
 android {
     namespace 'com.application.sallus_app'
     compileSdk 33
@@ -15,6 +24,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    viewBinding {
+        enabled = true
     }
 
     buildTypes {
@@ -41,5 +54,24 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Lifecycle-viewmodel -> integrar o viewModel no ciclo de vida do App
+    // (facilita a preservação de dados de uma lista por exemplo, quando alguma instancia de objeto...
+    // seria recriado novamente após rotacionar a tela).
+    implementation "androidx.lifecycle:lifecycle-viewmodel:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}"
+    // RecyclerView
+
+    implementation "androidx.recyclerview:recyclerview:${recyclerViewVersion}"
+
+    // Retrofit -> biblioteca para consumir REST APIs.
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+
+    // OkHttp -> biblioteca para realizar operações de rede com HTTP.
+    implementation "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+
+    // Koin -> Injeção de dependências.
+    implementation "io.insert-koin:koin-android:${koinVersion}"
 
 }

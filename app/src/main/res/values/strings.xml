@@ -6,7 +6,9 @@
 
     <string name="text_configuration">Configurações</string>
     <string name="text_configuration_senha">Alteração de senha</string>
-    <string name="texto_senha" translatable="false">  A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
+    <string name="texto_senha">A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
+    <string name="selecione_comorbidade">Possui alguma comorbidade? selecione uma (ou mais) opções</string>
+    <string name="info_crn_register">Solicitamos esse dado cadastral, para que possamos validar sua identidade profissional, e que não aja nenhuma fraude em nosso aplicativo. A validação não demora muito. Após terminar o cadastro você recebera um email de aprovação sobre a existência do seu registro na base nacional.</string>
 
     <string name="title_food">Alimentos</string>
     <string name="subtitle_food">Veja a lista completa de alimentos e seus benefícios</string>
@@ -20,7 +22,7 @@
     <string name="text_diabetes">Diabetes</string>
     <string name="text_hypertension">Hipertensão</string>
     <string name="text_cholesterol">Colesterol</string>
-    
+
     <string name="title_add_food">Adicionar alimentos</string>
     <string name="subtitle_add_food">Não encontrou o alimento desejado? cadastre ele na base dados agora mesmo</string>
     <string name="text_food">Alimento</string>
@@ -36,16 +38,23 @@
     <string name="title_food_diary">Diário alimentar</string>
     <string name="sub_title_food_diary">Confirme os alimentos e adicione uma nova rotina para os seus pacientes</string>
 
-
     <string name="title_yours_patients">Seus pacientes</string>
     <string name="subtitle_yours_patients">Veja a lista completa dos seus pacientes e inicie uma consulta</string>
     <string name="text_comorbidity">comorbidades:</string>
     <string name="text_telephone">Telefone:</string>
 
-<!--    HOME/INDEX-->
+    <string name="title_your_nutritionist">Seu Nutricionista</string>
+    <string name="text_email">Email:</string>
+
+    <string name="title_all_nutritionist">Todos os nutricionistas</string>
+    <string name="subtitle_all_nutritionist">Procure um nutricionista para começar sua nova rotina</string>
+
+    <!--    HOME/INDEX-->
     <string name="text_index">Sua rotina e bem-estar começa aqui.</string>
     <string name="text_button_index_home">Começar</string>
     <string name="text_carrosel_home">Profissionais capacitados pronto para atender e entender você.</string>
+    <string name="text_crn">CRN:</string>
+    <string name="text_unbind_nutritionist">Desvincular nutricionista</string>
 
     <string-array name="spinner_option_type_food">
         <item>Carnes</item>
@@ -54,6 +63,12 @@
         <item>Massas</item>
         <item>Verduras</item>
         <item>Legumes</item>
+    </string-array>
+
+    <string-array name="spinner_option_type_hour">
+        <item>Manhã</item>
+        <item>Tarde</item>
+        <item>Noite</item>
     </string-array>
 
 </resources>

@@ -3,7 +3,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/xx_small_margin"
     android:layout_marginTop="@dimen/average_margin">
 
@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/imageview_item_alimento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,8 +25,6 @@
             android:id="@+id/textview_nome_item_alimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/xx_small_margin"
-            android:layout_marginTop="@dimen/x_small_margin"
             android:text="Picanha"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
@@ -37,7 +35,6 @@
             android:id="@+id/textview_tag_indicacao_item_alimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/xx_small_margin"
             android:text="Indicado para:"
             app:layout_constraintStart_toStartOf="@id/textview_nome_item_alimento"
             app:layout_constraintTop_toBottomOf="@id/textview_nome_item_alimento" />
@@ -46,27 +43,45 @@
             android:id="@+id/imageview_icon_diabetes_item_alimento"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:layout_marginStart="@dimen/xx_small_margin"
+            android:layout_marginBottom="@dimen/xx_small_margin"
             android:src="@drawable/ic_diabetes"
-            app:layout_constraintStart_toStartOf="@id/textview_tag_indicacao_item_alimento"
-            app:layout_constraintTop_toBottomOf="@id/textview_tag_indicacao_item_alimento" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_indicacao_item_alimento"
+            app:layout_constraintVertical_bias="0" />
 
         <ImageView
             android:id="@+id/imageview_icon_hipertensao_item_alimento"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="@dimen/xx_small_margin"
+            android:layout_marginBottom="@dimen/xx_small_margin"
             android:src="@drawable/ic_hipertensao"
             app:layout_constraintStart_toEndOf="@id/imageview_icon_diabetes_item_alimento"
-            app:layout_constraintTop_toTopOf="@id/imageview_icon_diabetes_item_alimento" />
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_indicacao_item_alimento" />
 
         <ImageView
             android:id="@+id/imageview_icon_colesterol_item_alimento"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="@dimen/xx_small_margin"
+            android:layout_marginBottom="@dimen/xx_small_margin"
             android:src="@drawable/ic_colesterol"
             app:layout_constraintStart_toEndOf="@id/imageview_icon_hipertensao_item_alimento"
-            app:layout_constraintTop_toTopOf="@id/imageview_icon_hipertensao_item_alimento" />
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_indicacao_item_alimento" />
+
+        <TextView
+            android:id="@+id/textview_alimento_nao_indicado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x_small_margin"
+            android:minHeight="20dp"
+            android:text="nenhum tipo de comorbidade❌"
+            android:textSize="@dimen/x_small_font"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_nome_item_alimento" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

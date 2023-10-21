@@ -1,12 +1,26 @@
 package com.application.sallus_app.view
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import com.application.sallus_app.R
+import androidx.appcompat.app.AppCompatActivity
+import com.application.sallus_app.databinding.ActivityHomeBinding
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastro)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupView()
     }
+
+    fun setupView() {
+        binding.buttonHome.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 }

@@ -42,7 +42,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/imageview_patient_item_yours_patients"
             app:layout_constraintTop_toBottomOf="@id/imageview_patient_item_yours_patients"
-            tools:text="Nome do pacinete" />
+            tools:text="Nome do paciente" />
 
         <ImageView
             android:id="@+id/imageview_gender_patient_item_yours_patients"

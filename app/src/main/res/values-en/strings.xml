@@ -7,6 +7,9 @@
 
     <string name="text_configuration">Configuration</string>
     <string name="text_configuration_senha">Change password</string>
+    <string name="texto_senha">The password must contain:Uppercase letter Lowercase letter Number Special character At least 8 characters</string>
+    <string name="selecione_comorbidade">Do you have any comorbidities? select one (or more) options</string>
+    <string name="info_crn_register">We ask for this registration data so that we can validate your professional identity and ensure that there is no fraud in our application. Validation doesn\'t take long. Once you have finished registering, you will receive an approval email about the existence of your registration in the national database.</string>
 
     <string name="title_food">Foods</string>
     <string name="subtitle_food">See the full list of foods and their benefits</string>
@@ -41,10 +44,18 @@
     <string name="text_comorbidity">comorbidity:</string>
     <string name="text_telephone">Telephone:</string>
 
+    <string name="title_your_nutritionist">Your Nutritionist</string>
+    <string name="text_email">E-mail:</string>
+
+    <string name="title_all_nutritionist">All nutritionist</string>
+    <string name="subtitle_all_nutritionist">Find a nutritionist to start your new routine</string>
+
     <!--    HOME/INDEX-->
     <string name="text_index">Your routine and well-being starts here.</string>
     <string name="text_button_index_home">start</string>
     <string name="text_carrosel_home">Trained professionals ready to serve and understand you.</string>
+    <string name="text_crn">CRN:</string>
+    <string name="text_unbind_nutritionist">Unbind nutritionist</string>
 
     <string-array name="spinner_option_type_food">
         <item>Meat</item>
@@ -54,5 +65,12 @@
         <item>Greenery</item>
         <item>Vegetable</item>
     </string-array>
+
+    <string-array name="spinner_option_type_hour">
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
+    </string-array>
+
 
 </resources>
