@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Navegue pelas opções abaixo:"/>
+            android:text="@string/texto_navegue"/>
     </LinearLayout>
 
 
@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Nutricionistas"
+                    android:text="@string/titulo_card_nutricionista"
                     android:textSize="14dp" />
 
                 <ImageView
@@ -63,7 +63,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Entre em contato com o seu nutricionista, tire dúvidas a qualquer momento."
+                    android:text="@string/texto_card_nutricionista"
                     android:textSize="12dp" />
             </LinearLayout>
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:backgroundTint="@color/red_default"
-                android:text="Consultar"
+                android:text="@string/btn_consultar"
                 android:textSize="15dp"/>
 
         </LinearLayout>
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Alimentos"
+                    android:text="@string/titulo_card_alimentos"
                     android:textSize="14dp" />
 
                 <ImageView
@@ -122,7 +122,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Veja detalhes específicos de cada alimento, além seus benefícios e pripriedades."
+                    android:text="@string/texto_card_alimentos"
                     android:textSize="12dp" />
             </LinearLayout>
 
@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:backgroundTint="@color/red_default"
-                android:text="Consultar"
+                android:text="@string/btn_consultar"
                 android:textSize="15dp"/>
 
         </LinearLayout>
@@ -163,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Sua rotina"
+                    android:text="@string/titulo_card_rotina"
                     android:textSize="14dp" />
 
                 <ImageView
@@ -181,7 +181,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Veja detalhes específicos de cada alimento, além seus benefícios e pripriedades."
+                    android:text="@string/texto_card_rotina"
                     android:textSize="12dp" />
             </LinearLayout>
 

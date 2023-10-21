@@ -71,4 +71,16 @@
         <item>Noite</item>
     </string-array>
 
+    <!--    HOME_PACIENTE-->
+
+    <string name="texto_navegue" translatable="false">Navegue pelas opções abaixo:</string>
+    <string name="btn_consultar" translatable="false">Consultar</string>
+    <string name="titulo_card_nutricionista" translatable="false">Nutricionista</string>
+    <string name="texto_card_nutricionista" translatable="false">Entre em contato com o seu nutricionista, tire dúvidas a qualquer momento.</string>
+    <string name="titulo_card_alimentos" translatable="false">Alimentos</string>
+    <string name="texto_card_alimentos" translatable="false">Veja detalhes específicos de cada alimento, além seus benefícios e pripriedades.</string>
+    <string name="titulo_card_rotina" translatable="false">Sua rotina</string>
+    <string name="texto_card_rotina" translatable="false">Acesse sua rotina alimentar e tenha acesso a um acompanhamento diário e exclusivo da sua alimentação.</string>
+
+
 </resources>
