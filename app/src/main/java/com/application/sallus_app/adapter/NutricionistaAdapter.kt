@@ -47,7 +47,7 @@ class NutricionistaAdapter() :
             binding.textviewTagTelephoneItemTodosNutricionistas.text = item.telefone
 
             binding.imagebuttonWhatsappItemTodosNutricionistas.setOnClickListener {
-                val link = "https://api.whatsapp.com/send?phone=${item.telefone.trim()}&text=ola"
+                val link = "https://api.whatsapp.com/send?phone=55${item.telefone.trim()}&text=ola"
 
                 val context = binding.root.context
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))

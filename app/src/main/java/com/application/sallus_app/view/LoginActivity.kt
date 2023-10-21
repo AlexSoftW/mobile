@@ -32,12 +32,6 @@ class LoginActivity : AppCompatActivity() {
 
 
 //        Entrar na tela de nutricionista sem precisar fazer login para TESTES!!!!!
-//        binding.buttonLogin.setOnClickListener {
-//            val intent = Intent(this, NutritionistActivity::class.java)
-//            startActivity(intent)
-//        }
-
-
         binding.buttonLogin.setOnClickListener {
             val intent = Intent(this, NutritionistActivity::class.java)
             startActivity(intent)
