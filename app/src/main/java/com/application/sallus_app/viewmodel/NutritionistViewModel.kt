@@ -50,6 +50,7 @@ class NutritionistViewModel : ViewModel() {
     }
 
     fun addingNewNutricionista(novoNutri: NutritionistData) {
+        println(novoNutri)
         viewModelScope.launch {
             println(novoNutri)
             try {
