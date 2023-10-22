@@ -6,14 +6,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:layout_marginLeft="20dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start">
+            android:layout_gravity="start"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -224,7 +225,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="30dp"
                 android:backgroundTint="@color/red_default"
-                android:text="proximo" />
+                android:text="Finalizar cadastro" />
 
         </RelativeLayout>
 
