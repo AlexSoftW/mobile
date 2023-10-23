@@ -17,6 +17,7 @@
             android:id="@+id/textview_title_register_routine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
             android:text="@string/title_food_diary"
             android:textSize="@dimen/x_large_font"
             android:textStyle="bold"
