@@ -1,8 +1,10 @@
 package com.application.sallus_app.view
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
@@ -42,23 +44,35 @@ class NutritionistActivity : AppCompatActivity() {
         val fragmentHome = FragmentNutritionist()
         replaceFragmentManager(fragmentHome)
 
+        val redColor = ContextCompat.getColor(this, R.color.red_default)
+
         binding.includeBadgeNutricionista.imagebuttonHome.setOnClickListener {
+            restoreOriginColor()
+            binding.includeBadgeNutricionista.imagebuttonHome.setColorFilter(redColor)
             replaceFragmentManager(FragmentNutritionist())
         }
 
         binding.includeBadgeNutricionista.imagebuttonPatients.setOnClickListener {
+            restoreOriginColor()
+            binding.includeBadgeNutricionista.imagebuttonPatients.setColorFilter(redColor)
             replaceFragmentManager(FragmentYoursPatients())
         }
 
         binding.includeBadgeNutricionista.imagebuttonFood.setOnClickListener {
+            restoreOriginColor()
+            binding.includeBadgeNutricionista.imagebuttonFood.setColorFilter(redColor)
             replaceFragmentManager(FragmentFoods())
         }
 
         binding.includeBadgeNutricionista.imagebuttonAddFood.setOnClickListener {
+            restoreOriginColor()
+            binding.includeBadgeNutricionista.imagebuttonAddFood.setColorFilter(redColor)
             replaceFragmentManager(FragmentAddFood())
         }
 
         binding.includeBadgeNutricionista.imagebuttonAddRoutine.setOnClickListener {
+            restoreOriginColor()
+            binding.includeBadgeNutricionista.imagebuttonAddRoutine.setColorFilter(redColor)
             replaceFragmentManager(FragmentSelectFoodCreateDiary())
         }
 
@@ -76,5 +90,12 @@ class NutritionistActivity : AppCompatActivity() {
         }
     }
 
-
+    fun restoreOriginColor() {
+        val originalColor = ContextCompat.getColor(this, R.color.black_100)
+        binding.includeBadgeNutricionista.imagebuttonHome.setColorFilter(originalColor)
+        binding.includeBadgeNutricionista.imagebuttonPatients.setColorFilter(originalColor)
+        binding.includeBadgeNutricionista.imagebuttonFood.setColorFilter(originalColor)
+        binding.includeBadgeNutricionista.imagebuttonAddFood.setColorFilter(originalColor)
+        binding.includeBadgeNutricionista.imagebuttonAddRoutine.setColorFilter(originalColor)
+    }
 }

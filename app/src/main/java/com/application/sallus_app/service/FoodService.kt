@@ -11,6 +11,12 @@ interface FoodService {
     @GET("alimentos")
     suspend fun getTodosAlimentos(): List<FoodData>
 
+    @GET("alimentos/nome-alimento/{alimentoInformado}")
+    suspend fun getAlimentoPeloNome(@Path("alimentoInformado") alimentoInformado: String): FoodData
+
+    @GET("alimentos/tipo-alimento/{tipo}")
+    suspend fun getAlimentoPorTipo(@Path("tipo") tipo: String): List<FoodData>
+
     @POST("alimentos")
     suspend fun adicionarNovoAlimento(@Body food: FoodData): FoodData
 }

@@ -54,6 +54,13 @@ class FoodAdapter() :
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun submitListOnlyFood(alimento: FoodData) {
+        this.foodList.clear()
+        this.foodList.add(alimento)
+        notifyDataSetChanged()
+    }
+
     inner class FoodViewHolder(private val binding: ItemRecyclerViewFoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(food: FoodData) {

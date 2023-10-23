@@ -11,6 +11,7 @@
         android:id="@+id/textview_title_add_foods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
         android:text="@string/title_add_food"
         android:textSize="@dimen/x_large_font"
         android:textStyle="bold"
