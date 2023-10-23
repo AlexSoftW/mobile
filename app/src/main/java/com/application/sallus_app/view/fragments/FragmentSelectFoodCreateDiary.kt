@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.adapter.SelectFoodCreateDiaryAdapter
@@ -34,13 +35,12 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         return binding.root
     }
 
-
     fun setupView() {
         adapter = SelectFoodCreateDiaryAdapter()
         binding.recyclerViewFood.adapter = adapter
 
         binding.textviewTitleFoods.text = "estou aqui em outra telinha"
-//        binding.buttonCriarRotina.visibility = View.VISIBLE
+        binding.buttonCriarRotina.visibility = View.VISIBLE
 
         binding.buttonCriarRotina.setOnClickListener {
             val bundle = Bundle()
@@ -57,6 +57,8 @@ class FragmentSelectFoodCreateDiary : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+
+        updateButtonState()
     }
 
     private fun setupObservers() {
@@ -165,6 +167,34 @@ class FragmentSelectFoodCreateDiary : Fragment() {
             }
         }
 
+        adapter.buttonStateFoodList.observe(viewLifecycleOwner) {
+            if (it.isEmpty()) {
+                binding.buttonCriarRotina.text = "Selecione pelo menos 1 alimento"
+                binding.buttonCriarRotina.isClickable = false
+            } else {
+                binding.buttonCriarRotina.text = "Criar rotina"
+                binding.buttonCriarRotina.isClickable = true
+            }
+        }
+
+    }
+
+    private fun updateButtonState() {
+        if (adapter.selectedFoods.isEmpty()) {
+            binding.buttonCriarRotina.isClickable = false
+            binding.buttonCriarRotina.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(), R.color.black_100
+                )
+            )
+        } else {
+            binding.buttonCriarRotina.isClickable = true
+            binding.buttonCriarRotina.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(), R.color.green_default
+                )
+            )
+        }
     }
 
     private fun View.hideKeyboard() {

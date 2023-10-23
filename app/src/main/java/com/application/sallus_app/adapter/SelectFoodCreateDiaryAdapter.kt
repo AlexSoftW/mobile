@@ -1,7 +1,6 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +17,7 @@ class SelectFoodCreateDiaryAdapter() :
 
     private val foodList = mutableListOf<FoodData>()
     val selectedFoods = mutableListOf<FoodData>()
+    val buttonStateFoodList = MutableLiveData<List<FoodData>>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -56,6 +56,7 @@ class SelectFoodCreateDiaryAdapter() :
                 selectedFoods.remove(food)
             }
 
+            buttonStateFoodList.value = selectedFoods
         }
     }
 
