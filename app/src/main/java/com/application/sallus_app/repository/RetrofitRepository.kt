@@ -15,7 +15,7 @@ class RetrofitRepository {
 
     private val producao = "https://sallus.sytes.net/api/" //Esse é o IP(MAIN)
 
-    private val test = "http://34.229.226.197:8080/" //Esse é o IP do back-end individual da AWS
+    private val test = "http://3.90.107.67:8080/" //Esse é o IP do back-end individual da AWS
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(test)
