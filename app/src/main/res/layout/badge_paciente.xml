@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:layout_weight="0.20"
         android:backgroundTint="@color/white_100"
-        android:src="@drawable/ic_add_food" />
+        android:src="@drawable/ic_nutricionista" />
 
     <ImageButton
         android:id="@+id/imagebutton_food"
@@ -44,6 +44,6 @@
         android:layout_height="match_parent"
         android:layout_weight="0.20"
         android:backgroundTint="@color/white_100"
-        android:src="@drawable/ic_add_food" />
+        android:src="@drawable/ic_historico" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
