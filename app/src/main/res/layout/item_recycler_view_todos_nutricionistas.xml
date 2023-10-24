@@ -66,9 +66,8 @@
             android:textColor="@color/white_100"
             android:textSize="@dimen/small_font"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/imageview_gender_patient_item_todos_nutricionistas"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageview_gender_patient_item_todos_nutricionistas" />
+            app:layout_constraintBottom_toBottomOf="@id/textview_telephone_patient_item_todos_nutricionistas"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/textview_tag_telephone_item_todos_nutricionistas"
@@ -96,8 +95,8 @@
             android:layout_height="60dp"
             android:backgroundTint="@color/red_default"
             android:src="@drawable/ic_whatsapp"
-            app:layout_constraintEnd_toEndOf="@id/textview_tag_nutritionist_item_todos_nutricionistas"
-            app:layout_constraintTop_toBottomOf="@id/textview_tag_nutritionist_item_todos_nutricionistas"
+            app:layout_constraintBottom_toBottomOf="@id/textview_name_patient_item_todos_nutricionistas"
+            app:layout_constraintEnd_toEndOf="@+id/textview_tag_nutritionist_item_todos_nutricionistas"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

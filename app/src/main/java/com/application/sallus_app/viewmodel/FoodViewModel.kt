@@ -1,23 +1,31 @@
 package com.application.sallus_app.viewmodel
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.repository.RetrofitRepository
+import com.application.sallus_app.repository.SharedPreferencesFoodManager
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 
 // nessa Classe ViewModel, aqui que vai ficar toda a nossa regra de negócio.
 // tudo que for lógica programação(if/else, laço de repetição, etc)
 
-class FoodViewModel : ViewModel() {
+class FoodViewModel(private val context: Context) : ViewModel() {
 
     private val repository = RetrofitRepository()
 
     private val _listaAlimentos = MutableLiveData<List<FoodData>>()
     val listAlimentos: MutableLiveData<List<FoodData>> = _listaAlimentos
+
+    private val _listaAlimentoPorCategoria = MutableLiveData<List<FoodData>>()
+    val listaAlimentoPorCategoria: MutableLiveData<List<FoodData>> = _listaAlimentoPorCategoria
+
+    private val _alimentoInformadoSearchbar = MutableLiveData<FoodData>()
+    val alimentoInformadoSearchbar: MutableLiveData<FoodData> = _alimentoInformadoSearchbar
 
     private val _listaAlimentosCriarRotina = MutableLiveData<List<FoodData>>()
     val listaAlimentosCriarRotina: MutableLiveData<List<FoodData>> = _listaAlimentosCriarRotina
@@ -35,20 +43,59 @@ class FoodViewModel : ViewModel() {
         _listaAlimentosCriarRotina.postValue(currentList)
     }
 
-
     //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData
     //por que os dados sempre vão mudar.
     fun buscarTodosAlimentos() {
         viewModelScope.launch {
             try {
-                val todosAlimentos = repository.apiServiceFood.getTodosAlimentos()
-                _listaAlimentos.postValue(todosAlimentos)
+                val result = repository.apiServiceFood.getTodosAlimentos()
+                _listaAlimentos.value = result
                 Log.i(
                     "logTodosAlimentos",
-                    "fetchTodosAlimentos: lista de todos alimentos: $todosAlimentos"
+                    "fun buscarTodosAlimentos: lista de todos alimentos: $result"
                 )
             } catch (e: Exception) {
-                Log.i("ERROR_FETCH_FOOD", "fetchTodosAlimentos: algo inesperado aconteceu")
+                Log.i("logErrorBuscarTodosAlimentos", "Unknow error.")
+            }
+        }
+    }
+
+    fun buscarAlimentoPeloNome(alimentoInformado: String) {
+        viewModelScope.launch {
+            try {
+                val alimentoInformadoRepository =
+                    repository.apiServiceFood.getAlimentoPeloNome(alimentoInformado)
+
+                _alimentoInformadoSearchbar.postValue(alimentoInformadoRepository)
+                Log.i(
+                    "logAlimentoInformado",
+                    "fetchAlimentoInformado: alimento informado: $alimentoInformadoRepository"
+                )
+            } catch (e: Exception) {
+                Log.i(
+                    "ERROR_FETCH_FOOD_ONLY",
+                    "fun buscarAlimentoPeloNome: algo inesperado aconteceu"
+                )
+            }
+        }
+    }
+
+    fun buscarAlimentosPorTipo(tipo: String) {
+        viewModelScope.launch {
+            try {
+                val tipoDeAlimento =
+                    repository.apiServiceFood.getAlimentoPorTipo(tipo)
+
+                _listaAlimentoPorCategoria.postValue(tipoDeAlimento)
+                Log.i(
+                    "logTipoAlimento",
+                    "fetchTipoAlimento: tipo de alimento: $tipoDeAlimento"
+                )
+            } catch (e: Exception) {
+                Log.i(
+                    "ERROR_FETCH_FOOD_TYPE",
+                    "fun buscarAlimentosPorTipo: algo inesperado aconteceu"
+                )
             }
         }
     }
@@ -61,10 +108,15 @@ class FoodViewModel : ViewModel() {
             } catch (e: Exception) {
                 Log.i(
                     "logAddingNewFood",
-                    "makeNewFood: ocorreu algum erro ao cadastrar novo alimento $e"
+                    "fun cadastrarNovoAlimento: ocorreu algum erro ao cadastrar novo alimento $e"
                 )
             }
         }
+    }
+
+    private fun convertAPIDataToString(data: List<FoodData>): String {
+        val gson = Gson()
+        return gson.toJson(data)
     }
 
 }
