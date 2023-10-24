@@ -122,7 +122,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.imageviewCarnesCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Frango")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -130,7 +130,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.imageviewFrutasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Fruta")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -138,7 +138,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.imageviewGraosCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Grão")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -146,7 +146,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.imageviewMassasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Massas")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -154,7 +154,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.imageviewVerdurasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Verdura")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -162,7 +162,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.imageviewLegumesCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Legume")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }

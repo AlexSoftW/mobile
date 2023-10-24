@@ -40,8 +40,8 @@
 
         <ImageView
             android:id="@+id/imageview_diabetes_item_register_routine"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginStart="@dimen/xx_small_margin"
             android:src="@drawable/ic_diabetes"
             app:layout_constraintBottom_toBottomOf="@id/textview_tag_recommend_item_register_routine"
@@ -49,21 +49,21 @@
 
         <ImageView
             android:id="@+id/imageview_hipertensao_item_register_routine"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginStart="@dimen/xx_small_margin"
             android:src="@drawable/ic_hipertensao"
-            app:layout_constraintStart_toEndOf="@id/imageview_diabetes_item_register_routine"
-            app:layout_constraintTop_toTopOf="@id/imageview_diabetes_item_register_routine" />
+            app:layout_constraintBottom_toBottomOf="@+id/textview_tag_recommend_item_register_routine"
+            app:layout_constraintStart_toEndOf="@id/imageview_diabetes_item_register_routine" />
 
         <ImageView
             android:id="@+id/imageview_colesterol_item_register_routine"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginStart="@dimen/xx_small_margin"
             android:src="@drawable/ic_colesterol"
-            app:layout_constraintStart_toEndOf="@id/imageview_hipertensao_item_register_routine"
-            app:layout_constraintTop_toTopOf="@+id/imageview_hipertensao_item_register_routine" />
+            app:layout_constraintBottom_toBottomOf="@+id/textview_tag_recommend_item_register_routine"
+            app:layout_constraintStart_toEndOf="@id/imageview_hipertensao_item_register_routine" />
 
         <TextView
             android:id="@+id/textview_tag_type_food_item_register_routine"
