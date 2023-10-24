@@ -1,6 +1,7 @@
 package com.application.sallus_app.view
 
 import FragmentDadosPessoais
+import FragmentDadosPessoaisNutri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -35,7 +36,8 @@ class CadastroActivity : AppCompatActivity() {
 //        textInputEditTextGenero = findViewById(R.id.genero)
 
 
-        val primeiroFragment = FragmentDadosPessoais()
+        val primeiroFragment = FragmentDadosPessoaisNutri()
+        //val primeiroFragment = FragmentDadosPessoaisNutri()
         replaceFragmentManager(primeiroFragment)
 
 
