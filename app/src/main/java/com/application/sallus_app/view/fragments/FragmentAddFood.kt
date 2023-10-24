@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class FragmentAddFood : Fragment() {
     private lateinit var binding: FragmentAddFoodBinding
 
-    private val viewModel: FoodViewModel by viewModel()
+    private val foodViewModel: FoodViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +56,7 @@ class FragmentAddFood : Fragment() {
 
             Log.i("dadoAlimento", "cadastrarNovoAlimento: $novoAlimento")
 //
-            viewModel.cadastrarNovoAlimento(novoAlimento)
+            foodViewModel.cadastrarNovoAlimento(novoAlimento)
         }
     }
 }

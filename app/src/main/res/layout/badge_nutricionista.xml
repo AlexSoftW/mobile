@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_gravity="bottom"
+    android:background="@color/white_200"
     android:gravity="center"
     android:orientation="horizontal">
 
@@ -12,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:backgroundTint="@color/white_100"
+        android:backgroundTint="@color/white_200"
         android:src="@drawable/ic_home"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
@@ -21,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:backgroundTint="@color/white_100"
+        android:backgroundTint="@color/white_200"
         android:src="@drawable/ic_patients"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
@@ -30,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:backgroundTint="@color/white_100"
+        android:backgroundTint="@color/white_200"
         android:src="@drawable/ic_food"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
@@ -39,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:backgroundTint="@color/white_100"
+        android:backgroundTint="@color/white_200"
         android:src="@drawable/ic_add_food"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
@@ -48,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:backgroundTint="@color/white_100"
+        android:backgroundTint="@color/white_200"
         android:src="@drawable/ic_routine"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 

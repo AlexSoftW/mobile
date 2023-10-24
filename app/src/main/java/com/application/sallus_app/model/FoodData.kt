@@ -15,5 +15,6 @@ data class FoodData(
     val proteina: Double,
     val carboidrato: Double,
     val gorduraTotal: Double,
-    val calorias: Double?
+    val calorias: Double?,
+    var isSelected: Boolean = false
 )
