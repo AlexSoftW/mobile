@@ -56,13 +56,13 @@ class NutritionistViewModel : ViewModel() {
             try {
                 val response = repository.apiServiceNutritionist.adicionarNutri(novoNutri)
                 Log.i(
-                    "logAddingPaciente",
-                    "makeNewPaciente: paciente cadastrado com sucesso! $novoNutri"
+                    "logAddingNutricionista",
+                    "makeNewNutricionista: Nutricionista cadastrado com sucesso! $novoNutri"
                 )
             } catch (e: java.lang.Exception) {
                 Log.i(
-                    "logAddingNewPaciente",
-                    "makeNewPaciente: ocorreu algum erro ao cadastrar novo paciente $e"
+                    "logAddingNewNutricionista",
+                    "makeNewNutricionista: ocorreu algum erro ao cadastrar novo Nutricionista $e"
                 )
             }
         }
