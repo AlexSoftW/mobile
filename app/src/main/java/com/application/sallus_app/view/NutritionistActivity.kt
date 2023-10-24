@@ -1,19 +1,21 @@
 package com.application.sallus_app.view
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
+import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.view.fragments.FragmentAddFood
 import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.view.fragments.FragmentNutritionist
 import com.application.sallus_app.view.fragments.FragmentSelectFoodCreateDiary
 import com.application.sallus_app.view.fragments.FragmentYoursPatients
 import com.application.sallus_app.viewmodel.NutritionistViewModel
+import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NutritionistActivity : AppCompatActivity() {
@@ -25,6 +27,12 @@ class NutritionistActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNutricionistaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val dadosNutri = intent.getStringExtra("nutricionintDataValue")
+        val dadosNutricionista = tratarNutricionistaJsonToData(dadosNutri!!)
+
+        Log.i("logiDadosNutri", "dados: $dadosNutricionista")
+        binding.includeToolbarPages.textviewNameCustomerToolbarPages.text = dadosNutricionista.nome
 
         setupView()
         setupObservers()
@@ -83,12 +91,11 @@ class NutritionistActivity : AppCompatActivity() {
     }
 
     fun setupObservers() {
+//        val dadosDoNutricionista = loginViewModel.nutricionistaData.value
         nutritionistViewModel.fetchTodosNutricionistas()
 
-        nutritionistViewModel.listNutricionista.observe(this) {
-            binding.includeToolbarPages.textviewNameCustomerToolbarPages.text = it[0].nome
-        }
     }
+
 
     fun restoreOriginColor() {
         val originalColor = ContextCompat.getColor(this, R.color.black_100)
@@ -97,5 +104,12 @@ class NutritionistActivity : AppCompatActivity() {
         binding.includeBadgeNutricionista.imagebuttonFood.setColorFilter(originalColor)
         binding.includeBadgeNutricionista.imagebuttonAddFood.setColorFilter(originalColor)
         binding.includeBadgeNutricionista.imagebuttonAddRoutine.setColorFilter(originalColor)
+    }
+
+    fun tratarNutricionistaJsonToData(nutricionista: String): NutritionistData {
+        val gson = Gson()
+        val nutricionistaData: NutritionistData =
+            gson.fromJson(nutricionista, NutritionistData::class.java)
+        return nutricionistaData
     }
 }

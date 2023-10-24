@@ -46,17 +46,19 @@
             android:id="@+id/textview_list_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lista vazia, volte e adicione pelo menos 1 item"
+            android:text="Lista vazia, volte e adicione pelo menos 1 alimento para criar a rotina alimentar de seu paciente"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/textview_tag_food_register_routine"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_food_register_routine" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_register_routine"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintHeight_max="300dp"
             app:layout_constraintStart_toStartOf="@id/textview_tag_food_register_routine"
-            app:layout_constraintTop_toBottomOf="@id/textview_tag_food_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_list_empty"
             tools:listitem="@layout/item_recycler_view_register_routine" />
 
         <TextView
@@ -202,6 +204,7 @@
             app:layout_constraintTop_toBottomOf="@id/spinner_type_patients_register_routine">
 
             <AutoCompleteTextView
+                android:id="@+id/autoComleteTextView_turno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
@@ -242,6 +245,7 @@
             app:layout_constraintTop_toBottomOf="@id/date_picker_register_routine">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textfield_observacoes_routine"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -251,9 +255,10 @@
             android:id="@+id/button_back_register_routine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:backgroundTint="@color/white_100"
             android:text="@string/text_button_back"
             android:textColor="@color/red_default"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/button_register_routine"
             app:layout_constraintEnd_toEndOf="@id/button_register_routine"
             app:layout_constraintStart_toStartOf="@id/button_register_routine" />

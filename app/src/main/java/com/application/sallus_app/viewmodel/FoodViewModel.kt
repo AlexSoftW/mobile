@@ -10,8 +10,6 @@ import com.application.sallus_app.repository.RetrofitRepository
 import com.application.sallus_app.repository.SharedPreferencesFoodManager
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
-import java.io.IOException
 
 // nessa Classe ViewModel, aqui que vai ficar toda a nossa regra de negócio.
 // tudo que for lógica programação(if/else, laço de repetição, etc)
@@ -20,19 +18,14 @@ class FoodViewModel(private val context: Context) : ViewModel() {
 
     private val repository = RetrofitRepository()
 
-    private val sharedPreferencesFoodManager: SharedPreferencesFoodManager by lazy {
-        SharedPreferencesFoodManager(context)
-    }
-
     private val _listaAlimentos = MutableLiveData<List<FoodData>>()
     val listAlimentos: MutableLiveData<List<FoodData>> = _listaAlimentos
 
+    private val _listaAlimentoPorCategoria = MutableLiveData<List<FoodData>>()
+    val listaAlimentoPorCategoria: MutableLiveData<List<FoodData>> = _listaAlimentoPorCategoria
+
     private val _alimentoInformadoSearchbar = MutableLiveData<FoodData>()
     val alimentoInformadoSearchbar: MutableLiveData<FoodData> = _alimentoInformadoSearchbar
-
-    private val _tipoAlimentoInformadoCategoria = MutableLiveData<List<FoodData>>()
-    val tipoAlimentoInformadoCategoria: MutableLiveData<List<FoodData>> =
-        _tipoAlimentoInformadoCategoria
 
     private val _listaAlimentosCriarRotina = MutableLiveData<List<FoodData>>()
     val listaAlimentosCriarRotina: MutableLiveData<List<FoodData>> = _listaAlimentosCriarRotina
@@ -53,29 +46,16 @@ class FoodViewModel(private val context: Context) : ViewModel() {
     //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData
     //por que os dados sempre vão mudar.
     fun buscarTodosAlimentos() {
-        val sharedPreferencesFoodApiData = sharedPreferencesFoodManager.getAPIData()
-
-        if (sharedPreferencesFoodApiData != null) {
-            val foodList = sharedPreferencesFoodManager.parseAPIData(sharedPreferencesFoodApiData)
-            _listaAlimentos.value = foodList
-        } else {
-            viewModelScope.launch {
-                try {
-                    val result = repository.apiServiceFood.getTodosAlimentos()
-                    val apiData = convertAPIDataToString(result)
-                    sharedPreferencesFoodManager.saveAPIData(apiData)
-                    _listaAlimentos.value = result
-                    Log.i(
-                        "logTodosAlimentos",
-                        "fun buscarTodosAlimentos: lista de todos alimentos: $result"
-                    )
-                } catch (e: IOException) {
-                    Log.i("logErrorBuscarTodosAlimentos", "Connection error.")
-                } catch (e: HttpException) {
-                    Log.i("logErrorBuscarTodosAlimentos", "API error.")
-                } catch (e: Exception) {
-                    Log.i("logErrorBuscarTodosAlimentos", "Unknow error.")
-                }
+        viewModelScope.launch {
+            try {
+                val result = repository.apiServiceFood.getTodosAlimentos()
+                _listaAlimentos.value = result
+                Log.i(
+                    "logTodosAlimentos",
+                    "fun buscarTodosAlimentos: lista de todos alimentos: $result"
+                )
+            } catch (e: Exception) {
+                Log.i("logErrorBuscarTodosAlimentos", "Unknow error.")
             }
         }
     }
@@ -106,7 +86,7 @@ class FoodViewModel(private val context: Context) : ViewModel() {
                 val tipoDeAlimento =
                     repository.apiServiceFood.getAlimentoPorTipo(tipo)
 
-                _tipoAlimentoInformadoCategoria.postValue(tipoDeAlimento)
+                _listaAlimentoPorCategoria.postValue(tipoDeAlimento)
                 Log.i(
                     "logTipoAlimento",
                     "fetchTipoAlimento: tipo de alimento: $tipoDeAlimento"

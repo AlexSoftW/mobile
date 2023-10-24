@@ -2,13 +2,11 @@ package com.application.sallus_app.view.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.adapter.FoodAdapter
 import com.application.sallus_app.databinding.FragmentFoodsBinding
@@ -90,7 +88,7 @@ class FragmentFoods : Fragment() {
         binding.imageviewCarnesCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Frango")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -98,7 +96,7 @@ class FragmentFoods : Fragment() {
         binding.imageviewFrutasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Fruta")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -106,7 +104,7 @@ class FragmentFoods : Fragment() {
         binding.imageviewGraosCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Grão")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -114,7 +112,7 @@ class FragmentFoods : Fragment() {
         binding.imageviewMassasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Massas")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -122,7 +120,7 @@ class FragmentFoods : Fragment() {
         binding.imageviewVerdurasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Verdura")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
@@ -130,7 +128,7 @@ class FragmentFoods : Fragment() {
         binding.imageviewLegumesCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Legume")
-            viewmodel.tipoAlimentoInformadoCategoria.observe(viewLifecycleOwner) {
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
