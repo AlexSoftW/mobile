@@ -34,7 +34,6 @@ class FragmentComorbidade : Fragment(){
     }
 
     override fun onCreateView(
-
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,6 +59,15 @@ class FragmentComorbidade : Fragment(){
                 .addToBackStack(null)
                 .commit()
         }
+
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
         return binding.root
+    }
+
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
     }
 }

@@ -58,6 +58,7 @@ class CreateRoutineAdapter(private val viewModel: FoodViewModel) :
         fun bind(food: FoodData) {
             binding.imageviewFoodItemRegisterRoutine.setImageResource(R.drawable.baseline_circle_24)
             binding.textviewNameFoodItemRegisterRoutine.text = food.nome
+            binding.textviewTagTypeFoodItemRegisterRoutine.text = food.tipo
 
             binding.buttonRemoverAlimentoRegisterRoutine.setOnClickListener {
                 val position = adapterPosition

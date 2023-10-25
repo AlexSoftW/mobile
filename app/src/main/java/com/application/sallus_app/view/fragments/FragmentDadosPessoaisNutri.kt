@@ -46,4 +46,9 @@ class FragmentDadosPessoaisNutri : Fragment() {
 
         return binding.root
     }
+
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
+    }
 }

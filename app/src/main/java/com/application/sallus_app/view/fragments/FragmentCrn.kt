@@ -23,10 +23,10 @@ class FragmentCrn : Fragment() {
             val telefone = args.getString("Telefone")
             val endereco = args.getString("Endereco")
             val genero = args.getString("Genero")
-            bundle.putString("Nome" ,nome)
-            bundle.putString("Telefone" ,telefone)
-            bundle.putString("Endereco" ,endereco)
-            bundle.putString("Genero" ,genero)
+            bundle.putString("Nome", nome)
+            bundle.putString("Telefone", telefone)
+            bundle.putString("Endereco", endereco)
+            bundle.putString("Genero", genero)
 
             Log.d("MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero")
         }
@@ -60,6 +60,15 @@ class FragmentCrn : Fragment() {
                 .commit()
         }
 
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
+
         return binding.root
+    }
+
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
     }
 }

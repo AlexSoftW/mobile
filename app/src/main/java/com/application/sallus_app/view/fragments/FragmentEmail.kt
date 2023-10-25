@@ -20,16 +20,13 @@ class FragmentEmail : Fragment() {
 
     val bundle = Bundle()
 
-
     override fun onCreateView(
-
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
 
     ): View? {
         binding = FragmentCadastroEmailBinding.inflate(inflater, container, false)
-
 
         val args = arguments
         if (args != null) {
@@ -81,7 +78,17 @@ class FragmentEmail : Fragment() {
                     .commit()
             }
         }
+
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
+
         return binding.root
 
+    }
+
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
     }
 }
