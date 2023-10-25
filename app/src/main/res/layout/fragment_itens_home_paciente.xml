@@ -80,7 +80,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/consultar_nutricionistas"
+                    android:id="@+id/btn_nutricionistas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -153,7 +153,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/consultar_aliementos"
+                    android:id="@+id/btn_aliementos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -227,7 +227,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/consultar_rotina"
+                    android:id="@+id/btn_rotina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -242,4 +242,3 @@
 </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
