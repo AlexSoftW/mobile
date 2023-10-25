@@ -53,6 +53,7 @@ class LoginActivity : AppCompatActivity() {
 //                        val json = gson.toJson(loginViewModel.pacienteData.value)
 //                        intent.putExtra("pacienteDataValue", json)
                         startActivity(intent)
+                        finish()
                     }
 
                     2 -> {
@@ -61,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
                         val json = gson.toJson(loginViewModel.nutricionistaData.value)
                         intent.putExtra("nutricionistaDataValue", json)
                         startActivity(intent)
+                        finish()
                     }
 
                     else -> {
