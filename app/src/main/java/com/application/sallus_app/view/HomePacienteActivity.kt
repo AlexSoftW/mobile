@@ -7,16 +7,18 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityLoginBinding
+import com.application.sallus_app.databinding.ActivityPacienteBinding
 import com.application.sallus_app.databinding.FragmentItensHomePacienteBinding
+import com.application.sallus_app.view.fragments.FragmentHomePaciente
 import com.application.sallus_app.view.fragments.FragmentNutritionist
 
 class HomePacienteActivity : AppCompatActivity() {
 
-    private lateinit var binding: FragmentItensHomePacienteBinding
+    private lateinit var binding: ActivityPacienteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentItensHomePacienteBinding.inflate(layoutInflater)
+        binding = ActivityPacienteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -32,15 +34,26 @@ class HomePacienteActivity : AppCompatActivity() {
     }
 
     fun setupView() {
-        val fragmentHome = FragmentNutritionist()
+        val fragmentHome = FragmentHomePaciente()
         replaceFragmentManager(fragmentHome)
 
         val redColor = ContextCompat.getColor(this, R.color.red_default)
 
-        binding.btnNutricionistas.setOnClickListener {
-
+        binding.includeBadgePaciente.imagebuttonHome.setOnClickListener {
+            restoreOriginColor()
+            binding.includeBadgePaciente.imagebuttonHome.setColorFilter(redColor)
+            replaceFragmentManager(FragmentNutritionist())
         }
-
     }
+
+    fun restoreOriginColor() {
+        val originalColor = ContextCompat.getColor(this, R.color.black_100)
+        binding.includeBadgePaciente.imagebuttonHome.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonHistorico.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonFood.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonDiarioAlimentar.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonNutricionista.setColorFilter(originalColor)
+    }
+
 
 }
