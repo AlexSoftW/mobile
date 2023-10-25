@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityPacienteBinding
-import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.view.fragments.FragmentPaciente

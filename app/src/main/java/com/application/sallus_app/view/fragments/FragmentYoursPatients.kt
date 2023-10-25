@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.adapter.NutricionistaAdapter
 import com.application.sallus_app.databinding.FragmentTodosNutricionistaBinding
-import com.application.sallus_app.databinding.FragmentYoursPatientsBinding
 import com.application.sallus_app.viewmodel.NutritionistViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -31,14 +30,6 @@ class FragmentYoursPatients : Fragment() {
         viewmodel.listNutricionista.observe(viewLifecycleOwner) {
             adapter.subitList(it)
         }
-
-        // if else para quando clickar no botao de busca do edit text entrar nessa viewmodel
-//        viewmodel.fetchNutricionistaPorNome(binding.searchBarTodosNutricionistas.text.toString())
-//
-//        viewmodel.listTodosNutricionistaPorNome.observe(viewLifecycleOwner){
-//            adapter.subitList(it)
-//        }
-
 
         return binding.root
     }

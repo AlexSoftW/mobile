@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
-import com.application.sallus_app.databinding.FragmentCadastroBinding
 import com.application.sallus_app.databinding.FragmentCadastroCrnBinding
 
 class FragmentCrn : Fragment() {

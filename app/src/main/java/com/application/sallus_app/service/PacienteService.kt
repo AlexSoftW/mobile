@@ -1,6 +1,5 @@
 package com.application.sallus_app.service
 
-import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.model.PacienteData
 import retrofit2.http.Body
 import retrofit2.http.GET

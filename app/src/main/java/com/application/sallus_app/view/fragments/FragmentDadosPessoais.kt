@@ -1,4 +1,3 @@
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,9 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroBinding
-import com.application.sallus_app.view.LoginActivity
 import com.application.sallus_app.view.fragments.FragmentComorbidade
-import com.application.sallus_app.view.fragments.FragmentEmail
 
 class FragmentDadosPessoais : Fragment() {
     private lateinit var binding: FragmentCadastroBinding
@@ -44,7 +41,6 @@ class FragmentDadosPessoais : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
-
 
         return binding.root
     }

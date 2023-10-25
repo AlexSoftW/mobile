@@ -2,7 +2,6 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:layout_margin="@dimen/xx_small_margin"
@@ -61,7 +60,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_tag_indicacao_item_alimento" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

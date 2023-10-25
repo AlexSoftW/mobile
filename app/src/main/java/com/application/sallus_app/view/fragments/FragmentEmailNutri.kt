@@ -8,12 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
-
 import com.application.sallus_app.databinding.FragmentCadastroEmailBinding
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.viewmodel.NutritionistViewModel
-import com.application.sallus_app.viewmodel.PacienteViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentEmailNutri : Fragment() {

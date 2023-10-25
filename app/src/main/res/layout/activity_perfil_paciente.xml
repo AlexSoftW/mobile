@@ -34,14 +34,14 @@
             android:layout_height="50dp"
             android:background="#8A494949"
             android:gravity="center"
-            tools:text="Alterar imagem"
-            tools:textAlignment="center"
-            tools:textColor="@color/white_100"
-            tools:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/foto" />
+            app:layout_constraintTop_toTopOf="@+id/foto"
+            tools:text="Alterar imagem"
+            tools:textAlignment="center"
+            tools:textColor="@color/white_100"
+            tools:textSize="20sp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -68,9 +68,9 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Ashley Morgan"
-            tools:textSize="@dimen/large_font"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:textSize="@dimen/large_font" />
 
         <TextView
             android:id="@+id/textview_tag_toolbar_pages"
@@ -84,16 +84,6 @@
             app:layout_constraintEnd_toEndOf="@+id/nome_usuario"
             app:layout_constraintStart_toStartOf="@+id/nome_usuario"
             app:layout_constraintTop_toBottomOf="@+id/nome_usuario" />
-
-<!--        <ImageView-->
-<!--            android:id="@+id/textview_tag_toolbar_pages"-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:src="@mipmap/tag_paciente"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/nome_usuario"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/nome_usuario"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/nome_usuario"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/nome_usuario" />-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textFieldNomeCompleto"
@@ -176,12 +166,12 @@
                 android:id="@+id/btn_voltar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Voltar"
-                tools:textAlignment="center"
-                tools:textColor="@color/red_default"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:text="Voltar"
+                tools:textAlignment="center"
+                tools:textColor="@color/red_default" />
 
             <Button
                 android:id="@+id/btn_salvar_alteracao"
@@ -189,9 +179,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/red_default"
+                app:layout_constraintBottom_toBottomOf="parent"
                 tools:text="Salvar alterações"
-                tools:textSize="@dimen/small_font"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                tools:textSize="@dimen/small_font" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
