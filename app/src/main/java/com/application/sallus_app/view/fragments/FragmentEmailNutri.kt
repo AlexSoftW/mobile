@@ -70,7 +70,7 @@ class FragmentEmailNutri : Fragment() {
                     true
                 )
 
-//                viewModel.addingNewNutricionista(nutriData)
+                viewModel.addingNewNutricionista(nutriData)
 
                 val intent = Intent(activity, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
