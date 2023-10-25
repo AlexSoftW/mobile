@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.LoginData
 import com.application.sallus_app.model.NutritionistData
+import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.UsuarioData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
@@ -23,6 +24,9 @@ class LoginViewModel : ViewModel() {
     private val _responseLogin = MutableLiveData<LoginData>()
     var responseLogin: MutableLiveData<LoginData> = _responseLogin
 
+    private val _pacienteData = MutableLiveData<PacienteData>()
+    val pacienteData: MutableLiveData<PacienteData> = _pacienteData
+
     private val _nutricionistaData = MutableLiveData<NutritionistData>()
     val nutricionistaData: MutableLiveData<NutritionistData> = _nutricionistaData
 
@@ -31,12 +35,17 @@ class LoginViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiLoginService.loginPaciente(dadosUsuario)
+//                val responsePaciente =
+//                    repository.apiServicePaciente.getPacientePorId(response.userId)
+//
+//                _pacienteData.postValue(responsePaciente)
                 controle.postValue(1)
             } catch (e: Exception) {
                 try {
                     val response = repository.apiLoginService.loginNutri(dadosUsuario)
                     val responseNutricionista =
                         repository.apiServiceNutritionist.getNutricionistaPorId(response.userId)
+
                     _nutricionistaData.postValue(responseNutricionista)
                     Log.i("logiNutriLogin", "loginNutricionista: $responseNutricionista")
                     controle.postValue(2)

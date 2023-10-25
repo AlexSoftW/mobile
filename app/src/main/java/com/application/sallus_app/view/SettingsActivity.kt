@@ -4,11 +4,8 @@ package com.application.sallus_app.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivitySettingsPacienteBinding
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.view.fragments.FragmentSettingsOptions
 import com.application.sallus_app.viewmodel.SettingsViewModel
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,7 +14,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private val settingsViewModel: SettingsViewModel by viewModel()
     private lateinit var binding: ActivitySettingsPacienteBinding
-    private lateinit var dadosNutricionista : NutritionistData;
+    private lateinit var dadosNutricionista: NutritionistData;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +32,7 @@ class SettingsActivity : AppCompatActivity() {
             activity.finish()
         }
 
-        binding.optionPerfil.setOnClickListener(){
+        binding.optionPerfil.setOnClickListener() {
             val intent = Intent(this, SettingsPerfilPacienteActivity::class.java)
             val gson = Gson()
             val json = gson.toJson(dadosNutricionista)
@@ -43,31 +40,32 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.optionNotificacao.setOnClickListener(){
+        binding.optionNotificacao.setOnClickListener() {
             // ~~
         }
 
-        binding.optionAlterarSenha.setOnClickListener(){
+        binding.optionAlterarSenha.setOnClickListener() {
             val intent = Intent(this, SettingsPasswordActivity::class.java)
             startActivity(intent)
         }
 
-        binding.optionSuporte.setOnClickListener(){
+        binding.optionSuporte.setOnClickListener() {
             val intent = Intent(this, SettingsSuporteActivity::class.java)
             startActivity(intent)
         }
 
-        binding.optionSair.setOnClickListener(){
+        binding.optionSair.setOnClickListener() {
             val intent = Intent(this, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
 
-        binding.btnSair.setOnClickListener(){
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        binding.btnSair.setOnClickListener() {
+            finish()
         }
 
     }
+
     fun tratarNutricionistaJsonToData(nutricionista: String): NutritionistData {
         val gson = Gson()
         val nutricionistaData: NutritionistData =

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
-
 import com.application.sallus_app.databinding.FragmentCadastroEmailBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.viewmodel.PacienteViewModel
@@ -20,16 +19,13 @@ class FragmentEmail : Fragment() {
 
     val bundle = Bundle()
 
-
     override fun onCreateView(
-
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
 
     ): View? {
         binding = FragmentCadastroEmailBinding.inflate(inflater, container, false)
-
 
         val args = arguments
         if (args != null) {
@@ -73,7 +69,6 @@ class FragmentEmail : Fragment() {
 
                 )
 
-
                 viewModel.addingNewPaciente(pacienteData)
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container_cadastro, fragmentDestino)
@@ -81,7 +76,17 @@ class FragmentEmail : Fragment() {
                     .commit()
             }
         }
+
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
+
         return binding.root
 
+    }
+
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
     }
 }

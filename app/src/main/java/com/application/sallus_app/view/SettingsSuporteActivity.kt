@@ -7,9 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.application.sallus_app.databinding.ActivitySettingsSuporteBinding
 
 class SettingsSuporteActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivitySettingsSuporteBinding
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

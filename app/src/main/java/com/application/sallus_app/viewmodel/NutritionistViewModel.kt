@@ -5,10 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
-import kotlin.Exception
 
 class NutritionistViewModel : ViewModel() {
 

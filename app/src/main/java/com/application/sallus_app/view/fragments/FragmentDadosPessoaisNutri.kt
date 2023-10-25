@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroBinding
-import com.application.sallus_app.view.fragments.FragmentComorbidade
 import com.application.sallus_app.view.fragments.FragmentCrn
-import com.application.sallus_app.view.fragments.FragmentEmail
 
 class FragmentDadosPessoaisNutri : Fragment() {
     private lateinit var binding: FragmentCadastroBinding
@@ -45,5 +43,10 @@ class FragmentDadosPessoaisNutri : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
     }
 }

@@ -1,11 +1,9 @@
 package com.application.sallus_app.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.application.sallus_app.R
+import androidx.appcompat.app.AppCompatActivity
 import com.application.sallus_app.databinding.ActivityPerfilPacienteBinding
-import com.application.sallus_app.databinding.ActivitySettingsPacienteBinding
 import com.application.sallus_app.model.NutritionistData
 import com.google.gson.Gson
 

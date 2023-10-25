@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
 import com.application.sallus_app.model.FoodData
-import com.application.sallus_app.view.fragments.FoodDetailsDialogFragment
+import com.application.sallus_app.view.fragments.FragmentFoodDetailsDialog
 import java.util.Locale
 
 // nessa Classe vai ficar o extends Adapter.
@@ -37,7 +37,7 @@ class FoodAdapter() :
             selectedFood = food
             val fragmentManager =
                 (holder.itemView.context as AppCompatActivity).supportFragmentManager
-            val foodModalDialog = FoodDetailsDialogFragment()
+            val foodModalDialog = FragmentFoodDetailsDialog()
             foodModalDialog.setFoodData(food)
             foodModalDialog.show(fragmentManager, "food_dialog")
         }
