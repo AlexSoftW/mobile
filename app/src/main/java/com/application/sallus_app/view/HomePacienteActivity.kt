@@ -22,9 +22,7 @@ class HomePacienteActivity : AppCompatActivity() {
         binding = ActivityPacienteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         setupView()
-
     }
 
     fun replaceFragmentManager(fragment: Fragment) {
