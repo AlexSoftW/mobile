@@ -7,14 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivitySettingsPacienteBinding
+import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.view.fragments.FragmentSettingsOptions
 import com.application.sallus_app.viewmodel.SettingsViewModel
+import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsActivity : AppCompatActivity() {
 
     private val settingsViewModel: SettingsViewModel by viewModel()
     private lateinit var binding: ActivitySettingsPacienteBinding
+    private lateinit var dadosNutricionista : NutritionistData;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,8 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     fun setupView() {
+        val dadosNutri = intent.getStringExtra("nutricionistaDataPerfil")
+        dadosNutricionista = tratarNutricionistaJsonToData(dadosNutri!!)
         val activity = this
 
         binding.includeToolbarSettings.buttonBackToolbarSettings.setOnClickListener {
@@ -32,6 +37,9 @@ class SettingsActivity : AppCompatActivity() {
 
         binding.optionPerfil.setOnClickListener(){
             val intent = Intent(this, SettingsPerfilPacienteActivity::class.java)
+            val gson = Gson()
+            val json = gson.toJson(dadosNutricionista)
+            intent.putExtra("nutricionistaDataPerfil", json)
             startActivity(intent)
         }
 
@@ -59,5 +67,11 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+    fun tratarNutricionistaJsonToData(nutricionista: String): NutritionistData {
+        val gson = Gson()
+        val nutricionistaData: NutritionistData =
+            gson.fromJson(nutricionista, NutritionistData::class.java)
+        return nutricionistaData
     }
 }
