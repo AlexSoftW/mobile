@@ -40,8 +40,14 @@ class PacienteActivity : AppCompatActivity() {
 
         binding.includeToolbarHomePaciente.textviewNameCustomerToolbarPages.text = "Paciente"
 
+        binding.includeToolbarHomePaciente.textviewTagToolbarPages.text = "Paciente"
+
         binding.includeBadgePaciente.imagebuttonHomePaciente.setOnClickListener {
             replaceFragmentManager(FragmentPaciente())
+        }
+
+        binding.includeToolbarHomePaciente.imagebuttonSettingsToolbarPages.setOnClickListener {
+            finish()
         }
 
         binding.includeBadgePaciente.imagebuttonNutritionistPaciente.setOnClickListener {

@@ -18,7 +18,7 @@ class RetrofitRepository {
     private val test = "http://107.22.120.110:8080/" //Esse é o IP do back-end individual da AWS
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl(test)
+        .baseUrl(producao)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
