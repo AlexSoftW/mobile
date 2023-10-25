@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                         val intent = Intent(this, NutritionistActivity::class.java)
                         val gson = Gson()
                         val json = gson.toJson(loginViewModel.nutricionistaData.value)
-                        intent.putExtra("nutricionintDataValue", json)
+                        intent.putExtra("nutricionistaDataValue", json)
                         startActivity(intent)
                     }
 

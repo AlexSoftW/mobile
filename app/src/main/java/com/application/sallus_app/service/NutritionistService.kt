@@ -4,6 +4,7 @@ import com.application.sallus_app.model.NutritionistData
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 
 // nessa Interface é onde vai ficar nossos endpoints personalizados.

@@ -22,14 +22,14 @@ class NutritionistActivity : AppCompatActivity() {
 
     private val nutritionistViewModel: NutritionistViewModel by viewModel()
     private lateinit var binding: ActivityNutricionistaBinding
-
+    private lateinit var dadosNutricionista : NutritionistData;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNutricionistaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val dadosNutri = intent.getStringExtra("nutricionintDataValue")
-        val dadosNutricionista = tratarNutricionistaJsonToData(dadosNutri!!)
+        val dadosNutricionistaEmString = intent.getStringExtra("nutricionistaDataValue")
+        dadosNutricionista = tratarNutricionistaJsonToData(dadosNutricionistaEmString!!)
 
         Log.i("logiDadosNutri", "dados: $dadosNutricionista")
         binding.includeToolbarPages.textviewNameCustomerToolbarPages.text = dadosNutricionista.nome
@@ -86,6 +86,9 @@ class NutritionistActivity : AppCompatActivity() {
 
         binding.includeToolbarPages.imagebuttonSettingsToolbarPages.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
+            val gson = Gson()
+            val json = gson.toJson(dadosNutricionista)
+            intent.putExtra("nutricionistaDataPerfil", json)
             startActivity(intent)
         }
     }
