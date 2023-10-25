@@ -49,11 +49,9 @@ class LoginActivity : AppCompatActivity() {
                 when (it) {
                     1 -> {
                         val intent = Intent(this, PacienteActivity::class.java)
-//                        val gson = Gson()
-//                        val json = gson.toJson(loginViewModel.pacienteData.value)
-//                        intent.putExtra("pacienteDataValue", json)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         startActivity(intent)
-                        finish()
                     }
 
                     2 -> {
@@ -62,7 +60,6 @@ class LoginActivity : AppCompatActivity() {
                         val json = gson.toJson(loginViewModel.nutricionistaData.value)
                         intent.putExtra("nutricionistaDataValue", json)
                         startActivity(intent)
-                        finish()
                     }
 
                     else -> {

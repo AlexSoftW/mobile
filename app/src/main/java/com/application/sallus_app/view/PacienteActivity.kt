@@ -1,5 +1,6 @@
 package com.application.sallus_app.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -47,6 +48,9 @@ class PacienteActivity : AppCompatActivity() {
         }
 
         binding.includeToolbarHomePaciente.imagebuttonSettingsToolbarPages.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
             finish()
         }
 

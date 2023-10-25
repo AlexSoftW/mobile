@@ -1,6 +1,7 @@
 package com.application.sallus_app.view.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroEmailBinding
 import com.application.sallus_app.model.NutritionistData
+import com.application.sallus_app.view.LoginActivity
 import com.application.sallus_app.viewmodel.NutritionistViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -68,12 +70,11 @@ class FragmentEmailNutri : Fragment() {
                     true
                 )
 
+//                viewModel.addingNewNutricionista(nutriData)
 
-                viewModel.addingNewNutricionista(nutriData)
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_cadastro, fragmentDestino)
-                    .addToBackStack(null)
-                    .commit()
+                val intent = Intent(activity, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
             }
         }
 
@@ -82,7 +83,6 @@ class FragmentEmailNutri : Fragment() {
         }
 
         return binding.root
-
     }
 
     fun retornarFragment() {
