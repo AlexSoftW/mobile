@@ -8,6 +8,7 @@
     android:layout_marginEnd="@dimen/large_margin">
 
     <TextView
+        android:layout_marginTop="@dimen/large_margin"
         android:id="@+id/textview_title_todos_nutricionistas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

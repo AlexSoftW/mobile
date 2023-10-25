@@ -5,8 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewTodosNutricionistasBinding
 import com.application.sallus_app.model.NutritionistData
 
@@ -39,15 +39,27 @@ class NutricionistaAdapter() :
     inner class NutricionistaViewHolder(private val binding: ItemRecyclerViewTodosNutricionistasBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-
-
         @SuppressLint("NotifyDataSetChanged")
         fun bind(item: NutritionistData) {
             binding.textviewNamePatientItemTodosNutricionistas.text = item.nome
             binding.textviewTagTelephoneItemTodosNutricionistas.text = item.telefone
 
+            binding.imageviewGenderPatientItemTodosNutricionistas.setImageResource(
+                if (item.genero == "Masculino") {
+                    R.drawable.ic_male_gender
+                } else if (item.genero == "Feminino") {
+                    R.drawable.ic_female_gender
+                } else {
+                    R.drawable.ic_transgender
+                }
+            )
+
             binding.imagebuttonWhatsappItemTodosNutricionistas.setOnClickListener {
-                val link = "https://api.whatsapp.com/send?phone=55${item.telefone.trim()}&text=ola"
+                val link = "https://api.whatsapp.com/send?phone=55${
+                    item.telefone.trim()
+                }&text=Olá ${item.nome}, tudo bem? " +
+                        "vim do aplicativo Salus Well, " +
+                        "e gostaria de ter uma primeira consulta com você."
 
                 val context = binding.root.context
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))

@@ -1,39 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_gravity="bottom"
+    android:background="@color/white_200"
     android:gravity="center"
     android:orientation="horizontal">
 
     <ImageButton
+        android:id="@+id/imagebutton_home_paciente"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_200"
+        android:src="@drawable/ic_home"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_nutritionist_paciente"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_200"
+        android:src="@drawable/ic_patients"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_food_paciente"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_200"
+        android:src="@drawable/ic_food"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_diario_alimentar_patient"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_200"
+        android:src="@drawable/ic_calendar_patient"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:id="@+id/imagebutton_historico_patient"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
-        android:src="@drawable/ic_notification" />
+        android:backgroundTint="@color/white_200"
+        android:src="@drawable/ic_historico"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
