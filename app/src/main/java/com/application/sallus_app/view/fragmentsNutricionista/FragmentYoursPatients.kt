@@ -1,4 +1,4 @@
-package com.application.sallus_app.view.fragments
+package com.application.sallus_app.view.fragmentsNutricionista
 
 import android.os.Bundle
 import android.view.LayoutInflater

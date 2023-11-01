@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentHomePacienteBinding
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatients
 
 class FragmentPaciente : Fragment() {
     private lateinit var binding: FragmentHomePacienteBinding

@@ -43,6 +43,7 @@ class FragmentAddFood : Fragment() {
             val calorias = proteina + carboidrato + gordTotal
 
             val novoAlimento = FoodData(
+                null,
                 nomeAlimento,
                 tipoAlimento,
                 isDiabetes,
@@ -51,7 +52,8 @@ class FragmentAddFood : Fragment() {
                 proteina,
                 carboidrato,
                 gordTotal,
-                calorias
+                calorias,
+                null
             )
 
             Log.i("dadoAlimento", "cadastrarNovoAlimento: $novoAlimento")

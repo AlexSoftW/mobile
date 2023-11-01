@@ -1,4 +1,4 @@
-package com.application.sallus_app.view.fragments
+package com.application.sallus_app.view.fragmentsNutricionista
 
 import android.content.Context
 import android.os.Bundle
@@ -42,23 +42,22 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.textviewTitleFoods.text = "Diário alimentar"
         binding.buttonCriarRotina.visibility = View.VISIBLE
 
-        binding.buttonCriarRotina.setOnClickListener {
-            val bundle = Bundle()
-            val selectedFoods = adapter.selectedFoods
-            val gson = Gson()
-            val json = gson.toJson(selectedFoods)
-            bundle.putString("selectedFoods", json)
+//        binding.buttonCriarRotina.setOnClickListener {
+//            val bundle = Bundle()
+//            val selectedFoods = adapter.selectedFoods
+//            val gson = Gson()
+//            val json = gson.toJson(selectedFoods)
+//            bundle.putString("selectedFoods", json)
+//
+//            val fragment = FragmentCreateRoutine()
+//            fragment.arguments = bundle
+//
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.fragment_container_nutricionista, fragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
 
-            val fragment = FragmentCreateRoutine()
-            fragment.arguments = bundle
-
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_nutricionista, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-
-        updateButtonState()
     }
 
     private fun setupObservers() {
@@ -167,35 +166,8 @@ class FragmentSelectFoodCreateDiary : Fragment() {
             }
         }
 
-        adapter.buttonStateFoodList.observe(viewLifecycleOwner) {
-            if (it.isEmpty()) {
-                binding.buttonCriarRotina.text = "Selecione pelo menos 1 alimento"
-                binding.buttonCriarRotina.isClickable = false
-            } else {
-                binding.buttonCriarRotina.text = "Criar rotina"
-                binding.buttonCriarRotina.isClickable = true
-            }
-        }
-
     }
 
-    private fun updateButtonState() {
-        if (adapter.selectedFoods.isEmpty()) {
-            binding.buttonCriarRotina.isClickable = false
-            binding.buttonCriarRotina.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(), R.color.black_100
-                )
-            )
-        } else {
-            binding.buttonCriarRotina.isClickable = true
-            binding.buttonCriarRotina.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(), R.color.green_default
-                )
-            )
-        }
-    }
 
     private fun View.hideKeyboard() {
         val inputMethodManager =

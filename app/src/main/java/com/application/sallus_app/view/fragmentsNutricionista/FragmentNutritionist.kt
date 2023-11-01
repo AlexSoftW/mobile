@@ -1,4 +1,4 @@
-package com.application.sallus_app.view.fragments
+package com.application.sallus_app.view.fragmentsNutricionista
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentHomeNutricionistaBinding
+import com.application.sallus_app.view.fragments.FragmentAddFood
+import com.application.sallus_app.view.fragments.FragmentFoods
 
 class FragmentNutritionist : Fragment() {
     private lateinit var binding: FragmentHomeNutricionistaBinding
