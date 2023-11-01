@@ -8,6 +8,7 @@
     android:layout_marginTop="@dimen/average_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_card_foods"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.view.fragments.FragmentAddFood
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentAddFood
 import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentNutritionist
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentSelectFoodCreateDiary

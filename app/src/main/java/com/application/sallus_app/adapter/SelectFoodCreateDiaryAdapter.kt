@@ -3,9 +3,11 @@ package com.application.sallus_app.adapter
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
@@ -15,13 +17,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.net.URL
-import java.util.Locale
 
 class SelectFoodCreateDiaryAdapter() :
     RecyclerView.Adapter<SelectFoodCreateDiaryAdapter.SelectFoodCreateDiaryAdapterHolder>() {
 
     private val foodList = mutableListOf<FoodData>()
     private lateinit var bitmapImage: Bitmap
+
+    private val _alimentosSelecionados = mutableSetOf<FoodData>()
+    val alimentosSelecionados: MutableSet<FoodData> = _alimentosSelecionados
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -60,12 +64,19 @@ class SelectFoodCreateDiaryAdapter() :
     inner class SelectFoodCreateDiaryAdapterHolder(private val binding: ItemRecyclerViewFoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        @OptIn(DelicateCoroutinesApi::class)
-        @SuppressLint("NotifyDataSetChanged")
         fun bind(food: FoodData) {
 
+            //Apenas exibir os dados no card
+            exibirInformacoes(food, food.img)
+
+            //Lógica para adicionar os cards após clicar
+            selecionarAlimento(food)
+        }
+
+        @OptIn(DelicateCoroutinesApi::class)
+        private fun exibirInformacoes(food: FoodData, img: String?) {
             GlobalScope.launch(Dispatchers.IO) {
-                if (food.img != null && food.img.startsWith("https")) {
+                if (food.img != null && img!!.startsWith("https")) {
                     val imageUrl = URL(food.img)
                     bitmapImage = BitmapFactory.decodeStream(imageUrl.openStream())
                 } else {
@@ -92,8 +103,40 @@ class SelectFoodCreateDiaryAdapter() :
 
             binding.textviewAlimentoNaoIndicado.visibility =
                 if (!food.diabete && !food.hipertensao && !food.colesterol) View.VISIBLE else View.GONE
+        }
 
+        @SuppressLint("NotifyDataSetChanged")
+        private fun selecionarAlimento(food: FoodData) {
 
+            val isSelected = _alimentosSelecionados.contains(food)
+            val colorGreen = ContextCompat.getColor(binding.root.context, R.color.green_default)
+            val colorWhite = ContextCompat.getColor(binding.root.context, R.color.white_100)
+
+            val backgroundColor = if (isSelected) {
+                colorGreen
+            } else {
+                colorWhite
+            }
+            binding.constraintlayoutCardFoods.setBackgroundColor(backgroundColor)
+
+            //Lógica para adicionar na lista os alimentos selecionados
+            itemView.setOnClickListener {
+                if (isSelected) {
+                    _alimentosSelecionados.remove(food)
+                } else {
+                    _alimentosSelecionados.add(food)
+                }
+
+                val updateBackgroundColor = if (isSelected) {
+                    colorWhite
+                } else {
+                    colorGreen
+                }
+                binding.constraintlayoutCardFoods.setBackgroundColor(updateBackgroundColor)
+
+                Log.i("tagAlimentosSelected", "lista atual: $_alimentosSelecionados")
+                notifyDataSetChanged()
+            }
         }
 
     }

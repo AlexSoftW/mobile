@@ -8,7 +8,7 @@ import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityPacienteBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.view.fragments.FragmentFoods
-import com.application.sallus_app.view.fragments.FragmentPaciente
+import com.application.sallus_app.view.fragmentsPaciente.FragmentPaciente
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatients
 import com.google.gson.Gson
 

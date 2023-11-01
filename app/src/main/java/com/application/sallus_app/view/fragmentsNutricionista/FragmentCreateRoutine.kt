@@ -1,8 +1,7 @@
-package com.application.sallus_app.view.fragments
+package com.application.sallus_app.view.fragmentsNutricionista
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -91,10 +90,20 @@ class FragmentCreateRoutine : Fragment() {
         val selectedFoods = bundle?.getString("selectedFoods")
 
         viewmodelPatient.fetchTodosPacientes()
-        viewmodelFood.tratarAlimentosSelecionados(selectedFoods!!)
+
+        viewmodelFood.converterAlimentosSelecionadoParaArrayList(selectedFoods!!)
+
+        viewmodelPatient.listaTodosPacientes.observe(viewLifecycleOwner) {
+            autoCompleteAdapter.clear()
+
+            it.forEach { paciente ->
+                autoCompleteAdapter.add(paciente.nome)
+            }
+        }
 
         viewmodelFood.listaAlimentosCriarRotina.observe(viewLifecycleOwner) { alimento ->
             adapter.submitList(alimento)
+
             Log.i("alimentList", "alimentos no create routine convertido: $alimento")
 
             val valorTotalCarboidratos = alimento.sumOf { it.carboidrato }
@@ -114,26 +123,8 @@ class FragmentCreateRoutine : Fragment() {
             binding.textviewValueCaloriasRegisterRoutine.text =
                 valorTotalCalorias.toString()
 
-            if (alimento.isEmpty()) {
-                binding.buttonRegisterRoutine.setBackgroundColor(Color.BLUE)
-                binding.buttonRegisterRoutine.text = "Adicione pelo menos 1 alimento antes"
-                binding.buttonRegisterRoutine.isClickable = false
-                binding.recyclerViewRegisterRoutine.visibility = View.INVISIBLE
-                binding.textviewListEmpty.visibility = View.VISIBLE
-            } else {
-                binding.buttonRegisterRoutine.setOnClickListener { btn ->
-                    Log.i("logiButtonTest", "setupObservers: LIBERADO TSUTSU, ${alimento}")
-                }
-            }
         }
 
-        viewmodelPatient.listaTodosPacientes.observe(viewLifecycleOwner) {
-            autoCompleteAdapter.clear()
-
-            it.forEach { paciente ->
-                autoCompleteAdapter.add(paciente.nome)
-            }
-        }
     }
 
     fun retornarFragment() {

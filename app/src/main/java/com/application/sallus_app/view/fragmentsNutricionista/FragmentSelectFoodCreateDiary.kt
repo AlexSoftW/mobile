@@ -2,12 +2,12 @@ package com.application.sallus_app.view.fragmentsNutricionista
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.adapter.SelectFoodCreateDiaryAdapter
@@ -42,22 +42,6 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         binding.textviewTitleFoods.text = "Diário alimentar"
         binding.buttonCriarRotina.visibility = View.VISIBLE
 
-//        binding.buttonCriarRotina.setOnClickListener {
-//            val bundle = Bundle()
-//            val selectedFoods = adapter.selectedFoods
-//            val gson = Gson()
-//            val json = gson.toJson(selectedFoods)
-//            bundle.putString("selectedFoods", json)
-//
-//            val fragment = FragmentCreateRoutine()
-//            fragment.arguments = bundle
-//
-//            parentFragmentManager.beginTransaction()
-//                .replace(R.id.fragment_container_nutricionista, fragment)
-//                .addToBackStack(null)
-//                .commit()
-//        }
-
     }
 
     private fun setupObservers() {
@@ -76,6 +60,12 @@ class FragmentSelectFoodCreateDiary : Fragment() {
             adapter.submitList(it)
         }
 
+        viewmodel.listAlimentos.observe(viewLifecycleOwner) { alimentos ->
+            for (alimento in alimentos) {
+                sugestoesAlimentos.add(alimento.nome)
+            }
+        }
+
         binding.searchBarFoods.setAdapter(adapterSearchbarFoods)
 
         binding.searchBarFoods.setOnItemClickListener { parent, _, position, _ ->
@@ -86,12 +76,6 @@ class FragmentSelectFoodCreateDiary : Fragment() {
 
             viewmodel.alimentoInformadoSearchbar.observe(viewLifecycleOwner) {
                 adapter.submitListOnlyFood(it)
-            }
-        }
-
-        viewmodel.listAlimentos.observe(viewLifecycleOwner) { alimentos ->
-            for (alimento in alimentos) {
-                sugestoesAlimentos.add(alimento.nome)
             }
         }
 
@@ -166,8 +150,28 @@ class FragmentSelectFoodCreateDiary : Fragment() {
             }
         }
 
-    }
+        binding.buttonCriarRotina.setOnClickListener {
+            Log.i(
+                "tagFragmentfood",
+                "alimentos selected fragment: ${adapter.alimentosSelecionados}"
+            )
 
+            val bundle = Bundle()
+            val alimentosSelecionados = adapter.alimentosSelecionados
+            val gson = Gson()
+            val json = gson.toJson(alimentosSelecionados)
+            bundle.putString("selectedFoods", json)
+
+            val fragment = FragmentCreateRoutine()
+            fragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_nutricionista, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+    }
 
     private fun View.hideKeyboard() {
         val inputMethodManager =

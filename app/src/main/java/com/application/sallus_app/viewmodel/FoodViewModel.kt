@@ -29,7 +29,7 @@ class FoodViewModel(private val context: Context) : ViewModel() {
     private val _listaAlimentosCriarRotina = MutableLiveData<List<FoodData>>()
     val listaAlimentosCriarRotina: MutableLiveData<List<FoodData>> = _listaAlimentosCriarRotina
 
-    fun tratarAlimentosSelecionados(listaDeAlimentos: String) {
+    fun converterAlimentosSelecionadoParaArrayList(listaDeAlimentos: String) {
         val gson = Gson()
         val foodData: List<FoodData> =
             gson.fromJson(listaDeAlimentos, Array<FoodData>::class.java).toList()

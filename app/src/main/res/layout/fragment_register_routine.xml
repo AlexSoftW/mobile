@@ -55,6 +55,7 @@
             android:id="@+id/recycler_view_register_routine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xx_small_margin"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintHeight_max="300dp"
             app:layout_constraintStart_toStartOf="@id/textview_tag_food_register_routine"
