@@ -6,7 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface PacienteService {
-
     @GET("clientes")
     suspend fun getTodosPacientes(): List<PacienteData>
     @POST("clientes/cadastrar")

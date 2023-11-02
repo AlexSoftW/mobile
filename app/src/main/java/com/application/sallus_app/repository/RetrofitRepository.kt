@@ -1,5 +1,6 @@
 package com.application.sallus_app.repository
 
+import com.application.sallus_app.model.PerfilData
 import com.application.sallus_app.service.FoodService
 import com.application.sallus_app.service.LoginService
 import com.application.sallus_app.service.NutritionistService
@@ -15,7 +16,7 @@ class RetrofitRepository {
 
     private val producao = "https://sallus.sytes.net/api/" //Esse é o IP(MAIN)
 
-    private val test = "http://54.92.166.27:8080/" //Esse é o IP do back-end individual da AWS
+    private val test = "http://54.91.252.83:8080/" //Esse é o IP do back-end individual da AWS
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(test)

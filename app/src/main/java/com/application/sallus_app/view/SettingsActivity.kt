@@ -4,11 +4,8 @@ package com.application.sallus_app.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivitySettingsPacienteBinding
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.view.fragments.FragmentSettingsOptions
 import com.application.sallus_app.viewmodel.SettingsViewModel
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -36,7 +33,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         binding.optionPerfil.setOnClickListener(){
-            val intent = Intent(this, SettingsPerfilPacienteActivity::class.java)
+            val intent = Intent(this, SettingsPerfilNutricionistActivity::class.java)
             val gson = Gson()
             val json = gson.toJson(dadosNutricionista)
             intent.putExtra("nutricionistaDataPerfil", json)
@@ -49,6 +46,9 @@ class SettingsActivity : AppCompatActivity() {
 
         binding.optionAlterarSenha.setOnClickListener(){
             val intent = Intent(this, SettingsPasswordActivity::class.java)
+            val gson = Gson()
+            val json = gson.toJson(dadosNutricionista)
+            intent.putExtra("nutricionistaDataSenha", json)
             startActivity(intent)
         }
 

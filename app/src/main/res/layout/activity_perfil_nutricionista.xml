@@ -8,9 +8,7 @@
 
     <include
         android:id="@+id/include_toolbar_settings"
-        layout="@layout/toolbar_settings"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        layout="@layout/toolbar_settings" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,10 +32,10 @@
             android:layout_height="50dp"
             android:background="#8A494949"
             android:gravity="center"
-            tools:text="Alterar imagem"
-            tools:textAlignment="center"
-            tools:textColor="@color/white_100"
-            tools:textSize="20sp"
+            android:text="Alterar imagem"
+            android:textAlignment="center"
+            android:textColor="@color/white_100"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,8 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:gravity="center"
-            tools:text="Ashley Morgan"
-            tools:textSize="@dimen/large_font"
+            android:text="Ashley Morgan"
+            android:textSize="@dimen/large_font"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -103,11 +101,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textview_tag_toolbar_pages">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edittext_nome_paciente_settings"
+                android:id="@+id/edittext_nome_completo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                tools:text="Ashley Morgan" />
+                android:text="Ashley Morgan" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,7 +122,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                tools:text="ashley2023@gmail.com" />
+                android:enabled="false"
+                android:text="ashley2023@gmail.com" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,7 +141,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLength="10"
-                tools:text="**********8W" />
+                android:enabled="false"
+                android:text="**********8W" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,8 +160,8 @@
                 android:gravity="end"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Redefinir senha"
-                tools:textColor="@color/red_default" />
+                android:text="Redefinir senha"
+                android:textColor="@color/red_default" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -176,12 +176,13 @@
                 android:id="@+id/btn_voltar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Voltar"
-                tools:textAlignment="center"
-                tools:textColor="@color/red_default"
+                android:text="Voltar"
+                android:textAlignment="center"
+                android:textColor="@color/red_default"
+                app:layout_constraintBottom_toTopOf="@+id/btn_salvar_alteracao"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btn_salvar_alteracao"
@@ -189,8 +190,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/red_default"
-                tools:text="Salvar alterações"
-                tools:textSize="@dimen/small_font"
+                android:text="Salvar alterações"
+                android:textSize="@dimen/small_font"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
