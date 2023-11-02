@@ -1,6 +1,5 @@
 package com.application.sallus_app.viewmodel
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +12,7 @@ import kotlinx.coroutines.launch
 // nessa Classe ViewModel, aqui que vai ficar toda a nossa regra de negócio.
 // tudo que for lógica programação(if/else, laço de repetição, etc)
 
-class FoodViewModel(private val context: Context) : ViewModel() {
+class FoodViewModel : ViewModel() {
 
     private val repository = RetrofitRepository()
 
@@ -26,20 +25,21 @@ class FoodViewModel(private val context: Context) : ViewModel() {
     private val _alimentoInformadoSearchbar = MutableLiveData<FoodData>()
     val alimentoInformadoSearchbar: MutableLiveData<FoodData> = _alimentoInformadoSearchbar
 
-    private val _listaAlimentosCriarRotina = MutableLiveData<List<FoodData>>()
-    val listaAlimentosCriarRotina: MutableLiveData<List<FoodData>> = _listaAlimentosCriarRotina
+    private val _listaAlimentosSelecionadosParaCriarRotina = MutableLiveData<List<FoodData>>()
+    val listaAlimentosSelecionadosParaCriarRotina: MutableLiveData<List<FoodData>> =
+        _listaAlimentosSelecionadosParaCriarRotina
 
     fun converterAlimentosSelecionadoParaArrayList(listaDeAlimentos: String) {
         val gson = Gson()
         val foodData: List<FoodData> =
             gson.fromJson(listaDeAlimentos, Array<FoodData>::class.java).toList()
-        _listaAlimentosCriarRotina.postValue(foodData)
+        _listaAlimentosSelecionadosParaCriarRotina.postValue(foodData)
     }
 
     fun removerAlimentoDaRotina(alimento: FoodData) {
-        val currentList = _listaAlimentosCriarRotina.value.orEmpty().toMutableList()
+        val currentList = _listaAlimentosSelecionadosParaCriarRotina.value.orEmpty().toMutableList()
         currentList.remove(alimento)
-        _listaAlimentosCriarRotina.postValue(currentList)
+        _listaAlimentosSelecionadosParaCriarRotina.postValue(currentList)
     }
 
     //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData

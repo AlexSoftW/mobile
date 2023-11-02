@@ -65,8 +65,8 @@ class FragmentEmail : Fragment() {
                     0,
                     telefone ?: "",
                     false,
-                    true
-
+                    true,
+                    null
                 )
 
                 viewModel.addingNewPaciente(pacienteData)

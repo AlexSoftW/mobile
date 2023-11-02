@@ -14,7 +14,7 @@ import org.koin.dsl.module
 val appModule = module {
     single { SharedPreferencesFoodManager(get()) }
     single { RetrofitRepository() }
-    viewModel { FoodViewModel(get()) }
+    viewModel { FoodViewModel() }
     viewModel { NutritionistViewModel() }
     viewModel { PacienteViewModel() }
     viewModel { LoginViewModel() }
