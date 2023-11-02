@@ -1,0 +1,52 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textview_bottomsheet_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:textSize="@dimen/average_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="aguarde..." />
+
+    <ProgressBar
+        android:id="@+id/progressbar_bottomsheet_loading"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_bottomsheet_loading" />
+
+    <ImageView
+        android:id="@+id/imageview_bottomshet_loading"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/textview_bottomsheet_loading"
+        app:layout_constraintStart_toStartOf="@id/textview_bottomsheet_loading"
+        app:layout_constraintTop_toBottomOf="@id/textview_bottomsheet_loading"
+        tools:src="@drawable/ic_sucess" />
+
+    <Button
+        android:id="@+id/button_bottomsheet_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x_small_margin"
+        android:text="Voltar"
+        android:textColor="@color/red_default"
+        android:textSize="@dimen/small_font"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageview_bottomshet_loading"
+        app:layout_constraintStart_toStartOf="@id/imageview_bottomshet_loading"
+        app:layout_constraintTop_toBottomOf="@id/imageview_bottomshet_loading" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

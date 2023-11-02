@@ -2,6 +2,7 @@ package com.application.sallus_app.di
 
 import com.application.sallus_app.repository.RetrofitRepository
 import com.application.sallus_app.repository.SharedPreferencesFoodManager
+import com.application.sallus_app.viewmodel.DiarioViewModel
 import com.application.sallus_app.viewmodel.LoginViewModel
 import com.application.sallus_app.viewmodel.FoodViewModel
 import com.application.sallus_app.viewmodel.NutritionistViewModel
@@ -14,8 +15,9 @@ import org.koin.dsl.module
 val appModule = module {
     single { SharedPreferencesFoodManager(get()) }
     single { RetrofitRepository() }
+    viewModel { LoginViewModel() }
     viewModel { FoodViewModel() }
     viewModel { NutritionistViewModel() }
     viewModel { PacienteViewModel() }
-    viewModel { LoginViewModel() }
+    viewModel { DiarioViewModel() }
 }

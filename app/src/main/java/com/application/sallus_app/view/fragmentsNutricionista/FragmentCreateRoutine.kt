@@ -3,18 +3,27 @@ package com.application.sallus_app.view.fragmentsNutricionista
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import com.application.sallus_app.R
 import com.application.sallus_app.adapter.CreateRoutineAdapter
 import com.application.sallus_app.databinding.FragmentRegisterRoutineBinding
 import com.application.sallus_app.model.NutritionistData
+import com.application.sallus_app.view.fragments.ModalBottomSheet
+import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
+import com.application.sallus_app.viewmodel.DiarioViewModel
 import com.application.sallus_app.viewmodel.FoodViewModel
 import com.application.sallus_app.viewmodel.PacienteViewModel
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -26,6 +35,7 @@ class FragmentCreateRoutine : Fragment() {
     private lateinit var adapter: CreateRoutineAdapter
     private val viewmodelFood: FoodViewModel by viewModel()
     private val viewmodelPatient: PacienteViewModel by viewModel()
+    private val viewmodelDiary: DiarioViewModel by viewModel()
 
     //dados do nutricionista
     private lateinit var dadosNutricionista: NutritionistData
@@ -34,14 +44,17 @@ class FragmentCreateRoutine : Fragment() {
     private lateinit var autoCompleteAdapter: ArrayAdapter<String>
     private val pacienteIdMap = HashMap<String, String>()
 
+    //bottomsheet
+    private lateinit var modalLoadingBottomSheet: ModalLoadingBottomSheet
+
     //informações dos alimentos para criação da rotina alimentar
-    var descricao: String = ""
+    lateinit var descricao: String
     var qtdCalorias: Double = 0.0
-    var periodo: String = ""
+    lateinit var periodo: String
     var alimentos: String = ""
     var idNutricionista: Long = 0
     var idCliente: Long = 0
-    var dataConsumir: String = ""
+    lateinit var dataConsumir: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,8 +74,13 @@ class FragmentCreateRoutine : Fragment() {
     fun setupView() {
         val intentFromActivity = requireActivity().intent
 
+        modalLoadingBottomSheet = ModalLoadingBottomSheet("Criando rotina alimentar, aguarde...")
+
         val dadosNutricionistaEmString =
             intentFromActivity.getStringExtra("nutricionistaDataValue")
+        dadosNutricionista = tratarNutricionistaJsonToData(dadosNutricionistaEmString!!)
+
+//        val modalBottomSheet = ModalBottomSheet(R.mipmap.food_default)
 
         idNutricionista = dadosNutricionista.id
 
@@ -70,8 +88,6 @@ class FragmentCreateRoutine : Fragment() {
             requireContext(),
             android.R.layout.simple_dropdown_item_1line
         )
-
-        dadosNutricionista = tratarNutricionistaJsonToData(dadosNutricionistaEmString!!)
 
         adapter = CreateRoutineAdapter(viewmodelFood)
 
@@ -88,8 +104,6 @@ class FragmentCreateRoutine : Fragment() {
             }
         }
 
-        periodo = binding.autoComleteTextViewTurno.text.toString()
-
         binding.editTextDatePicker.setOnClickListener {
             val calendar = Calendar.getInstance()
             val currentDate = Calendar.getInstance()
@@ -103,6 +117,13 @@ class FragmentCreateRoutine : Fragment() {
                             "dd/MM/yyyy",
                             Locale.getDefault()
                         ).format(calendar.time)
+
+                        val formatoAmericano = SimpleDateFormat(
+                            "yyyy-MM-dd",
+                            Locale.getDefault()
+                        ).format(calendar.time)
+
+                        dataConsumir = formatoAmericano
                         binding.editTextDatePicker.setText(selectedDate)
                     }
                 },
@@ -111,19 +132,37 @@ class FragmentCreateRoutine : Fragment() {
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).apply {
                 datePicker.minDate = currentDate.timeInMillis
-                Log.i("tagDate", "data: ${currentDate.timeInMillis}")
                 show()
             }
         }
 
-        descricao = binding.textfieldObservacoesRoutine.text.toString()
+        binding.buttonRegisterRoutine.setOnClickListener {
+
+            periodo = binding.autoComleteTextViewTurno.text.toString()
+            descricao = binding.textfieldObservacoesRoutine.text.toString()
+
+//            val novoDiario = DiarioPostData(
+//                descricao,
+//                qtdCalorias,
+//                periodo,
+//                alimentos,
+//                idNutricionista,
+//                idCliente,
+//                dataConsumir
+//            )
+//
+//            viewmodelDiary.cadastrarNovoDiario(novoDiario)
+
+            viewmodelDiary.responseCriarDiarioAlimentar.value = false
+
+            modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
+        }
 
         binding.buttonBackRegisterRoutine.setOnClickListener {
             retornarFragment()
         }
 
     }
-
 
     fun setupObservers() {
         val bundle = arguments
@@ -173,7 +212,19 @@ class FragmentCreateRoutine : Fragment() {
 
             qtdCalorias = valorTotalCalorias
             alimento.forEach { food ->
-                alimentos += "$food, "
+                alimentos += "${food.nome}, "
+            }
+        }
+
+        viewmodelDiary.responseCriarDiarioAlimentar.observe(viewLifecycleOwner) {
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(5000)
+
+                if (it) {
+                    modalLoadingBottomSheet.mostrarMensagemDeSucesso()
+                } else {
+                    modalLoadingBottomSheet.mostrarMensagemDeErro()
+                }
             }
         }
 

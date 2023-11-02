@@ -50,7 +50,7 @@ class NutricionistaAdapter() :
                 } else if (item.genero == "Feminino") {
                     R.drawable.ic_female_gender
                 } else {
-                    R.drawable.ic_transgender
+                    com.google.android.material.R.drawable.navigation_empty_icon
                 }
             )
 
