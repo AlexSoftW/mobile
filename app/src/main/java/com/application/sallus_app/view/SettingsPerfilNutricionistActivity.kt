@@ -24,7 +24,7 @@ class SettingsPerfilNutricionistActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val dadosNutri = intent.getStringExtra("nutricionistaDataSenha")
+        val dadosNutri = intent.getStringExtra("nutricionistaDataPerfil")
         dadosNutricionista = tratarNutricionistaJsonToData(dadosNutri!!)
 
         binding.includeToolbarSettings.textviewToolbarSettings.text = "Perfil"
