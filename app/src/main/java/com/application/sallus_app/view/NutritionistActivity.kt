@@ -52,11 +52,13 @@ class NutritionistActivity : AppCompatActivity() {
         val fragmentHome = FragmentNutritionist()
         replaceFragmentManager(fragmentHome)
 
+        val redColor = ContextCompat.getColor(this, R.color.red_default)
+
+        binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(redColor)
+
         binding.includeToolbarPages.imageviewCustomerToolbarPages.setImageResource(
             R.mipmap.imagem_profile_nutricionista_default
         )
-
-        val redColor = ContextCompat.getColor(this, R.color.red_default)
 
         binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setOnClickListener {
             restoreOriginColor()

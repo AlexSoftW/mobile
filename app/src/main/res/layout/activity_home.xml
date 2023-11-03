@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small_margin"
         android:backgroundTint="@color/red_default"
-        android:drawableEnd="@drawable/arrow_right_home"
+        android:drawableEnd="@drawable/ic_arrow_right_home"
         android:text="@string/text_button_index_home"
         android:textColor="@color/white_100"
         android:textSize="@dimen/large_font"

@@ -24,7 +24,7 @@
             android:id="@+id/foto"
             android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:background="@drawable/foto_redonda"
+            android:background="@mipmap/default_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

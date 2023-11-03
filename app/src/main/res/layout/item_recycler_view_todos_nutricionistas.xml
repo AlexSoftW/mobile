@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/average_margin">
+    android:layout_marginTop="@dimen/average_margin"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -57,32 +58,32 @@
             android:id="@+id/textview_tag_nutritionist_item_todos_nutricionistas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
-            android:layout_marginEnd="@dimen/large_margin"
             android:background="@color/green_default"
             android:gravity="center"
-            android:padding="8dp"
+            android:padding="4dp"
             android:text="@string/text_nutritionist"
             android:textColor="@color/white_100"
             android:textSize="@dimen/small_font"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/textview_telephone_patient_item_todos_nutricionistas"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/textview_name_patient_item_todos_nutricionistas"
+            app:layout_constraintTop_toBottomOf="@id/textview_name_patient_item_todos_nutricionistas" />
 
         <TextView
             android:id="@+id/textview_tag_telephone_item_todos_nutricionistas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/large_margin"
-            android:text="@string/text_telephone"
+            android:text="telefone:"
+            android:textColor="@color/black_200"
             android:textSize="@dimen/small_font"
-            app:layout_constraintStart_toStartOf="@id/textview_name_patient_item_todos_nutricionistas"
-            app:layout_constraintTop_toBottomOf="@id/textview_name_patient_item_todos_nutricionistas" />
+            app:layout_constraintStart_toStartOf="@id/textview_tag_nutritionist_item_todos_nutricionistas"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_nutritionist_item_todos_nutricionistas" />
 
         <TextView
             android:id="@+id/textview_telephone_patient_item_todos_nutricionistas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/xx_small_margin"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/textview_tag_telephone_item_todos_nutricionistas"
@@ -93,10 +94,12 @@
             android:id="@+id/imagebutton_whatsapp_item_todos_nutricionistas"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:backgroundTint="@color/red_default"
+            android:backgroundTint="@color/zapzap_color"
             android:src="@drawable/ic_whatsapp"
-            app:layout_constraintBottom_toBottomOf="@id/textview_name_patient_item_todos_nutricionistas"
-            app:layout_constraintEnd_toEndOf="@+id/textview_tag_nutritionist_item_todos_nutricionistas"
+            app:layout_constraintBottom_toBottomOf="@id/textview_telephone_patient_item_todos_nutricionistas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toEndOf="@id/textview_telephone_patient_item_todos_nutricionistas"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
 import com.application.sallus_app.model.FoodData
-import com.application.sallus_app.view.fragments.FragmentFoodDetailsDialog
+import com.application.sallus_app.view.fragments.ModalFoodDetailsBottomSheet
+import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -30,10 +31,12 @@ class FoodAdapter() :
     private val foodList = mutableListOf<FoodData>()
     private var selectedFood: FoodData? = null
     private lateinit var bitmapImage: Bitmap
+    private lateinit var modalFoodDetailsBottomSheet: ModalFoodDetailsBottomSheet
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemRecyclerViewFoodsBinding.inflate(inflater, parent, false)
+
         return FoodViewHolder(binding)
     }
 
@@ -41,13 +44,24 @@ class FoodAdapter() :
         val food = foodList[position]
         holder.bind(food)
 
+        val fragmentManager = (holder.itemView.context as AppCompatActivity).supportFragmentManager
+
         holder.itemView.setOnClickListener {
-            selectedFood = food
-            val fragmentManager =
-                (holder.itemView.context as AppCompatActivity).supportFragmentManager
-            val foodModalDialog = FragmentFoodDetailsDialog()
-            foodModalDialog.setFoodData(food)
-            foodModalDialog.show(fragmentManager, "food_dialog")
+
+            modalFoodDetailsBottomSheet = ModalFoodDetailsBottomSheet(
+                food.img,
+                food.nome,
+                food.tipo,
+                (food.carboidrato + food.proteina + food.gorduraTotal),
+                food.carboidrato,
+                food.proteina,
+                food.gorduraTotal,
+                food.diabete,
+                food.hipertensao,
+                food.colesterol
+            )
+
+            modalFoodDetailsBottomSheet.show(fragmentManager, ModalFoodDetailsBottomSheet.TAG)
         }
     }
 

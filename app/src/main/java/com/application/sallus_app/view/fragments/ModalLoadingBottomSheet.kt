@@ -43,20 +43,30 @@ class ModalLoadingBottomSheet(private val titulo: String) : BottomSheetDialogFra
         }
     }
 
-    fun mostrarMensagemDeSucesso() {
+    fun mostrarMensagemDeSucesso(message: String) {
         binding.progressbarBottomsheetLoading.visibility = View.GONE
-        binding.textviewBottomsheetLoading.text = "Diário criado com sucesso!"
+        binding.textviewBottomsheetLoading.text = message
         binding.imageviewBottomshetLoading.setImageResource(R.drawable.ic_sucess)
         binding.imageviewBottomshetLoading.visibility = View.VISIBLE
         binding.buttonBottomsheetLoading.visibility = View.VISIBLE
     }
 
-    fun mostrarMensagemDeErro() {
+    fun mostrarMensagemDeErro(message: String) {
         binding.progressbarBottomsheetLoading.visibility = View.GONE
-        binding.textviewBottomsheetLoading.text = "Erro ao criar o diário alimentar!"
+        binding.textviewBottomsheetLoading.text = message
         binding.imageviewBottomshetLoading.setImageResource(R.drawable.ic_failed)
         binding.imageviewBottomshetLoading.visibility = View.VISIBLE
         binding.buttonBottomsheetLoading.visibility = View.VISIBLE
+    }
+
+    fun retornarTelaAlimento() {
+        binding.buttonBottomsheetLoading.setOnClickListener {
+            val fragmentFoods = FragmentFoods()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container_nutricionista, fragmentFoods)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
     }
 
     fun retornarFragment() {

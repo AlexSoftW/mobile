@@ -29,6 +29,8 @@ class FoodViewModel : ViewModel() {
     val listaAlimentosSelecionadosParaCriarRotina: MutableLiveData<List<FoodData>> =
         _listaAlimentosSelecionadosParaCriarRotina
 
+    val responseAdicionarNovoAlimentoBottomSheet = MutableLiveData<Boolean>()
+
     fun converterAlimentosSelecionadoParaArrayList(listaDeAlimentos: String) {
         val gson = Gson()
         val foodData: List<FoodData> =
@@ -49,10 +51,6 @@ class FoodViewModel : ViewModel() {
             try {
                 val result = repository.apiServiceFood.getTodosAlimentos()
                 _listaAlimentos.value = result
-                Log.i(
-                    "logTodosAlimentos",
-                    "fun buscarTodosAlimentos: lista de todos alimentos: $result"
-                )
             } catch (e: Exception) {
                 Log.i("logErrorBuscarTodosAlimentos", "Unknow error.")
             }
@@ -66,10 +64,6 @@ class FoodViewModel : ViewModel() {
                     repository.apiServiceFood.getAlimentoPeloNome(alimentoInformado)
 
                 _alimentoInformadoSearchbar.postValue(alimentoInformadoRepository)
-                Log.i(
-                    "logAlimentoInformado",
-                    "fetchAlimentoInformado: alimento informado: $alimentoInformadoRepository"
-                )
             } catch (e: Exception) {
                 Log.i(
                     "ERROR_FETCH_FOOD_ONLY",
@@ -86,10 +80,6 @@ class FoodViewModel : ViewModel() {
                     repository.apiServiceFood.getAlimentoPorTipo(tipo)
 
                 _listaAlimentoPorCategoria.postValue(tipoDeAlimento)
-                Log.i(
-                    "logTipoAlimento",
-                    "fetchTipoAlimento: tipo de alimento: $tipoDeAlimento"
-                )
             } catch (e: Exception) {
                 Log.i(
                     "ERROR_FETCH_FOOD_TYPE",
@@ -103,8 +93,9 @@ class FoodViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServiceFood.adicionarNovoAlimento(novoAlimento)
-                Log.i("logAddingNewFood", "makeNewFood: $novoAlimento!")
+                responseAdicionarNovoAlimentoBottomSheet.value = true
             } catch (e: Exception) {
+                responseAdicionarNovoAlimentoBottomSheet.value = false
                 Log.i(
                     "logAddingNewFood",
                     "fun cadastrarNovoAlimento: ocorreu algum erro ao cadastrar novo alimento $e"

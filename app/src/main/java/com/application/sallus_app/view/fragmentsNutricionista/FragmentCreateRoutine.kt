@@ -3,18 +3,15 @@ package com.application.sallus_app.view.fragmentsNutricionista
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import com.application.sallus_app.R
 import com.application.sallus_app.adapter.CreateRoutineAdapter
 import com.application.sallus_app.databinding.FragmentRegisterRoutineBinding
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.view.fragments.ModalBottomSheet
 import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
 import com.application.sallus_app.viewmodel.DiarioViewModel
 import com.application.sallus_app.viewmodel.FoodViewModel
@@ -153,7 +150,7 @@ class FragmentCreateRoutine : Fragment() {
 //
 //            viewmodelDiary.cadastrarNovoDiario(novoDiario)
 
-            viewmodelDiary.responseCriarDiarioAlimentar.value = false
+            viewmodelDiary.responseCriarDiarioAlimentarBottomSheet.value = false
 
             modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
         }
@@ -216,14 +213,14 @@ class FragmentCreateRoutine : Fragment() {
             }
         }
 
-        viewmodelDiary.responseCriarDiarioAlimentar.observe(viewLifecycleOwner) {
+        viewmodelDiary.responseCriarDiarioAlimentarBottomSheet.observe(viewLifecycleOwner) {
             CoroutineScope(Dispatchers.Main).launch {
                 delay(5000)
 
                 if (it) {
-                    modalLoadingBottomSheet.mostrarMensagemDeSucesso()
+                    modalLoadingBottomSheet.mostrarMensagemDeSucesso("Rotina alimentar cadastrado com sucesso!")
                 } else {
-                    modalLoadingBottomSheet.mostrarMensagemDeErro()
+                    modalLoadingBottomSheet.mostrarMensagemDeErro("Houve um erro ao cadastrar uma nova rotina!")
                 }
             }
         }

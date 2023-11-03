@@ -17,7 +17,7 @@ class DiarioViewModel : ViewModel() {
     val listaDiariosDoPaciente: MutableLiveData<List<DiarioGetData>> = _listaDiariosDoPaciente
 
     //Variavel LiveData para controlar a exibição do bottomsheet
-    val responseCriarDiarioAlimentar = MutableLiveData<Boolean>()
+    val responseCriarDiarioAlimentarBottomSheet = MutableLiveData<Boolean>()
 
     fun buscarTodosDiariosDoPaciente() {
         viewModelScope.launch {
@@ -34,10 +34,10 @@ class DiarioViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServiceDiary.adicionarNovoDiario(novoDiario)
-                responseCriarDiarioAlimentar.value = true
+                responseCriarDiarioAlimentarBottomSheet.value = true
                 Log.i("logAddingNewDiary", "makeNewDiary: $novoDiario!")
             } catch (e: Exception) {
-                responseCriarDiarioAlimentar.value = false
+                responseCriarDiarioAlimentarBottomSheet.value = false
                 Log.i(
                     "logAddingNewDiary",
                     "fun cadastrarNovoDiario: ocorreu algum erro ao cadastrar novo diario $e"

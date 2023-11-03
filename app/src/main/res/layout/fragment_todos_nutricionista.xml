@@ -8,10 +8,10 @@
     android:layout_marginEnd="@dimen/large_margin">
 
     <TextView
-        android:layout_marginTop="@dimen/large_margin"
         android:id="@+id/textview_title_todos_nutricionistas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
         android:text="@string/title_all_nutritionist"
         android:textSize="@dimen/x_large_font"
         android:textStyle="bold"
@@ -41,6 +41,8 @@
         android:id="@+id/recycler_view_todos_nutricionistas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
