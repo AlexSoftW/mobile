@@ -14,7 +14,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private val settingsViewModel: SettingsViewModel by viewModel()
     private lateinit var binding: ActivitySettingsPacienteBinding
-    private lateinit var dadosNutricionista: NutritionistData;
+    private lateinit var dadosNutricionista : NutritionistData;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,41 +32,42 @@ class SettingsActivity : AppCompatActivity() {
             activity.finish()
         }
 
-        binding.optionPerfil.setOnClickListener() {
-            val intent = Intent(this, SettingsPerfilPacienteActivity::class.java)
+        binding.optionPerfil.setOnClickListener(){
+            val intent = Intent(this, SettingsPerfilNutricionistActivity::class.java)
             val gson = Gson()
             val json = gson.toJson(dadosNutricionista)
             intent.putExtra("nutricionistaDataPerfil", json)
             startActivity(intent)
         }
 
-        binding.optionNotificacao.setOnClickListener() {
+        binding.optionNotificacao.setOnClickListener(){
             // ~~
         }
 
-        binding.optionAlterarSenha.setOnClickListener() {
+        binding.optionAlterarSenha.setOnClickListener(){
             val intent = Intent(this, SettingsPasswordActivity::class.java)
+            val gson = Gson()
+            val json = gson.toJson(dadosNutricionista)
+            intent.putExtra("nutricionistaDataSenha", json)
             startActivity(intent)
         }
 
-        binding.optionSuporte.setOnClickListener() {
+        binding.optionSuporte.setOnClickListener(){
             val intent = Intent(this, SettingsSuporteActivity::class.java)
             startActivity(intent)
         }
 
-        binding.optionSair.setOnClickListener() {
+        binding.optionSair.setOnClickListener(){
             val intent = Intent(this, LoginActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
-            finish()
         }
 
-        binding.btnSair.setOnClickListener() {
-            finish()
+        binding.btnSair.setOnClickListener(){
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
     }
-
     fun tratarNutricionistaJsonToData(nutricionista: String): NutritionistData {
         val gson = Gson()
         val nutricionistaData: NutritionistData =

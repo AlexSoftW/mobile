@@ -1,24 +1,28 @@
 package com.application.sallus_app.view
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.application.sallus_app.databinding.ActivityPerfilPacienteBinding
+import android.os.Bundle
+import android.util.Log
+import android.widget.EditText
+import com.application.sallus_app.R
+import com.application.sallus_app.databinding.ActivityPerfilNutricionistaBinding
 import com.application.sallus_app.model.NutritionistData
+import com.application.sallus_app.model.PerfilData
+import com.application.sallus_app.viewmodel.NutritionistViewModel
 import com.google.gson.Gson
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SettingsPerfilPacienteActivity : AppCompatActivity() {
+class SettingsPerfilNutricionistActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityPerfilPacienteBinding
+    private val nutricionistViewModel: NutritionistViewModel by viewModel()
+    private lateinit var binding: ActivityPerfilNutricionistaBinding
     private lateinit var dadosNutricionista : NutritionistData;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPerfilPacienteBinding.inflate(layoutInflater)
+        binding = ActivityPerfilNutricionistaBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupView()
-    }
 
-    fun setupView(){
 
         val dadosNutri = intent.getStringExtra("nutricionistaDataPerfil")
         dadosNutricionista = tratarNutricionistaJsonToData(dadosNutri!!)
@@ -26,7 +30,7 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
         binding.includeToolbarSettings.textviewToolbarSettings.text = "Perfil"
         binding.nomeUsuario.text = dadosNutricionista.nome
         binding.edittextEmailPacienteSettings.setText(dadosNutricionista.email)
-        binding.edittextNomePacienteSettings.setText(dadosNutricionista.nome)
+        binding.edittextNomeCompleto.setText(dadosNutricionista.nome)
         binding.edittextSenhaPacienteSettings.setText(dadosNutricionista.senha)
 
         val activity = this
@@ -42,6 +46,16 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
             val intent = Intent(this, SettingsPasswordActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnSalvarAlteracao.setOnClickListener {
+            val inputEditTextNome = findViewById<EditText>(R.id.edittext_nome_completo)
+
+            val nome = inputEditTextNome.text.toString()
+            Log.i("CONTENT","NOME: $nome | ID: ${dadosNutricionista.id}")
+            val data = PerfilData(dadosNutricionista.id, nome, dadosNutricionista.avatar)
+            nutricionistViewModel.alterarDadosPerfil(data)
+        }
+
     }
 
     fun tratarNutricionistaJsonToData(nutricionista: String): NutritionistData {

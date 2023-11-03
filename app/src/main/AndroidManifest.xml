@@ -54,7 +54,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".view.SettingsPerfilPacienteActivity"
+            android:name=".view.SettingsPerfilNutricionistActivity"
             android:exported="false" />
 
         <activity
