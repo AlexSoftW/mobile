@@ -1,6 +1,8 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
 import com.application.sallus_app.model.FoodData
-import com.application.sallus_app.view.fragments.FragmentFoodDetailsDialog
+import com.application.sallus_app.view.fragments.ModalFoodDetailsBottomSheet
+import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.net.URL
 import java.util.Locale
 
 // nessa Classe vai ficar o extends Adapter.
@@ -22,10 +30,13 @@ class FoodAdapter() :
 
     private val foodList = mutableListOf<FoodData>()
     private var selectedFood: FoodData? = null
+    private lateinit var bitmapImage: Bitmap
+    private lateinit var modalFoodDetailsBottomSheet: ModalFoodDetailsBottomSheet
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemRecyclerViewFoodsBinding.inflate(inflater, parent, false)
+
         return FoodViewHolder(binding)
     }
 
@@ -33,13 +44,24 @@ class FoodAdapter() :
         val food = foodList[position]
         holder.bind(food)
 
+        val fragmentManager = (holder.itemView.context as AppCompatActivity).supportFragmentManager
+
         holder.itemView.setOnClickListener {
-            selectedFood = food
-            val fragmentManager =
-                (holder.itemView.context as AppCompatActivity).supportFragmentManager
-            val foodModalDialog = FragmentFoodDetailsDialog()
-            foodModalDialog.setFoodData(food)
-            foodModalDialog.show(fragmentManager, "food_dialog")
+
+            modalFoodDetailsBottomSheet = ModalFoodDetailsBottomSheet(
+                food.img,
+                food.nome,
+                food.tipo,
+                (food.carboidrato + food.proteina + food.gorduraTotal),
+                food.carboidrato,
+                food.proteina,
+                food.gorduraTotal,
+                food.diabete,
+                food.hipertensao,
+                food.colesterol
+            )
+
+            modalFoodDetailsBottomSheet.show(fragmentManager, ModalFoodDetailsBottomSheet.TAG)
         }
     }
 
@@ -63,42 +85,38 @@ class FoodAdapter() :
 
     inner class FoodViewHolder(private val binding: ItemRecyclerViewFoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @OptIn(DelicateCoroutinesApi::class)
         fun bind(food: FoodData) {
 
-            binding.imageviewItemAlimento.setImageResource(getImageResource(food.nome))
+            GlobalScope.launch(Dispatchers.IO) {
+                if (food.img != null && food.img.startsWith("https")) {
+                    val imageUrl = URL(food.img)
+                    bitmapImage = BitmapFactory.decodeStream(imageUrl.openStream())
+                } else {
+                    val context = binding.root.context
+                    bitmapImage =
+                        BitmapFactory.decodeResource(context.resources, R.mipmap.food_default)
+                }
+
+                launch(Dispatchers.Main) {
+                    binding.imageviewItemAlimento.setImageBitmap(bitmapImage)
+                }
+            }
 
             binding.textviewNomeItemAlimento.text = food.nome
 
-            if (food.diabete) {
-                binding.imageviewIconDiabetesItemAlimento.visibility = View.VISIBLE
-            } else {
-                binding.imageviewIconDiabetesItemAlimento.visibility = View.GONE
-            }
+            binding.imageviewIconDiabetesItemAlimento.visibility =
+                if (food.diabete) View.VISIBLE else View.GONE
 
-            if (food.colesterol) {
-                binding.imageviewIconColesterolItemAlimento.visibility = View.VISIBLE
-            } else {
-                binding.imageviewIconColesterolItemAlimento.visibility = View.GONE
-            }
+            binding.imageviewIconColesterolItemAlimento.visibility =
+                if (food.colesterol) View.VISIBLE else View.GONE
 
-            if (food.hipertensao) {
-                binding.imageviewIconHipertensaoItemAlimento.visibility = View.VISIBLE
-            } else {
-                binding.imageviewIconHipertensaoItemAlimento.visibility = View.GONE
-            }
+            binding.imageviewIconHipertensaoItemAlimento.visibility =
+                if (food.hipertensao) View.VISIBLE else View.GONE
 
-            if (!food.diabete && !food.hipertensao && !food.colesterol) {
-                binding.textviewAlimentoNaoIndicado.visibility = View.VISIBLE
-            } else {
-                binding.textviewAlimentoNaoIndicado.visibility = View.GONE
-            }
-        }
+            binding.textviewAlimentoNaoIndicado.visibility =
+                if (!food.diabete && !food.hipertensao && !food.colesterol) View.VISIBLE else View.GONE
 
-        private fun getImageResource(foodName: String): Int {
-            return when (foodName.lowercase(Locale.ROOT)) {
-                "picanha" -> R.mipmap.food_default
-                else -> R.mipmap.food_default
-            }
         }
 
     }

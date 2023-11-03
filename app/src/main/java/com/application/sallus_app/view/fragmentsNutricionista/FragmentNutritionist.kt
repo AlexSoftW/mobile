@@ -1,12 +1,14 @@
-package com.application.sallus_app.view.fragments
+package com.application.sallus_app.view.fragmentsNutricionista
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentHomeNutricionistaBinding
+import com.application.sallus_app.view.fragments.FragmentFoods
 
 class FragmentNutritionist : Fragment() {
     private lateinit var binding: FragmentHomeNutricionistaBinding
@@ -23,7 +25,6 @@ class FragmentNutritionist : Fragment() {
     }
 
     private fun setupView() {
-
         binding.buttonCardOneRoutine.setOnClickListener {
             fragmentReplaceManager(FragmentYoursPatients())
         }

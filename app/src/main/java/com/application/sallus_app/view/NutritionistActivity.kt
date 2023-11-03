@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.view.fragments.FragmentAddFood
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentAddFood
 import com.application.sallus_app.view.fragments.FragmentFoods
-import com.application.sallus_app.view.fragments.FragmentNutritionist
-import com.application.sallus_app.view.fragments.FragmentSelectFoodCreateDiary
-import com.application.sallus_app.view.fragments.FragmentYoursPatients
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentNutritionist
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentSelectFoodCreateDiary
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatients
 import com.application.sallus_app.viewmodel.NutritionistViewModel
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -52,11 +52,13 @@ class NutritionistActivity : AppCompatActivity() {
         val fragmentHome = FragmentNutritionist()
         replaceFragmentManager(fragmentHome)
 
+        val redColor = ContextCompat.getColor(this, R.color.red_default)
+
+        binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(redColor)
+
         binding.includeToolbarPages.imageviewCustomerToolbarPages.setImageResource(
             R.mipmap.imagem_profile_nutricionista_default
         )
-
-        val redColor = ContextCompat.getColor(this, R.color.red_default)
 
         binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setOnClickListener {
             restoreOriginColor()

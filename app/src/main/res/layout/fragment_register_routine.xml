@@ -55,6 +55,7 @@
             android:id="@+id/recycler_view_register_routine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xx_small_margin"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintHeight_max="300dp"
             app:layout_constraintStart_toStartOf="@id/textview_tag_food_register_routine"
@@ -218,7 +219,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
-            android:clickable="true"
+            android:clickable="false"
             android:focusable="true"
             android:hint="dd/mm/yyyy"
             app:layout_constraintStart_toStartOf="@id/spinner_type_turn_register_routine"
@@ -229,7 +230,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_calendar"
-                android:inputType="number" />
+                android:editable="false"
+                tools:ignore="Deprecated" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

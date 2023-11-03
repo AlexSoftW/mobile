@@ -7,6 +7,7 @@ package com.application.sallus_app.model
 // elas ajudam a manter o código limpo, legível e eficiente.
 
 data class FoodData(
+    val id: Long?,
     val nome: String,
     val tipo: String,
     val diabete: Boolean,
@@ -16,5 +17,5 @@ data class FoodData(
     val carboidrato: Double,
     val gorduraTotal: Double,
     val calorias: Double?,
-    var isSelected: Boolean = false
+    val img: String?
 )

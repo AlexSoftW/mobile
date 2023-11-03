@@ -1,4 +1,4 @@
-package com.application.sallus_app.view.fragments
+package com.application.sallus_app.view.fragmentsNutricionista
 
 import android.os.Bundle
 import android.util.Log
@@ -8,13 +8,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.databinding.FragmentAddFoodBinding
 import com.application.sallus_app.model.FoodData
+import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
 import com.application.sallus_app.viewmodel.FoodViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentAddFood : Fragment() {
     private lateinit var binding: FragmentAddFoodBinding
 
     private val foodViewModel: FoodViewModel by viewModel()
+
+    private lateinit var modalLoadingBottomSheet: ModalLoadingBottomSheet
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,12 +30,14 @@ class FragmentAddFood : Fragment() {
     ): View? {
         binding = FragmentAddFoodBinding.inflate(inflater, container, false)
 
-        cadastrarNovoAlimento()
+        setupView()
+        setupObservers()
 
         return binding.root
     }
 
-    private fun cadastrarNovoAlimento() {
+    private fun setupView() {
+        modalLoadingBottomSheet = ModalLoadingBottomSheet("Adicionando novo alimento, aguarde...")
 
         binding.buttonCadastrarAlimento.setOnClickListener {
 
@@ -43,6 +52,7 @@ class FragmentAddFood : Fragment() {
             val calorias = proteina + carboidrato + gordTotal
 
             val novoAlimento = FoodData(
+                null,
                 nomeAlimento,
                 tipoAlimento,
                 isDiabetes,
@@ -51,12 +61,32 @@ class FragmentAddFood : Fragment() {
                 proteina,
                 carboidrato,
                 gordTotal,
-                calorias
+                calorias,
+                null
             )
 
             Log.i("dadoAlimento", "cadastrarNovoAlimento: $novoAlimento")
-//
-            foodViewModel.cadastrarNovoAlimento(novoAlimento)
+
+            foodViewModel.responseAdicionarNovoAlimentoBottomSheet.value = false
+
+            modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
+//            foodViewModel.cadastrarNovoAlimento(novoAlimento)
+        }
+    }
+
+    private fun setupObservers() {
+        foodViewModel.responseAdicionarNovoAlimentoBottomSheet.observe(viewLifecycleOwner) {
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(5000)
+
+                if (it) {
+                    modalLoadingBottomSheet.mostrarMensagemDeSucesso("Alimento cadastrado com sucesso!")
+                    modalLoadingBottomSheet.retornarTelaAlimento()
+                } else {
+                    modalLoadingBottomSheet.mostrarMensagemDeErro("Houve um erro ao cadastrar este alimento!")
+                    modalLoadingBottomSheet.retornarTelaAlimento()
+                }
+            }
         }
     }
 }

@@ -1,0 +1,181 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_image_food_bottomsheet_details_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageview_alimento_bottomsheet_details_food"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            tools:src="@mipmap/food_default" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textview_nome_alimento_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/average_margin"
+        android:layout_marginTop="@dimen/large_margin"
+        android:textSize="@dimen/average_font"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/cardview_image_food_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/cardview_image_food_bottomsheet_details_food"
+        tools:text="Picanha" />
+
+    <TextView
+        android:id="@+id/textview_tag_tipo_alimento_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:background="@color/green_default"
+        android:padding="4dp"
+        android:textColor="@color/white_100"
+        app:layout_constraintBottom_toBottomOf="@id/textview_nome_alimento_bottomsheet_details_food"
+        app:layout_constraintStart_toEndOf="@id/textview_nome_alimento_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_nome_alimento_bottomsheet_details_food"
+        tools:text="Carne" />
+
+    <TextView
+        android:id="@+id/textview_tag_qtd_calorias_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/average_margin"
+        android:text="Qtd de calorias:"
+        app:layout_constraintStart_toStartOf="@id/textview_nome_alimento_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/textview_nome_alimento_bottomsheet_details_food" />
+
+    <TextView
+        android:id="@+id/textview_qtd_calorias_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_qtd_calorias_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_qtd_calorias_bottomsheet_details_food"
+        tools:text="1000.0" />
+
+    <TextView
+        android:id="@+id/textview_tag_qtd_carboidratos_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qtd de carboidratos:"
+        app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_calorias_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_calorias_bottomsheet_details_food" />
+
+    <TextView
+        android:id="@+id/textview_qtd_carboidratos_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_qtd_carboidratos_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_qtd_carboidratos_bottomsheet_details_food"
+        tools:text="1000.0" />
+
+    <TextView
+        android:id="@+id/textview_tag_qtd_proteinas_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qtd de proteinas:"
+        app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_carboidratos_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_carboidratos_bottomsheet_details_food" />
+
+    <TextView
+        android:id="@+id/textview_qtd_proteinas_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_qtd_proteinas_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_qtd_proteinas_bottomsheet_details_food"
+        tools:text="1000.0" />
+
+    <TextView
+        android:id="@+id/textview_tag_gordura_total_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gorduras totais:"
+        app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_proteinas_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_proteinas_bottomsheet_details_food" />
+
+    <TextView
+        android:id="@+id/textview_gordura_total_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_gordura_total_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_gordura_total_bottomsheet_details_food"
+        tools:text="1000.0" />
+
+    <TextView
+        android:id="@+id/textview_tag_indicado_diabetes_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="Indicado para diabéticos:"
+        app:layout_constraintStart_toStartOf="@id/textview_tag_gordura_total_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/textview_tag_gordura_total_bottomsheet_details_food" />
+
+    <TextView
+        android:id="@+id/textview_indicado_diabetes_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_indicado_diabetes_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_indicado_diabetes_bottomsheet_details_food"
+        tools:text="Sim" />
+
+    <TextView
+        android:id="@+id/textview_tag_indicado_hipertensao_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Indicado para Hipertensos:"
+        app:layout_constraintStart_toStartOf="@id/textview_tag_indicado_diabetes_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/textview_tag_indicado_diabetes_bottomsheet_details_food" />
+
+    <TextView
+        android:id="@+id/textview_indicado_hipertensao_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_indicado_hipertensao_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_indicado_hipertensao_bottomsheet_details_food"
+        tools:text="Não" />
+
+    <TextView
+        android:id="@+id/textview_tag_indicado_colesterol_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:text="Indicado para quem possuí colesterol:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textview_tag_indicado_hipertensao_bottomsheet_details_food"
+        app:layout_constraintTop_toBottomOf="@id/textview_tag_indicado_hipertensao_bottomsheet_details_food" />
+
+    <TextView
+        android:id="@+id/textview_indicado_colesterol_bottomsheet_details_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_small_margin"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/textview_tag_indicado_colesterol_bottomsheet_details_food"
+        app:layout_constraintTop_toTopOf="@id/textview_tag_indicado_colesterol_bottomsheet_details_food"
+        tools:text="Sim" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

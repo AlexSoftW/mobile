@@ -42,7 +42,7 @@ class NutricionistaAdapter() :
         @SuppressLint("NotifyDataSetChanged")
         fun bind(item: NutritionistData) {
             binding.textviewNamePatientItemTodosNutricionistas.text = item.nome
-            binding.textviewTagTelephoneItemTodosNutricionistas.text = item.telefone
+            binding.textviewTelephonePatientItemTodosNutricionistas.text = item.telefone
 
             binding.imageviewGenderPatientItemTodosNutricionistas.setImageResource(
                 if (item.genero == "Masculino") {
@@ -50,7 +50,7 @@ class NutricionistaAdapter() :
                 } else if (item.genero == "Feminino") {
                     R.drawable.ic_female_gender
                 } else {
-                    R.drawable.ic_transgender
+                    com.google.android.material.R.drawable.navigation_empty_icon
                 }
             )
 

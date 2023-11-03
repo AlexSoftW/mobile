@@ -1,6 +1,6 @@
 package com.application.sallus_app.repository
 
-import com.application.sallus_app.model.PerfilData
+import com.application.sallus_app.service.DiarioService
 import com.application.sallus_app.service.FoodService
 import com.application.sallus_app.service.LoginService
 import com.application.sallus_app.service.NutritionistService
@@ -16,23 +16,27 @@ class RetrofitRepository {
 
     private val producao = "https://sallus.sytes.net/api/" //Esse é o IP(MAIN)
 
-    private val test = "http://54.81.95.224:8080/" //Esse é o IP do back-end individual da AWS
+    private val test = "http://54.159.77.127:8080/" //Esse é o IP do back-end individual da AWS
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(test)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val apiServiceNutritionist: NutritionistService =
-        retrofit.create(NutritionistService::class.java)
+    val apiLoginService: LoginService =
+        retrofit.create(LoginService::class.java)
 
     val apiServiceFood: FoodService =
         retrofit.create(FoodService::class.java)
 
+    val apiServiceNutritionist: NutritionistService =
+        retrofit.create(NutritionistService::class.java)
+
     val apiServicePaciente: PacienteService =
         retrofit.create(PacienteService::class.java)
 
-    val apiLoginService: LoginService =
-        retrofit.create(LoginService::class.java)
+    val apiServiceDiary: DiarioService =
+        retrofit.create(DiarioService::class.java)
+
 
 }

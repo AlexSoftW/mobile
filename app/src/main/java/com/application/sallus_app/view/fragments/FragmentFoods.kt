@@ -63,6 +63,7 @@ class FragmentFoods : Fragment() {
         }
 
         binding.searchBarFoods.setOnItemClickListener { parent, _, position, _ ->
+
             val selectedFood = parent.getItemAtPosition(position) as String
             viewmodel.buscarAlimentoPeloNome(selectedFood)
 
@@ -71,12 +72,10 @@ class FragmentFoods : Fragment() {
             viewmodel.alimentoInformadoSearchbar.observe(viewLifecycleOwner) {
                 adapter.submitListOnlyFood(it)
             }
-
             binding.searchBarFoods.hideKeyboard()
         }
 
         binding.textviewButtonLimparSelecao.setOnClickListener {
-
             binding.textviewButtonLimparSelecao.visibility = View.GONE
             binding.searchBarFoods.setText("")
 

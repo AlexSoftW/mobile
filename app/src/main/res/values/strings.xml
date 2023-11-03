@@ -71,4 +71,10 @@
         <item>Noite</item>
     </string-array>
 
+    <string-array name="spinner_option_gender">
+        <item>Masculino</item>
+        <item>Feminino</item>
+        <item>Prefiro não escolher</item>
+    </string-array>
+
 </resources>
