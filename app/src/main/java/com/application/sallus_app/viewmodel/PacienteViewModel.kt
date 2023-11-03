@@ -21,6 +21,10 @@ class PacienteViewModel : ViewModel() {
     val listaTodosPacientesComVinculoNutricionista: MutableLiveData<List<PacienteDetailsData>> =
         _listaTodosPacientesComVinculoNutricionista
 
+    private val _pacienteInformadoSearchBar = MutableLiveData<List<PacienteDetailsData>>()
+    val pacienteInformadoSearchBar: MutableLiveData<List<PacienteDetailsData>> =
+        _pacienteInformadoSearchBar
+
 //    fun fetchTodosPacientes() {
 //        viewModelScope.launch {
 //            try {
@@ -71,6 +75,22 @@ class PacienteViewModel : ViewModel() {
                 Log.i(
                     "ERROR_FETCH_PATIENT",
                     "fetchTodosPacientesComVinculoNutricionista: algo inesperado aconteceu"
+                )
+            }
+        }
+    }
+
+    fun buscarPacientePeloNome(nome: String) {
+        viewModelScope.launch {
+            try {
+                val pacienteinformadoRepository =
+                    repository.apiServicePaciente.getPacientePorNome(nome)
+
+                _pacienteInformadoSearchBar.postValue(pacienteinformadoRepository)
+            } catch (e: Exception) {
+                Log.i(
+                    "ERROR_FETCH_PATIENT_ONLY",
+                    "fun buscarPacientePeloNome: algo inesperado aconteceu"
                 )
             }
         }

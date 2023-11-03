@@ -40,14 +40,14 @@ class NutricionistaAdapter() :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("NotifyDataSetChanged")
-        fun bind(item: NutritionistData) {
-            binding.textviewNamePatientItemTodosNutricionistas.text = item.nome
-            binding.textviewTelephonePatientItemTodosNutricionistas.text = item.telefone
+        fun bind(nutricionista: NutritionistData) {
+            binding.textviewNamePatientItemTodosNutricionistas.text = nutricionista.nome
+            binding.textviewTelephonePatientItemTodosNutricionistas.text = nutricionista.telefone
 
             binding.imageviewGenderPatientItemTodosNutricionistas.setImageResource(
-                if (item.genero == "Masculino") {
+                if (nutricionista.genero == "Masculino") {
                     R.drawable.ic_male_gender
-                } else if (item.genero == "Feminino") {
+                } else if (nutricionista.genero == "Feminino") {
                     R.drawable.ic_female_gender
                 } else {
                     com.google.android.material.R.drawable.navigation_empty_icon
@@ -56,8 +56,8 @@ class NutricionistaAdapter() :
 
             binding.imagebuttonWhatsappItemTodosNutricionistas.setOnClickListener {
                 val link = "https://api.whatsapp.com/send?phone=55${
-                    item.telefone.trim()
-                }&text=Olá ${item.nome}, tudo bem? " +
+                    nutricionista.telefone.trim()
+                }&text=Olá ${nutricionista.nome}, tudo bem? " +
                         "vim do aplicativo Salus Well, " +
                         "e gostaria de ter uma primeira consulta com você."
 

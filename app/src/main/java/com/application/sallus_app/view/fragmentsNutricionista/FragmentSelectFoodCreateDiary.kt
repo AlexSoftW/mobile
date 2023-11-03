@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.adapter.SelectFoodCreateDiaryAdapter
@@ -45,6 +46,9 @@ class FragmentSelectFoodCreateDiary : Fragment() {
     }
 
     private fun setupObservers() {
+
+        val colorRed = ContextCompat.getColor(binding.root.context, R.color.red_default)
+        val colorGrey = ContextCompat.getColor(binding.root.context, R.color.grey_disabled)
 
         val sugestoesAlimentos = mutableListOf<String>()
 
@@ -151,13 +155,10 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         }
 
         binding.buttonCriarRotina.setOnClickListener {
-            Log.i(
-                "tagFragmentfood",
-                "alimentos selected fragment: ${adapter.alimentosSelecionados}"
-            )
+
+            val alimentosSelecionados = adapter.alimentosSelecionados
 
             val bundle = Bundle()
-            val alimentosSelecionados = adapter.alimentosSelecionados
             val gson = Gson()
             val json = gson.toJson(alimentosSelecionados)
             bundle.putString("selectedFoods", json)
@@ -169,6 +170,19 @@ class FragmentSelectFoodCreateDiary : Fragment() {
                 .replace(R.id.fragment_container_nutricionista, fragment)
                 .addToBackStack(null)
                 .commit()
+        }
+
+        adapter.validacaoBotaoCriarRotina.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.buttonCriarRotina.isClickable = true
+                binding.buttonCriarRotina.setBackgroundColor(colorRed)
+                binding.buttonCriarRotina.text = getString(R.string.text_create_routine)
+            } else {
+                binding.buttonCriarRotina.isClickable = false
+                binding.buttonCriarRotina.setBackgroundColor(colorGrey)
+                binding.buttonCriarRotina.text =
+                    getString(R.string.text_validacao_botao_criar_rotina)
+            }
         }
 
     }

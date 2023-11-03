@@ -26,35 +26,84 @@
         app:layout_constraintStart_toStartOf="@id/textview_title_yours_patients"
         app:layout_constraintTop_toBottomOf="@id/textview_title_yours_patients" />
 
-    <com.google.android.material.search.SearchBar
+    <AutoCompleteTextView
         android:id="@+id/search_bar_yours_patients"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-1dp"
+        android:layout_marginTop="@dimen/xx_small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:background="@drawable/border_search_input"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/xx_small_margin"
         android:hint="@string/text_search_food_name"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        android:textColorHint="@color/black_200"
+        app:layout_constraintEnd_toStartOf="@id/textview_button_limpar_selecao_yours_patients"
         app:layout_constraintStart_toStartOf="@id/textview_subtitle_yours_patients"
         app:layout_constraintTop_toBottomOf="@id/textview_subtitle_yours_patients"
         tools:ignore="VisualLintBounds,SpeakableTextPresentCheck" />
 
-    <include
-        android:id="@+id/include_comorbidades_legends_fragment_yours_patients"
-        layout="@layout/layout_comorbidades_legendas"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textview_button_limpar_selecao_yours_patients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="limpar seleção"
+        android:textColor="@color/red_default"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar_yours_patients"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/search_bar_yours_patients" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_your_patients"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
+        android:visibility="gone"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar_yours_patients" />
+        app:layout_constraintTop_toBottomOf="@id/search_bar_yours_patients">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_100"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/green_default" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/average_margin"
+                android:text="Você não possuí nenhum pacientes no momento."
+                android:textAlignment="center"
+                android:textSize="@dimen/large_font" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@mipmap/image_nutritionist_patients" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_yours_patients"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/include_comorbidades_legends_fragment_yours_patients"
+        app:layout_constraintTop_toBottomOf="@id/search_bar_yours_patients"
         tools:listitem="@layout/item_recycler_view_yours_patients" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
