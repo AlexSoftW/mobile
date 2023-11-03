@@ -28,9 +28,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".view.PacienteActivity"
+            android:exported="false" />
+
         <activity
             android:name=".view.LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".view.NutritionistActivity"
             android:exported="false" />

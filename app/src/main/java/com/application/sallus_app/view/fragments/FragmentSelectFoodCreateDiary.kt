@@ -39,7 +39,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
         adapter = SelectFoodCreateDiaryAdapter()
         binding.recyclerViewFood.adapter = adapter
 
-        binding.textviewTitleFoods.text = "estou aqui em outra telinha"
+        binding.textviewTitleFoods.text = "Diário alimentar"
         binding.buttonCriarRotina.visibility = View.VISIBLE
 
         binding.buttonCriarRotina.setOnClickListener {

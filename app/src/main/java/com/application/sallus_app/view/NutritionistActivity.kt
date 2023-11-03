@@ -22,7 +22,7 @@ class NutritionistActivity : AppCompatActivity() {
 
     private val nutritionistViewModel: NutritionistViewModel by viewModel()
     private lateinit var binding: ActivityNutricionistaBinding
-    private lateinit var dadosNutricionista : NutritionistData;
+    private lateinit var dadosNutricionista: NutritionistData;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNutricionistaBinding.inflate(layoutInflater)
@@ -52,35 +52,43 @@ class NutritionistActivity : AppCompatActivity() {
         val fragmentHome = FragmentNutritionist()
         replaceFragmentManager(fragmentHome)
 
+        binding.includeToolbarPages.imageviewCustomerToolbarPages.setImageResource(
+            R.mipmap.imagem_profile_nutricionista_default
+        )
+
         val redColor = ContextCompat.getColor(this, R.color.red_default)
 
-        binding.includeBadgeNutricionista.imagebuttonHome.setOnClickListener {
+        binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setOnClickListener {
             restoreOriginColor()
-            binding.includeBadgeNutricionista.imagebuttonHome.setColorFilter(redColor)
+            binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(redColor)
             replaceFragmentManager(FragmentNutritionist())
         }
 
-        binding.includeBadgeNutricionista.imagebuttonPatients.setOnClickListener {
+        binding.includeBadgeNutricionista.imagebuttonPatientsNutritionist.setOnClickListener {
             restoreOriginColor()
-            binding.includeBadgeNutricionista.imagebuttonPatients.setColorFilter(redColor)
+            binding.includeBadgeNutricionista.imagebuttonPatientsNutritionist.setColorFilter(
+                redColor
+            )
             replaceFragmentManager(FragmentYoursPatients())
         }
 
-        binding.includeBadgeNutricionista.imagebuttonFood.setOnClickListener {
+        binding.includeBadgeNutricionista.imagebuttonFoodNutritionist.setOnClickListener {
             restoreOriginColor()
-            binding.includeBadgeNutricionista.imagebuttonFood.setColorFilter(redColor)
+            binding.includeBadgeNutricionista.imagebuttonFoodNutritionist.setColorFilter(redColor)
             replaceFragmentManager(FragmentFoods())
         }
 
-        binding.includeBadgeNutricionista.imagebuttonAddFood.setOnClickListener {
+        binding.includeBadgeNutricionista.imagebuttonAddFoodNutritionist.setOnClickListener {
             restoreOriginColor()
-            binding.includeBadgeNutricionista.imagebuttonAddFood.setColorFilter(redColor)
+            binding.includeBadgeNutricionista.imagebuttonAddFoodNutritionist.setColorFilter(redColor)
             replaceFragmentManager(FragmentAddFood())
         }
 
-        binding.includeBadgeNutricionista.imagebuttonAddRoutine.setOnClickListener {
+        binding.includeBadgeNutricionista.imagebuttonAddRoutineNutritionist.setOnClickListener {
             restoreOriginColor()
-            binding.includeBadgeNutricionista.imagebuttonAddRoutine.setColorFilter(redColor)
+            binding.includeBadgeNutricionista.imagebuttonAddRoutineNutritionist.setColorFilter(
+                redColor
+            )
             replaceFragmentManager(FragmentSelectFoodCreateDiary())
         }
 
@@ -94,19 +102,27 @@ class NutritionistActivity : AppCompatActivity() {
     }
 
     fun setupObservers() {
-//        val dadosDoNutricionista = loginViewModel.nutricionistaData.value
         nutritionistViewModel.fetchTodosNutricionistas()
-
     }
-
 
     fun restoreOriginColor() {
         val originalColor = ContextCompat.getColor(this, R.color.black_100)
-        binding.includeBadgeNutricionista.imagebuttonHome.setColorFilter(originalColor)
-        binding.includeBadgeNutricionista.imagebuttonPatients.setColorFilter(originalColor)
-        binding.includeBadgeNutricionista.imagebuttonFood.setColorFilter(originalColor)
-        binding.includeBadgeNutricionista.imagebuttonAddFood.setColorFilter(originalColor)
-        binding.includeBadgeNutricionista.imagebuttonAddRoutine.setColorFilter(originalColor)
+
+        binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(
+            originalColor
+        )
+        binding.includeBadgeNutricionista.imagebuttonPatientsNutritionist.setColorFilter(
+            originalColor
+        )
+        binding.includeBadgeNutricionista.imagebuttonFoodNutritionist.setColorFilter(
+            originalColor
+        )
+        binding.includeBadgeNutricionista.imagebuttonAddFoodNutritionist.setColorFilter(
+            originalColor
+        )
+        binding.includeBadgeNutricionista.imagebuttonAddRoutineNutritionist.setColorFilter(
+            originalColor
+        )
     }
 
     fun tratarNutricionistaJsonToData(nutricionista: String): NutritionistData {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -50,8 +49,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginRight="24dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -73,8 +72,6 @@
             android:textSize="@dimen/small_font"
             app:layout_constraintBottom_toBottomOf="@+id/nome_usuario"
             app:layout_constraintTop_toBottomOf="@+id/nome_usuario" />
-
-
 
         <ImageView
             android:id="@+id/imageView"
@@ -121,8 +118,8 @@
             android:id="@+id/textFieldPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="senha"
             android:layout_marginTop="20dp"
+            android:hint="senha"
             app:layout_constraintTop_toBottomOf="@+id/textFieldEmail">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -149,7 +146,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -161,8 +157,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Voltar"
-                android:textColor="@color/red_default"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:textColor="@color/red_default" />
 
             <Button
                 android:id="@+id/button"
@@ -176,10 +172,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

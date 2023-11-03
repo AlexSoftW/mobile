@@ -25,7 +25,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="@dimen/large_margin"
-            android:background="@drawable/foto_redonda"
+            android:src="@mipmap/default_profile"
             app:layout_constraintBottom_toBottomOf="@+id/view_banner_item_todos_nutricionistas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view_banner_item_todos_nutricionistas"

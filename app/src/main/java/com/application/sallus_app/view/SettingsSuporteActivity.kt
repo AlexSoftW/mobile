@@ -7,9 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.application.sallus_app.databinding.ActivitySettingsSuporteBinding
 
 class SettingsSuporteActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivitySettingsSuporteBinding
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +17,7 @@ class SettingsSuporteActivity : AppCompatActivity() {
         setupView()
     }
 
-    fun setupView(){
+    fun setupView() {
 
         binding.includeToolbarSettings.textviewToolbarSettings.text = "Suporte"
 
@@ -27,8 +26,11 @@ class SettingsSuporteActivity : AppCompatActivity() {
             activity.finish()
         }
 
+        binding.btnVoltar.setOnClickListener {
+            finish()
+        }
 
-        binding.btnEnviarFormulario.setOnClickListener{
+        binding.btnEnviarFormulario.setOnClickListener {
             val assunto = binding.textFieldAssunto.text.toString()
             val mensagem = binding.textFieldMensagem.text.toString()
             val userEmail = binding.textFieldEmail.text.toString()
@@ -36,7 +38,7 @@ class SettingsSuporteActivity : AppCompatActivity() {
         }
     }
 
-    fun enviarFormulario(assunto : String, mensagem : String, userEmail : String){
+    fun enviarFormulario(assunto: String, mensagem: String, userEmail: String) {
         val email = Intent(Intent.ACTION_SEND)
 
         email.data = Uri.parse("mailto")

@@ -66,8 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:gravity="center"
-            android:text="Ashley Morgan"
-            android:textSize="@dimen/large_font"
+            tools:text="Ashley Morgan"
+            tools:textSize="@dimen/large_font"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -105,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:text="Ashley Morgan" />
+                tools:text="Ashley Morgan" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,8 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:enabled="false"
-                android:text="ashley2023@gmail.com" />
+                tools:text="ashley2023@gmail.com" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

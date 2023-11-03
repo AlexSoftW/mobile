@@ -36,7 +36,7 @@ class SelectFoodCreateDiaryAdapter() :
         holder.itemView.setBackgroundColor(
             ContextCompat.getColor(
                 holder.itemView.context,
-                if (food.isSelected) R.color.green_default else R.color.white_100
+                if (food.isSelected) R.color.green_card_selected else R.color.white_100
             )
         )
 
@@ -46,7 +46,7 @@ class SelectFoodCreateDiaryAdapter() :
             holder.itemView.setBackgroundColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
-                    if (food.isSelected) R.color.green_default else R.color.white_100
+                    if (food.isSelected) R.color.green_card_selected else R.color.white_100
                 )
             )
 

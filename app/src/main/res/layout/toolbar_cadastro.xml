@@ -26,10 +26,9 @@
             android:id="@+id/button_back_toolbar_proximo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/green_default"
             android:layout_gravity="end"
-            android:src="@mipmap/logo_salus"
-            />
+            android:background="@color/green_default"
+            android:src="@mipmap/logo_salus" />
 
         <TextView
             android:id="@+id/textview_toolbar_settings"

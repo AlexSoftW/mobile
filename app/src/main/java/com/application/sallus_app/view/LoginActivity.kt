@@ -48,7 +48,9 @@ class LoginActivity : AppCompatActivity() {
             loginViewModel.controle.observe(this) {
                 when (it) {
                     1 -> {
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, PacienteActivity::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         startActivity(intent)
                     }
 
@@ -61,10 +63,15 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     else -> {
-                        Log.d("Gambeta", "deu ganbeta")
+                        Log.d("Error", "aconteceu um erro ao tentar logar")
                     }
                 }
             }
+        }
+
+        binding.textviewButtonCadastrar.setOnClickListener {
+            val intent = Intent(this, CadastroActivity::class.java)
+            startActivity(intent)
         }
     }
 }

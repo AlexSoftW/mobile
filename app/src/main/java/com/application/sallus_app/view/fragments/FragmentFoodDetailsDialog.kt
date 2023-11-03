@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import com.application.sallus_app.model.FoodData
 
-class FoodDetailsDialogFragment : DialogFragment() {
+class FragmentFoodDetailsDialog : DialogFragment() {
 
     private var selectedFood: FoodData? = null
 

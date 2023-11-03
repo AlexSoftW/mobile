@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.repository.RetrofitRepository
-import com.application.sallus_app.repository.SharedPreferencesFoodManager
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 

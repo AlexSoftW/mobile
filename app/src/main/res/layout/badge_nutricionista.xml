@@ -9,7 +9,7 @@
     android:orientation="horizontal">
 
     <ImageButton
-        android:id="@+id/imagebutton_home"
+        android:id="@+id/imagebutton_home_nutritionist"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
@@ -18,7 +18,7 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imagebutton_patients"
+        android:id="@+id/imagebutton_patients_nutritionist"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
@@ -27,7 +27,7 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imagebutton_food"
+        android:id="@+id/imagebutton_food_nutritionist"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
@@ -36,7 +36,7 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imagebutton_add_food"
+        android:id="@+id/imagebutton_add_food_nutritionist"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
@@ -45,7 +45,7 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imagebutton_add_routine"
+        android:id="@+id/imagebutton_add_routine_nutritionist"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.20"
