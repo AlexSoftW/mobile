@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
@@ -26,6 +27,9 @@ class SelectFoodCreateDiaryAdapter() :
 
     private val _alimentosSelecionados = mutableSetOf<FoodData>()
     val alimentosSelecionados: MutableSet<FoodData> = _alimentosSelecionados
+
+    //variavel para validar o botão do criar rotina
+    val validacaoBotaoCriarRotina = MutableLiveData<Boolean>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -109,15 +113,16 @@ class SelectFoodCreateDiaryAdapter() :
         private fun selecionarAlimento(food: FoodData) {
 
             val isSelected = _alimentosSelecionados.contains(food)
-            val colorGreen = ContextCompat.getColor(binding.root.context, R.color.green_default)
+            val colorGreen =
+                ContextCompat.getColor(binding.root.context, R.color.green_card_selected)
             val colorWhite = ContextCompat.getColor(binding.root.context, R.color.white_100)
 
-            val backgroundColor = if (isSelected) {
-                colorGreen
-            } else {
-                colorWhite
-            }
+            val backgroundColor = if (isSelected) colorGreen else colorWhite
+
+            val backgroundOpaccity = if (isSelected) 0.5f else 1.0f
+
             binding.constraintlayoutCardFoods.setBackgroundColor(backgroundColor)
+            binding.imageviewItemAlimento.alpha = backgroundOpaccity
 
             //Lógica para adicionar na lista os alimentos selecionados
             itemView.setOnClickListener {
@@ -137,6 +142,9 @@ class SelectFoodCreateDiaryAdapter() :
                 Log.i("tagAlimentosSelected", "lista atual: $_alimentosSelecionados")
                 notifyDataSetChanged()
             }
+
+            validacaoBotaoCriarRotina.value = _alimentosSelecionados.isNotEmpty()
+
         }
 
     }

@@ -50,8 +50,6 @@ class FragmentFoods : Fragment() {
 
         viewmodel.buscarTodosAlimentos()
 
-        binding.searchBarFoods.setAdapter(adapterSearchbarFoods)
-
         viewmodel.listAlimentos.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
@@ -61,6 +59,8 @@ class FragmentFoods : Fragment() {
                 sugestoesAlimentos.add(alimento.nome)
             }
         }
+
+        binding.searchBarFoods.setAdapter(adapterSearchbarFoods)
 
         binding.searchBarFoods.setOnItemClickListener { parent, _, position, _ ->
 

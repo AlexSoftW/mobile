@@ -29,16 +29,22 @@
     <string name="text_food">Food</string>
     <string name="text_recommended_for">recommended for</string>
     <string name="text_nutritional_values">Nutritional values</string>
-    <string name="text_carbohydrates">Carbohydrates</string>
-    <string name="text_proteins">Proteins</string>
-    <string name="text_total_fat">Total</string>
+    <string name="text_carbohydrates">Carbohydrates:</string>
+    <string name="text_proteins">Proteins:</string>
+    <string name="text_total_fat">Total:</string>
+    <string name="text_calories">Calories:</string>
     <string name="text_selected_hint">*select*</string>
     <string name="text_button_back">Back</string>
+    <string name="text_total_calculado">total calculated</string>
     <string name="text_button_register_food">Register food</string>
 
     <string name="title_food_diary">Food diary</string>
     <string name="sub_title_food_diary">Confirm the food and add a new routine for your patients</string>
+    <string name="text_turno">Turn</string>
+    <string name="text_anotacoes">Annotations</string>
+    <string name="text_cadastrar_rotina">Register routine</string>
 
+    <string name="text_dados_para_o_paciente">Patient data</string>
     <string name="title_yours_patients">Yours patients</string>
     <string name="subtitle_yours_patients">See the full list of your patients and start an appointment</string>
     <string name="text_comorbidity">comorbidity:</string>
@@ -56,6 +62,13 @@
     <string name="text_carrosel_home">Trained professionals ready to serve and understand you.</string>
     <string name="text_crn">CRN:</string>
     <string name="text_unbind_nutritionist">Unbind nutritionist</string>
+
+    <!-- textos de validações -->
+    <string name="text_create_routine">Create routine</string>
+    <string name="text_validacao_botao_criar_rotina">Select at least 1 food</string>
+    <string name="text_validacao_botao_finalizar_rotina">Empty list, return and add 1 food item</string>
+    <string name="text_validacao_lista_vazia_register_routine">Empty list, return to the food screen and add at least 1 to create your patient\'s eating routine</string>
+    <string name="text_mascara_data">mm/dd/yyyy</string>
 
     <string-array name="spinner_option_type_food">
         <item>Meat</item>

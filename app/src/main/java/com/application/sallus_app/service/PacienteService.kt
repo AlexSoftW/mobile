@@ -17,6 +17,9 @@ interface PacienteService {
     @GET("clientes/com-vinculo/por-nome/{id}")
     suspend fun getPacientesComVinculoNutricionista(@Path("id") id: Long): List<PacienteDetailsData>
 
+    @GET("clientes/busca-por-nome/{nome}")
+    suspend fun getPacientePorNome(@Path("nome") nome: String): List<PacienteDetailsData>
+
     @POST("clientes/cadastrar")
     suspend fun adicionarCliente(@Body cliente: PacienteData): PacienteData
 

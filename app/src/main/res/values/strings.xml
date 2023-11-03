@@ -28,16 +28,22 @@
     <string name="text_food">Alimento</string>
     <string name="text_recommended_for">Indicado para</string>
     <string name="text_nutritional_values">Valores nutricionais</string>
-    <string name="text_carbohydrates">Carboidratos</string>
-    <string name="text_proteins">Proteínas</string>
-    <string name="text_total_fat">Gord. totais</string>
+    <string name="text_carbohydrates">Carboidratos:</string>
+    <string name="text_proteins">Proteínas:</string>
+    <string name="text_total_fat">Gord. totais:</string>
+    <string name="text_calories">Calorias:</string>
     <string name="text_selected_hint">*selecione*</string>
     <string name="text_button_back">Voltar</string>
+    <string name="text_total_calculado">Total calculado</string>
     <string name="text_button_register_food">Cadastrar alimento</string>
 
     <string name="title_food_diary">Diário alimentar</string>
     <string name="sub_title_food_diary">Confirme os alimentos e adicione uma nova rotina para os seus pacientes</string>
+    <string name="text_turno">Turno</string>
+    <string name="text_anotacoes">Anotações</string>
+    <string name="text_cadastrar_rotina">Cadastrar rotina</string>
 
+    <string name="text_dados_para_o_paciente">Dados para o paciente</string>
     <string name="title_yours_patients">Seus pacientes</string>
     <string name="subtitle_yours_patients">Veja a lista completa dos seus pacientes e inicie uma consulta</string>
     <string name="text_comorbidity">comorbidades:</string>
@@ -55,6 +61,13 @@
     <string name="text_carrosel_home">Profissionais capacitados pronto para atender e entender você.</string>
     <string name="text_crn">CRN:</string>
     <string name="text_unbind_nutritionist">Desvincular nutricionista</string>
+
+    <!-- textos de validações -->
+    <string name="text_create_routine">Criar rotina</string>
+    <string name="text_validacao_botao_criar_rotina">Selecione pelo menos 1 alimento</string>
+    <string name="text_validacao_botao_finalizar_rotina">Lista vazia, retorne e adicione 1 alimento</string>
+    <string name="text_validacao_lista_vazia_register_routine">Lista vazia, retorne a tela de alimentos e adicione pelo menos 1 para criar a rotina alimentar de seu paciente</string>
+    <string name="text_mascara_data">dd/mm/aaaa</string>
 
     <string-array name="spinner_option_type_food">
         <item>Carnes</item>

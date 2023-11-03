@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.application.sallus_app.R
 import com.application.sallus_app.adapter.CreateRoutineAdapter
 import com.application.sallus_app.databinding.FragmentRegisterRoutineBinding
 import com.application.sallus_app.model.NutritionistData
@@ -165,6 +167,9 @@ class FragmentCreateRoutine : Fragment() {
         val bundle = arguments
         val selectedFoods = bundle?.getString("selectedFoods")
 
+        val redColorButton = ContextCompat.getColor(binding.root.context, R.color.red_default)
+        val greyColorButton = ContextCompat.getColor(binding.root.context, R.color.grey_disabled)
+
         viewmodelPatient.fetchTodosPacientesComVinculoNutricionista(dadosNutricionista.id)
 
         viewmodelFood.converterAlimentosSelecionadoParaArrayList(selectedFoods!!)
@@ -210,6 +215,22 @@ class FragmentCreateRoutine : Fragment() {
             qtdCalorias = valorTotalCalorias
             alimento.forEach { food ->
                 alimentos += "${food.nome}, "
+            }
+
+            if (alimento.isEmpty()) {
+                binding.textviewListEmpty.visibility = View.VISIBLE
+                binding.recyclerViewRegisterRoutine.visibility = View.GONE
+                binding.buttonRegisterRoutine.isClickable = false
+                binding.buttonRegisterRoutine.setBackgroundColor(greyColorButton)
+                binding.buttonRegisterRoutine.text =
+                    getString(R.string.text_validacao_botao_finalizar_rotina)
+            } else {
+                binding.textviewListEmpty.visibility = View.GONE
+                binding.recyclerViewRegisterRoutine.visibility = View.VISIBLE
+                binding.buttonRegisterRoutine.isClickable = true
+                binding.buttonRegisterRoutine.setBackgroundColor(redColorButton)
+                binding.buttonRegisterRoutine.text =
+                    getString(R.string.text_create_routine)
             }
         }
 

@@ -46,7 +46,7 @@
             android:id="@+id/textview_list_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lista vazia, volte e adicione pelo menos 1 alimento para criar a rotina alimentar de seu paciente"
+            android:text="@string/text_validacao_lista_vazia_register_routine"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/textview_tag_food_register_routine"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_food_register_routine" />
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/large_margin"
-            android:text="Total calculado"
+            android:text="@string/text_total_calculado"
             android:textSize="@dimen/average_font"
             app:layout_constraintStart_toStartOf="@id/recycler_view_register_routine"
             app:layout_constraintTop_toBottomOf="@id/recycler_view_register_routine" />
@@ -89,7 +89,7 @@
                     android:id="@+id/textview_tag_carboidrato_register_routine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Carboidratos: "
+                    android:text="@string/text_carbohydrates"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,7 +108,7 @@
                     android:id="@+id/textview_tag_proteina_register_routine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Proteínas: "
+                    android:text="@string/text_proteins"
                     app:layout_constraintStart_toStartOf="@id/textview_tag_carboidrato_register_routine"
                     app:layout_constraintTop_toBottomOf="@id/textview_tag_carboidrato_register_routine" />
 
@@ -127,7 +127,7 @@
                     android:id="@+id/textview_tag_gordura_total_register_routine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gordura total: "
+                    android:text="@string/text_total_fat"
                     app:layout_constraintStart_toStartOf="@id/textview_tag_proteina_register_routine"
                     app:layout_constraintTop_toBottomOf="@id/textview_tag_proteina_register_routine" />
 
@@ -146,7 +146,7 @@
                     android:id="@+id/textview_tag_calorias_register_routine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calorias: "
+                    android:text="@string/text_calories"
                     app:layout_constraintStart_toStartOf="@id/textview_tag_gordura_total_register_routine"
                     app:layout_constraintTop_toBottomOf="@id/textview_tag_gordura_total_register_routine" />
 
@@ -170,7 +170,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/large_margin"
-            android:text="Dados para o paciente"
+            android:text="@string/text_dados_para_o_paciente"
             android:textSize="@dimen/average_font"
             app:layout_constraintStart_toStartOf="@id/frama_layout_register_routine"
             app:layout_constraintTop_toBottomOf="@id/frama_layout_register_routine" />
@@ -181,7 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
-            android:hint="Paciente"
+            android:hint="@string/text_patient"
             app:layout_constraintStart_toStartOf="@id/textview_tag_patients_data_register_routine"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_patients_data_register_routine">
 
@@ -200,7 +200,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
-            android:hint="Turno"
+            android:hint="@string/text_turno"
             app:layout_constraintStart_toStartOf="@id/spinner_type_patients_register_routine"
             app:layout_constraintTop_toBottomOf="@id/spinner_type_patients_register_routine">
 
@@ -221,7 +221,7 @@
             android:layout_marginTop="@dimen/small_margin"
             android:clickable="false"
             android:focusable="true"
-            android:hint="dd/mm/yyyy"
+            android:hint="@string/text_mascara_data"
             app:layout_constraintStart_toStartOf="@id/spinner_type_turn_register_routine"
             app:layout_constraintTop_toBottomOf="@id/spinner_type_turn_register_routine">
 
@@ -241,7 +241,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="@dimen/small_margin"
             android:gravity="top"
-            android:hint="Anotações"
+            android:hint="@string/text_anotacoes"
             app:layout_constraintBottom_toTopOf="@id/button_back_register_routine"
             app:layout_constraintStart_toStartOf="@id/date_picker_register_routine"
             app:layout_constraintTop_toBottomOf="@id/date_picker_register_routine">
@@ -271,7 +271,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/large_margin"
             android:backgroundTint="@color/red_default"
-            android:text="Cadastrar rotina"
+            android:text="@string/text_cadastrar_rotina"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

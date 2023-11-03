@@ -26,12 +26,17 @@
         app:layout_constraintStart_toStartOf="@id/textview_title_todos_nutricionistas"
         app:layout_constraintTop_toBottomOf="@id/textview_title_todos_nutricionistas" />
 
-    <com.google.android.material.search.SearchBar
+    <AutoCompleteTextView
         android:id="@+id/search_bar_todos_nutricionistas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-1dp"
+        android:layout_marginTop="@dimen/xx_small_margin"
+        android:background="@drawable/border_search_input"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/xx_small_margin"
         android:hint="@string/text_search_food_name"
+        android:padding="10dp"
+        android:textColorHint="@color/black_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textview_subtitle_todos_nutricionistas"
         app:layout_constraintTop_toBottomOf="@id/textview_subtitle_todos_nutricionistas"
@@ -41,7 +46,6 @@
         android:id="@+id/recycler_view_todos_nutricionistas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/small_margin"
         android:layout_marginBottom="@dimen/small_margin"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
