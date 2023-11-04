@@ -52,7 +52,8 @@
                     android:id="@+id/crn"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

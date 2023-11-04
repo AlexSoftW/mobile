@@ -2,9 +2,11 @@ package com.application.sallus_app.view.fragments
 
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroCrnBinding
@@ -42,6 +44,9 @@ class FragmentCrn : Fragment() {
         val fragmentDestino = FragmentEmailNutri()
 
         binding.nextButton1.setOnClickListener {
+
+            checkInput()
+
             val crn = binding.crn.text.toString()
 
 
@@ -69,5 +74,13 @@ class FragmentCrn : Fragment() {
     fun retornarFragment() {
         val fragmentManager = requireActivity().supportFragmentManager
         fragmentManager.popBackStack()
+    }
+
+    private fun checkInput() {
+        val crn = binding.crn.text.toString()
+
+        if (crn.isBlank() || crn.length != 7) {
+            binding.crn.error = "Preencha um CRN válido."
+        }
     }
 }
