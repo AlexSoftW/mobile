@@ -55,17 +55,17 @@ class FragmentDadosPessoais : Fragment() {
         val endereco = binding.endereco.text.toString()
         val genero = binding.genero.text.toString()
 
-            if (nome.isBlank()) {
-                binding.nomePaciente.error = "Preencha seu nome."
-            } else if (telefone.isBlank() || telefone.length < 9) {
-                binding.telefone.error = "Preencha seu telefone com 9 dígitos."
-            } else if (endereco.isBlank()) {
-                binding.endereco.error = "Preencha o seu endereço."
-            } else if (genero.isBlank()) {
-                binding.genero.error = "Selecione o seu gênero."
-            } else {
-                Toast.makeText(context, "Teste", Toast.LENGTH_SHORT).show()
-            }
+        if (nome.isBlank()) {
+            binding.nomePaciente.error = "Preencha seu nome."
+        } else if (telefone.isBlank() || telefone.length < 9) {
+            binding.telefone.error = "Preencha seu telefone com 9 dígitos."
+        } else if (endereco.isBlank()) {
+            binding.endereco.error = "Preencha o seu endereço."
+        } else if (genero.isBlank()) {
+            binding.genero.error = "Selecione o seu gênero."
+        } else {
+            Toast.makeText(context, "Teste", Toast.LENGTH_SHORT).show()
+        }
 
     }
 }
