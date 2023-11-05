@@ -27,7 +27,7 @@ class FragmentDadosPessoais : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Limita o campo de telefone a 9 dígitos
+                // Limita o campo de telefone a 11 dígitos
                 if (s?.length ?: 0 > 11) {
                     binding.telefone.setText(s?.subSequence(0, 11))
                     binding.telefone.setSelection(11)
@@ -81,8 +81,8 @@ class FragmentDadosPessoais : Fragment() {
         } else if (telefone.isBlank()) {
             binding.telefone.error = "Preencha seu telefone."
             return false
-        } else if (telefone.isBlank()) {
-            binding.telefone.error = "Preencha seu telefone."
+        } else if (telefone.isBlank() || telefone.length < 11) {
+            binding.telefone.error = "Preencha um telefone válido."
             return false
         } else if (endereco.isBlank()) {
             binding.endereco.error = "Preencha o seu endereço."
