@@ -71,7 +71,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:imeOptions="actionNext"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:maxLength="9"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
