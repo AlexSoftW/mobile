@@ -3,6 +3,7 @@ package com.application.sallus_app.view;
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.application.sallus_app.R
@@ -35,6 +36,8 @@ class LoginActivity : AppCompatActivity() {
 
         binding.buttonLogin.setOnClickListener {
             Log.d("MeuApp1", "Botão clicado")
+
+            checkInputs()
             val textInputEditTextEmail = findViewById<EditText>(R.id.text_field_email)
             val textInputEditTextSenha = findViewById<EditText>(R.id.text_field_senha)
 
@@ -73,5 +76,23 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun checkInputs(): Boolean {
+
+        val textInputEditTextEmail = findViewById<EditText>(R.id.text_field_email)
+        val textInputEditTextSenha = findViewById<EditText>(R.id.text_field_senha)
+
+        val email = textInputEditTextEmail.text.toString()
+        val senha = textInputEditTextSenha.text.toString()
+
+        if (email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.textFieldEmail.error = "Preencha um email válido."
+            return false
+        } else if (senha.isBlank()) {
+            binding.textFieldSenha.error = "Preencha sua senha."
+            return false
+        }
+        return true
     }
 }
