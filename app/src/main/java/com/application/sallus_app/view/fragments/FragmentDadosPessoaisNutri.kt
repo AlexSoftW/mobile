@@ -54,7 +54,7 @@ class FragmentDadosPessoaisNutri : Fragment() {
         fragmentManager.popBackStack()
     }
 
-    private fun checkInputs() {
+    private fun checkInputs(): Boolean {
         val nome = binding.nomePaciente.text.toString()
         val telefone = binding.telefone.text.toString()
         val endereco = binding.endereco.text.toString()
@@ -62,14 +62,18 @@ class FragmentDadosPessoaisNutri : Fragment() {
 
         if (nome.isBlank()) {
             binding.nomePaciente.error = "Preencha seu nome."
+            return false
         } else if (telefone.isBlank() || telefone.length < 9) {
-            binding.telefone.error = "Preencha seu telefone com 9 dígitos."
+            binding.telefone.error = "Preencha um número válido."
+            return false
         } else if (endereco.isBlank()) {
             binding.endereco.error = "Preencha o seu endereço."
+            return false
         } else if (genero.isBlank()) {
             binding.genero.error = "Selecione o seu gênero."
+            return false
         } else {
-            Toast.makeText(context, "Teste", Toast.LENGTH_SHORT).show()
+            return true
         }
     }
 }
