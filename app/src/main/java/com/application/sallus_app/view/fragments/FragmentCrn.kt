@@ -76,11 +76,13 @@ class FragmentCrn : Fragment() {
         fragmentManager.popBackStack()
     }
 
-    private fun checkInput() {
+    private fun checkInput(): Boolean {
         val crn = binding.crn.text.toString()
 
         if (crn.isBlank() || crn.length != 7) {
             binding.crn.error = "Preencha um CRN válido."
+            return false
         }
+        return true
     }
 }
