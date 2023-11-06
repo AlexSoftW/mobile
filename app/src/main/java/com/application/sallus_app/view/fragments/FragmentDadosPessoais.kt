@@ -23,21 +23,6 @@ class FragmentDadosPessoais : Fragment() {
 
         val fragmentDestino = FragmentComorbidade()
 
-        binding.telefone.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Limita o campo de telefone a 11 dígitos
-                if (s?.length ?: 0 > 11) {
-                    binding.telefone.setText(s?.subSequence(0, 11))
-                    binding.telefone.setSelection(11)
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-
-
         binding.proximo1.setOnClickListener {
 
             if (checkInputs()) {
@@ -91,7 +76,7 @@ class FragmentDadosPessoais : Fragment() {
             binding.genero.error = "Selecione o seu gênero."
             return false
         } else {
+            return true
         }
-        return true
     }
 }
