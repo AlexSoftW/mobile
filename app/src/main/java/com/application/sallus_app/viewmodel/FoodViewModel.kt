@@ -1,18 +1,22 @@
 package com.application.sallus_app.viewmodel
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.repository.RetrofitRepository
+import com.application.sallus_app.repository.SharedPreferencesFoodManager
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 
 // nessa Classe ViewModel, aqui que vai ficar toda a nossa regra de negócio.
 // tudo que for lógica programação(if/else, laço de repetição, etc)
 
-class FoodViewModel : ViewModel() {
+class FoodViewModel(private val context: Context) : ViewModel() {
 
     private val repository = RetrofitRepository()
 
@@ -31,6 +35,10 @@ class FoodViewModel : ViewModel() {
 
     val responseAdicionarNovoAlimentoBottomSheet = MutableLiveData<Boolean>()
 
+    private val sharedPreferencesManager: SharedPreferencesFoodManager by lazy {
+        SharedPreferencesFoodManager(context)
+    }
+
     fun converterAlimentosSelecionadoParaArrayList(listaDeAlimentos: String) {
         val gson = Gson()
         val foodData: List<FoodData> =
@@ -47,13 +55,27 @@ class FoodViewModel : ViewModel() {
     //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData
     //por que os dados sempre vão mudar.
     fun buscarTodosAlimentos() {
-        viewModelScope.launch {
-            try {
-                val result = repository.apiServiceFood.getTodosAlimentos()
-                _listaAlimentos.value = result
-            } catch (e: Exception) {
-                Log.i("logErrorBuscarTodosAlimentos", "Unknow error.")
+
+        val sharedPreferencesApiData = sharedPreferencesManager.getAPIData()
+
+        if (sharedPreferencesApiData == null) {
+            viewModelScope.launch {
+                try {
+                    val result = repository.apiServiceFood.getTodosAlimentos()
+                    val apiData = convertAPIDataToString(result)
+                    sharedPreferencesManager.saveAPIData(apiData)
+                    _listaAlimentos.value = result
+                } catch (e: IOException) {
+                    Log.i("tagBuscarTodosAlimentos", "buscarTodosAlimentos: Connection error.")
+                } catch (e: HttpException) {
+                    Log.i("tagBuscarTodosAlimentos", "buscarTodosAlimentos: API error.")
+                } catch (e: Exception) {
+                    Log.i("tagBuscarTodosAlimentos", "buscarTodosAlimentos: Unknow error.")
+                }
             }
+        } else {
+            val foodList = sharedPreferencesManager.parseAPIData(sharedPreferencesApiData)
+            _listaAlimentos.value = foodList
         }
     }
 

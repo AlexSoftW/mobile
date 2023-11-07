@@ -52,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
                         intent.flags =
                             Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         startActivity(intent)
+                        finish()
                     }
 
                     2 -> {
@@ -60,6 +61,7 @@ class LoginActivity : AppCompatActivity() {
                         val json = gson.toJson(loginViewModel.nutricionistaData.value)
                         intent.putExtra("nutricionistaDataValue", json)
                         startActivity(intent)
+                        finish()
                     }
 
                     else -> {

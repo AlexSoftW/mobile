@@ -1,8 +1,6 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,17 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
 import com.application.sallus_app.model.FoodData
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import java.net.URL
+import com.bumptech.glide.Glide
 
 class SelectFoodCreateDiaryAdapter() :
     RecyclerView.Adapter<SelectFoodCreateDiaryAdapter.SelectFoodCreateDiaryAdapterHolder>() {
 
     private val foodList = mutableListOf<FoodData>()
-    private lateinit var bitmapImage: Bitmap
 
     private val _alimentosSelecionados = mutableSetOf<FoodData>()
     val alimentosSelecionados: MutableSet<FoodData> = _alimentosSelecionados
@@ -46,9 +39,7 @@ class SelectFoodCreateDiaryAdapter() :
         holder.bind(food)
     }
 
-    override fun getItemCount(): Int {
-        return foodList.size
-    }
+    override fun getItemCount(): Int = foodList.size
 
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(alimentos: List<FoodData>) {
@@ -71,28 +62,19 @@ class SelectFoodCreateDiaryAdapter() :
         fun bind(food: FoodData) {
 
             //Apenas exibir os dados no card
-            exibirInformacoes(food, food.img)
+            exibirInformacoes(food)
 
             //Lógica para adicionar os cards após clicar
             selecionarAlimento(food)
         }
 
-        @OptIn(DelicateCoroutinesApi::class)
-        private fun exibirInformacoes(food: FoodData, img: String?) {
-            GlobalScope.launch(Dispatchers.IO) {
-                if (food.img != null && img!!.startsWith("https")) {
-                    val imageUrl = URL(food.img)
-                    bitmapImage = BitmapFactory.decodeStream(imageUrl.openStream())
-                } else {
-                    val context = binding.root.context
-                    bitmapImage =
-                        BitmapFactory.decodeResource(context.resources, R.mipmap.food_default)
-                }
+        private fun exibirInformacoes(food: FoodData) {
 
-                launch(Dispatchers.Main) {
-                    binding.imageviewItemAlimento.setImageBitmap(bitmapImage)
-                }
-            }
+            Glide.with(binding.root.context)
+                .load(food.img)
+                .placeholder(R.mipmap.food_default)
+                .error(R.mipmap.food_default)
+                .into(binding.imageviewItemAlimento)
 
             binding.textviewNomeItemAlimento.text = food.nome
 

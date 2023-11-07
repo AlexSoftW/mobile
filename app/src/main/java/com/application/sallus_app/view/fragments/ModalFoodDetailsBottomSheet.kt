@@ -1,19 +1,14 @@
 package com.application.sallus_app.view.fragments
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.BottomSheetDetailsFoodBinding
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import java.net.URL
 
 class ModalFoodDetailsBottomSheet(
     private val image: String?,
@@ -44,33 +39,16 @@ class ModalFoodDetailsBottomSheet(
 
         setupView()
 
-//        val bitmapImage = BitmapFactory.decodeResource(context?.resources, image)
-//        binding.imageviewAlimentoBottomsheetDetailsFood.setImageBitmap(bitmapImage)
-
-//        binding.buttonBottomSheet.setOnClickListener {
-//            dismiss()
-//        }
-
         return binding.root
     }
 
-    @OptIn(DelicateCoroutinesApi::class)
     private fun setupView() {
 
-        GlobalScope.launch(Dispatchers.IO) {
-            if (image != null && image.startsWith("https")) {
-                val imageUrl = URL(image)
-                bitmapImage = BitmapFactory.decodeStream(imageUrl.openStream())
-            } else {
-                val context = binding.root.context
-                bitmapImage =
-                    BitmapFactory.decodeResource(context.resources, R.mipmap.food_default)
-            }
-
-            launch(Dispatchers.Main) {
-                binding.imageviewAlimentoBottomsheetDetailsFood.setImageBitmap(bitmapImage)
-            }
-        }
+        Glide.with(binding.root.context)
+            .load(image)
+            .placeholder(R.mipmap.food_default)
+            .error(R.mipmap.food_default)
+            .into(binding.imageviewAlimentoBottomsheetDetailsFood)
 
         binding.textviewNomeAlimentoBottomsheetDetailsFood.text = name
         binding.textviewTagTipoAlimentoBottomsheetDetailsFood.text = type

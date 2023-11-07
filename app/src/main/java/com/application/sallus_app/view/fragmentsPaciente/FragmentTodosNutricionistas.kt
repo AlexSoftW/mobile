@@ -22,15 +22,22 @@ class FragmentTodosNutricionistas : Fragment() {
     ): View? {
         binding = FragmentTodosNutricionistaBinding.inflate(inflater, container, false)
 
+        setupView()
+        setupObservers()
+
+        return binding.root
+    }
+
+    private fun setupView() {
         adapter = NutricionistaAdapter()
         binding.recyclerViewTodosNutricionistas.adapter = adapter
+    }
 
+    private fun setupObservers() {
         viewmodel.fetchTodosNutricionistas()
 
         viewmodel.listNutricionista.observe(viewLifecycleOwner) {
             adapter.subitList(it)
         }
-
-        return binding.root
     }
 }

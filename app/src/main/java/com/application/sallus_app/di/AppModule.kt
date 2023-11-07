@@ -16,7 +16,7 @@ val appModule = module {
     single { SharedPreferencesFoodManager(get()) }
     single { RetrofitRepository() }
     viewModel { LoginViewModel() }
-    viewModel { FoodViewModel() }
+    viewModel { FoodViewModel(get()) }
     viewModel { NutritionistViewModel() }
     viewModel { PacienteViewModel() }
     viewModel { DiarioViewModel() }
