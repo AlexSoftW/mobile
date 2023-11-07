@@ -21,40 +21,15 @@ class FragmentDadosPessoais : Fragment() {
     ): View? {
         binding = FragmentCadastroBinding.inflate(inflater, container, false)
 
-        val fragmentDestino = FragmentComorbidade()
-
         binding.proximo1.setOnClickListener {
-
-            if (checkInputs()) {
-
-                val nome = binding.nomePaciente.text.toString()
-                val telefone = binding.telefone.text.toString()
-                val endereco = binding.endereco.text.toString()
-                val genero = binding.genero.text.toString()
-
-                Log.d("MeuFragmentDestino", "Dados teste: $nome $telefone $endereco $genero")
-
-                val bundle = Bundle()
-                bundle.putString("Nome", nome)
-                bundle.putString("Telefone", telefone)
-                bundle.putString("Endereco", endereco)
-                bundle.putString("Genero", genero)
-
-                fragmentDestino.arguments = bundle
-
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_cadastro, fragmentDestino)
-                    .addToBackStack(null)
-                    .commit()
-            } else {
-                Toast.makeText(context, "Tente novamente", Toast.LENGTH_SHORT).show()
-            }
+            checkInputs()
         }
 
         return binding.root
+
     }
 
-    private fun checkInputs(): Boolean {
+    private fun checkInputs() {
         val nome = binding.nomePaciente.text.toString()
         val telefone = binding.telefone.text.toString()
         val endereco = binding.endereco.text.toString()
@@ -62,21 +37,27 @@ class FragmentDadosPessoais : Fragment() {
 
         if (nome.isBlank()) {
             binding.nomePaciente.error = "Preencha seu nome."
-            return false
-        } else if (telefone.isBlank()) {
-            binding.telefone.error = "Preencha seu telefone."
-            return false
         } else if (telefone.isBlank() || telefone.length < 11) {
             binding.telefone.error = "Preencha um telefone válido."
-            return false
         } else if (endereco.isBlank()) {
             binding.endereco.error = "Preencha o seu endereço."
-            return false
         } else if (genero.isBlank()) {
             binding.genero.error = "Selecione o seu gênero."
-            return false
         } else {
-            return true
+            val bundle = Bundle()
+            bundle.putString("Nome", nome)
+            bundle.putString("Telefone", telefone)
+            bundle.putString("Endereco", endereco)
+            bundle.putString("Genero", genero)
+
+            val fragmentDestino = FragmentComorbidade()
+
+            fragmentDestino.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_cadastro, fragmentDestino)
+                .addToBackStack(null)
+                .commit()
         }
     }
 }
