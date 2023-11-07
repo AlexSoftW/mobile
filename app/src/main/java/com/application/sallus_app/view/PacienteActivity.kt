@@ -8,8 +8,10 @@ import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityPacienteBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.view.fragments.FragmentFoods
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentNutritionist
 import com.application.sallus_app.view.fragmentsPaciente.FragmentPaciente
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatients
+import com.application.sallus_app.view.fragmentsPaciente.FragmentTodosNutricionistas
 import com.google.gson.Gson
 
 class PacienteActivity : AppCompatActivity() {
@@ -55,7 +57,7 @@ class PacienteActivity : AppCompatActivity() {
         }
 
         binding.includeBadgePaciente.imagebuttonNutritionistPaciente.setOnClickListener {
-            replaceFragmentManager(FragmentYoursPatients())
+            replaceFragmentManager(FragmentTodosNutricionistas())
         }
 
         binding.includeBadgePaciente.imagebuttonFoodPaciente.setOnClickListener {

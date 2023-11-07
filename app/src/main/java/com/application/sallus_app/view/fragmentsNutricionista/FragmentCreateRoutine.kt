@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.adapter.CreateRoutineAdapter
 import com.application.sallus_app.databinding.FragmentRegisterRoutineBinding
+import com.application.sallus_app.model.DiarioPostData
 import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
 import com.application.sallus_app.viewmodel.DiarioViewModel
@@ -75,11 +76,9 @@ class FragmentCreateRoutine : Fragment() {
 
         modalLoadingBottomSheet = ModalLoadingBottomSheet("Criando rotina alimentar, aguarde...")
 
-        val dadosNutricionistaEmString =
-            intentFromActivity.getStringExtra("nutricionistaDataValue")
+        val dadosNutricionistaEmString = intentFromActivity
+            .getStringExtra("nutricionistaDataValue")
         dadosNutricionista = tratarNutricionistaJsonToData(dadosNutricionistaEmString!!)
-
-//        val modalBottomSheet = ModalBottomSheet(R.mipmap.food_default)
 
         idNutricionista = dadosNutricionista.id
 
@@ -140,19 +139,19 @@ class FragmentCreateRoutine : Fragment() {
             periodo = binding.autoComleteTextViewTurno.text.toString()
             descricao = binding.textfieldObservacoesRoutine.text.toString()
 
-//            val novoDiario = DiarioPostData(
-//                descricao,
-//                qtdCalorias,
-//                periodo,
-//                alimentos,
-//                idNutricionista,
-//                idCliente,
-//                dataConsumir
-//            )
-//
-//            viewmodelDiary.cadastrarNovoDiario(novoDiario)
+            val novoDiario = DiarioPostData(
+                descricao,
+                qtdCalorias,
+                periodo,
+                alimentos,
+                idNutricionista,
+                idCliente,
+                dataConsumir
+            )
 
-            viewmodelDiary.responseCriarDiarioAlimentarBottomSheet.value = false
+            viewmodelDiary.cadastrarNovoDiario(novoDiario)
+
+//            viewmodelDiary.responseCriarDiarioAlimentarBottomSheet.value = false
 
             modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
         }

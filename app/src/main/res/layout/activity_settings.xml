@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_100"
     android:orientation="vertical">
 
     <FrameLayout
@@ -17,41 +18,24 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/option_notificacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/border_bottom"
-        android:padding="@dimen/large_padding">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Notificações" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end" />
-    </FrameLayout>
-
-    <FrameLayout
         android:id="@+id/option_perfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin"
         android:layout_weight="1"
-        android:background="@drawable/border_bottom"
-        android:padding="@dimen/large_padding">
+        android:background="@drawable/border_bottom">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:text="Perfil" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="center|end"
             android:src="@drawable/ic_arrow_rigth" />
     </FrameLayout>
 
@@ -59,19 +43,21 @@
         android:id="@+id/option_alterar_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin"
         android:layout_weight="1"
-        android:background="@drawable/border_bottom"
-        android:padding="@dimen/large_padding">
+        android:background="@drawable/border_bottom">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alterar Senha" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Alterar senha" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="center|end"
             android:src="@drawable/ic_arrow_rigth" />
     </FrameLayout>
 
@@ -79,19 +65,21 @@
         android:id="@+id/option_suporte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin"
         android:layout_weight="1"
-        android:background="@drawable/border_bottom"
-        android:padding="@dimen/large_padding">
+        android:background="@drawable/border_bottom">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:text="Suporte" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="center|end"
             android:src="@drawable/ic_arrow_rigth" />
     </FrameLayout>
 
@@ -99,37 +87,33 @@
         android:id="@+id/option_sair"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin"
         android:layout_weight="1"
-        android:background="@drawable/border_bottom"
-        android:padding="@dimen/large_padding">
+        android:background="@drawable/border_bottom">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:text="Sair" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="center|end"
             android:src="@drawable/ic_arrow_rigth" />
     </FrameLayout>
-
-    <TextView
-        android:id="@+id/btn_sair"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/large_margin"
-        android:layout_weight="1"
-        android:text="Voltar"
-        android:textColor="@color/red_default" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:text="Version: 1.0.0"
+        android:layout_marginEnd="@dimen/large_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_weight="1.5"
+        android:gravity="bottom"
+        android:text="@string/text_version_app"
         android:textSize="@dimen/x_small_font" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
