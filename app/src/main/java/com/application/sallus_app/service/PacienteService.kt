@@ -14,11 +14,11 @@ interface PacienteService {
     @GET("clientes/{id}")
     suspend fun getPacientePorId(@Path("id") id: Long): PacienteData
 
-    @GET("clientes/com-vinculo/por-nome/{id}")
+    @GET("clientes/com-vinculo/por-campos/{id}")
     suspend fun getPacientesComVinculoNutricionista(@Path("id") id: Long): List<PacienteDetailsData>
 
     @GET("clientes/busca-por-nome/{nome}")
-    suspend fun getPacientePorNome(@Path("nome") nome: String): List<PacienteDetailsData>
+    suspend fun getPacientePorNome(@Path("nome") nome: String): PacienteDetailsData
 
     @POST("clientes/cadastrar")
     suspend fun adicionarCliente(@Body cliente: PacienteData): PacienteData

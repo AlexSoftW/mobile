@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            tools:src="@mipmap/food_default" />
+            tools:src="@mipmap/img_alimentos_default" />
 
     </androidx.cardview.widget.CardView>
 

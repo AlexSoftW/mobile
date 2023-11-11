@@ -11,6 +11,8 @@ import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentNutritionist
 import com.application.sallus_app.view.fragmentsPaciente.FragmentPaciente
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatients
+import com.application.sallus_app.view.fragmentsPaciente.FragmentDiarioAlimentarPaciente
+import com.application.sallus_app.view.fragmentsPaciente.FragmentHistoricoAlimentarPaciente
 import com.application.sallus_app.view.fragmentsPaciente.FragmentTodosNutricionistas
 import com.google.gson.Gson
 
@@ -65,11 +67,11 @@ class PacienteActivity : AppCompatActivity() {
         }
 
         binding.includeBadgePaciente.imagebuttonDiarioAlimentarPatient.setOnClickListener {
-            //tela em andamento...
+            replaceFragmentManager(FragmentDiarioAlimentarPaciente())
         }
 
         binding.includeBadgePaciente.imagebuttonHistoricoPatient.setOnClickListener {
-            //tela em andamento...
+            replaceFragmentManager(FragmentHistoricoAlimentarPaciente())
         }
 
     }

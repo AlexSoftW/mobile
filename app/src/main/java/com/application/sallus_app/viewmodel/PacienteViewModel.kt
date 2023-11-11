@@ -21,8 +21,8 @@ class PacienteViewModel : ViewModel() {
     val listaTodosPacientesComVinculoNutricionista: MutableLiveData<List<PacienteDetailsData>> =
         _listaTodosPacientesComVinculoNutricionista
 
-    private val _pacienteInformadoSearchBar = MutableLiveData<List<PacienteDetailsData>>()
-    val pacienteInformadoSearchBar: MutableLiveData<List<PacienteDetailsData>> =
+    private val _pacienteInformadoSearchBar = MutableLiveData<PacienteDetailsData>()
+    val pacienteInformadoSearchBar: MutableLiveData<PacienteDetailsData> =
         _pacienteInformadoSearchBar
 
 //    fun fetchTodosPacientes() {
