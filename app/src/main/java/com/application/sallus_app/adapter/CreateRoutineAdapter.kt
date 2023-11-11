@@ -1,8 +1,6 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,17 +10,12 @@ import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewRegisterRoutineBinding
 import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.viewmodel.FoodViewModel
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import java.net.URL
+import com.bumptech.glide.Glide
 
 class CreateRoutineAdapter(private val viewModel: FoodViewModel) :
     RecyclerView.Adapter<CreateRoutineAdapter.CreateRoutinerAdapterHolder>() {
 
     private val foodList = mutableListOf<FoodData>()
-    private lateinit var bitmapImage: Bitmap
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreateRoutinerAdapterHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -63,23 +56,13 @@ class CreateRoutineAdapter(private val viewModel: FoodViewModel) :
     inner class CreateRoutinerAdapterHolder(val binding: ItemRecyclerViewRegisterRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        @OptIn(DelicateCoroutinesApi::class)
         fun bind(food: FoodData) {
 
-            GlobalScope.launch(Dispatchers.IO) {
-                if (food.img != null && food.img.startsWith("https")) {
-                    val imageUrl = URL(food.img)
-                    bitmapImage = BitmapFactory.decodeStream(imageUrl.openStream())
-                } else {
-                    val context = binding.root.context
-                    bitmapImage =
-                        BitmapFactory.decodeResource(context.resources, R.mipmap.food_default)
-                }
-
-                launch(Dispatchers.Main) {
-                    binding.imageviewFoodItemRegisterRoutine.setImageBitmap(bitmapImage)
-                }
-            }
+            Glide.with(binding.root.context)
+                .load(food.img)
+                .placeholder(R.mipmap.img_refeicao_default)
+                .error(R.mipmap.img_refeicao_default)
+                .into(binding.imageviewFoodItemRegisterRoutine)
 
             binding.textviewNameFoodItemRegisterRoutine.text = food.nome
 

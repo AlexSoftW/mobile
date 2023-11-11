@@ -72,8 +72,8 @@ class SelectFoodCreateDiaryAdapter() :
 
             Glide.with(binding.root.context)
                 .load(food.img)
-                .placeholder(R.mipmap.food_default)
-                .error(R.mipmap.food_default)
+                .placeholder(R.mipmap.img_alimentos_default)
+                .error(R.mipmap.img_alimentos_default)
                 .into(binding.imageviewItemAlimento)
 
             binding.textviewNomeItemAlimento.text = food.nome

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textview_title_diario_alimentar_paciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="Histórico"
+        android:textSize="@dimen/large_font"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_subtitle_diario_alimentar_paciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sua lista de alimentos consumidos"
+        app:layout_constraintStart_toStartOf="@id/textview_title_diario_alimentar_paciente"
+        app:layout_constraintTop_toBottomOf="@id/textview_title_diario_alimentar_paciente" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/spinner_type_refeicao_historico_paciente"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/large_margin"
+        android:hint="Filtro: Diário"
+        app:layout_constraintEnd_toEndOf="@id/textview_subtitle_diario_alimentar_paciente"
+        app:layout_constraintStart_toStartOf="@id/textview_subtitle_diario_alimentar_paciente"
+        app:layout_constraintTop_toBottomOf="@id/textview_subtitle_diario_alimentar_paciente">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoComplete_patients_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            app:simpleItems="@array/spinner_option_type_consumido" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_diario_alimentar_paciente"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_type_refeicao_historico_paciente"
+        tools:listitem="@layout/item_recyclerview_diario_paciente" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,29 +35,30 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitListOnlyFood(paciente: List<PacienteDetailsData>) {
+    fun submitListOnlyPatient(paciente: PacienteDetailsData) {
         this.pacientesList.clear()
-        this.pacientesList.addAll(paciente)
+        this.pacientesList.add(paciente)
         notifyDataSetChanged()
     }
 
     inner class PacienteViewHolder(private val binding: ItemRecyclerViewYoursPatientsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("PrivateResource")
         fun bind(paciente: PacienteDetailsData) {
             binding.textviewNamePatientItemYoursPatients.text = paciente.nome
 
-//            binding.imageviewGenderPatientItemYoursPatients.setImageResource(
-//                if (paciente.genero == "Masculino") {
-//                    R.drawable.ic_male_gender
-//                } else if (paciente.genero == "Feminino") {
-//                    R.drawable.ic_female_gender
-//                } else {
-//                    com.google.android.material.R.drawable.navigation_empty_icon
-//                }
-//            )
+            binding.imageviewGenderPatientItemYoursPatients.setImageResource(
+                if (paciente.genero == "Masculino") {
+                    R.drawable.ic_male_gender
+                } else if (paciente.genero == "Feminino") {
+                    R.drawable.ic_female_gender
+                } else {
+                    com.google.android.material.R.drawable.navigation_empty_icon
+                }
+            )
 
-//            binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
+            binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
 
         }
     }

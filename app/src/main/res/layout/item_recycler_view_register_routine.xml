@@ -8,7 +8,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/xx_small_margin"
         android:padding="@dimen/small_padding">
 
         <androidx.cardview.widget.CardView
@@ -29,7 +28,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@mipmap/food_default" />
+                tools:src="@mipmap/img_refeicao_default" />
 
         </androidx.cardview.widget.CardView>
 
@@ -81,26 +80,32 @@
 
         <TextView
             android:id="@+id/textview_tag_type_food_item_register_routine"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/average_margin"
             android:background="@color/green_default"
             android:gravity="center"
-            android:minWidth="100dp"
             android:padding="4dp"
-            android:text="Carne"
+            android:text="Alimento pronto"
             android:textColor="@color/white_100"
             app:layout_constraintBottom_toBottomOf="@+id/cardview_circle_food_item_register_routine"
-            app:layout_constraintStart_toEndOf="@id/cardview_circle_food_item_register_routine" />
+            app:layout_constraintEnd_toStartOf="@+id/button_remover_alimento_register_routine"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="@dimen/average_margin"
+            app:layout_constraintStart_toEndOf="@+id/cardview_circle_food_item_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_recommend_item_register_routine" />
 
         <TextView
             android:id="@+id/button_remover_alimento_register_routine"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:text="remover alimento"
             android:textColor="@color/red_default"
             app:layout_constraintBottom_toBottomOf="@id/textview_tag_type_food_item_register_routine"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textview_tag_type_food_item_register_routine" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

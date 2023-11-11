@@ -77,18 +77,26 @@
 
     <!-- Spinners -->
     <string-array name="spinner_option_type_food">
-        <item>Carnes</item>
-        <item>Frutas</item>
-        <item>Grãos</item>
-        <item>Massas</item>
-        <item>Verduras</item>
-        <item>Legumes</item>
+        <item>Carne vermelha</item>
+        <item>Carne Branca</item>
+        <item>Fruta</item>
+        <item>Grão</item>
+        <item>Massa</item>
+        <item>Frutos do mar</item>
+        <item>Verdura</item>
+        <item>Legume</item>
+        <item>Alimento pronto</item>
     </string-array>
 
     <string-array name="spinner_option_type_hour">
         <item>Manhã</item>
         <item>Tarde</item>
         <item>Noite</item>
+    </string-array>
+
+    <string-array name="spinner_option_type_consumido">
+        <item>Diário</item>
+        <item>Semanal</item>
     </string-array>
 
     <string-array name="spinner_option_gender">
