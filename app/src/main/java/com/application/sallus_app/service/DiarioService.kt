@@ -5,11 +5,15 @@ import com.application.sallus_app.model.DiarioPostData
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface DiarioService {
 
-    @GET("diarios")
-    suspend fun getDiariosDoPaciente(): List<DiarioGetData>
+    @GET("diarios/listar-consumir/{id}/{data}")
+    suspend fun getDiariosDoPaciente(
+        @Path("id") id: Long,
+        @Path("data") data: String
+    ): List<DiarioGetData>
 
     @POST("diarios")
     suspend fun adicionarNovoDiario(@Body diario: DiarioPostData): DiarioPostData
