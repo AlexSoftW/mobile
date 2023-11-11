@@ -30,6 +30,6 @@ interface NutritionistService {
     @PUT("nutricionistas")
     suspend fun atualizarNutri(@Body dadosNutri : PerfilData)
 
-    @POST("/nutricionistas/atualizacaoSenha")
+    @PUT("nutricionistas/atualizacaoSenha")
     suspend fun atualizarSenha(@Body novaSenha : UsuarioData)
 }

@@ -40,12 +40,10 @@ class SettingsPasswordActivity : AppCompatActivity() {
         }
 
         binding.btnSalvarAlteracao.setOnClickListener {
-            val inputEditTextSenhaAtual = findViewById<EditText>(R.id.edittext_senha_atual)
             val inputEditTextSenhaNova = findViewById<EditText>(R.id.edittext_nova_senha)
             val inputEditTextConfirmSenha = findViewById<EditText>(R.id.edittext_confirmar_nova_senha)
 
             val email = dadosNutricionista.email
-            val senhaAtual = inputEditTextSenhaAtual.text.toString()
             val senhaNova = inputEditTextSenhaNova.text.toString()
             val confirmacaoSenha = inputEditTextConfirmSenha.text.toString()
 
