@@ -49,6 +49,9 @@ class LoginActivity : AppCompatActivity() {
                 when (it) {
                     1 -> {
                         val intent = Intent(this, PacienteActivity::class.java)
+                        val gson = Gson()
+                        val json = gson.toJson(loginViewModel.pacienteData.value)
+                        intent.putExtra("pacienteDataValue", json)
                         intent.flags =
                             Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         startActivity(intent)

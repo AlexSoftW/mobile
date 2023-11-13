@@ -34,11 +34,12 @@ class LoginViewModel : ViewModel() {
     fun loginUsuario(dadosUsuario: UsuarioData) {
         viewModelScope.launch {
             try {
-                repository.apiLoginService.loginPaciente(dadosUsuario)
-//                val responsePaciente =
-//                    repository.apiServicePaciente.getPacientePorId(response.userId)
-//
-//                _pacienteData.postValue(responsePaciente)
+                val response = repository.apiLoginService.loginPaciente(dadosUsuario)
+                val responsePaciente =
+                    repository.apiServicePaciente.getPacientePorId(response.userId)
+
+                _pacienteData.postValue(responsePaciente)
+                Log.i("logiPacienteLogin", "loginPaciente: $responsePaciente")
                 controle.postValue(1)
             } catch (e: Exception) {
                 try {

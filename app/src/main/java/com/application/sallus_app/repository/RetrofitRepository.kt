@@ -5,6 +5,8 @@ import com.application.sallus_app.service.FoodService
 import com.application.sallus_app.service.LoginService
 import com.application.sallus_app.service.NutritionistService
 import com.application.sallus_app.service.PacienteService
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -16,9 +18,14 @@ class RetrofitRepository {
 
     private val producao = "https://sallus.sytes.net/api/" //Esse é o IP(MAIN)
 
-    private val test = "http://35.173.202.235:8081/" //Esse é o IP do back-end individual da AWS
+    private val test = "http://52.54.172.255:8081/" //Esse é o IP do back-end individual da AWS
+
+    private val client = OkHttpClient.Builder()
+        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        .build()
 
     private val retrofit = Retrofit.Builder()
+        .client(client)
         .baseUrl(test)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

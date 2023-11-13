@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
-        android:text="Gisele Almeida"
+        tools:text="Gisele Almeida"
         android:textColor="@color/white_200"
         android:textSize="@dimen/average_font"
         android:textStyle="bold"
@@ -47,11 +47,11 @@
         android:layout_height="wrap_content"
         android:background="@color/green_default"
         android:padding="4dp"
-        android:text="Nutricionista"
         android:textColor="@color/white_100"
         app:layout_constraintBottom_toBottomOf="@+id/cardview_customer_toolbar_pages"
         app:layout_constraintStart_toStartOf="@+id/textview_name_customer_toolbar_pages"
-        app:layout_constraintTop_toBottomOf="@id/textview_name_customer_toolbar_pages" />
+        app:layout_constraintTop_toBottomOf="@id/textview_name_customer_toolbar_pages"
+        tools:text="Nutricionista" />
 
     <ImageButton
         android:id="@+id/imagebutton_notification_toolbar_pages"

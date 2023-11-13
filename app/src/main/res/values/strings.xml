@@ -94,11 +94,6 @@
         <item>Noite</item>
     </string-array>
 
-    <string-array name="spinner_option_type_consumido">
-        <item>Diário</item>
-        <item>Semanal</item>
-    </string-array>
-
     <string-array name="spinner_option_gender">
         <item>Masculino</item>
         <item>Feminino</item>

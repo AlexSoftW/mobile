@@ -49,7 +49,7 @@ class NutritionistActivity : AppCompatActivity() {
     // (se quiser inicialiar alguma textView com um valor específico, etc)
     // (adicionar a ação do botão para ir para outro fragment é aqui tbm)
     fun setupView() {
-        val fragmentHome = FragmentNutritionist()
+        val fragmentHome = FragmentNutritionist(nutritionistViewModel)
         replaceFragmentManager(fragmentHome)
 
         val redColor = ContextCompat.getColor(this, R.color.red_default)
@@ -60,10 +60,12 @@ class NutritionistActivity : AppCompatActivity() {
             R.mipmap.imagem_profile_nutricionista_default
         )
 
+        binding.includeToolbarPages.textviewTagToolbarPages.text = "Nutricionista"
+
         binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setOnClickListener {
             restoreOriginColor()
             binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(redColor)
-            replaceFragmentManager(FragmentNutritionist())
+            replaceFragmentManager(FragmentNutritionist(nutritionistViewModel))
         }
 
         binding.includeBadgeNutricionista.imagebuttonPatientsNutritionist.setOnClickListener {
@@ -105,6 +107,41 @@ class NutritionistActivity : AppCompatActivity() {
 
     fun setupObservers() {
         nutritionistViewModel.fetchTodosNutricionistas()
+
+        val redColor = ContextCompat.getColor(this, R.color.red_default)
+
+        nutritionistViewModel.corAtual.observe(this) {
+            when (it) {
+                1 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonPatientsNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+
+                2 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonFoodNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+
+                3 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonAddFoodNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+
+                4 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonAddRoutineNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+            }
+            Log.i("tagCorId", "id da cor atual: $it")
+        }
     }
 
     fun restoreOriginColor() {

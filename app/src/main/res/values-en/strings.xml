@@ -95,11 +95,6 @@
         <item>Evening</item>
     </string-array>
 
-    <string-array name="spinner_option_type_consumido">
-        <item>Daily</item>
-        <item>Weekly</item>
-    </string-array>
-
     <string-array name="spinner_option_gender">
         <item>Man</item>
         <item>Woman</item>

@@ -52,15 +52,6 @@ class FragmentYoursPatients : Fragment() {
     }
 
     private fun setupObservers() {
-
-        val sugestoesPacientes = mutableListOf<String>()
-
-        val adapterSearchbarPatients = ArrayAdapter(
-            requireContext(),
-            R.layout.simple_dropdown_item_1line,
-            sugestoesPacientes
-        )
-
         viewmodel.fetchTodosPacientesComVinculoNutricionista(idNutricionista)
 
         viewmodel.listaTodosPacientesComVinculoNutricionista.observe(viewLifecycleOwner) {
@@ -75,27 +66,6 @@ class FragmentYoursPatients : Fragment() {
 
                 adapter.subitList(it)
             }
-        }
-
-        viewmodel.listaTodosPacientesComVinculoNutricionista.observe(viewLifecycleOwner) { pacientes ->
-            for (paciente in pacientes) {
-                sugestoesPacientes.add(paciente.nome)
-            }
-        }
-
-        binding.searchBarYoursPatients.setAdapter(adapterSearchbarPatients)
-
-        binding.searchBarYoursPatients.setOnItemClickListener { parent, _, position, _ ->
-
-            val selectedPaciente = parent.getItemAtPosition(position) as String
-            viewmodel.buscarPacientePeloNome(selectedPaciente)
-
-            binding.textviewButtonLimparSelecaoYoursPatients.visibility = View.VISIBLE
-
-            viewmodel.pacienteInformadoSearchBar.observe(viewLifecycleOwner) {
-                adapter.submitListOnlyPatient(it)
-            }
-            binding.searchBarYoursPatients.hideKeyboard()
         }
 
     }
