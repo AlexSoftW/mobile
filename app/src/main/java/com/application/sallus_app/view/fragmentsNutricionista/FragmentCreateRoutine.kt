@@ -52,6 +52,7 @@ class FragmentCreateRoutine : Fragment() {
     var qtdCalorias: Double = 0.0
     lateinit var periodo: String
     var alimentos: String = ""
+    var alimentosSet = mutableSetOf<String>()
     var idNutricionista: Long = 0
     var idCliente: Long = 0
     lateinit var dataConsumir: String
@@ -212,9 +213,16 @@ class FragmentCreateRoutine : Fragment() {
                 valorTotalCalorias.toString()
 
             qtdCalorias = valorTotalCalorias
+
+            alimentosSet.clear()
+
             alimento.forEach { food ->
-                alimentos += "${food.nome}, "
+                alimentosSet.add(food.nome)
             }
+
+            alimentos = alimentosSet.joinToString(", ")
+
+            Log.i("tagListAliment", "alimentos na lista: $alimentos")
 
             if (alimento.isEmpty()) {
                 binding.textviewListEmpty.visibility = View.VISIBLE
