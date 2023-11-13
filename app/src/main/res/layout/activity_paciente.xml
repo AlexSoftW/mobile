@@ -8,6 +8,16 @@
         android:id="@+id/include_toolbar_home_paciente"
         layout="@layout/toolbar_pages" />
 
+    <Button
+        android:id="@+id/abrir_galeria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="abrir galeria"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_paciente"
         android:layout_width="match_parent"
