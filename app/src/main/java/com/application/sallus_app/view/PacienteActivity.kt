@@ -2,6 +2,7 @@ package com.application.sallus_app.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
@@ -14,23 +15,27 @@ import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatie
 import com.application.sallus_app.view.fragmentsPaciente.FragmentDiarioAlimentarPaciente
 import com.application.sallus_app.view.fragmentsPaciente.FragmentHistoricoAlimentarPaciente
 import com.application.sallus_app.view.fragmentsPaciente.FragmentTodosNutricionistas
+import com.application.sallus_app.viewmodel.PacienteViewModel
 import com.google.gson.Gson
 
 class PacienteActivity : AppCompatActivity() {
 
+    private lateinit var pacienteViewModel: PacienteViewModel
     private lateinit var binding: ActivityPacienteBinding
-//    private lateinit var dadosPaciente: PacienteData
+    private lateinit var dadosPaciente: PacienteData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPacienteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val dadosPacienteEmString = intent.getStringExtra("pacienteDataValue")
-//        dadosPaciente = tratarPacienteJsonToData(dadosPacienteEmString!!)
+        val dadosPacienteEmString = intent.getStringExtra("pacienteDataValue")
+        dadosPaciente = tratarPacienteJsonToData(dadosPacienteEmString!!)
 
-//        binding.includeToolbarHomePaciente.textviewNameCustomerToolbarPages.text =
-//            dadosPaciente.nome
+        Log.i("logiDadosPaciente", "dados: $dadosPaciente")
+
+        binding.includeToolbarHomePaciente.textviewNameCustomerToolbarPages.text =
+                dadosPaciente.nome
 
         setupView()
     }
@@ -42,8 +47,6 @@ class PacienteActivity : AppCompatActivity() {
         binding.includeToolbarHomePaciente.imageviewCustomerToolbarPages.setImageResource(
             R.mipmap.imagem_profile_paciente_default
         )
-
-        binding.includeToolbarHomePaciente.textviewNameCustomerToolbarPages.text = "Paciente"
 
         binding.includeToolbarHomePaciente.textviewTagToolbarPages.text = "Paciente"
 

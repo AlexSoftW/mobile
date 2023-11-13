@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textview_title_diario_alimentar_paciente"
+        android:id="@+id/textview_title_diario_historico_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/large_margin"
@@ -18,43 +18,63 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textview_subtitle_diario_alimentar_paciente"
+        android:id="@+id/textview_subtitle_diario_historico_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sua lista de alimentos consumidos"
-        app:layout_constraintStart_toStartOf="@id/textview_title_diario_alimentar_paciente"
-        app:layout_constraintTop_toBottomOf="@id/textview_title_diario_alimentar_paciente" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/spinner_type_refeicao_historico_paciente"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
-        android:layout_marginEnd="@dimen/large_margin"
-        android:hint="Filtro: Diário"
-        app:layout_constraintEnd_toEndOf="@id/textview_subtitle_diario_alimentar_paciente"
-        app:layout_constraintStart_toStartOf="@id/textview_subtitle_diario_alimentar_paciente"
-        app:layout_constraintTop_toBottomOf="@id/textview_subtitle_diario_alimentar_paciente">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoComplete_patients_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            app:simpleItems="@array/spinner_option_type_consumido" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintStart_toStartOf="@id/textview_title_diario_historico_paciente"
+        app:layout_constraintTop_toBottomOf="@id/textview_title_diario_historico_paciente" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_diario_alimentar_paciente"
+        android:id="@+id/recyclerview_diario_historico_paciente"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/small_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner_type_refeicao_historico_paciente"
+        app:layout_constraintTop_toBottomOf="@id/textview_subtitle_diario_historico_paciente"
         tools:listitem="@layout/item_recyclerview_diario_paciente" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_historico_paciente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:visibility="gone"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_subtitle_diario_historico_paciente">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_100"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/green_default" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/average_margin"
+                android:text="Você não possuí nenhum alimento consumido."
+                android:textAlignment="center"
+                android:textSize="@dimen/large_font" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@mipmap/image_nutritionist_patients" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

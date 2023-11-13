@@ -13,38 +13,16 @@ import java.lang.Exception
 class PacienteViewModel : ViewModel() {
     private val repository = RetrofitRepository()
 
-//    private val _listaTodosPacientes = MutableLiveData<List<PacienteData>>()
-//    val listaTodosPacientes: MutableLiveData<List<PacienteData>> = _listaTodosPacientes
-
     private val _listaTodosPacientesComVinculoNutricionista =
         MutableLiveData<List<PacienteDetailsData>>()
     val listaTodosPacientesComVinculoNutricionista: MutableLiveData<List<PacienteDetailsData>> =
         _listaTodosPacientesComVinculoNutricionista
 
-    private val _pacienteInformadoSearchBar = MutableLiveData<PacienteDetailsData>()
-    val pacienteInformadoSearchBar: MutableLiveData<PacienteDetailsData> =
-        _pacienteInformadoSearchBar
-
-//    fun fetchTodosPacientes() {
-//        viewModelScope.launch {
-//            try {
-//                val todosPacientes = repository.apiServicePaciente.getTodosPacientes()
-//                _listaTodosPacientes.postValue(todosPacientes)
-//                Log.i(
-//                    "logTodosPacientes",
-//                    "fetchTodosPacientes: lista de todos pacientes: $todosPacientes"
-//                )
-//            } catch (e: Exception) {
-//                Log.i("ERROR_FETCH_PATIENT", "fetchTodosPacientes: algo inesperado aconteceu")
-//            }
-//        }
-//    }
-
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
             println(novoPaciente)
             try {
-                val response = repository.apiServicePaciente.adicionarCliente(novoPaciente)
+                repository.apiServicePaciente.adicionarCliente(novoPaciente)
                 Log.i(
                     "logAddingPaciente",
                     "makeNewPaciente: paciente cadastrado com sucesso! $novoPaciente"
@@ -80,20 +58,5 @@ class PacienteViewModel : ViewModel() {
         }
     }
 
-    fun buscarPacientePeloNome(nome: String) {
-        viewModelScope.launch {
-            try {
-                val pacienteinformadoRepository =
-                    repository.apiServicePaciente.getPacientePorNome(nome)
-
-                _pacienteInformadoSearchBar.postValue(pacienteinformadoRepository)
-            } catch (e: Exception) {
-                Log.i(
-                    "ERROR_FETCH_PATIENT_ONLY",
-                    "fun buscarPacientePeloNome: algo inesperado aconteceu"
-                )
-            }
-        }
-    }
 
 }

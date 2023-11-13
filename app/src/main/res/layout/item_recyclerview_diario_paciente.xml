@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/small_margin"
@@ -26,61 +27,82 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/average_margin"
             android:layout_marginTop="@dimen/small_margin"
-            android:text="Almoço"
             android:textSize="@dimen/large_font"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/imageview_refeicao_item_recyclerview_diario_paciente"
-            app:layout_constraintTop_toBottomOf="@id/imageview_refeicao_item_recyclerview_diario_paciente" />
+            app:layout_constraintTop_toBottomOf="@id/imageview_refeicao_item_recyclerview_diario_paciente"
+            tools:text="Almoço" />
+
+        <TextView
+            android:id="@+id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calorias totais:"
+            app:layout_constraintStart_toStartOf="@id/textview_nome_refeicao_item_recyclerview_diario_paciente"
+            app:layout_constraintTop_toBottomOf="@id/textview_nome_refeicao_item_recyclerview_diario_paciente" />
+
+        <TextView
+            android:id="@+id/textview_qtd_calorias_item_recyclerview_diario_paciente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
+            app:layout_constraintStart_toEndOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
+            app:layout_constraintTop_toTopOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
+            tools:text="20000" />
 
         <TextView
             android:id="@+id/textview_informacoes_refeicao_item_recyclerview_diario_paciente"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/average_margin"
             android:layout_marginEnd="@dimen/average_margin"
-            android:text="Arroz, Feijão, Alface, Contra-filé"
-            android:textSize="@dimen/average_font"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/textview_nome_refeicao_item_recyclerview_diario_paciente"
-            app:layout_constraintTop_toBottomOf="@id/textview_nome_refeicao_item_recyclerview_diario_paciente" />
+            android:textSize="@dimen/small_font"
+            app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
+            tools:text="Arroz, Feijão, Alface, Contra-filé" />
 
-        <Button
-            android:id="@+id/button_consumido_item_recyclerview_diario_paciente"
+        <TextView
+            android:id="@+id/textview_tag_descricao_item_recyclerview_diario_paciente"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small_margin"
-            android:text="Consumido"
-            app:layout_constraintEnd_toStartOf="@+id/button_nao_consumido_item_recyclerview_diario_paciente"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_informacoes_refeicao_item_recyclerview_diario_paciente" />
+            android:layout_marginBottom="@dimen/small_margin"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textview_informacoes_refeicao_item_recyclerview_diario_paciente"
+            app:layout_constraintTop_toBottomOf="@id/textview_informacoes_refeicao_item_recyclerview_diario_paciente"
+            app:layout_constraintVertical_bias="0"
+            tools:text="Observações: Consumir este alimento de imeditato." />
 
-        <Button
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/button_consumido_item_recyclerview_diario_paciente"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:backgroundTint="@color/red_default"
+            android:text="Consumido"
+            android:textColor="@color/white_100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textview_tag_descricao_item_recyclerview_diario_paciente"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_descricao_item_recyclerview_diario_paciente"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/button_nao_consumido_item_recyclerview_diario_paciente"
-            android:layout_width="0dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_margin"
             android:text="Não consumido"
+            android:textAllCaps="false"
+            android:textColor="@color/red_default"
+            app:layout_constraintBottom_toBottomOf="@+id/button_consumido_item_recyclerview_diario_paciente"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_consumido_item_recyclerview_diario_paciente"
-            app:layout_constraintTop_toBottomOf="@id/textview_informacoes_refeicao_item_recyclerview_diario_paciente" />
-
-        <TextView
-            android:id="@+id/textview_horario_consumido_item_recyclerview_diario_paciente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/average_margin"
-            android:layout_marginBottom="@dimen/small_margin"
-            android:drawableStart="@drawable/ic_calendar_patient"
-            android:drawablePadding="4dp"
-            android:gravity="center"
-            android:text="25/11/2023 08h30"
-            android:textSize="@dimen/average_font"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/textview_informacoes_refeicao_item_recyclerview_diario_paciente"
-            app:layout_constraintStart_toStartOf="@id/textview_informacoes_refeicao_item_recyclerview_diario_paciente"
-            app:layout_constraintTop_toBottomOf="@id/textview_informacoes_refeicao_item_recyclerview_diario_paciente" />
+            app:layout_constraintTop_toTopOf="@+id/button_consumido_item_recyclerview_diario_paciente"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall"
+            app:strokeColor="@color/red_default" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

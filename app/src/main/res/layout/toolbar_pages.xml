@@ -47,11 +47,11 @@
         android:layout_height="wrap_content"
         android:background="@color/green_default"
         android:padding="4dp"
-        android:text="Nutricionista"
         android:textColor="@color/white_100"
         app:layout_constraintBottom_toBottomOf="@+id/cardview_customer_toolbar_pages"
         app:layout_constraintStart_toStartOf="@+id/textview_name_customer_toolbar_pages"
-        app:layout_constraintTop_toBottomOf="@id/textview_name_customer_toolbar_pages" />
+        app:layout_constraintTop_toBottomOf="@id/textview_name_customer_toolbar_pages"
+        tools:text="Nutricionista" />
 
     <ImageButton
         android:id="@+id/imagebutton_notification_toolbar_pages"
