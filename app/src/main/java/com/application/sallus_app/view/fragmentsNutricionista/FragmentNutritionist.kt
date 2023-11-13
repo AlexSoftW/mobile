@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentHomeNutricionistaBinding
 import com.application.sallus_app.view.fragments.FragmentFoods
+import com.application.sallus_app.viewmodel.NutritionistViewModel
 
-class FragmentNutritionist : Fragment() {
+class FragmentNutritionist(private val nutritionistViewModel: NutritionistViewModel) : Fragment() {
     private lateinit var binding: FragmentHomeNutricionistaBinding
 
     override fun onCreateView(
@@ -26,18 +27,22 @@ class FragmentNutritionist : Fragment() {
 
     private fun setupView() {
         binding.buttonCardOneRoutine.setOnClickListener {
+            nutritionistViewModel.alterarCorBadgeNutricionista(1)
             fragmentReplaceManager(FragmentYoursPatients())
         }
 
         binding.buttonCardTwoRoutine.setOnClickListener {
+            nutritionistViewModel.alterarCorBadgeNutricionista(2)
             fragmentReplaceManager(FragmentFoods())
         }
 
         binding.buttonCardThreeRoutine.setOnClickListener {
+            nutritionistViewModel.alterarCorBadgeNutricionista(3)
             fragmentReplaceManager(FragmentAddFood())
         }
 
         binding.buttonCardFourRoutine.setOnClickListener {
+            nutritionistViewModel.alterarCorBadgeNutricionista(4)
             fragmentReplaceManager(FragmentSelectFoodCreateDiary())
         }
     }

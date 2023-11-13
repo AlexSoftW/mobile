@@ -18,6 +18,9 @@ class PacienteViewModel : ViewModel() {
     val listaTodosPacientesComVinculoNutricionista: MutableLiveData<List<PacienteDetailsData>> =
         _listaTodosPacientesComVinculoNutricionista
 
+    //variavel para controlar a cor dos icones da badge do nutricionista pelo fragment_home_paciente
+    val corAtual = MutableLiveData<Int>()
+
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
             println(novoPaciente)
@@ -58,5 +61,8 @@ class PacienteViewModel : ViewModel() {
         }
     }
 
+    fun alterarCorBadgePaciente(buttonId: Int) {
+        corAtual.value = buttonId
+    }
 
 }

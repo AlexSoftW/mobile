@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
-        android:text="Gisele Almeida"
+        tools:text="Gisele Almeida"
         android:textColor="@color/white_200"
         android:textSize="@dimen/average_font"
         android:textStyle="bold"
