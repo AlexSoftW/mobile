@@ -119,6 +119,14 @@ class PacienteActivity : AppCompatActivity() {
             replaceFragmentManager(FragmentHistoricoAlimentarPaciente())
         }
 
+        binding.includeToolbarHomePaciente.imagebuttonSettingsToolbarPages.setOnClickListener {
+            val intent = Intent(this, SettingsPacienteActivity::class.java)
+            val gson = Gson()
+            val json = gson.toJson(dadosPaciente)
+            intent.putExtra("pacienteDataPerfil", json)
+            startActivity(intent)
+        }
+
     }
 
     private fun setupObservers() {

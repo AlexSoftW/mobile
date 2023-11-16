@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import com.application.sallus_app.R
-import com.application.sallus_app.databinding.ActivityPerfilNutricionistaBinding
+import com.application.sallus_app.databinding.ActivitySettingsPerfilNutricionistaBinding
 import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.model.PerfilData
 import com.application.sallus_app.viewmodel.NutritionistViewModel
@@ -16,11 +16,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class SettingsPerfilNutricionistActivity : AppCompatActivity() {
 
     private val nutricionistViewModel: NutritionistViewModel by viewModel()
-    private lateinit var binding: ActivityPerfilNutricionistaBinding
+    private lateinit var binding: ActivitySettingsPerfilNutricionistaBinding
     private lateinit var dadosNutricionista : NutritionistData;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPerfilNutricionistaBinding.inflate(layoutInflater)
+        binding = ActivitySettingsPerfilNutricionistaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -42,10 +42,11 @@ class SettingsPerfilNutricionistActivity : AppCompatActivity() {
             activity.finish()
         }
 
-        binding.btnRedefinirSenha.setOnClickListener {
-            val intent = Intent(this, SettingsPasswordActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.btnRedefinirSenha.setOnClickListener {
+//            activity.finish()
+//            val intent = Intent(this, SettingsPasswordNutricionistActivity::class.java)
+//            startActivity(intent)
+//        }
 
         binding.btnSalvarAlteracao.setOnClickListener {
             val inputEditTextNome = findViewById<EditText>(R.id.edittext_nome_completo)

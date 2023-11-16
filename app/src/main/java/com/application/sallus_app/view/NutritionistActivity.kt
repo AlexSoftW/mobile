@@ -97,7 +97,7 @@ class NutritionistActivity : AppCompatActivity() {
         }
 
         binding.includeToolbarPages.imagebuttonSettingsToolbarPages.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
+            val intent = Intent(this, SettingsNutricionistActivity::class.java)
             val gson = Gson()
             val json = gson.toJson(dadosNutricionista)
             intent.putExtra("nutricionistaDataPerfil", json)
