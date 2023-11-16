@@ -18,7 +18,7 @@ class RetrofitRepository {
 
     private val producao = "https://sallus.sytes.net/api/" //Esse é o IP(MAIN)
 
-    private val test = "http://52.54.172.255:8081/" //Esse é o IP do back-end individual da AWS
+    private val test = "http://54.162.238.140:8081/" //Esse é o IP do back-end individual da AWS
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))

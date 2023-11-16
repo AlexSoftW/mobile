@@ -44,11 +44,11 @@
             android:exported="false" />
 
         <activity
-            android:name=".view.SettingsActivity"
+            android:name=".view.SettingsNutricionistActivity"
             android:exported="false" />
 
         <activity
-            android:name=".view.SettingsSuporteActivity"
+            android:name=".view.SettingsSuporteNutricionistActivity"
             android:exported="false" />
 
         <activity
@@ -56,7 +56,24 @@
             android:exported="false" />
 
         <activity
-            android:name=".view.SettingsPasswordActivity"
+            android:name=".view.SettingsPasswordNutricionistActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".view.SettingsPacienteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.SettingsSuportePacienteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.SettingsPerfilPacienteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.SettingsPasswordPacienteActivity"
             android:exported="false" />
 
         <meta-data

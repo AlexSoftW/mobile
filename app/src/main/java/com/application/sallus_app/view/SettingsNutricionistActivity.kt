@@ -3,21 +3,21 @@ package com.application.sallus_app.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.application.sallus_app.databinding.ActivitySettingsBinding
+import com.application.sallus_app.databinding.ActivitySettingsNutricionistaBinding
 import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.viewmodel.SettingsViewModel
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsNutricionistActivity : AppCompatActivity() {
 
     private val settingsViewModel: SettingsViewModel by viewModel()
-    private lateinit var binding: ActivitySettingsBinding
+    private lateinit var binding: ActivitySettingsNutricionistaBinding
     private lateinit var dadosNutricionista: NutritionistData;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingsBinding.inflate(layoutInflater)
+        binding = ActivitySettingsNutricionistaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupView()
     }
@@ -40,7 +40,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         binding.optionAlterarSenha.setOnClickListener() {
-            val intent = Intent(this, SettingsPasswordActivity::class.java)
+            val intent = Intent(this, SettingsPasswordNutricionistActivity::class.java)
             val gson = Gson()
             val json = gson.toJson(dadosNutricionista)
             intent.putExtra("nutricionistaDataSenha", json)
@@ -48,7 +48,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         binding.optionSuporte.setOnClickListener() {
-            val intent = Intent(this, SettingsSuporteActivity::class.java)
+            val intent = Intent(this, SettingsSuporteNutricionistActivity::class.java)
             startActivity(intent)
         }
 

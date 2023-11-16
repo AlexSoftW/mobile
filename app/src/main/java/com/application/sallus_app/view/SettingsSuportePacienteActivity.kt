@@ -4,15 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.application.sallus_app.databinding.ActivitySettingsSuporteBinding
+import com.application.sallus_app.databinding.ActivitySettingsSuportePacienteBinding
 
-class SettingsSuporteActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySettingsSuporteBinding
+class SettingsSuportePacienteActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySettingsSuportePacienteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingsSuporteBinding.inflate(layoutInflater)
+        binding = ActivitySettingsSuportePacienteBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupView()
     }
@@ -58,5 +57,6 @@ class SettingsSuporteActivity : AppCompatActivity() {
         )
         startActivity(Intent.createChooser(email, "Enviar seu e-mail para o suporte\nSalus Well"))
     }
+
 
 }
