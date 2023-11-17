@@ -44,24 +44,7 @@ class FragmentCrn : Fragment() {
         val fragmentDestino = FragmentEmailNutri()
 
         binding.nextButton1.setOnClickListener {
-
             checkInput()
-
-            val crn = binding.crn.text.toString()
-
-
-            Log.d("MeuFragmentDestino", "Dados teste: $crn ")
-
-
-            bundle.putString("Crn", crn)
-
-
-            fragmentDestino.arguments = bundle
-
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_cadastro, fragmentDestino)
-                .addToBackStack(null)
-                .commit()
         }
 
         binding.backButton2.setOnClickListener {
@@ -76,13 +59,26 @@ class FragmentCrn : Fragment() {
         fragmentManager.popBackStack()
     }
 
-    private fun checkInput(): Boolean {
+    private fun checkInput() {
         val crn = binding.crn.text.toString()
+        val fragmentDestino = FragmentEmailNutri()
 
         if (crn.isBlank() || crn.length != 7) {
             binding.crn.error = "Preencha um CRN válido."
-            return false
+
+        } else {
+            val crn = binding.crn.text.toString()
+
+            Log.d("MeuFragmentDestino", "Dados teste: $crn ")
+
+            bundle.putString("Crn", crn)
+
+            fragmentDestino.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_cadastro, fragmentDestino)
+                .addToBackStack(null)
+                .commit()
         }
-        return true
     }
 }
