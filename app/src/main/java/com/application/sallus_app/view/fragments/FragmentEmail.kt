@@ -46,39 +46,18 @@ class FragmentEmail : Fragment() {
 
             binding.nextButton1.setOnClickListener {
 
-                checkInputs()
-
-                val email = binding.email.text.toString()
-                val senha = binding.senha.text.toString()
-
-                val confirmrSenha = binding.confirmarSenha.text.toString()
-                bundle.putString("Email", email)
-                bundle.putString("Senha", senha)
-                bundle.putString("ConfirmarSenha", confirmrSenha)
-                val fragmentDestino = FragmentEmail()
-                fragmentDestino.arguments = bundle
-                Log.d("Valores ", "Email = $email, senha = $senha")
-
-                val pacienteData = PacienteData(
-                    nome ?: "",
-                    email,
-                    senha,
-                    0.0,
-                    0,
-                    genero ?: "",
-                    endereco ?: "",
-                    0,
-                    telefone ?: "",
-                    false,
-                    true,
-                    null
-                )
-
-                viewModel.addingNewPaciente(pacienteData)
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_cadastro, fragmentDestino)
-                    .addToBackStack(null)
-                    .commit()
+                if (nome != null && telefone != null && endereco != null && genero != null) {
+                    checkInputs(
+                        nome,
+                        telefone,
+                        endereco,
+                        genero,
+                        diabete,
+                        colesterol,
+                        hipertensao,
+                        nenhum
+                    )
+                }
             }
         }
 
@@ -95,7 +74,17 @@ class FragmentEmail : Fragment() {
         fragmentManager.popBackStack()
     }
 
-    private fun checkInputs() {
+    private fun checkInputs(
+        nome: String,
+        telefone: String,
+        endereco: String,
+        genero: String,
+        diabete: Boolean,
+        colesterol: Boolean,
+        hipertensao: Boolean,
+        nenhum: Boolean
+
+    ) {
         val email = binding.email.text.toString()
         val password = binding.senha.text.toString()
         val confirmPassword = binding.confirmarSenha.text.toString()
@@ -107,23 +96,49 @@ class FragmentEmail : Fragment() {
         } else if (password != confirmPassword) {
             binding.confirmarSenha.error = "As senhas não coincidem."
         } else {
-            Toast.makeText(context, "Teste", Toast.LENGTH_SHORT).show()
+
+            val confirmrSenha = binding.confirmarSenha.text.toString()
+            bundle.putString("Email", email)
+            bundle.putString("Senha", password)
+            bundle.putString("ConfirmarSenha", confirmrSenha)
+            val fragmentDestino = FragmentEmail()
+            fragmentDestino.arguments = bundle
+            Log.d("Valores ", "Email = $email, senha = $password")
+
+            val pacienteData = PacienteData(
+                nome ?: "",
+                email,
+                password,
+                0.0,
+                0,
+                genero ?: "",
+                endereco ?: "",
+                0,
+                telefone ?: "",
+                false,
+                true,
+                null
+            )
+
+            viewModel.addingNewPaciente(pacienteData)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_cadastro, fragmentDestino)
+                .addToBackStack(null)
+                .commit()
         }
     }
+}
 
-    private fun isPasswordValid(password: String): Boolean {
-        if (password.isBlank()) {
-            return false  // A senha está vazia, portanto, é inválida
-        }
-
-        val hasUppercase = password.any { it.isUpperCase() }
-        val hasLowercase = password.any { it.isLowerCase() }
-        val hasDigit = password.any { it.isDigit() }
-        val hasSpecialChar = password.any { it.isLetterOrDigit().not() }
-        val isLengthValid = password.length >= 8
-
-        return hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid
+private fun isPasswordValid(password: String): Boolean {
+    if (password.isBlank()) {
+        return false  // A senha está vazia, portanto, é inválida
     }
 
+    val hasUppercase = password.any { it.isUpperCase() }
+    val hasLowercase = password.any { it.isLowerCase() }
+    val hasDigit = password.any { it.isDigit() }
+    val hasSpecialChar = password.any { it.isLetterOrDigit().not() }
+    val isLengthValid = password.length >= 8
 
+    return hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid
 }
