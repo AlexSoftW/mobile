@@ -46,20 +46,7 @@ class FragmentComorbidade : Fragment() {
         val fragmentDestino = FragmentEmail()
 
         binding.nextButton1.setOnClickListener {
-
-            bundle.putBoolean("Diabete", binding.diabete.isChecked)
-            bundle.putBoolean("Colesterol", binding.colesterol.isChecked)
-            bundle.putBoolean("Hipertensao", binding.hipertensao.isChecked)
-            bundle.putBoolean("Nenhum", binding.nenhum.isChecked)
-            fragmentDestino.arguments = bundle
-            Log.d(
-                "Valores CheckBoxes",
-                "Diabete = ${diabete.isChecked}, Hipertensao = ${hipertensao.isChecked}"
-            )
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_cadastro, fragmentDestino)
-                .addToBackStack(null)
-                .commit()
+            checkInputs()
         }
 
         binding.backButton2.setOnClickListener {
@@ -73,12 +60,14 @@ class FragmentComorbidade : Fragment() {
         fragmentManager.popBackStack()
     }
 
-    private fun checkInputs(
-        diabete: Boolean,
-        colesterol: Boolean,
-        hipertensao: Boolean,
-        nenhum: Boolean
-    ): Boolean {
+    private fun checkInputs() {
+        val diabete = binding.diabete
+        val colesterol = binding.colesterol
+        val hipertensao = binding.hipertensao
+        val nenhum = binding.nenhum
+        val fragmentDestino = FragmentEmail()
+
+
         if (!(binding.diabete.isChecked && binding.colesterol.isChecked &&
                     binding.hipertensao.isChecked && binding.nenhum.isChecked)
         ) {
@@ -88,10 +77,24 @@ class FragmentComorbidade : Fragment() {
             binding.nenhum.error
 
             Toast.makeText(context, "Preencha uma das opções acima", Toast.LENGTH_SHORT).show()
-            return false
+
         } else {
-            return true
+            bundle.putBoolean("Diabete", binding.diabete.isChecked)
+            bundle.putBoolean("Colesterol", binding.colesterol.isChecked)
+            bundle.putBoolean("Hipertensao", binding.hipertensao.isChecked)
+            bundle.putBoolean("Nenhum", binding.nenhum.isChecked)
+
+            fragmentDestino.arguments = bundle
+            Log.d(
+                "Valores CheckBoxes",
+                "Diabete = ${diabete.isChecked}, Hipertensao = ${hipertensao.isChecked}"
+            )
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_cadastro, fragmentDestino)
+                .addToBackStack(null)
+                .commit()
+
+
         }
     }
-
 }
