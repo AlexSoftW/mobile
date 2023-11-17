@@ -1,6 +1,7 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,14 +11,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewFoodsBinding
 import com.application.sallus_app.model.FoodData
-import java.util.Locale
+import com.bumptech.glide.Glide
 
 class SelectFoodCreateDiaryAdapter() :
     RecyclerView.Adapter<SelectFoodCreateDiaryAdapter.SelectFoodCreateDiaryAdapterHolder>() {
 
     private val foodList = mutableListOf<FoodData>()
-    val selectedFoods = mutableListOf<FoodData>()
-    val buttonStateFoodList = MutableLiveData<List<FoodData>>()
+
+    private val _alimentosSelecionados = mutableSetOf<FoodData>()
+    val alimentosSelecionados: MutableSet<FoodData> = _alimentosSelecionados
+
+    //variavel para validar o botão do criar rotina
+    val validacaoBotaoCriarRotina = MutableLiveData<Boolean>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -32,46 +37,14 @@ class SelectFoodCreateDiaryAdapter() :
     override fun onBindViewHolder(holder: SelectFoodCreateDiaryAdapterHolder, position: Int) {
         val food = foodList[position]
         holder.bind(food)
-
-        holder.itemView.setBackgroundColor(
-            ContextCompat.getColor(
-                holder.itemView.context,
-                if (food.isSelected) R.color.green_card_selected else R.color.white_100
-            )
-        )
-
-        holder.itemView.setOnClickListener {
-            food.isSelected = !food.isSelected
-
-            holder.itemView.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    if (food.isSelected) R.color.green_card_selected else R.color.white_100
-                )
-            )
-
-            if (food.isSelected) {
-                selectedFoods.add(food)
-            } else {
-                selectedFoods.remove(food)
-            }
-
-            buttonStateFoodList.value = selectedFoods
-        }
     }
 
-    override fun getItemCount(): Int {
-        return foodList.size
-    }
+    override fun getItemCount(): Int = foodList.size
 
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(alimentos: List<FoodData>) {
         this.foodList.clear()
         this.foodList.addAll(alimentos)
-
-        for (food in foodList) {
-            food.isSelected = selectedFoods.contains(food)
-        }
 
         notifyDataSetChanged()
     }
@@ -83,47 +56,79 @@ class SelectFoodCreateDiaryAdapter() :
         notifyDataSetChanged()
     }
 
-
     inner class SelectFoodCreateDiaryAdapterHolder(private val binding: ItemRecyclerViewFoodsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        var foodSelected = false
 
-        @SuppressLint("NotifyDataSetChanged")
         fun bind(food: FoodData) {
-            binding.imageviewItemAlimento.setImageResource(getImageResource(food.nome))
+
+            //Apenas exibir os dados no card
+            exibirInformacoes(food)
+
+            //Lógica para adicionar os cards após clicar
+            selecionarAlimento(food)
+        }
+
+        private fun exibirInformacoes(food: FoodData) {
+
+            Glide.with(binding.root.context)
+                .load(food.img)
+                .placeholder(R.mipmap.img_alimentos_default)
+                .error(R.mipmap.img_alimentos_default)
+                .into(binding.imageviewItemAlimento)
+
             binding.textviewNomeItemAlimento.text = food.nome
 
-            if (food.diabete) {
-                binding.imageviewIconDiabetesItemAlimento.visibility = View.VISIBLE
-            } else {
-                binding.imageviewIconDiabetesItemAlimento.visibility = View.GONE
-            }
+            binding.imageviewIconDiabetesItemAlimento.visibility =
+                if (food.diabete) View.VISIBLE else View.GONE
 
-            if (food.colesterol) {
-                binding.imageviewIconColesterolItemAlimento.visibility = View.VISIBLE
-            } else {
-                binding.imageviewIconColesterolItemAlimento.visibility = View.GONE
-            }
+            binding.imageviewIconColesterolItemAlimento.visibility =
+                if (food.colesterol) View.VISIBLE else View.GONE
 
-            if (food.hipertensao) {
-                binding.imageviewIconHipertensaoItemAlimento.visibility = View.VISIBLE
-            } else {
-                binding.imageviewIconHipertensaoItemAlimento.visibility = View.GONE
-            }
+            binding.imageviewIconHipertensaoItemAlimento.visibility =
+                if (food.hipertensao) View.VISIBLE else View.GONE
 
-            if (!food.diabete && !food.hipertensao && !food.colesterol) {
-                binding.textviewAlimentoNaoIndicado.visibility = View.VISIBLE
-            } else {
-                binding.textviewAlimentoNaoIndicado.visibility = View.GONE
-            }
+            binding.textviewAlimentoNaoIndicado.visibility =
+                if (!food.diabete && !food.hipertensao && !food.colesterol) View.VISIBLE else View.GONE
         }
 
-        private fun getImageResource(foodName: String): Int {
-            return when (foodName.lowercase(Locale.ROOT)) {
-                "picanha" -> R.mipmap.food_default
-                else -> R.mipmap.food_default
+        @SuppressLint("NotifyDataSetChanged")
+        private fun selecionarAlimento(food: FoodData) {
+
+            val isSelected = _alimentosSelecionados.contains(food)
+            val colorGreen =
+                ContextCompat.getColor(binding.root.context, R.color.green_card_selected)
+            val colorWhite = ContextCompat.getColor(binding.root.context, R.color.white_100)
+
+            val backgroundColor = if (isSelected) colorGreen else colorWhite
+
+            val backgroundOpaccity = if (isSelected) 0.5f else 1.0f
+
+            binding.constraintlayoutCardFoods.setBackgroundColor(backgroundColor)
+            binding.imageviewItemAlimento.alpha = backgroundOpaccity
+
+            //Lógica para adicionar na lista os alimentos selecionados
+            itemView.setOnClickListener {
+                if (isSelected) {
+                    _alimentosSelecionados.remove(food)
+                } else {
+                    _alimentosSelecionados.add(food)
+                }
+
+                val updateBackgroundColor = if (isSelected) {
+                    colorWhite
+                } else {
+                    colorGreen
+                }
+                binding.constraintlayoutCardFoods.setBackgroundColor(updateBackgroundColor)
+
+                Log.i("tagAlimentosSelected", "lista atual: $_alimentosSelecionados")
+                notifyDataSetChanged()
             }
+
+            validacaoBotaoCriarRotina.value = _alimentosSelecionados.isNotEmpty()
+
         }
+
     }
 
 }

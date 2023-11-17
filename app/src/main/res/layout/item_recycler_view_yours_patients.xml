@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/average_margin">
+    android:layout_marginTop="@dimen/average_margin"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="@dimen/large_margin"
-            android:background="@drawable/foto_redonda"
+            android:background="@mipmap/default_profile"
             app:layout_constraintBottom_toBottomOf="@+id/view_banner_item_yours_patients"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view_banner_item_yours_patients"
@@ -57,18 +58,15 @@
             android:id="@+id/textview_tag_patient_item_yours_patients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
-            android:layout_marginEnd="@dimen/large_margin"
             android:background="@color/green_default"
             android:gravity="center"
-            android:padding="8dp"
+            android:padding="6dp"
             android:text="@string/text_patient"
             android:textColor="@color/white_100"
             android:textSize="@dimen/small_font"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/imageview_gender_patient_item_yours_patients"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageview_gender_patient_item_yours_patients" />
+            app:layout_constraintStart_toStartOf="@id/textview_name_patient_item_yours_patients"
+            app:layout_constraintTop_toBottomOf="@id/textview_name_patient_item_yours_patients" />
 
         <TextView
             android:id="@+id/textview_tag_telephone_item_yours_patients"
@@ -77,67 +75,28 @@
             android:layout_marginTop="@dimen/small_margin"
             android:text="@string/text_telephone"
             android:textSize="@dimen/small_font"
-            app:layout_constraintStart_toStartOf="@id/textview_name_patient_item_yours_patients"
-            app:layout_constraintTop_toBottomOf="@id/textview_name_patient_item_yours_patients" />
+            app:layout_constraintStart_toStartOf="@id/textview_tag_patient_item_yours_patients"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_patient_item_yours_patients" />
 
         <TextView
             android:id="@+id/textview_telephone_patient_item_yours_patients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="(11) 91234-5678"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/textview_tag_telephone_item_yours_patients"
-            app:layout_constraintStart_toEndOf="@id/textview_tag_telephone_item_yours_patients"
-            tools:text="(11) 91234-5678" />
-
-        <TextView
-            android:id="@+id/textview_tag_comorbidade_item_yours_patients"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginBottom="@dimen/average_margin"
-            android:text="@string/text_comorbidity"
-            app:layout_constraintStart_toStartOf="@id/textview_tag_telephone_item_yours_patients"
-            app:layout_constraintTop_toBottomOf="@id/textview_tag_telephone_item_yours_patients" />
-
-        <ImageView
-            android:id="@+id/imgaeview_icon_diabetes_item_yours_patients"
-            android:layout_width="@dimen/large_icon"
-            android:layout_height="@dimen/large_icon"
-            android:layout_marginStart="@dimen/xx_small_margin"
-            android:src="@drawable/ic_diabetes"
-            app:layout_constraintBottom_toBottomOf="@id/textview_tag_comorbidade_item_yours_patients"
-            app:layout_constraintStart_toEndOf="@id/textview_tag_comorbidade_item_yours_patients"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/imageview_icon_hipertensao_item_yours_patients"
-            android:layout_width="@dimen/large_icon"
-            android:layout_height="@dimen/large_icon"
-            android:layout_marginStart="@dimen/xx_small_margin"
-            android:src="@drawable/ic_hipertensao"
-            app:layout_constraintStart_toEndOf="@id/imgaeview_icon_diabetes_item_yours_patients"
-            app:layout_constraintTop_toTopOf="@id/imgaeview_icon_diabetes_item_yours_patients"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/imageview_icon_colesterol_item_yours_patients"
-            android:layout_width="@dimen/large_icon"
-            android:layout_height="@dimen/large_icon"
-            android:layout_marginStart="@dimen/xx_small_margin"
-            android:src="@drawable/ic_colesterol"
-            app:layout_constraintStart_toEndOf="@+id/imageview_icon_hipertensao_item_yours_patients"
-            app:layout_constraintTop_toTopOf="@id/imageview_icon_hipertensao_item_yours_patients"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintStart_toEndOf="@id/textview_tag_telephone_item_yours_patients" />
 
         <ImageButton
             android:id="@+id/imagebutton_whatsapp_item_yours_patients"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:backgroundTint="@color/red_default"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:backgroundTint="@color/zapzap_color"
             android:src="@drawable/ic_whatsapp"
-            app:layout_constraintBottom_toBottomOf="@id/imageview_icon_colesterol_item_yours_patients"
-            app:layout_constraintEnd_toEndOf="@id/textview_tag_patient_item_yours_patients"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

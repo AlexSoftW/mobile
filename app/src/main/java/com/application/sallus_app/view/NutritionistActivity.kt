@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivityNutricionistaBinding
 import com.application.sallus_app.model.NutritionistData
-import com.application.sallus_app.view.fragments.FragmentAddFood
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentAddFood
 import com.application.sallus_app.view.fragments.FragmentFoods
-import com.application.sallus_app.view.fragments.FragmentNutritionist
-import com.application.sallus_app.view.fragments.FragmentSelectFoodCreateDiary
-import com.application.sallus_app.view.fragments.FragmentYoursPatients
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentNutritionist
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentSelectFoodCreateDiary
+import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatients
 import com.application.sallus_app.viewmodel.NutritionistViewModel
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -49,19 +49,23 @@ class NutritionistActivity : AppCompatActivity() {
     // (se quiser inicialiar alguma textView com um valor específico, etc)
     // (adicionar a ação do botão para ir para outro fragment é aqui tbm)
     fun setupView() {
-        val fragmentHome = FragmentNutritionist()
+        val fragmentHome = FragmentNutritionist(nutritionistViewModel)
         replaceFragmentManager(fragmentHome)
+
+        val redColor = ContextCompat.getColor(this, R.color.red_default)
+
+        binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(redColor)
 
         binding.includeToolbarPages.imageviewCustomerToolbarPages.setImageResource(
             R.mipmap.imagem_profile_nutricionista_default
         )
 
-        val redColor = ContextCompat.getColor(this, R.color.red_default)
+        binding.includeToolbarPages.textviewTagToolbarPages.text = "Nutricionista"
 
         binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setOnClickListener {
             restoreOriginColor()
             binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(redColor)
-            replaceFragmentManager(FragmentNutritionist())
+            replaceFragmentManager(FragmentNutritionist(nutritionistViewModel))
         }
 
         binding.includeBadgeNutricionista.imagebuttonPatientsNutritionist.setOnClickListener {
@@ -93,7 +97,7 @@ class NutritionistActivity : AppCompatActivity() {
         }
 
         binding.includeToolbarPages.imagebuttonSettingsToolbarPages.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
+            val intent = Intent(this, SettingsNutricionistActivity::class.java)
             val gson = Gson()
             val json = gson.toJson(dadosNutricionista)
             intent.putExtra("nutricionistaDataPerfil", json)
@@ -103,6 +107,41 @@ class NutritionistActivity : AppCompatActivity() {
 
     fun setupObservers() {
         nutritionistViewModel.fetchTodosNutricionistas()
+
+        val redColor = ContextCompat.getColor(this, R.color.red_default)
+
+        nutritionistViewModel.corAtual.observe(this) {
+            when (it) {
+                1 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonPatientsNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+
+                2 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonFoodNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+
+                3 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonAddFoodNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+
+                4 -> {
+                    restoreOriginColor()
+                    binding.includeBadgeNutricionista.imagebuttonAddRoutineNutritionist.setColorFilter(
+                        redColor
+                    )
+                }
+            }
+            Log.i("tagCorId", "id da cor atual: $it")
+        }
     }
 
     fun restoreOriginColor() {

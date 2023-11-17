@@ -100,7 +100,6 @@
                 android:layout_width="350dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@drawable/borda_botao"
                 android:text="Sou Nutricionista"
                 android:textSize="20sp" />
 

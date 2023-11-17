@@ -11,5 +11,6 @@ data class PacienteData(
     val contagemAvaliacao: Int,
     val telefone: String,
     val comorbidade: Boolean,
-    val ativo: Boolean
+    val ativo: Boolean,
+    val id: Long?
 )

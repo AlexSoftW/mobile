@@ -50,8 +50,6 @@ class FragmentFoods : Fragment() {
 
         viewmodel.buscarTodosAlimentos()
 
-        binding.searchBarFoods.setAdapter(adapterSearchbarFoods)
-
         viewmodel.listAlimentos.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
@@ -62,7 +60,10 @@ class FragmentFoods : Fragment() {
             }
         }
 
+        binding.searchBarFoods.setAdapter(adapterSearchbarFoods)
+
         binding.searchBarFoods.setOnItemClickListener { parent, _, position, _ ->
+
             val selectedFood = parent.getItemAtPosition(position) as String
             viewmodel.buscarAlimentoPeloNome(selectedFood)
 
@@ -71,12 +72,10 @@ class FragmentFoods : Fragment() {
             viewmodel.alimentoInformadoSearchbar.observe(viewLifecycleOwner) {
                 adapter.submitListOnlyFood(it)
             }
-
             binding.searchBarFoods.hideKeyboard()
         }
 
         binding.textviewButtonLimparSelecao.setOnClickListener {
-
             binding.textviewButtonLimparSelecao.visibility = View.GONE
             binding.searchBarFoods.setText("")
 
@@ -85,7 +84,15 @@ class FragmentFoods : Fragment() {
             }
         }
 
-        binding.imageviewCarnesCategoryFoods.setOnClickListener {
+        binding.cardviewCarnesVermelhaCategoryFoods.setOnClickListener {
+            binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
+            viewmodel.buscarAlimentosPorTipo("Carne bovina")
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
+                adapter.submitList(it)
+            }
+        }
+
+        binding.cardviewCarnesBrancasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Frango")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
@@ -93,7 +100,7 @@ class FragmentFoods : Fragment() {
             }
         }
 
-        binding.imageviewFrutasCategoryFoods.setOnClickListener {
+        binding.cardviewFrutasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Fruta")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
@@ -101,7 +108,7 @@ class FragmentFoods : Fragment() {
             }
         }
 
-        binding.imageviewGraosCategoryFoods.setOnClickListener {
+        binding.cardviewGraosCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Grão")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
@@ -109,15 +116,23 @@ class FragmentFoods : Fragment() {
             }
         }
 
-        binding.imageviewMassasCategoryFoods.setOnClickListener {
+        binding.cardviewMassasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
-            viewmodel.buscarAlimentosPorTipo("Massas")
+            viewmodel.buscarAlimentosPorTipo("Massa")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
         }
 
-        binding.imageviewVerdurasCategoryFoods.setOnClickListener {
+        binding.cardviewFrutosMarCategoryFoods.setOnClickListener {
+            binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
+            viewmodel.buscarAlimentosPorTipo("Frutos do mar")
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
+                adapter.submitList(it)
+            }
+        }
+
+        binding.cardviewVerdurasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Verdura")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
@@ -125,9 +140,17 @@ class FragmentFoods : Fragment() {
             }
         }
 
-        binding.imageviewLegumesCategoryFoods.setOnClickListener {
+        binding.cardviewLegumesCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
             viewmodel.buscarAlimentosPorTipo("Legume")
+            viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
+                adapter.submitList(it)
+            }
+        }
+
+        binding.cardviewAlimentosProntosCategoryFoods.setOnClickListener {
+            binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
+            viewmodel.buscarAlimentosPorTipo("Alimento pronto")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }

@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/xx_small_margin"
-    android:layout_marginTop="@dimen/average_margin">
+    android:layout_marginTop="@dimen/average_margin"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_card_foods"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -23,12 +25,13 @@
 
         <TextView
             android:id="@+id/textview_nome_item_alimento"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xx_small_margin"
             android:text="Picanha"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/imageview_item_alimento"
             app:layout_constraintTop_toBottomOf="@id/imageview_item_alimento" />
 

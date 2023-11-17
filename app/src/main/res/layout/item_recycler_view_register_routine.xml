@@ -8,16 +8,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/small_margin">
+        android:padding="@dimen/small_padding">
 
-        <ImageView
-            android:id="@+id/imageview_food_item_register_routine"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_launcher_background"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_circle_food_item_register_routine"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageview_food_item_register_routine"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/img_refeicao_default" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textview_name_food_item_register_routine"
@@ -26,8 +39,8 @@
             android:layout_marginStart="@dimen/average_margin"
             android:textSize="@dimen/large_font"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/imageview_food_item_register_routine"
-            app:layout_constraintTop_toTopOf="@id/imageview_food_item_register_routine"
+            app:layout_constraintStart_toEndOf="@id/cardview_circle_food_item_register_routine"
+            app:layout_constraintTop_toTopOf="@id/cardview_circle_food_item_register_routine"
             tools:text="Picanha" />
 
         <TextView
@@ -67,26 +80,32 @@
 
         <TextView
             android:id="@+id/textview_tag_type_food_item_register_routine"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/average_margin"
             android:background="@color/green_default"
             android:gravity="center"
-            android:minWidth="100dp"
             android:padding="4dp"
-            android:text="Carne"
+            android:text="Alimento pronto"
             android:textColor="@color/white_100"
-            app:layout_constraintBottom_toBottomOf="@+id/imageview_food_item_register_routine"
-            app:layout_constraintStart_toEndOf="@id/imageview_food_item_register_routine" />
+            app:layout_constraintBottom_toBottomOf="@+id/cardview_circle_food_item_register_routine"
+            app:layout_constraintEnd_toStartOf="@+id/button_remover_alimento_register_routine"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="@dimen/average_margin"
+            app:layout_constraintStart_toEndOf="@+id/cardview_circle_food_item_register_routine"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_recommend_item_register_routine" />
 
         <TextView
             android:id="@+id/button_remover_alimento_register_routine"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:text="remover alimento"
             android:textColor="@color/red_default"
             app:layout_constraintBottom_toBottomOf="@id/textview_tag_type_food_item_register_routine"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textview_tag_type_food_item_register_routine" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

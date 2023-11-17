@@ -7,8 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.repository.RetrofitRepository
+import com.application.sallus_app.repository.SharedPreferencesFoodManager
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 
 // nessa Classe ViewModel, aqui que vai ficar toda a nossa regra de negócio.
 // tudo que for lógica programação(if/else, laço de repetição, etc)
@@ -26,36 +29,53 @@ class FoodViewModel(private val context: Context) : ViewModel() {
     private val _alimentoInformadoSearchbar = MutableLiveData<FoodData>()
     val alimentoInformadoSearchbar: MutableLiveData<FoodData> = _alimentoInformadoSearchbar
 
-    private val _listaAlimentosCriarRotina = MutableLiveData<List<FoodData>>()
-    val listaAlimentosCriarRotina: MutableLiveData<List<FoodData>> = _listaAlimentosCriarRotina
+    private val _listaAlimentosSelecionadosParaCriarRotina = MutableLiveData<List<FoodData>>()
+    val listaAlimentosSelecionadosParaCriarRotina: MutableLiveData<List<FoodData>> =
+        _listaAlimentosSelecionadosParaCriarRotina
 
-    fun tratarAlimentosSelecionados(listaDeAlimentos: String) {
+    val responseAdicionarNovoAlimentoBottomSheet = MutableLiveData<Boolean>()
+
+    private val sharedPreferencesManager: SharedPreferencesFoodManager by lazy {
+        SharedPreferencesFoodManager(context)
+    }
+
+    fun converterAlimentosSelecionadoParaArrayList(listaDeAlimentos: String) {
         val gson = Gson()
         val foodData: List<FoodData> =
             gson.fromJson(listaDeAlimentos, Array<FoodData>::class.java).toList()
-        _listaAlimentosCriarRotina.postValue(foodData)
+        _listaAlimentosSelecionadosParaCriarRotina.postValue(foodData)
     }
 
     fun removerAlimentoDaRotina(alimento: FoodData) {
-        val currentList = _listaAlimentosCriarRotina.value.orEmpty().toMutableList()
+        val currentList = _listaAlimentosSelecionadosParaCriarRotina.value.orEmpty().toMutableList()
         currentList.remove(alimento)
-        _listaAlimentosCriarRotina.postValue(currentList)
+        _listaAlimentosSelecionadosParaCriarRotina.postValue(currentList)
     }
 
     //aqui vai trazer todos os alimentos do repository e vamos salvar em uma mutableLiveData
     //por que os dados sempre vão mudar.
     fun buscarTodosAlimentos() {
-        viewModelScope.launch {
-            try {
-                val result = repository.apiServiceFood.getTodosAlimentos()
-                _listaAlimentos.value = result
-                Log.i(
-                    "logTodosAlimentos",
-                    "fun buscarTodosAlimentos: lista de todos alimentos: $result"
-                )
-            } catch (e: Exception) {
-                Log.i("logErrorBuscarTodosAlimentos", "Unknow error.")
+
+        val sharedPreferencesApiData = sharedPreferencesManager.getAPIData()
+
+        if (sharedPreferencesApiData == null) {
+            viewModelScope.launch {
+                try {
+                    val result = repository.apiServiceFood.getTodosAlimentos()
+                    val apiData = convertAPIDataToString(result)
+                    sharedPreferencesManager.saveAPIData(apiData)
+                    _listaAlimentos.value = result
+                } catch (e: IOException) {
+                    Log.i("tagBuscarTodosAlimentos", "buscarTodosAlimentos: Connection error.")
+                } catch (e: HttpException) {
+                    Log.i("tagBuscarTodosAlimentos", "buscarTodosAlimentos: API error.")
+                } catch (e: Exception) {
+                    Log.i("tagBuscarTodosAlimentos", "buscarTodosAlimentos: Unknow error.")
+                }
             }
+        } else {
+            val foodList = sharedPreferencesManager.parseAPIData(sharedPreferencesApiData)
+            _listaAlimentos.value = foodList
         }
     }
 
@@ -66,10 +86,6 @@ class FoodViewModel(private val context: Context) : ViewModel() {
                     repository.apiServiceFood.getAlimentoPeloNome(alimentoInformado)
 
                 _alimentoInformadoSearchbar.postValue(alimentoInformadoRepository)
-                Log.i(
-                    "logAlimentoInformado",
-                    "fetchAlimentoInformado: alimento informado: $alimentoInformadoRepository"
-                )
             } catch (e: Exception) {
                 Log.i(
                     "ERROR_FETCH_FOOD_ONLY",
@@ -86,10 +102,6 @@ class FoodViewModel(private val context: Context) : ViewModel() {
                     repository.apiServiceFood.getAlimentoPorTipo(tipo)
 
                 _listaAlimentoPorCategoria.postValue(tipoDeAlimento)
-                Log.i(
-                    "logTipoAlimento",
-                    "fetchTipoAlimento: tipo de alimento: $tipoDeAlimento"
-                )
             } catch (e: Exception) {
                 Log.i(
                     "ERROR_FETCH_FOOD_TYPE",
@@ -103,8 +115,9 @@ class FoodViewModel(private val context: Context) : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServiceFood.adicionarNovoAlimento(novoAlimento)
-                Log.i("logAddingNewFood", "makeNewFood: $novoAlimento!")
+                responseAdicionarNovoAlimentoBottomSheet.value = true
             } catch (e: Exception) {
+                responseAdicionarNovoAlimentoBottomSheet.value = false
                 Log.i(
                     "logAddingNewFood",
                     "fun cadastrarNovoAlimento: ocorreu algum erro ao cadastrar novo alimento $e"

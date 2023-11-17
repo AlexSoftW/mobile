@@ -10,6 +10,7 @@ import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewRegisterRoutineBinding
 import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.viewmodel.FoodViewModel
+import com.bumptech.glide.Glide
 
 class CreateRoutineAdapter(private val viewModel: FoodViewModel) :
     RecyclerView.Adapter<CreateRoutineAdapter.CreateRoutinerAdapterHolder>() {
@@ -56,9 +57,25 @@ class CreateRoutineAdapter(private val viewModel: FoodViewModel) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(food: FoodData) {
-            binding.imageviewFoodItemRegisterRoutine.setImageResource(R.drawable.baseline_circle_24)
+
+            Glide.with(binding.root.context)
+                .load(food.img)
+                .placeholder(R.mipmap.img_refeicao_default)
+                .error(R.mipmap.img_refeicao_default)
+                .into(binding.imageviewFoodItemRegisterRoutine)
+
             binding.textviewNameFoodItemRegisterRoutine.text = food.nome
+
             binding.textviewTagTypeFoodItemRegisterRoutine.text = food.tipo
+
+            binding.imageviewDiabetesItemRegisterRoutine.visibility =
+                if (food.diabete) View.VISIBLE else View.GONE
+
+            binding.imageviewColesterolItemRegisterRoutine.visibility =
+                if (food.colesterol) View.VISIBLE else View.GONE
+
+            binding.imageviewHipertensaoItemRegisterRoutine.visibility =
+                if (food.hipertensao) View.VISIBLE else View.GONE
 
             binding.buttonRemoverAlimentoRegisterRoutine.setOnClickListener {
                 val position = adapterPosition
@@ -72,25 +89,6 @@ class CreateRoutineAdapter(private val viewModel: FoodViewModel) :
                 }
                 Log.i("adapterFoodCreate", "bind: cliquei no botão do alimento: $food")
                 Log.i("adapterFoodCreateList", "bind: esta é a lista atual no adapter: $foodList")
-            }
-
-
-            if (food.diabete) {
-                binding.imageviewDiabetesItemRegisterRoutine.visibility = View.VISIBLE
-            } else {
-                binding.imageviewDiabetesItemRegisterRoutine.visibility = View.GONE
-            }
-
-            if (food.colesterol) {
-                binding.imageviewColesterolItemRegisterRoutine.visibility = View.VISIBLE
-            } else {
-                binding.imageviewColesterolItemRegisterRoutine.visibility = View.GONE
-            }
-
-            if (food.hipertensao) {
-                binding.imageviewHipertensaoItemRegisterRoutine.visibility = View.VISIBLE
-            } else {
-                binding.imageviewHipertensaoItemRegisterRoutine.visibility = View.GONE
             }
 
         }

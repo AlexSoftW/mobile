@@ -30,7 +30,13 @@
         android:id="@+id/search_bar_foods"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xx_small_margin"
+        android:background="@drawable/border_search_input"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/xx_small_margin"
         android:hint="@string/text_search_food_name"
+        android:padding="10dp"
+        android:textColorHint="@color/black_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_foods"
@@ -71,129 +77,301 @@
             android:layout_height="wrap_content"
             tools:ignore="VisualLintBounds">
 
-            <ImageView
-                android:id="@+id/imageview_carnes_category_foods"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/img_carnes_filtro"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_carnes_vermelha_category_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_carne_vermelha"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_carne_vermelha"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/text_option_meat"
+                android:text="Carne vermelha"
+                android:textAlignment="center"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/imageview_carnes_category_foods"
-                app:layout_constraintStart_toStartOf="@id/imageview_carnes_category_foods"
-                app:layout_constraintTop_toBottomOf="@id/imageview_carnes_category_foods"
+                app:layout_constraintEnd_toEndOf="@id/cardview_carnes_vermelha_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_carnes_vermelha_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_carnes_vermelha_category_foods"
                 tools:ignore="TextContrastCheck" />
 
-            <ImageView
-                android:id="@+id/imageview_frutas_category_foods"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/img_frutas_filtro"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/imageview_carnes_category_foods"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
 
-            <TextView
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_carnes_brancas_category_foods"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_option_fruits"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardview_carnes_vermelha_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_carne_branca"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_carne_branca"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Carne branca"
+                android:textAlignment="center"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/imageview_frutas_category_foods"
-                app:layout_constraintStart_toStartOf="@id/imageview_frutas_category_foods"
-                app:layout_constraintTop_toBottomOf="@id/imageview_frutas_category_foods"
+                app:layout_constraintEnd_toEndOf="@id/cardview_carnes_brancas_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_carnes_brancas_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_carnes_brancas_category_foods"
                 tools:ignore="TextContrastCheck" />
 
-            <ImageView
-                android:id="@+id/imageview_graos_category_foods"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/img_graos_filtro"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/imageview_frutas_category_foods"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
 
-            <TextView
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_frutas_category_foods"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_option_grain"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardview_carnes_brancas_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_frutas"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_frutas"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Frutas"
+                android:textAlignment="center"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/imageview_graos_category_foods"
-                app:layout_constraintStart_toStartOf="@id/imageview_graos_category_foods"
-                app:layout_constraintTop_toBottomOf="@id/imageview_graos_category_foods"
+                app:layout_constraintEnd_toEndOf="@id/cardview_frutas_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_frutas_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_frutas_category_foods"
                 tools:ignore="TextContrastCheck" />
 
-            <ImageView
-                android:id="@+id/imageview_massas_category_foods"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/img_massas_filtro"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/imageview_graos_category_foods"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
 
-            <TextView
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_graos_category_foods"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_option_pasta"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/imageview_massas_category_foods"
-                app:layout_constraintStart_toStartOf="@id/imageview_massas_category_foods"
-                app:layout_constraintTop_toBottomOf="@id/imageview_massas_category_foods" />
-
-            <ImageView
-                android:id="@+id/imageview_verduras_category_foods"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/img_legumes_filtro"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/imageview_massas_category_foods"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintStart_toEndOf="@id/cardview_frutas_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_graos"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_graos"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Grãos"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/cardview_graos_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_graos_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_graos_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_massas_category_foods"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_option_greenery"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/imageview_verduras_category_foods"
-                app:layout_constraintStart_toStartOf="@id/imageview_verduras_category_foods"
-                app:layout_constraintTop_toBottomOf="@id/imageview_verduras_category_foods" />
-
-            <ImageView
-                android:id="@+id/imageview_legumes_category_foods"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/img_verdura_filtro"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/imageview_verduras_category_foods"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintStart_toEndOf="@id/cardview_graos_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_massas"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_massas"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Massas"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/cardview_massas_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_massas_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_massas_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_frutos_mar_category_foods"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_option_vegetables"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardview_massas_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_frutos_mar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_frutos_mar"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Frutos do mar"
+                android:textAlignment="center"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/imageview_legumes_category_foods"
-                app:layout_constraintStart_toStartOf="@id/imageview_legumes_category_foods"
-                app:layout_constraintTop_toBottomOf="@id/imageview_legumes_category_foods" />
+                app:layout_constraintEnd_toEndOf="@id/cardview_frutos_mar_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_frutos_mar_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_frutos_mar_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_verduras_category_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardview_frutos_mar_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_verdura"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_verduras"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Verduras"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/cardview_verduras_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_verduras_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_verduras_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_legumes_category_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardview_verduras_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_legume"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_legumes"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Legumes"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/cardview_legumes_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_legumes_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_legumes_category_foods"
+                tools:ignore="TextContrastCheck" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_alimentos_prontos_category_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/xx_small_margin"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardview_legumes_category_foods"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_card_alimento_pronto"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/img_alimentos_prontos"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Alimentos prontos"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/cardview_alimentos_prontos_category_foods"
+                app:layout_constraintStart_toStartOf="@id/cardview_alimentos_prontos_category_foods"
+                app:layout_constraintTop_toBottomOf="@id/cardview_alimentos_prontos_category_foods"
+                tools:ignore="TextContrastCheck" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -227,9 +405,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/grey_disabled"
-        android:text="Selecione pelo menos 1 alimento para criar a rotina alimentar"
+        android:padding="@dimen/xx_small_margin"
+        android:text="@string/text_validacao_botao_criar_rotina"
         android:textStyle="bold"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
