@@ -1,5 +1,6 @@
 package com.application.sallus_app.view.fragments
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroComorbidadeBinding
 
-class FragmentComorbidade : Fragment(){
+class FragmentComorbidade : Fragment() {
 
     private lateinit var binding: FragmentCadastroComorbidadeBinding
     val bundle = Bundle()
@@ -22,10 +23,10 @@ class FragmentComorbidade : Fragment(){
             val telefone = args.getString("Telefone")
             val endereco = args.getString("Endereco")
             val genero = args.getString("Genero")
-            bundle.putString("Nome" ,nome)
-            bundle.putString("Telefone" ,telefone)
-            bundle.putString("Endereco" ,endereco)
-            bundle.putString("Genero" ,genero)
+            bundle.putString("Nome", nome)
+            bundle.putString("Telefone", telefone)
+            bundle.putString("Endereco", endereco)
+            bundle.putString("Genero", genero)
 
             Log.d("MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero")
         }
@@ -38,20 +39,23 @@ class FragmentComorbidade : Fragment(){
 
     ): View? {
         binding = FragmentCadastroComorbidadeBinding.inflate(inflater, container, false)
-        val diabete =  binding.diabete
+        val diabete = binding.diabete
         val colesterol = binding.colesterol
         val hipertensao = binding.hipertensao
         val nenhum = binding.nenhum
         val fragmentDestino = FragmentEmail()
 
-        binding.nextButton1.setOnClickListener{
+        binding.nextButton1.setOnClickListener {
 
             bundle.putBoolean("Diabete", binding.diabete.isChecked)
             bundle.putBoolean("Colesterol", binding.colesterol.isChecked)
             bundle.putBoolean("Hipertensao", binding.hipertensao.isChecked)
             bundle.putBoolean("Nenhum", binding.nenhum.isChecked)
             fragmentDestino.arguments = bundle
-            Log.d("Valores CheckBoxes", "Diabete = ${diabete.isChecked}, Hipertensao = ${hipertensao.isChecked}")
+            Log.d(
+                "Valores CheckBoxes",
+                "Diabete = ${diabete.isChecked}, Hipertensao = ${hipertensao.isChecked}"
+            )
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_cadastro, fragmentDestino)
                 .addToBackStack(null)

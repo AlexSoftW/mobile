@@ -4,11 +4,16 @@ import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.PacienteDetailsData
 import com.application.sallus_app.model.PerfilData
 import com.application.sallus_app.model.UsuarioData
+import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Multipart
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface PacienteService {
     @GET("clientes")
@@ -24,9 +29,16 @@ interface PacienteService {
     suspend fun adicionarCliente(@Body cliente: PacienteData): PacienteData
 
     @PUT("clientes")
-    suspend fun atualizarPaciente(@Body dadosNutri : PerfilData)
+    suspend fun atualizarPaciente(@Body dadosNutri: PerfilData)
 
     @PUT("clientes/atualizacaoSenha")
-    suspend fun atualizarSenha(@Body novaSenha : UsuarioData)
+    suspend fun atualizarSenha(@Body novaSenha: UsuarioData)
+
+    @Multipart
+    @PATCH("clientes/foto/{id}")
+    suspend fun atualizarFoto(
+        @Path("id") id: Long,
+        @Part foto: MultipartBody.Part
+    ): PacienteData
 
 }

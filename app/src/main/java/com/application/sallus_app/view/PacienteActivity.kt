@@ -1,9 +1,10 @@
 package com.application.sallus_app.view
 
 import android.content.Intent
-import android.net.Uri
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.provider.MediaStore
+import android.util.Base64
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -16,6 +17,7 @@ import com.application.sallus_app.view.fragmentsPaciente.FragmentDiarioAlimentar
 import com.application.sallus_app.view.fragmentsPaciente.FragmentHistoricoAlimentarPaciente
 import com.application.sallus_app.view.fragmentsPaciente.FragmentPaciente
 import com.application.sallus_app.view.fragmentsPaciente.FragmentTodosNutricionistas
+import com.application.sallus_app.viewmodel.LoginViewModel
 import com.application.sallus_app.viewmodel.PacienteViewModel
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
@@ -27,8 +29,6 @@ class PacienteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPacienteBinding
     private lateinit var dadosPaciente: PacienteData
 
-    private val PICK_IMAGE_REQUEST = 1
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPacienteBinding.inflate(layoutInflater)
@@ -37,38 +37,11 @@ class PacienteActivity : AppCompatActivity() {
         val dadosPacienteEmString = intent.getStringExtra("pacienteDataValue")
         dadosPaciente = tratarPacienteJsonToData(dadosPacienteEmString!!)
 
-        Log.i("logiDadosPaciente", "dados: $dadosPaciente")
-
-        binding.includeToolbarHomePaciente.textviewNameCustomerToolbarPages.text =
-            dadosPaciente.nome
-
         setupView()
         setupObservers()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            val selectedImageUri: Uri? = data.data
-            Log.i("tagImageUri", "onActivityResult: $selectedImageUri")
-
-            val imageviewCustomerToolbarPages =
-                binding.includeToolbarHomePaciente.imageviewCustomerToolbarPages
-
-            Glide.with(this)
-                .load(selectedImageUri)
-                .into(imageviewCustomerToolbarPages)
-        }
-    }
-
     private fun setupView() {
-
-        binding.abrirGaleria.setOnClickListener {
-            val galleryIntent =
-                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST)
-        }
 
         val fragmentHome = FragmentPaciente(pacienteViewModel)
         replaceFragmentManager(fragmentHome)
@@ -76,11 +49,24 @@ class PacienteActivity : AppCompatActivity() {
         val redColor = ContextCompat.getColor(this, R.color.red_default)
         binding.includeBadgePaciente.imagebuttonHomePaciente.setColorFilter(redColor)
 
-        binding.includeToolbarHomePaciente.imageviewCustomerToolbarPages.setImageResource(
-            R.mipmap.imagem_profile_paciente_default
-        )
+        Log.i("tagDadosPaciente", "dados do paciente: $dadosPaciente")
+
+        binding.includeToolbarHomePaciente.textviewNameCustomerToolbarPages.text =
+            dadosPaciente.nome
 
         binding.includeToolbarHomePaciente.textviewTagToolbarPages.text = "Paciente"
+
+        if (dadosPaciente.foto != null) {
+            val bitmapImage = decodeBase64ToBitmap(dadosPaciente.foto!!)
+
+            Glide.with(binding.root.context)
+                .load(bitmapImage)
+                .into(binding.includeToolbarHomePaciente.imageviewCustomerToolbarPages)
+        } else {
+            Glide.with(binding.root.context)
+                .load(R.mipmap.default_profile)
+                .into(binding.includeToolbarHomePaciente.imageviewCustomerToolbarPages)
+        }
 
         binding.includeToolbarHomePaciente.imagebuttonSettingsToolbarPages.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -163,16 +149,6 @@ class PacienteActivity : AppCompatActivity() {
 
     }
 
-    fun restoreOriginColor() {
-        val originalColor = ContextCompat.getColor(this, R.color.black_100)
-
-        binding.includeBadgePaciente.imagebuttonHomePaciente.setColorFilter(originalColor)
-        binding.includeBadgePaciente.imagebuttonNutritionistPaciente.setColorFilter(originalColor)
-        binding.includeBadgePaciente.imagebuttonFoodPaciente.setColorFilter(originalColor)
-        binding.includeBadgePaciente.imagebuttonDiarioAlimentarPatient.setColorFilter(originalColor)
-        binding.includeBadgePaciente.imagebuttonHistoricoPatient.setColorFilter(originalColor)
-    }
-
     fun replaceFragmentManager(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -186,4 +162,20 @@ class PacienteActivity : AppCompatActivity() {
             gson.fromJson(paciente, PacienteData::class.java)
         return pacienteData
     }
+
+    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+    }
+
+    fun restoreOriginColor() {
+        val originalColor = ContextCompat.getColor(this, R.color.black_100)
+
+        binding.includeBadgePaciente.imagebuttonHomePaciente.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonNutritionistPaciente.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonFoodPaciente.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonDiarioAlimentarPatient.setColorFilter(originalColor)
+        binding.includeBadgePaciente.imagebuttonHistoricoPatient.setColorFilter(originalColor)
+    }
+
 }
