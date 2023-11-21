@@ -76,7 +76,7 @@ class FragmentEmail : Fragment() {
                     0,
                     telefone ?: "",
                     false,
-                    null,
+                    "",
                     true,
                     null
                 )

@@ -11,7 +11,6 @@ import com.application.sallus_app.model.UsuarioData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
-import java.lang.Exception
 
 class PacienteViewModel : ViewModel() {
     private val repository = RetrofitRepository()
@@ -68,7 +67,7 @@ class PacienteViewModel : ViewModel() {
         }
     }
 
-    fun alterarDadosPerfil(data: PerfilData) {
+    fun alterarDadosPerfil(data: PerfilData, id: Long) {
         viewModelScope.launch {
             try {
                 repository.apiServicePaciente.atualizarPaciente(data)
@@ -85,7 +84,8 @@ class PacienteViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServicePaciente.atualizarFoto(id, foto)
-                Log.i("SUCCESS_PATCH_FOTO_PACIENTE", "Foto atualizada com sucesso!")
+                Log.i("SUCCESS_PATCH_FOTO_PACIENTE", "alterarFoto: foto alterada com sucesso")
+
             } catch (e: Exception) {
                 Log.i("ERROR_PATCH_FOTO_PACIENTE", "Não foi possível alterar a foto: $e")
             }
@@ -100,9 +100,7 @@ class PacienteViewModel : ViewModel() {
                     "SUCCESS_PUT_PACIENTE_PASSWORD",
                     "Senha do paciente atualizada com sucesso !"
                 )
-            } catch (e: java.lang.Exception) {
-                val response = repository.apiServicePaciente.atualizarSenha(data)
-                Log.i("RESPONSE_PUT_PACIENTE_PASSWORD", "Response Put Paciente: $response")
+            } catch (e: Exception) {
                 Log.i("ERROR_PUT_PACIENTE_PASSWORD", "Não foi possível atualizar a senha: $e")
             }
         }

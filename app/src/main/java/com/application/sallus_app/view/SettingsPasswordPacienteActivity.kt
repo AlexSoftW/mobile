@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class SettingsPasswordPacienteActivity : AppCompatActivity() {
     private val pacienteViewModel: PacienteViewModel by viewModel()
     private lateinit var binding: ActivitySettingsPasswordPacienteBinding
-    private lateinit var dadosPaciente : PacienteData;
+    private lateinit var dadosPaciente: PacienteData;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsPasswordPacienteBinding.inflate(layoutInflater)
@@ -26,7 +26,7 @@ class SettingsPasswordPacienteActivity : AppCompatActivity() {
         setupView()
     }
 
-    fun setupView(){
+    fun setupView() {
         binding.includeToolbarSettings.textviewToolbarSettings.text = "Alteração de senha"
 
         val activity = this
@@ -40,7 +40,8 @@ class SettingsPasswordPacienteActivity : AppCompatActivity() {
 
         binding.btnSalvarAlteracao.setOnClickListener {
             val inputEditTextSenhaNova = findViewById<EditText>(R.id.edittext_nova_senha)
-            val inputEditTextConfirmSenha = findViewById<EditText>(R.id.edittext_confirmar_nova_senha)
+            val inputEditTextConfirmSenha =
+                findViewById<EditText>(R.id.edittext_confirmar_nova_senha)
 
             val email = dadosPaciente.email
             val senhaNova = inputEditTextSenhaNova.text.toString()

@@ -22,7 +22,7 @@
             android:id="@+id/imageview_customer_toolbar_pages"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@mipmap/profile_test"
+            android:src="@mipmap/default_profile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
