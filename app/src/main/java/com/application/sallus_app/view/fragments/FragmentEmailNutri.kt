@@ -39,7 +39,7 @@ class FragmentEmailNutri : Fragment() {
             val crn = args.getString("Crn")
 
             Log.d(
-                "MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero " +
+                "MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero" +
                         " ,$crn"
             )
 

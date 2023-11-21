@@ -1,9 +1,7 @@
 package com.application.sallus_app.view
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -46,35 +44,15 @@ class PacienteActivity : AppCompatActivity() {
         setupObservers()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            val selectedImageUri: Uri? = data.data
-            Log.i("tagImageUri", "onActivityResult: $selectedImageUri")
-
-            val imageviewCustomerToolbarPages =
-                binding.includeToolbarHomePaciente.imageviewCustomerToolbarPages
-
-            Glide.with(this)
-                .load(selectedImageUri)
-                .into(imageviewCustomerToolbarPages)
-        }
-    }
-
     private fun setupView() {
-
-        binding.abrirGaleria.setOnClickListener {
-            val galleryIntent =
-                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST)
-        }
 
         val fragmentHome = FragmentPaciente(pacienteViewModel)
         replaceFragmentManager(fragmentHome)
 
         val redColor = ContextCompat.getColor(this, R.color.red_default)
         binding.includeBadgePaciente.imagebuttonHomePaciente.setColorFilter(redColor)
+
+        Log.i("tagDadosPaciente", "dados do paciente: $dadosPaciente")
 
         binding.includeToolbarHomePaciente.imageviewCustomerToolbarPages.setImageResource(
             R.mipmap.imagem_profile_paciente_default

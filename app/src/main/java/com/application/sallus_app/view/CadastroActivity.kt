@@ -27,9 +27,9 @@ class CadastroActivity : AppCompatActivity() {
         binding = ActivityCadastroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textviewButtonVoltarCriarConta.setOnClickListener {
-            finish()
-        }
+//        binding.textviewButtonVoltarCriarConta.setOnClickListener {
+//            finish()
+//        }
 
         val primeiroFragment = FragmentDadosPessoaisNutri()
         replaceFragmentManager(primeiroFragment)

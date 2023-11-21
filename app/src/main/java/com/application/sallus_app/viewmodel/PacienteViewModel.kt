@@ -10,6 +10,7 @@ import com.application.sallus_app.model.PerfilData
 import com.application.sallus_app.model.UsuarioData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
 import java.lang.Exception
 
 class PacienteViewModel : ViewModel() {
@@ -23,16 +24,20 @@ class PacienteViewModel : ViewModel() {
     //variavel para controlar a cor dos icones da badge do nutricionista pelo fragment_home_paciente
     val corAtual = MutableLiveData<Int>()
 
+    val responseCadastrarPacienteBottomSheet = MutableLiveData<Boolean>()
+
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
             println(novoPaciente)
             try {
                 repository.apiServicePaciente.adicionarCliente(novoPaciente)
+                responseCadastrarPacienteBottomSheet.value = true
                 Log.i(
                     "logAddingPaciente",
                     "makeNewPaciente: paciente cadastrado com sucesso! $novoPaciente"
                 )
             } catch (e: Exception) {
+                responseCadastrarPacienteBottomSheet.value = false
                 Log.i(
                     "logAddingNewPaciente",
                     "makeNewPaciente: ocorreu algum erro ao cadastrar novo paciente $e"
@@ -76,6 +81,16 @@ class PacienteViewModel : ViewModel() {
         }
     }
 
+    fun alterarFoto(id: Long, foto: MultipartBody.Part) {
+        viewModelScope.launch {
+            try {
+                repository.apiServicePaciente.atualizarFoto(id, foto)
+                Log.i("SUCCESS_PATCH_FOTO_PACIENTE", "Foto atualizada com sucesso!")
+            } catch (e: Exception) {
+                Log.i("ERROR_PATCH_FOTO_PACIENTE", "Não foi possível alterar a foto: $e")
+            }
+        }
+    }
 
     fun alterarSenha(data: UsuarioData) {
         viewModelScope.launch {

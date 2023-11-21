@@ -16,11 +16,11 @@
         android:id="@+id/fragment_container_cadastro"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/textview_button_voltar_criar_conta"
+        app:layout_constraintBottom_toTopOf="@id/textview_button_sair_criar_conta"
         app:layout_constraintTop_toBottomOf="@id/include_toolbar" />
 
     <TextView
-        android:id="@+id/textview_button_voltar_criar_conta"
+        android:id="@+id/textview_button_sair_criar_conta"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"

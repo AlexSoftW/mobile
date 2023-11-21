@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,6 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
                 android:text="Crie a sua conta"
                 android:textColor="@color/green_default"
                 android:textSize="30sp" />
@@ -25,14 +28,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
 
             <ImageView
-                android:layout_width="350dp"
+                android:layout_width="364dp"
                 android:layout_height="90dp"
-                android:layout_marginRight="80dp"
                 android:src="@mipmap/caminhao_pao" />
 
         </LinearLayout>
@@ -40,97 +42,55 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:text="Escolha sua foto"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <ImageView
-                android:id="@+id/imageview_customer_toolbar_home"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="@dimen/xx_small_margin"
-                android:src="@mipmap/icon_perfil" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/average_margin"
                 android:fontFamily="@font/lato"
                 android:text="Selecione seu perfil"
-                android:textSize="20sp" />
+                android:textSize="@dimen/small_font" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/large_margin"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="10dp"
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/button_escolher_paciente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
                 android:backgroundTint="@color/red_default"
-                android:text="Sou Paciente"
-                android:textSize="20sp">
+                android:text="Sou paciente"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/average_font"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textview_tag_descricao_item_recyclerview_diario_paciente"
+                app:layout_constraintTop_toBottomOf="@id/textview_tag_descricao_item_recyclerview_diario_paciente"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall" />
 
-            </Button>
-
-            <Button
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="10dp"
-                android:text="Sou Nutricionista"
-                android:textSize="20sp" />
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/button_escolher_nutricionista"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Sou nutricionista"
+                android:textAllCaps="false"
+                android:textColor="@color/red_default"
+                android:textSize="@dimen/average_font"
+                app:layout_constraintBottom_toBottomOf="@+id/button_consumido_item_recyclerview_diario_paciente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button_consumido_item_recyclerview_diario_paciente"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall"
+                app:strokeColor="@color/red_default" />
 
         </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="60dp">
-
-            <Button
-                android:id="@+id/backButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:backgroundTint="@color/white_100"
-                android:text="voltar"
-                android:textColor="@color/red_default" />
-
-            <Button
-                android:id="@+id/nextButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="40dp"
-                android:backgroundTint="@color/red_default"
-                android:text="proximo" />
-
-        </RelativeLayout>
 
     </LinearLayout>
 

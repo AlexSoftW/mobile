@@ -69,6 +69,12 @@ class ModalLoadingBottomSheet(private val titulo: String) : BottomSheetDialogFra
         }
     }
 
+    fun retornarTelaLogin() {
+        binding.buttonBottomsheetLoading.setOnClickListener {
+            activity?.finish()
+        }
+    }
+
     fun retornarFragment() {
         val fragmentManager = requireActivity().supportFragmentManager
         fragmentManager.popBackStack()
