@@ -56,11 +56,9 @@ class FragmentYoursPatients : Fragment() {
 
         viewmodel.listaTodosPacientesComVinculoNutricionista.observe(viewLifecycleOwner) {
             if (it.isEmpty()) {
-                binding.searchBarYoursPatients.visibility = View.GONE
                 binding.cardviewYourPatients.visibility = View.VISIBLE
                 binding.recyclerViewYoursPatients.visibility = View.GONE
             } else {
-                binding.searchBarYoursPatients.visibility = View.VISIBLE
                 binding.cardviewYourPatients.visibility = View.GONE
                 binding.recyclerViewYoursPatients.visibility = View.VISIBLE
 

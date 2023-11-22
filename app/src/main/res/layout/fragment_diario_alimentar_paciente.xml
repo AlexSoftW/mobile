@@ -34,6 +34,7 @@
         android:clickable="false"
         android:text="Nenhum alimento foi consumido dentro de 24h"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@id/textview_subtitle_diario_alimentar_paciente"
         app:layout_constraintTop_toBottomOf="@id/textview_subtitle_diario_alimentar_paciente" />
 
@@ -75,7 +76,6 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_diario_alimentar_paciente"

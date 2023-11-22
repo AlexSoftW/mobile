@@ -79,14 +79,13 @@
             android:id="@+id/textview_alimento_nao_indicado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/xx_small_margin"
-            android:layout_marginTop="@dimen/x_small_margin"
+            android:layout_marginTop="@dimen/xx_small_margin"
             android:minHeight="20dp"
             android:text="nenhum tipo de comorbidade."
             android:textSize="@dimen/x_small_font"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_nome_item_alimento" />
+            app:layout_constraintStart_toStartOf="@+id/textview_tag_indicacao_item_alimento"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_indicacao_item_alimento" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/average_margin"
             android:layout_marginBottom="@dimen/small_margin"
-            android:drawableStart="@drawable/ic_calendar_patient"
+            android:drawableStart="@drawable/ic_calendar"
             android:drawablePadding="4dp"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"

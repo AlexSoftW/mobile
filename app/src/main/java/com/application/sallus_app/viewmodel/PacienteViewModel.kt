@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.PacienteDetailsData
 import com.application.sallus_app.model.PerfilData
@@ -20,10 +21,16 @@ class PacienteViewModel : ViewModel() {
     val listaTodosPacientesComVinculoNutricionista: MutableLiveData<List<PacienteDetailsData>> =
         _listaTodosPacientesComVinculoNutricionista
 
-    //variavel para controlar a cor dos icones da badge do nutricionista pelo fragment_home_paciente
-    val corAtual = MutableLiveData<Int>()
+    private val _nutricionistaVinculado = MutableLiveData<NutritionistData>()
+    val nutricionistaVinculado: MutableLiveData<NutritionistData> = _nutricionistaVinculado
+
+    //variavel para controlar e verificar se o paciente ja possui algum nutricionista vinculado
+    val isVinculado = MutableLiveData<Boolean>()
 
     val responseCadastrarPacienteBottomSheet = MutableLiveData<Boolean>()
+
+    //variavel para controlar a cor dos icones da badge do nutricionista pelo fragment_home_paciente
+    val corAtual = MutableLiveData<Int>()
 
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
@@ -61,7 +68,30 @@ class PacienteViewModel : ViewModel() {
             } catch (e: Exception) {
                 Log.i(
                     "ERROR_FETCH_PATIENT",
-                    "fetchTodosPacientesComVinculoNutricionista: algo inesperado aconteceu"
+                    "fetchTodosPacientesComVinculoNutricionista: algo inesperado aconteceu $e"
+                )
+            }
+        }
+    }
+
+    fun buscarNutricionistaVinculado(idPaciente: Long) {
+        viewModelScope.launch {
+            try {
+                val response =
+                    repository.apiServicePaciente.getBuscarUnicoNutricionistaVinculado(
+                        idPaciente,
+                        idPaciente
+                    )
+                _nutricionistaVinculado.postValue(response)
+                isVinculado.value = true
+                Log.i(
+                    "tagBuscarNutricionistaVinculado",
+                    "buscarNutricionistaVinculado(): $response "
+                )
+            } catch (e: Exception) {
+                Log.i(
+                    "tagBuscarNutricionistaVinculado",
+                    "buscarNutricionistaVinculado(): algo inesperado aconteceu $e"
                 )
             }
         }
@@ -102,6 +132,35 @@ class PacienteViewModel : ViewModel() {
                 )
             } catch (e: Exception) {
                 Log.i("ERROR_PUT_PACIENTE_PASSWORD", "Não foi possível atualizar a senha: $e")
+            }
+        }
+    }
+
+    fun vincularComNutricionista(idPaciente: Long, idNutricionista: Long) {
+        viewModelScope.launch {
+            try {
+                repository.apiServicePaciente.vincularComNutricionista(idPaciente, idNutricionista)
+                Log.i("tagVincularComNutri", "Nutricionista vinculado com sucesso!")
+            } catch (e: java.lang.Exception) {
+                Log.i("tagVincularComNutri", "Não foi possível vincular com o nutricionista: $e")
+            }
+        }
+    }
+
+    fun desvincularPacienteComNutricionista(idPaciente: Long) {
+        viewModelScope.launch {
+            try {
+                repository.apiServicePaciente.desvincularPacienteComNutricionista(idPaciente)
+                isVinculado.value = false
+                Log.i(
+                    "tagDesvincularPacienteComNutri",
+                    "Paciente desvinculado com sucesso!"
+                )
+            } catch (e: Exception) {
+                Log.i(
+                    "tagDesvincularPacienteComNutri",
+                    "Não foi possível desvincular o paciente: $e"
+                )
             }
         }
     }
