@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Houve um erro ao cadastrar uma nova rotina!" />
+        tools:text="Aguarde..." />
 
     <ProgressBar
         android:id="@+id/progressbar_bottomsheet_loading"
@@ -43,7 +43,6 @@
         android:text="Voltar"
         android:textColor="@color/red_default"
         android:textSize="@dimen/small_font"
-        android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/imageview_bottomshet_loading"

@@ -9,7 +9,7 @@
     <string name="text_configuration_senha">Alteração de senha</string>
     <string name="texto_senha">A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
     <string name="selecione_comorbidade">Possui alguma comorbidade? selecione uma (ou mais) opções</string>
-    <string name="info_crn_register">Solicitamos esse dado cadastral, para que possamos validar sua identidade profissional, e que não aja nenhuma fraude em nosso aplicativo. A validação não demora muito. Após terminar o cadastro você recebera um email de aprovação sobre a existência do seu registro na base nacional.</string>
+    <string name="info_crn_register">*Solicitamos esse dado cadastral, para que possamos validar sua identidade profissional, e que não aja nenhuma fraude em nosso aplicativo. A validação não demora muito. Após terminar o cadastro você recebera um email de aprovação sobre a existência do seu registro na base nacional.</string>
 
     <!-- Alimento -->
     <string name="title_food">Alimentos</string>

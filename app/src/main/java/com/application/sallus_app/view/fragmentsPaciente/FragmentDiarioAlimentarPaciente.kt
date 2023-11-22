@@ -90,9 +90,13 @@ class FragmentDiarioAlimentarPaciente : Fragment() {
             if (it.isEmpty() || it == null) {
                 binding.recyclerviewDiarioAlimentarPaciente.visibility = View.GONE
                 binding.cardviewSeuDiarioAlimentar.visibility = View.VISIBLE
+                binding.buttonDesfazerUltimoConsumidoDiarioAlimentarPaciente.visibility =
+                    View.GONE
             } else {
                 binding.recyclerviewDiarioAlimentarPaciente.visibility = View.VISIBLE
                 binding.cardviewSeuDiarioAlimentar.visibility = View.GONE
+                binding.buttonDesfazerUltimoConsumidoDiarioAlimentarPaciente.visibility =
+                    View.VISIBLE
                 adapter.submitList(it)
             }
         }

@@ -58,6 +58,7 @@
             android:id="@+id/textview_tag_nutritionist_item_todos_nutricionistas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xx_small_margin"
             android:background="@color/green_default"
             android:gravity="center"
             android:padding="4dp"
@@ -101,6 +102,16 @@
             app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toEndOf="@id/textview_telephone_patient_item_todos_nutricionistas"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <ProgressBar
+            android:id="@+id/progressbar_item_todos_nutricionistas"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/textview_telephone_patient_item_todos_nutricionistas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toEndOf="@id/textview_telephone_patient_item_todos_nutricionistas" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

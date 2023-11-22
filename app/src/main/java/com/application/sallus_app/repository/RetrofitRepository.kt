@@ -12,13 +12,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 // nessa Classe a gente vai fazer a chamada no nosso end-point principal(https://nossaAPI/)
 // utilizaremos o retrofit para fazer as chamadas HTTP e HTTPS,
-// ela ja faz a conversão automaticamente a conversão do JSON para um objeto kotlin.
+// ela ja faz a conversão automaticamente a conversão do JSON para um objeto kotlin(Data Class).
 
 class RetrofitRepository {
 
     private val producao = "https://sallus.sytes.net/api/" //Esse é o IP(MAIN)
 
-    private val test = "http://3.91.42.248:8081/" //Esse é o IP do back-end individual da AWS
+    private val test = "http://54.81.71.21:8081/" //Esse é o IP do back-end individual da AWS
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
@@ -44,6 +44,5 @@ class RetrofitRepository {
 
     val apiServiceDiary: DiarioService =
         retrofit.create(DiarioService::class.java)
-
 
 }
