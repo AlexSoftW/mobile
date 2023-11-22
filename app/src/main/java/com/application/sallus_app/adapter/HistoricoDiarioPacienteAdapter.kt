@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerviewHistoricoDiarioPacienteBinding
 import com.application.sallus_app.model.DiarioGetData
-import java.lang.Exception
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
+import java.util.TimeZone
 
 class HistoricoDiarioPacienteAdapter :
     RecyclerView.Adapter<HistoricoDiarioPacienteAdapter.HistoricoDiarioPacienteViewHolder>() {
@@ -43,17 +44,25 @@ class HistoricoDiarioPacienteAdapter :
 
     fun formatarData(date: String): String {
         val formatoEntrada = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.getDefault())
-        val formatoSaida = SimpleDateFormat("dd/MM/yyyy 'as' HH'h'mm", Locale.getDefault())
+        val formatoSaida = SimpleDateFormat("dd/MM/yyyy 'às' HH'h'mm", Locale.getDefault())
 
         try {
-            val data = formatoEntrada.parse(date)
-            return formatoSaida.format(data)
+            val calendar = Calendar.getInstance()
+            calendar.time = formatoEntrada.parse(date)
+
+            // Ajustar o fuso horário para o Brasil (-3 horas)
+            val timeZone = TimeZone.getTimeZone("America/Sao_Paulo")
+            calendar.timeZone = timeZone
+            calendar.add(Calendar.HOUR_OF_DAY, -3)
+
+            return formatoSaida.format(calendar.time)
         } catch (e: Exception) {
             e.printStackTrace()
         }
 
         return date
     }
+
 
     inner class HistoricoDiarioPacienteViewHolder(
         private val binding: ItemRecyclerviewHistoricoDiarioPacienteBinding

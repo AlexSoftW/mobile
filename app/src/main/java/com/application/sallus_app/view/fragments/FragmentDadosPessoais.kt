@@ -42,7 +42,16 @@ class FragmentDadosPessoais : Fragment() {
                 .commit()
         }
 
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
+
         return binding.root
+    }
+
+    fun retornarFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.popBackStack()
     }
 
 }

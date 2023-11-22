@@ -1,6 +1,5 @@
 package com.application.sallus_app.view.fragments
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroEmailBinding
 import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.view.LoginActivity
@@ -16,10 +14,8 @@ import com.application.sallus_app.viewmodel.NutritionistViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentEmailNutri : Fragment() {
-
     private lateinit var binding: FragmentCadastroEmailBinding
     private val viewModel: NutritionistViewModel by viewModel()
-
     val bundle = Bundle()
 
     override fun onCreateView(

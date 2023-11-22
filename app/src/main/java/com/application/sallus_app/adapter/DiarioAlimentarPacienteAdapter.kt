@@ -1,12 +1,9 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerviewDiarioPacienteBinding
@@ -104,12 +101,6 @@ class DiarioAlimentarPacienteAdapter(
                     dataFormatada.format(dataHoraAtual)
                 )
             }
-
-//            viewModel.atualizarListaDiario.observe(viewLifecycleOwner) {
-//                Log.i("tagAttAdapt", "setupObservers: lista atualizada no adapter - $it")
-//                submitList(it)
-//            }
-
 
         }
 

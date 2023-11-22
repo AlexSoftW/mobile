@@ -1,6 +1,5 @@
 package com.application.sallus_app.view.fragments
 
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,9 +10,9 @@ import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroComorbidadeBinding
 
 class FragmentComorbidade : Fragment() {
-
     private lateinit var binding: FragmentCadastroComorbidadeBinding
     val bundle = Bundle()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -54,7 +53,10 @@ class FragmentComorbidade : Fragment() {
             fragmentDestino.arguments = bundle
             Log.d(
                 "Valores CheckBoxes",
-                "Diabete = ${diabete.isChecked}, Hipertensao = ${hipertensao.isChecked}"
+                "Diabete = ${diabete.isChecked}," +
+                        "Hipertensao = ${hipertensao.isChecked}," +
+                        "Colesterol = ${colesterol.isChecked}" +
+                        "Nenhum = ${nenhum.isChecked}"
             )
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_cadastro, fragmentDestino)

@@ -28,7 +28,6 @@
         android:textAlignment="center"
         android:textColor="@color/red_default"
         android:textSize="@dimen/average_font"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

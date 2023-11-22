@@ -34,7 +34,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="90dp"
-                android:src="@mipmap/caminhao_pao_email" />
+                android:src="@mipmap/caminhao_pao_comorbidade" />
 
         </LinearLayout>
 
