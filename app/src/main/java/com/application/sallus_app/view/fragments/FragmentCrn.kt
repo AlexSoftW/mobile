@@ -11,8 +11,8 @@ import com.application.sallus_app.databinding.FragmentCadastroCrnBinding
 
 class FragmentCrn : Fragment() {
     private lateinit var binding: FragmentCadastroCrnBinding
-
     val bundle = Bundle()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,7 +31,6 @@ class FragmentCrn : Fragment() {
         }
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,13 +42,9 @@ class FragmentCrn : Fragment() {
 
         binding.nextButton1.setOnClickListener {
             val crn = binding.crn.text.toString()
-
-
             Log.d("MeuFragmentDestino", "Dados teste: $crn ")
 
-
             bundle.putString("Crn", crn)
-
 
             fragmentDestino.arguments = bundle
 

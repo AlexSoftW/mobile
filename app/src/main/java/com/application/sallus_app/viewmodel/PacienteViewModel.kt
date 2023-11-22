@@ -89,6 +89,7 @@ class PacienteViewModel : ViewModel() {
                     "buscarNutricionistaVinculado(): $response "
                 )
             } catch (e: Exception) {
+                isVinculado.value = false
                 Log.i(
                     "tagBuscarNutricionistaVinculado",
                     "buscarNutricionistaVinculado(): algo inesperado aconteceu $e"

@@ -11,7 +11,6 @@ import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroEscolhaBinding
 
 class FragmentEscolherPerfil : Fragment() {
-
     private lateinit var binding: FragmentCadastroEscolhaBinding
 
     override fun onCreateView(
@@ -28,13 +27,8 @@ class FragmentEscolherPerfil : Fragment() {
     }
 
     private fun setupView() {
-
         binding.buttonEscolherPaciente.setOnClickListener {
-
             val fragmentPaciente = FragmentDadosPessoais()
-            val bundle = Bundle()
-
-            fragmentPaciente.arguments = bundle
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_cadastro, fragmentPaciente)
@@ -43,12 +37,7 @@ class FragmentEscolherPerfil : Fragment() {
         }
 
         binding.buttonEscolherNutricionista.setOnClickListener {
-
             val fragmentNutricionista = FragmentDadosPessoaisNutri()
-            val bundle = Bundle()
-
-            fragmentNutricionista.arguments = bundle
-
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_cadastro, fragmentNutricionista)
@@ -56,8 +45,6 @@ class FragmentEscolherPerfil : Fragment() {
                 .commit()
 
         }
-
     }
-
 
 }

@@ -42,6 +42,10 @@ class FragmentDadosPessoaisNutri : Fragment() {
                 .commit()
         }
 
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
+
         return binding.root
     }
 

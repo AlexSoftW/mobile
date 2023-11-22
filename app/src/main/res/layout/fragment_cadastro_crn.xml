@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:hint="@string/info_crn_register"
-                android:textSize="@dimen/average_font" />
+                android:textSize="@dimen/small_font" />
 
         </LinearLayout>
 

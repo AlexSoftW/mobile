@@ -1,8 +1,5 @@
 package com.application.sallus_app.view.fragments
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,11 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.io.ByteArrayOutputStream
-import java.io.InputStream
 
 class FragmentEmail : Fragment() {
-
     private val viewModel: PacienteViewModel by viewModel()
     private lateinit var binding: FragmentCadastroEmailBinding
     private lateinit var modalLoadingBottomSheet: ModalLoadingBottomSheet
@@ -93,7 +87,7 @@ class FragmentEmail : Fragment() {
                 delay(5000)
 
                 if (it) {
-                    modalLoadingBottomSheet.mostrarMensagemDeSucesso("Parabéns, conta cadastrada com sucesso!")
+                    modalLoadingBottomSheet.mostrarMensagemDeSucesso("Conta cadastrada com sucesso!")
                     modalLoadingBottomSheet.retornarTelaLogin()
                 } else {
                     modalLoadingBottomSheet.mostrarMensagemDeErro("Houve um erro ao cadastrar sua conta!")

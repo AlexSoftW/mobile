@@ -84,27 +84,6 @@ class ModalTwoOptionsBottomSheet(
         binding.progressbarBottomsheetTwoOptions.visibility = View.VISIBLE
     }
 
-//    fun retornarTelaAlimento() {
-//        binding.buttonBottomsheetLoading.setOnClickListener {
-//            val fragmentFoods = FragmentFoods()
-//            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_nutricionista, fragmentFoods)
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//    }
-
-//    fun retornarTelaLogin() {
-//        binding.buttonBottomsheetLoading.setOnClickListener {
-//            activity?.finish()
-//        }
-//    }
-
-    fun retornarFragment() {
-        val fragmentManager = requireActivity().supportFragmentManager
-        fragmentManager.popBackStack()
-    }
-
     fun fecharModal() {
         binding.buttonBottomsheetTwoOptions.setOnClickListener {
             dismiss()

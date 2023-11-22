@@ -1,13 +1,16 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewYoursPatientsBinding
-import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.model.PacienteDetailsData
+import com.bumptech.glide.Glide
 
 class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>() {
 
@@ -34,12 +37,10 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
         notifyDataSetChanged()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun submitListOnlyPatient(paciente: PacienteDetailsData) {
-        this.pacientesList.clear()
-        this.pacientesList.add(paciente)
-        notifyDataSetChanged()
-    }
+//    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+//        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+//        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+//    }
 
     inner class PacienteViewHolder(private val binding: ItemRecyclerViewYoursPatientsBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -57,6 +58,18 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
                     com.google.android.material.R.drawable.navigation_empty_icon
                 }
             )
+
+//            if (paciente.foto != null) {
+//                val bitmapImage = decodeBase64ToBitmap(paciente.foto!!)
+//
+//                Glide.with(binding.root.context)
+//                    .load(bitmapImage)
+//                    .into(binding.imageviewPatientItemYoursPatients)
+//            } else {
+//                Glide.with(binding.root.context)
+//                    .load(R.mipmap.default_profile)
+//                    .into(binding.imageviewPatientItemYoursPatients)
+//            }
 
             binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
 

@@ -37,8 +37,6 @@ class FragmentTodosNutricionistas : Fragment() {
     ): View? {
         binding = FragmentTodosNutricionistaBinding.inflate(inflater, container, false)
 
-
-
         setupView()
         setupObservers()
 
@@ -59,7 +57,7 @@ class FragmentTodosNutricionistas : Fragment() {
         binding.recyclerViewTodosNutricionistas.adapter = adapter
 
         modalTwoOptionsBottomSheet = ModalTwoOptionsBottomSheet(
-            "Tem certeza que deseja excluir teste?",
+            "Tem certeza que deseja desvincular com o este nutricionista?",
             object : ModalTwoOptionsBottomSheet.BottomSheetListener {
                 override fun onButtonYesClick() {
                     viewmodelPaciente.desvincularPacienteComNutricionista(dadosPaciente.id!!)
@@ -98,7 +96,7 @@ class FragmentTodosNutricionistas : Fragment() {
                 val link = "https://api.whatsapp.com/send?phone=55${
                     nutricionista.telefone.trim()
                 }&text=Olá ${nutricionista.nome}, tudo bem? " +
-                        "gostaria de continuar acompanhando minha rotina com você"
+                        "gostaria de continuar acompanhando minha rotina com você."
 
                 val context = binding.root.context
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))

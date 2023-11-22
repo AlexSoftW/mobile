@@ -71,7 +71,7 @@ class FragmentDiarioAlimentarPaciente : Fragment() {
                 !it.isNullOrEmpty()
 
             binding.buttonDesfazerUltimoConsumidoDiarioAlimentarPaciente.text =
-                if (it.isNullOrEmpty()) "Nenhum alimento foi consumido dentro de 24h" else "Desfazer último alimento"
+                if (it.isNullOrEmpty()) "Consumir alimento" else "Desfazer último alimento consumido"
         }
 
     }
