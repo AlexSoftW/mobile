@@ -67,10 +67,10 @@ class FragmentAddFood : Fragment() {
 
             Log.i("dadoAlimento", "cadastrarNovoAlimento: $novoAlimento")
 
-            foodViewModel.responseAdicionarNovoAlimentoBottomSheet.value = false
+//            foodViewModel.responseAdicionarNovoAlimentoBottomSheet.value = false
 
             modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
-//            foodViewModel.cadastrarNovoAlimento(novoAlimento)
+            foodViewModel.cadastrarNovoAlimento(novoAlimento)
         }
     }
 

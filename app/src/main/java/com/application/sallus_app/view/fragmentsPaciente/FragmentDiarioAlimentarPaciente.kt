@@ -71,7 +71,7 @@ class FragmentDiarioAlimentarPaciente : Fragment() {
                 !it.isNullOrEmpty()
 
             binding.buttonDesfazerUltimoConsumidoDiarioAlimentarPaciente.text =
-                if (it.isNullOrEmpty()) "Nenhum alimento foi consumido dentro de 24h" else "Desfazer último alimento"
+                if (it.isNullOrEmpty()) "Consumir alimento" else "Desfazer último alimento consumido"
         }
 
     }
@@ -90,9 +90,13 @@ class FragmentDiarioAlimentarPaciente : Fragment() {
             if (it.isEmpty() || it == null) {
                 binding.recyclerviewDiarioAlimentarPaciente.visibility = View.GONE
                 binding.cardviewSeuDiarioAlimentar.visibility = View.VISIBLE
+                binding.buttonDesfazerUltimoConsumidoDiarioAlimentarPaciente.visibility =
+                    View.GONE
             } else {
                 binding.recyclerviewDiarioAlimentarPaciente.visibility = View.VISIBLE
                 binding.cardviewSeuDiarioAlimentar.visibility = View.GONE
+                binding.buttonDesfazerUltimoConsumidoDiarioAlimentarPaciente.visibility =
+                    View.VISIBLE
                 adapter.submitList(it)
             }
         }

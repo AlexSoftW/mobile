@@ -10,6 +10,7 @@ import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.UsuarioData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
 
 class LoginViewModel : ViewModel() {
     // pedro@oi.com
@@ -61,4 +62,5 @@ class LoginViewModel : ViewModel() {
             }
         }
     }
+
 }

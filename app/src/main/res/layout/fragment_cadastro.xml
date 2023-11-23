@@ -102,21 +102,32 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white_100"
+                android:text="voltar"
+                android:textColor="@color/red_default" />
 
             <Button
                 android:id="@+id/proximo1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/large_margin"
+                android:layout_weight="1"
                 android:backgroundTint="@color/red_default"
                 android:text="Proximo" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -22,7 +22,7 @@
             android:id="@+id/imageview_customer_toolbar_pages"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@mipmap/profile_test"
+            android:src="@mipmap/default_profile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,12 +34,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
-        tools:text="Gisele Almeida"
         android:textColor="@color/white_200"
         android:textSize="@dimen/average_font"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/cardview_customer_toolbar_pages"
-        app:layout_constraintTop_toTopOf="@+id/cardview_customer_toolbar_pages" />
+        app:layout_constraintTop_toTopOf="@+id/cardview_customer_toolbar_pages"
+        tools:text="Gisele Almeida" />
 
     <TextView
         android:id="@+id/textview_tag_toolbar_pages"
@@ -52,17 +52,6 @@
         app:layout_constraintStart_toStartOf="@+id/textview_name_customer_toolbar_pages"
         app:layout_constraintTop_toBottomOf="@id/textview_name_customer_toolbar_pages"
         tools:text="Nutricionista" />
-
-    <ImageButton
-        android:id="@+id/imagebutton_notification_toolbar_pages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/average_margin"
-        android:backgroundTint="@color/black_200"
-        android:src="@drawable/ic_notification"
-        app:layout_constraintEnd_toStartOf="@id/imagebutton_settings_toolbar_pages"
-        app:layout_constraintTop_toTopOf="@id/imagebutton_settings_toolbar_pages"
-        tools:layout_editor_absoluteX="24dp" />
 
     <ImageButton
         android:id="@+id/imagebutton_settings_toolbar_pages"

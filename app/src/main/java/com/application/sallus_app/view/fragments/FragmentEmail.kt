@@ -6,17 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentCadastroEmailBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.viewmodel.PacienteViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentEmail : Fragment() {
-
-    private lateinit var binding: FragmentCadastroEmailBinding
     private val viewModel: PacienteViewModel by viewModel()
-
+    private lateinit var binding: FragmentCadastroEmailBinding
+    private lateinit var modalLoadingBottomSheet: ModalLoadingBottomSheet
     val bundle = Bundle()
 
     override fun onCreateView(
@@ -26,6 +28,9 @@ class FragmentEmail : Fragment() {
 
     ): View? {
         binding = FragmentCadastroEmailBinding.inflate(inflater, container, false)
+
+        modalLoadingBottomSheet =
+            ModalLoadingBottomSheet("Cadastrando sua conta, aguarde um momento...")
 
         val args = arguments
         if (args != null) {
@@ -38,7 +43,7 @@ class FragmentEmail : Fragment() {
             val hipertensao = args.getBoolean("Hipertensao")
             val nenhum = args.getBoolean("Nenhum")
             Log.d(
-                "MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero " +
+                "MeuFragmentDestino", "Dados recebidos: $nome $endereco $telefone $genero" +
                         "$diabete, $colesterol, $hipertensao, $nenhum"
             )
 
@@ -65,15 +70,29 @@ class FragmentEmail : Fragment() {
                     0,
                     telefone ?: "",
                     false,
+                    "",
                     true,
                     null
                 )
 
                 viewModel.addingNewPaciente(pacienteData)
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_cadastro, fragmentDestino)
-                    .addToBackStack(null)
-                    .commit()
+
+                modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
+
+            }
+        }
+
+        viewModel.responseCadastrarPacienteBottomSheet.observe(viewLifecycleOwner) {
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(5000)
+
+                if (it) {
+                    modalLoadingBottomSheet.mostrarMensagemDeSucesso("Conta cadastrada com sucesso!")
+                    modalLoadingBottomSheet.retornarTelaLogin()
+                } else {
+                    modalLoadingBottomSheet.mostrarMensagemDeErro("Houve um erro ao cadastrar sua conta!")
+                    modalLoadingBottomSheet.retornarTelaLogin()
+                }
             }
         }
 

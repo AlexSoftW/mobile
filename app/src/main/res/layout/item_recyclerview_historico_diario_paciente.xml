@@ -58,6 +58,7 @@
             android:layout_marginTop="@dimen/average_margin"
             android:layout_marginEnd="@dimen/average_margin"
             android:textSize="@dimen/small_font"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_calorias_item_recyclerview_historico_diario_paciente"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_calorias_item_recyclerview_historico_diario_paciente"
             tools:text="Arroz, Feijão, Alface, Contra-filé" />
@@ -78,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/average_margin"
             android:layout_marginBottom="@dimen/small_margin"
-            android:drawableStart="@drawable/ic_calendar_patient"
+            android:drawableStart="@drawable/ic_calendar"
             android:drawablePadding="4dp"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"

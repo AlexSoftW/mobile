@@ -1,13 +1,9 @@
 package com.application.sallus_app.view.fragmentsPaciente
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.FragmentHomePacienteBinding
@@ -15,6 +11,7 @@ import com.application.sallus_app.view.fragments.FragmentFoods
 import com.application.sallus_app.viewmodel.PacienteViewModel
 
 class FragmentPaciente(private val pacienteViewModel: PacienteViewModel) : Fragment() {
+
     private lateinit var binding: FragmentHomePacienteBinding
 
     override fun onCreateView(

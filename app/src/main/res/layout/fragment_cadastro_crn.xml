@@ -37,20 +37,20 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/large_margin"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="330dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:hint="CRN">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/crn"
-                    android:layout_width="300dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp" />
 
@@ -58,42 +58,36 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
-                android:text="@string/info_crn_register"
-                android:textSize="@dimen/average_font">
-
-            </TextView>
+                android:hint="@string/info_crn_register"
+                android:textSize="@dimen/small_font" />
 
         </LinearLayout>
 
-        <RelativeLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_margin="@dimen/large_margin">
 
             <Button
                 android:id="@+id/backButton2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="@dimen/large_margin"
+                android:layout_weight="1"
                 android:backgroundTint="@color/white_100"
                 android:text="voltar"
                 android:textColor="@color/red_default" />
 
             <Button
                 android:id="@+id/nextButton1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/large_margin"
+                android:layout_weight="1"
                 android:backgroundTint="@color/red_default"
                 android:text="proximo" />
 
-        </RelativeLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </LinearLayout>
 

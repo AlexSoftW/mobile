@@ -1,10 +1,27 @@
-<vector android:height="32dp" android:viewportHeight="30"
-    android:viewportWidth="30" android:width="32dp" xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="#FF000000" android:pathData="M26,12m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"/>
-    <path android:fillColor="#FF000000" android:pathData="M15,3m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"/>
-    <path android:fillColor="#FF000000" android:pathData="M4,12m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"/>
-    <path android:fillColor="#FF000000" android:pathData="M25,11h-3V6c0,-0.552 0.448,-1 1,-1h1c0.552,0 1,0.448 1,1V11z"/>
-    <path android:fillColor="#FF000000" android:pathData="M15,3v10h11l0.681,-1.732L15.678,2.267L15,3z"/>
-    <path android:fillColor="#FF000000" android:pathData="M14.322,2.267L3.319,11.268L4,13h11V3L14.322,2.267z"/>
-    <path android:fillColor="#FF000000" android:pathData="M5,12v12c0,1.105 0.895,2 2,2h16c1.105,0 2,-0.895 2,-2V12H5zM22,23h-4v-8h4V23z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="30"
+    android:viewportHeight="30">
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M26,12m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0" />
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M15,3m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0" />
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M4,12m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0" />
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M25,11h-3V6c0,-0.552 0.448,-1 1,-1h1c0.552,0 1,0.448 1,1V11z" />
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M15,3v10h11l0.681,-1.732L15.678,2.267L15,3z" />
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M14.322,2.267L3.319,11.268L4,13h11V3L14.322,2.267z" />
+    <path
+        android:fillColor="#2D2D2D"
+        android:pathData="M5,12v12c0,1.105 0.895,2 2,2h16c1.105,0 2,-0.895 2,-2V12H5zM22,23h-4v-8h4V23z" />
 </vector>
