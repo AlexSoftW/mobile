@@ -1,8 +1,10 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -37,10 +39,10 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
         notifyDataSetChanged()
     }
 
-//    fun decodeBase64ToBitmap(baseString: String): Bitmap {
-//        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
-//        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-//    }
+    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+    }
 
     inner class PacienteViewHolder(private val binding: ItemRecyclerViewYoursPatientsBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -59,19 +61,31 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
                 }
             )
 
-//            if (paciente.foto != null) {
-//                val bitmapImage = decodeBase64ToBitmap(paciente.foto!!)
-//
-//                Glide.with(binding.root.context)
-//                    .load(bitmapImage)
-//                    .into(binding.imageviewPatientItemYoursPatients)
-//            } else {
-//                Glide.with(binding.root.context)
-//                    .load(R.mipmap.default_profile)
-//                    .into(binding.imageviewPatientItemYoursPatients)
-//            }
+            if (paciente.foto != null) {
+                val bitmapImage = decodeBase64ToBitmap(paciente.foto!!)
+
+                Glide.with(binding.root.context)
+                    .load(bitmapImage)
+                    .into(binding.imageviewPatientItemYoursPatients)
+            } else {
+                Glide.with(binding.root.context)
+                    .load(R.mipmap.default_profile)
+                    .into(binding.imageviewPatientItemYoursPatients)
+            }
 
             binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
+
+            binding.imagebuttonWhatsappItemYoursPatients.setOnClickListener {
+                val link = "https://api.whatsapp.com/send?phone=55${
+                    paciente.telefone.trim()
+                }&text=Olá ${paciente.nome}, tudo bem? " +
+                        "irei te atender e tirar suas dúvidas sobre sua nova rotina alimentar."
+
+                val context = binding.root.context
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+
+                context.startActivity(intent)
+            }
 
         }
     }
