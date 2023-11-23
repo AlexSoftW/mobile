@@ -34,6 +34,7 @@ class PacienteViewModel : ViewModel() {
 
     val responseCadastrarPacienteBottomSheet = MutableLiveData<Boolean>()
     val responseEditarDadosPacienteBottomSheet = MutableLiveData<Boolean>()
+    val responseEditarSenhaPacienteBottomSheet = MutableLiveData<Boolean>()
 
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
@@ -133,11 +134,13 @@ class PacienteViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServicePaciente.atualizarSenha(data)
+                responseEditarSenhaPacienteBottomSheet.value = true
                 Log.i(
                     "SUCCESS_PUT_PACIENTE_PASSWORD",
                     "Senha do paciente atualizada com sucesso !"
                 )
             } catch (e: Exception) {
+                responseEditarSenhaPacienteBottomSheet.value = false
                 Log.i("ERROR_PUT_PACIENTE_PASSWORD", "Não foi possível atualizar a senha: $e")
             }
         }

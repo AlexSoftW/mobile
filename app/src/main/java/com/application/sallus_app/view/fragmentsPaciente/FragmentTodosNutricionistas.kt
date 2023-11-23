@@ -1,18 +1,23 @@
 package com.application.sallus_app.view.fragmentsPaciente
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.application.sallus_app.R
 import com.application.sallus_app.adapter.NutricionistaAdapter
 import com.application.sallus_app.databinding.FragmentTodosNutricionistaBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.view.fragments.ModalTwoOptionsBottomSheet
 import com.application.sallus_app.viewmodel.NutritionistViewModel
 import com.application.sallus_app.viewmodel.PacienteViewModel
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -87,6 +92,19 @@ class FragmentTodosNutricionistas : Fragment() {
         viewmodelPaciente.buscarNutricionistaVinculado(dadosPaciente.id!!)
 
         viewmodelPaciente.nutricionistaVinculado.observe(viewLifecycleOwner) { nutricionista ->
+
+            if (nutricionista.foto != null) {
+                val bitmapImage = decodeBase64ToBitmap(nutricionista.foto)
+
+                Glide.with(binding.root.context)
+                    .load(bitmapImage)
+                    .into(binding.imageviewNutritionistItemSeuNutricionista)
+            } else {
+                Glide.with(binding.root.context)
+                    .load(R.mipmap.default_profile)
+                    .into(binding.imageviewNutritionistItemSeuNutricionista)
+            }
+
             binding.textviewNameNutritionistItemSeuNutricionista.text = nutricionista.nome
             binding.textviewTelephoneNutritionistItemSeuNutricionista.text = nutricionista.telefone
             binding.textviewCrnNutricionistaItemSeuNutricionista.text = nutricionista.crn
@@ -139,5 +157,10 @@ class FragmentTodosNutricionistas : Fragment() {
         val pacienteData: PacienteData =
             gson.fromJson(paciente, PacienteData::class.java)
         return pacienteData
+    }
+
+    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
 }

@@ -1,7 +1,10 @@
 package com.application.sallus_app.view
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -15,6 +18,7 @@ import com.application.sallus_app.view.fragmentsNutricionista.FragmentNutritioni
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentSelectFoodCreateDiary
 import com.application.sallus_app.view.fragmentsNutricionista.FragmentYoursPatients
 import com.application.sallus_app.viewmodel.NutritionistViewModel
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -56,9 +60,17 @@ class NutritionistActivity : AppCompatActivity() {
 
         binding.includeBadgeNutricionista.imagebuttonHomeNutritionist.setColorFilter(redColor)
 
-        binding.includeToolbarPages.imageviewCustomerToolbarPages.setImageResource(
-            R.mipmap.imagem_profile_nutricionista_default
-        )
+        if (dadosNutricionista.foto != null) {
+            val bitmapImage = decodeBase64ToBitmap(dadosNutricionista.foto!!)
+
+            Glide.with(binding.root.context)
+                .load(bitmapImage)
+                .into(binding.includeToolbarPages.imageviewCustomerToolbarPages)
+        } else {
+            Glide.with(binding.root.context)
+                .load(R.mipmap.default_profile)
+                .into(binding.includeToolbarPages.imageviewCustomerToolbarPages)
+        }
 
         binding.includeToolbarPages.textviewTagToolbarPages.text = "Nutricionista"
 
@@ -169,5 +181,10 @@ class NutritionistActivity : AppCompatActivity() {
         val nutricionistaData: NutritionistData =
             gson.fromJson(nutricionista, NutritionistData::class.java)
         return nutricionistaData
+    }
+
+    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
 }

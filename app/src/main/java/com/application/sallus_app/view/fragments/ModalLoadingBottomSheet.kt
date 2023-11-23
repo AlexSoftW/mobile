@@ -1,14 +1,12 @@
 package com.application.sallus_app.view.fragments
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.BottomSheetLoadingBinding
-import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.view.LoginActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -73,13 +71,13 @@ class ModalLoadingBottomSheet(private val titulo: String) : BottomSheetDialogFra
         }
     }
 
-    fun retornarTelaLogin() {
+    fun retornarActivityAnterior() {
         binding.buttonBottomsheetLoading.setOnClickListener {
             activity?.finish()
         }
     }
 
-    fun retornarTelaLoginUsuarioConectado() {
+    fun retornarTelaLogin() {
         binding.buttonBottomsheetLoading.text = "Desconectar"
         binding.buttonBottomsheetLoading.setOnClickListener {
             val intent = Intent(requireContext(), LoginActivity::class.java)

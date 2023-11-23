@@ -2,7 +2,10 @@ package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +18,7 @@ import com.application.sallus_app.model.NutritionistData
 import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
 import com.application.sallus_app.viewmodel.NutritionistViewModel
 import com.application.sallus_app.viewmodel.PacienteViewModel
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -50,6 +54,11 @@ class NutricionistaAdapter(
         notifyDataSetChanged()
     }
 
+    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+    }
+
     inner class NutricionistaViewHolder(private val binding: ItemRecyclerViewTodosNutricionistasBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -69,6 +78,19 @@ class NutricionistaAdapter(
                     com.google.android.material.R.drawable.navigation_empty_icon
                 }
             )
+
+            if (nutricionista.foto != null) {
+                val bitmapImage = decodeBase64ToBitmap(nutricionista.foto!!)
+
+                Glide.with(binding.root.context)
+                    .load(bitmapImage)
+                    .into(binding.imageviewPatientItemTodosNutricionistas)
+            } else {
+                Glide.with(binding.root.context)
+                    .load(R.mipmap.default_profile)
+                    .into(binding.imageviewPatientItemTodosNutricionistas)
+            }
+
 
             binding.imagebuttonWhatsappItemTodosNutricionistas.setOnClickListener {
 

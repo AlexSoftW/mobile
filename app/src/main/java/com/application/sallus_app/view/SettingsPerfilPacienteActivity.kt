@@ -3,12 +3,9 @@ package com.application.sallus_app.view
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Base64
 import android.util.Log
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +15,6 @@ import com.application.sallus_app.databinding.ActivitySettingsPerfilPacienteBind
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.PerfilData
 import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
-import com.application.sallus_app.viewmodel.LoginViewModel
 import com.application.sallus_app.viewmodel.PacienteViewModel
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
@@ -57,6 +53,36 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
         setupObservers()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            selectedImageUri = data.data!!
+            Log.i("tagImageUri", "onActivityResult: $selectedImageUri")
+
+            if (isFileSizeWithinLimit(selectedImageUri, 175)) {
+                Glide.with(this).load(selectedImageUri).into(binding.fotoPaciente)
+                binding.legenda.text = "Alterar imagem"
+                binding.legenda.setBackgroundColor(
+                    ContextCompat.getColor(
+                        binding.root.context, R.color.grey_oppacity
+                    )
+                )
+            } else {
+                Glide.with(this).load(R.mipmap.default_profile).into(binding.fotoPaciente)
+                binding.legenda.text =
+                    "Imagem excede o limite máximo de 175kb\nselecione outra imagem"
+                binding.legenda.setBackgroundColor(
+                    ContextCompat.getColor(
+                        binding.root.context, R.color.red_error_oppacity
+                    )
+                )
+                selectedImageUri = Uri.EMPTY
+            }
+
+        }
+    }
+
     private fun setupView() {
         modalLoadingBottomSheet = ModalLoadingBottomSheet("Alterando suas informações, aguarde...")
 
@@ -88,11 +114,10 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
             Log.i("CONTENT", "NOME: $nome | ID: ${dadosPaciente.id}")
             val data = PerfilData(dadosPaciente.id, nome, dadosPaciente.avatar)
 
-            val file = createTempFile(this, selectedImageUri)
-            val requestBody = RequestBody.create("image/*".toMediaTypeOrNull(), file)
-            val fotoPart = MultipartBody.Part.createFormData("foto", file.name, requestBody)
-
             if (selectedImageUri != Uri.EMPTY) {
+                val file = createTempFile(this, selectedImageUri)
+                val requestBody = RequestBody.create("image/*".toMediaTypeOrNull(), file)
+                val fotoPart = MultipartBody.Part.createFormData("foto", file.name, requestBody)
                 pacienteViewModel.alterarFoto(dadosPaciente.id!!, fotoPart)
             }
 
@@ -102,46 +127,16 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
 
         pacienteViewModel.responseEditarDadosPacienteBottomSheet.observe(this) {
             CoroutineScope(Dispatchers.Main).launch {
-                delay(5000)
+                delay(3000)
 
                 if (it) {
                     modalLoadingBottomSheet.mostrarMensagemDeSucesso(
                         "Dados alterados com sucesso!\n" +
                                 "desconecte e entre novamente para realizar a alteração."
                     )
-                    modalLoadingBottomSheet.retornarTelaLoginUsuarioConectado()
+                    modalLoadingBottomSheet.retornarTelaLogin()
                 }
             }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-            selectedImageUri = data.data!!
-            Log.i("tagImageUri", "onActivityResult: $selectedImageUri")
-
-            if (isFileSizeWithinLimit(selectedImageUri, 175)) {
-                Glide.with(this).load(selectedImageUri).into(binding.fotoPaciente)
-                binding.legenda.text = "Alterar imagem"
-                binding.legenda.setBackgroundColor(
-                    ContextCompat.getColor(
-                        binding.root.context, R.color.grey_oppacity
-                    )
-                )
-            } else {
-                Glide.with(this).load(R.mipmap.default_profile).into(binding.fotoPaciente)
-                binding.legenda.text =
-                    "Imagem excede o limite máximo de 175kb\nselecione outra imagem"
-                binding.legenda.setBackgroundColor(
-                    ContextCompat.getColor(
-                        binding.root.context, R.color.red_error_oppacity
-                    )
-                )
-                selectedImageUri = Uri.EMPTY
-            }
-
         }
     }
 

@@ -10,7 +10,6 @@ import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsPacienteActivity : AppCompatActivity() {
-    private val settingsViewModel: SettingsViewModel by viewModel()
     private lateinit var binding: ActivitySettingsPacienteBinding
     private lateinit var dadosPaciente: PacienteData;
 

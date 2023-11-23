@@ -7,12 +7,18 @@ import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivitySettingsPasswordPacienteBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.UsuarioData
+import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
 import com.application.sallus_app.viewmodel.PacienteViewModel
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsPasswordPacienteActivity : AppCompatActivity() {
     private val pacienteViewModel: PacienteViewModel by viewModel()
+    private lateinit var modalLoadingBottomSheet: ModalLoadingBottomSheet
     private lateinit var binding: ActivitySettingsPasswordPacienteBinding
     private lateinit var dadosPaciente: PacienteData;
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +33,8 @@ class SettingsPasswordPacienteActivity : AppCompatActivity() {
     }
 
     fun setupView() {
+        modalLoadingBottomSheet = ModalLoadingBottomSheet("Alterando sua senha, aguarde...")
+
         binding.includeToolbarSettings.textviewToolbarSettings.text = "Alteração de senha"
 
         val activity = this
@@ -49,6 +57,20 @@ class SettingsPasswordPacienteActivity : AppCompatActivity() {
 
             val data = UsuarioData(email, senhaNova)
             pacienteViewModel.alterarSenha(data)
+            modalLoadingBottomSheet.show(supportFragmentManager, ModalLoadingBottomSheet.TAG)
+        }
+
+        pacienteViewModel.responseEditarSenhaPacienteBottomSheet.observe(this) {
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(3000)
+
+                if (it) {
+                    modalLoadingBottomSheet.mostrarMensagemDeSucesso("senha alterada com sucesso!")
+                    modalLoadingBottomSheet.retornarActivityAnterior()
+                } else {
+                    modalLoadingBottomSheet.mostrarMensagemDeErro("Houve um erro ao alterar sua senha!")
+                }
+            }
         }
     }
 
