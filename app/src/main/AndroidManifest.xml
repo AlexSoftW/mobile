@@ -17,11 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sallusapp"
         tools:targetApi="31">
+<<<<<<< HEAD
+        <activity
+            android:name=".view.EsqueceuSenhaActivity"
+            android:exported="false" />
+=======
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+>>>>>>> a527cbcf60fa55b66208381052a95550d518abfa
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -30,23 +36,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.PacienteActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.NutritionistActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.CadastroActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.SettingsNutricionistActivity"
             android:exported="false" />
@@ -58,7 +59,6 @@
         <activity
             android:name=".view.SettingsPerfilNutricionistActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.SettingsPasswordNutricionistActivity"
             android:exported="false" />
@@ -71,11 +71,9 @@
         <activity
             android:name=".view.SettingsSuportePacienteActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.SettingsPerfilPacienteActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.SettingsPasswordPacienteActivity"
             android:exported="false" />

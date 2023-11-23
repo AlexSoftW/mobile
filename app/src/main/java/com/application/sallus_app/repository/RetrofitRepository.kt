@@ -1,6 +1,7 @@
 package com.application.sallus_app.repository
 
 import com.application.sallus_app.service.DiarioService
+import com.application.sallus_app.service.EsqueceuSenhaService
 import com.application.sallus_app.service.FoodService
 import com.application.sallus_app.service.LoginService
 import com.application.sallus_app.service.NutritionistService
@@ -44,5 +45,8 @@ class RetrofitRepository {
 
     val apiServiceDiary: DiarioService =
         retrofit.create(DiarioService::class.java)
+
+    val apiEsqueceuSenhaService: EsqueceuSenhaService =
+        retrofit.create(EsqueceuSenhaService::class.java)
 
 }

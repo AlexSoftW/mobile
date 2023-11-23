@@ -2,6 +2,7 @@ package com.application.sallus_app.di
 
 import com.application.sallus_app.repository.RetrofitRepository
 import com.application.sallus_app.repository.SharedPreferencesFoodManager
+import com.application.sallus_app.viewmodel.EsqueceuSenhaViewModel
 import com.application.sallus_app.viewmodel.DiarioViewModel
 import com.application.sallus_app.viewmodel.LoginViewModel
 import com.application.sallus_app.viewmodel.FoodViewModel
@@ -20,4 +21,5 @@ val appModule = module {
     viewModel { NutritionistViewModel() }
     viewModel { PacienteViewModel() }
     viewModel { DiarioViewModel() }
+    viewModel { EsqueceuSenhaViewModel() }
 }
