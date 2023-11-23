@@ -71,17 +71,6 @@ class FragmentSelectFoodCreateDiary : Fragment() {
 
         binding.searchBarFoods.setAdapter(adapterSearchbarFoods)
 
-//        binding.searchBarFoods.setOnItemClickListener { parent, _, position, _ ->
-//            val selectedFood = parent.getItemAtPosition(position) as String
-//            viewmodel.buscarAlimentoPeloNome(selectedFood)
-//
-//            binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
-//
-//            viewmodel.alimentoInformadoSearchbar.observe(viewLifecycleOwner) {
-//                adapter.submitListOnlyFood(it)
-//            }
-//        }
-
         binding.searchBarFoods.setOnItemClickListener { parent, _, position, _ ->
             val selectedFood = parent.getItemAtPosition(position) as String
             viewmodel.buscarAlimentoPeloNome(selectedFood)
@@ -107,7 +96,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
 
         binding.cardviewCarnesVermelhaCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
-            viewmodel.buscarAlimentosPorTipo("Carne bovina")
+            viewmodel.buscarAlimentosPorTipo("Carne vermelha")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
@@ -115,7 +104,7 @@ class FragmentSelectFoodCreateDiary : Fragment() {
 
         binding.cardviewCarnesBrancasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
-            viewmodel.buscarAlimentosPorTipo("Frango")
+            viewmodel.buscarAlimentosPorTipo("Carne branca")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }

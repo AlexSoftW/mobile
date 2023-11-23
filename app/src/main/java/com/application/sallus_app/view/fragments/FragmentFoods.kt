@@ -86,7 +86,7 @@ class FragmentFoods : Fragment() {
 
         binding.cardviewCarnesVermelhaCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
-            viewmodel.buscarAlimentosPorTipo("Carne bovina")
+            viewmodel.buscarAlimentosPorTipo("Carne vermelha")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }
@@ -94,7 +94,7 @@ class FragmentFoods : Fragment() {
 
         binding.cardviewCarnesBrancasCategoryFoods.setOnClickListener {
             binding.textviewButtonLimparSelecao.visibility = View.VISIBLE
-            viewmodel.buscarAlimentosPorTipo("Frango")
+            viewmodel.buscarAlimentosPorTipo("Carne branca")
             viewmodel.listaAlimentoPorCategoria.observe(viewLifecycleOwner) {
                 adapter.submitList(it)
             }

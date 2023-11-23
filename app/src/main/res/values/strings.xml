@@ -78,7 +78,7 @@
     <!-- Spinners -->
     <string-array name="spinner_option_type_food">
         <item>Carne vermelha</item>
-        <item>Carne Branca</item>
+        <item>Carne branca</item>
         <item>Fruta</item>
         <item>Grão</item>
         <item>Massa</item>
