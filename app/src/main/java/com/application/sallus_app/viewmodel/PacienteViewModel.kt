@@ -1,5 +1,7 @@
 package com.application.sallus_app.viewmodel
 
+import android.net.Uri
+import android.text.BoringLayout
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,10 +29,11 @@ class PacienteViewModel : ViewModel() {
     //variavel para controlar e verificar se o paciente ja possui algum nutricionista vinculado
     val isVinculado = MutableLiveData<Boolean>()
 
-    val responseCadastrarPacienteBottomSheet = MutableLiveData<Boolean>()
-
     //variavel para controlar a cor dos icones da badge do nutricionista pelo fragment_home_paciente
     val corAtual = MutableLiveData<Int>()
+
+    val responseCadastrarPacienteBottomSheet = MutableLiveData<Boolean>()
+    val responseEditarDadosPacienteBottomSheet = MutableLiveData<Boolean>()
 
     fun addingNewPaciente(novoPaciente: PacienteData) {
         viewModelScope.launch {
@@ -102,9 +105,11 @@ class PacienteViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServicePaciente.atualizarPaciente(data)
+                responseEditarDadosPacienteBottomSheet.value = true
                 Log.i("SUCCESS_PUT_PACIENTE", "Dados do paciente atualizado com sucesso !")
             } catch (e: java.lang.Exception) {
                 val response = repository.apiServicePaciente.atualizarPaciente(data)
+                responseEditarDadosPacienteBottomSheet.value = false
                 Log.i("RESPONSE_PUT_PACIENTE", "Response Put Paciente: $response")
                 Log.i("ERROR_PUT_PACIENTE", "Não foi possível atualizar os dados: $e")
             }
@@ -115,9 +120,10 @@ class PacienteViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServicePaciente.atualizarFoto(id, foto)
+                responseEditarDadosPacienteBottomSheet.value = true
                 Log.i("SUCCESS_PATCH_FOTO_PACIENTE", "alterarFoto: foto alterada com sucesso")
-
             } catch (e: Exception) {
+                responseEditarDadosPacienteBottomSheet.value = false
                 Log.i("ERROR_PATCH_FOTO_PACIENTE", "Não foi possível alterar a foto: $e")
             }
         }

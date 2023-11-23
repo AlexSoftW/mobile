@@ -21,15 +21,17 @@ class EsqueceuSenhaActivity : AppCompatActivity() {
         binding = ActivityEsqueceuSenhaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.includeToolbarEsqueceuSenha.buttonBackTelaEsqueceuSenha.setOnClickListener {
+            finish()
+        }
 
         binding.buttonSolicitarSenha.setOnClickListener {
             Log.d("MeuApp1", "Botão clicado")
-            val textInputEditTextEmailCadastrado = findViewById<EditText>(R.id.textFieldEmailCadastrado)
+            val textInputEditTextEmailCadastrado =
+                findViewById<EditText>(R.id.textFieldEmailCadastrado)
 
             val emailCadastrado = textInputEditTextEmailCadastrado.text.toString()
             Log.d("MeuApp4", "Valor de email: $emailCadastrado")
-
-//            val esqueceuSenhaDados = EsqueceuSenhaData(emailCadastrado)
 
             Log.d("MeuApp4", "API Acionada")
             esqueceuSenhaViewModel.esqueceuSenha(emailCadastrado)

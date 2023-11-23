@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp">
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -26,8 +27,8 @@
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="0dp" />
             </FrameLayout>
-        </LinearLayout>
 
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,9 +42,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="35dp"
-                android:layout_marginBottom="25dp">
+                android:layout_marginBottom="25dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -61,7 +62,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldEmailCadastrado"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -72,23 +73,19 @@
                     android:id="@+id/button_solicitar_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
                     android:layout_marginLeft="@dimen/small_margin"
+                    android:layout_marginTop="35dp"
                     android:layout_marginRight="@dimen/small_margin"
                     android:layout_marginBottom="@dimen/large_margin"
                     android:layout_weight="1"
                     android:backgroundTint="@color/red_default"
+                    android:gravity="center"
                     android:text="Solicitar nova senha"
-                    android:textColor="@color/white_100"
-                    android:gravity="center"/>
+                    android:textColor="@color/white_100" />
             </LinearLayout>
-
 
         </LinearLayout>
 
-
-
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

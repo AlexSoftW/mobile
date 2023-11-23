@@ -12,14 +12,20 @@ import android.util.Base64
 import android.util.Log
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ActivitySettingsPerfilPacienteBinding
 import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.PerfilData
+import com.application.sallus_app.view.fragments.ModalLoadingBottomSheet
 import com.application.sallus_app.viewmodel.LoginViewModel
 import com.application.sallus_app.viewmodel.PacienteViewModel
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -31,8 +37,8 @@ import java.io.InputStream
 class SettingsPerfilPacienteActivity : AppCompatActivity() {
 
     private val pacienteViewModel: PacienteViewModel by viewModel()
-    private val loginViewModel: LoginViewModel by viewModel()
     private lateinit var binding: ActivitySettingsPerfilPacienteBinding
+    private lateinit var modalLoadingBottomSheet: ModalLoadingBottomSheet
     private lateinit var dadosPaciente: PacienteData;
 
     private val PICK_IMAGE_REQUEST = 1
@@ -52,6 +58,8 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        modalLoadingBottomSheet = ModalLoadingBottomSheet("Alterando suas informações, aguarde...")
+
         binding.constraintlayoutSettingsPerfilPaciente.setOnClickListener {
             val galleryIntent =
                 Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -74,7 +82,6 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-
         binding.btnSalvarAlteracao.setOnClickListener {
             val inputEditTextNome = findViewById<EditText>(R.id.edittext_nome_completo)
             val nome = inputEditTextNome.text.toString()
@@ -85,8 +92,26 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
             val requestBody = RequestBody.create("image/*".toMediaTypeOrNull(), file)
             val fotoPart = MultipartBody.Part.createFormData("foto", file.name, requestBody)
 
+            if (selectedImageUri != Uri.EMPTY) {
+                pacienteViewModel.alterarFoto(dadosPaciente.id!!, fotoPart)
+            }
+
             pacienteViewModel.alterarDadosPerfil(data, dadosPaciente.id!!)
-            pacienteViewModel.alterarFoto(dadosPaciente.id!!, fotoPart)
+            modalLoadingBottomSheet.show(supportFragmentManager, ModalLoadingBottomSheet.TAG)
+        }
+
+        pacienteViewModel.responseEditarDadosPacienteBottomSheet.observe(this) {
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(5000)
+
+                if (it) {
+                    modalLoadingBottomSheet.mostrarMensagemDeSucesso(
+                        "Dados alterados com sucesso!\n" +
+                                "desconecte e entre novamente para realizar a alteração."
+                    )
+                    modalLoadingBottomSheet.retornarTelaLoginUsuarioConectado()
+                }
+            }
         }
     }
 
@@ -97,19 +122,34 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
             selectedImageUri = data.data!!
             Log.i("tagImageUri", "onActivityResult: $selectedImageUri")
 
-            Glide.with(this)
-                .load(selectedImageUri)
-                .into(binding.fotoPaciente)
+            if (isFileSizeWithinLimit(selectedImageUri, 175)) {
+                Glide.with(this).load(selectedImageUri).into(binding.fotoPaciente)
+                binding.legenda.text = "Alterar imagem"
+                binding.legenda.setBackgroundColor(
+                    ContextCompat.getColor(
+                        binding.root.context, R.color.grey_oppacity
+                    )
+                )
+            } else {
+                Glide.with(this).load(R.mipmap.default_profile).into(binding.fotoPaciente)
+                binding.legenda.text =
+                    "Imagem excede o limite máximo de 175kb\nselecione outra imagem"
+                binding.legenda.setBackgroundColor(
+                    ContextCompat.getColor(
+                        binding.root.context, R.color.red_error_oppacity
+                    )
+                )
+                selectedImageUri = Uri.EMPTY
+            }
+
         }
     }
 
     fun tratarPacienteJsonToData(paciente: String): PacienteData {
         val gson = Gson()
-        val pacienteData: PacienteData =
-            gson.fromJson(paciente, PacienteData::class.java)
+        val pacienteData: PacienteData = gson.fromJson(paciente, PacienteData::class.java)
         return pacienteData
     }
-
 
     // Função para criar um arquivo temporário a partir de um URI
     fun createTempFile(context: Context, uri: Uri): File {
@@ -122,4 +162,10 @@ class SettingsPerfilPacienteActivity : AppCompatActivity() {
         return file
     }
 
+    fun isFileSizeWithinLimit(uri: Uri, maxSize: Int): Boolean {
+        val inputStream: InputStream? = contentResolver.openInputStream(uri)
+        val fileSizeInBytes: Long = inputStream?.available()?.toLong() ?: 0
+        val fileSizeInKb = fileSizeInBytes / 1024
+        return fileSizeInKb <= maxSize
+    }
 }

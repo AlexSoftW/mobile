@@ -16,14 +16,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/button_back_tela_login"
+            android:id="@+id/button_back_tela_esqueceu_senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/green_default"
             android:src="@drawable/ic_arrow_back" />
 
         <TextView
-            android:id="@+id/textview_toolbar_settings"
+            android:id="@+id/textview_toolbar_esqueceu_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
