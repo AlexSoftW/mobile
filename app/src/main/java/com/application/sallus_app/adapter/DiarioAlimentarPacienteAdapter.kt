@@ -59,7 +59,6 @@ class DiarioAlimentarPacienteAdapter(
                     R.mipmap.refeicao_concluida
                 )
                 binding.buttonConsumidoItemRecyclerviewDiarioPaciente.visibility = View.GONE
-                binding.buttonNaoConsumidoItemRecyclerviewDiarioPaciente.visibility = View.GONE
             } else {
                 binding.imageviewRefeicaoItemRecyclerviewDiarioPaciente.setImageResource(
                     when (refeicao.periodo) {
@@ -70,7 +69,6 @@ class DiarioAlimentarPacienteAdapter(
                     }
                 )
                 binding.buttonConsumidoItemRecyclerviewDiarioPaciente.visibility = View.VISIBLE
-                binding.buttonNaoConsumidoItemRecyclerviewDiarioPaciente.visibility = View.VISIBLE
             }
 
             binding.textviewNomeRefeicaoItemRecyclerviewDiarioPaciente.text =
