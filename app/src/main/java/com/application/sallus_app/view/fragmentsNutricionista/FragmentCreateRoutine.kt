@@ -243,7 +243,7 @@ class FragmentCreateRoutine : Fragment() {
 
         viewmodelDiary.responseCriarDiarioAlimentarBottomSheet.observe(viewLifecycleOwner) {
             CoroutineScope(Dispatchers.Main).launch {
-                delay(5000)
+                delay(3000)
 
                 if (it) {
                     modalLoadingBottomSheet.mostrarMensagemDeSucesso("Rotina alimentar cadastrado com sucesso!")

@@ -10,6 +10,7 @@ import com.application.sallus_app.model.PerfilData
 import com.application.sallus_app.model.UsuarioData
 import com.application.sallus_app.repository.RetrofitRepository
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
 import kotlin.Exception
 
 class NutritionistViewModel : ViewModel() {
@@ -25,6 +26,9 @@ class NutritionistViewModel : ViewModel() {
 
     //variavel para controlar a cor dos icones da badge do nutricionista pelo fragment_home_nutricionista
     val corAtual = MutableLiveData<Int>()
+
+    val responseEditarDadosNutricionistaBottomSheet = MutableLiveData<Boolean>()
+
 
     fun fetchTodosNutricionistas() {
         viewModelScope.launch {
@@ -80,8 +84,10 @@ class NutritionistViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 repository.apiServiceNutritionist.atualizarNutri(data)
+                responseEditarDadosNutricionistaBottomSheet.value = true
                 Log.i("SUCCESS_PUT_NUTRI", "Dados do nutricionista atualizado com sucesso !")
             } catch (e: java.lang.Exception) {
+                responseEditarDadosNutricionistaBottomSheet.value = false
                 val response = repository.apiServiceNutritionist.atualizarNutri(data)
                 Log.i("RESPONSE_PUT_NUTRI", "Response Put Nutri: $response")
                 Log.i("ERROR_PUT_NUTRI", "Não foi possível atualizar os dados: $e")
@@ -89,6 +95,18 @@ class NutritionistViewModel : ViewModel() {
         }
     }
 
+    fun alterarFoto(id: Long, foto: MultipartBody.Part) {
+        viewModelScope.launch {
+            try {
+                repository.apiServiceNutritionist.atualizarFoto(id, foto)
+                responseEditarDadosNutricionistaBottomSheet.value = true
+                Log.i("SUCCESS_PATCH_FOTO_PACIENTE", "alterarFoto: foto alterada com sucesso")
+            } catch (e: Exception) {
+                responseEditarDadosNutricionistaBottomSheet.value = false
+                Log.i("ERROR_PATCH_FOTO_PACIENTE", "Não foi possível alterar a foto: $e")
+            }
+        }
+    }
 
     fun alterarSenha(data: UsuarioData) {
         viewModelScope.launch {

@@ -84,14 +84,14 @@ class FragmentEmail : Fragment() {
 
         viewModel.responseCadastrarPacienteBottomSheet.observe(viewLifecycleOwner) {
             CoroutineScope(Dispatchers.Main).launch {
-                delay(5000)
+                delay(3000)
 
                 if (it) {
                     modalLoadingBottomSheet.mostrarMensagemDeSucesso("Conta cadastrada com sucesso!")
-                    modalLoadingBottomSheet.retornarTelaLogin()
+                    modalLoadingBottomSheet.retornarActivityAnterior()
                 } else {
                     modalLoadingBottomSheet.mostrarMensagemDeErro("Houve um erro ao cadastrar sua conta!")
-                    modalLoadingBottomSheet.retornarTelaLogin()
+                    modalLoadingBottomSheet.retornarActivityAnterior()
                 }
             }
         }

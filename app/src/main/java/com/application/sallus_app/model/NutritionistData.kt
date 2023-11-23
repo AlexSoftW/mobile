@@ -12,5 +12,6 @@ data class NutritionistData(
     val telefone: String,
     val id: Long,
     val crn: String,
-    val ativo: Boolean
+    val ativo: Boolean,
+    val foto: String
 )
