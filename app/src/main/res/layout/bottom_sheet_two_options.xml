@@ -1,0 +1,82 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textview_bottomsheet_two_options"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:textAlignment="center"
+        android:textSize="@dimen/average_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Tem certeza que deseja prosseguir?" />
+
+    <Button
+        android:id="@+id/button_yes_two_options"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:backgroundTint="@color/green_default"
+        android:text="Sim"
+        android:textColor="@color/white_100"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/button_no_two_options"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_bottomsheet_two_options" />
+
+    <Button
+        android:id="@+id/button_no_two_options"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:backgroundTint="@color/red_default"
+        android:text="Não"
+        android:textColor="@color/white_100"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_yes_two_options"
+        app:layout_constraintTop_toBottomOf="@id/textview_bottomsheet_two_options" />
+
+    <ProgressBar
+        android:id="@+id/progressbar_bottomsheet_two_options"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_bottomsheet_two_options" />
+
+    <ImageView
+        android:id="@+id/imageview_bottomshet_two_options"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/textview_bottomsheet_two_options"
+        app:layout_constraintStart_toStartOf="@id/textview_bottomsheet_two_options"
+        app:layout_constraintTop_toBottomOf="@id/textview_bottomsheet_two_options"
+        tools:src="@drawable/ic_sucess" />
+
+    <Button
+        android:id="@+id/button_bottomsheet_two_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x_small_margin"
+        android:backgroundTint="@color/white_100"
+        android:text="Voltar"
+        android:textColor="@color/red_default"
+        android:textSize="@dimen/small_font"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageview_bottomshet_two_options"
+        app:layout_constraintStart_toStartOf="@id/imageview_bottomshet_two_options"
+        app:layout_constraintTop_toBottomOf="@id/imageview_bottomshet_two_options" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

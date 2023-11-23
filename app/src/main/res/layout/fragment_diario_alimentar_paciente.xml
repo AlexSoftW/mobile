@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textview_title_diario_alimentar_paciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="Diário alimentar"
+        android:textSize="@dimen/large_font"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_subtitle_diario_alimentar_paciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sua lista de alimentos a serem consumidos"
+        app:layout_constraintStart_toStartOf="@id/textview_title_diario_alimentar_paciente"
+        app:layout_constraintTop_toBottomOf="@id/textview_title_diario_alimentar_paciente" />
+
+    <Button
+        android:id="@+id/button_desfazer_ultimo_consumido_diario_alimentar_paciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:backgroundTint="@color/grey_disabled"
+        android:clickable="false"
+        android:text="Consumir alimento"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/textview_subtitle_diario_alimentar_paciente"
+        app:layout_constraintTop_toBottomOf="@id/textview_subtitle_diario_alimentar_paciente" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_seu_diario_alimentar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:visibility="gone"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_desfazer_ultimo_consumido_diario_alimentar_paciente">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_100"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/green_default" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/average_margin"
+                android:text="Você não possuí nenhuma rotina alimentar no momento."
+                android:textAlignment="center"
+                android:textSize="@dimen/large_font" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@mipmap/image_nutritionist_patients" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_diario_alimentar_paciente"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_desfazer_ultimo_consumido_diario_alimentar_paciente"
+        tools:listitem="@layout/item_recyclerview_diario_paciente" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
