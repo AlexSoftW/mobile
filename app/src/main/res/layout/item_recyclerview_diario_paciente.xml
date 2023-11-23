@@ -59,6 +59,7 @@
             android:layout_marginTop="@dimen/average_margin"
             android:layout_marginEnd="@dimen/average_margin"
             android:textSize="@dimen/small_font"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
             tools:text="Arroz, Feijão, Alface, Contra-filé" />
