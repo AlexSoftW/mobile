@@ -1,8 +1,10 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -72,6 +74,18 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
             }
 
             binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
+
+            binding.imagebuttonWhatsappItemYoursPatients.setOnClickListener {
+                val link = "https://api.whatsapp.com/send?phone=55${
+                    paciente.telefone.trim()
+                }&text=Olá ${paciente.nome}, tudo bem? " +
+                        "irei te atender e tirar suas dúvidas sobre sua nova rotina alimentar."
+
+                val context = binding.root.context
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+
+                context.startActivity(intent)
+            }
 
         }
     }
