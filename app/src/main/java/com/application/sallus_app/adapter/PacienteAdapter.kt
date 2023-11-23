@@ -37,10 +37,10 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
         notifyDataSetChanged()
     }
 
-//    fun decodeBase64ToBitmap(baseString: String): Bitmap {
-//        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
-//        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-//    }
+    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+    }
 
     inner class PacienteViewHolder(private val binding: ItemRecyclerViewYoursPatientsBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -59,17 +59,17 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
                 }
             )
 
-//            if (paciente.foto != null) {
-//                val bitmapImage = decodeBase64ToBitmap(paciente.foto!!)
-//
-//                Glide.with(binding.root.context)
-//                    .load(bitmapImage)
-//                    .into(binding.imageviewPatientItemYoursPatients)
-//            } else {
-//                Glide.with(binding.root.context)
-//                    .load(R.mipmap.default_profile)
-//                    .into(binding.imageviewPatientItemYoursPatients)
-//            }
+            if (paciente.foto != null) {
+                val bitmapImage = decodeBase64ToBitmap(paciente.foto!!)
+
+                Glide.with(binding.root.context)
+                    .load(bitmapImage)
+                    .into(binding.imageviewPatientItemYoursPatients)
+            } else {
+                Glide.with(binding.root.context)
+                    .load(R.mipmap.default_profile)
+                    .into(binding.imageviewPatientItemYoursPatients)
+            }
 
             binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
 
