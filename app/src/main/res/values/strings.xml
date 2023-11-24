@@ -4,12 +4,14 @@
     <string name="text_patient">Paciente</string>
     <string name="text_nutritionist">Nutricionista</string>
 
+    <!-- Alteração de senha -->
     <string name="text_configuration">Configurações</string>
     <string name="text_configuration_senha">Alteração de senha</string>
     <string name="texto_senha">A senha deve conter:Letra maiúscula  Letra minúscula Número Caractere especial No mínimo 8 caracteres</string>
     <string name="selecione_comorbidade">Possui alguma comorbidade? selecione uma (ou mais) opções</string>
-    <string name="info_crn_register">Solicitamos esse dado cadastral, para que possamos validar sua identidade profissional, e que não aja nenhuma fraude em nosso aplicativo. A validação não demora muito. Após terminar o cadastro você recebera um email de aprovação sobre a existência do seu registro na base nacional.</string>
+    <string name="info_crn_register">*Solicitamos esse dado cadastral, para que possamos validar sua identidade profissional, e que não aja nenhuma fraude em nosso aplicativo. A validação não demora muito. Após terminar o cadastro você recebera um email de aprovação sobre a existência do seu registro na base nacional.</string>
 
+    <!-- Alimento -->
     <string name="title_food">Alimentos</string>
     <string name="subtitle_food">Veja a lista completa de alimentos e seus benefícios</string>
     <string name="text_search_food_name">Busque pelo nome</string>
@@ -23,6 +25,7 @@
     <string name="text_hypertension">Hipertensão</string>
     <string name="text_cholesterol">Colesterol</string>
 
+    <!-- Adicionar alimento -->
     <string name="title_add_food">Adicionar alimentos</string>
     <string name="subtitle_add_food">Não encontrou o alimento desejado? cadastre ele na base dados agora mesmo</string>
     <string name="text_food">Alimento</string>
@@ -37,21 +40,22 @@
     <string name="text_total_calculado">Total calculado</string>
     <string name="text_button_register_food">Cadastrar alimento</string>
 
+    <!-- Cadastrar rotina -->
     <string name="title_food_diary">Diário alimentar</string>
     <string name="sub_title_food_diary">Confirme os alimentos e adicione uma nova rotina para os seus pacientes</string>
     <string name="text_turno">Turno</string>
     <string name="text_anotacoes">Anotações</string>
     <string name="text_cadastrar_rotina">Cadastrar rotina</string>
+    <string name="text_create_routine">Criar rotina</string>
 
+    <!-- Todos pacientes -->
     <string name="text_dados_para_o_paciente">Dados para o paciente</string>
     <string name="title_yours_patients">Seus pacientes</string>
     <string name="subtitle_yours_patients">Veja a lista completa dos seus pacientes e inicie uma consulta</string>
     <string name="text_comorbidity">comorbidades:</string>
     <string name="text_telephone">Telefone:</string>
-
     <string name="title_your_nutritionist">Seu Nutricionista</string>
     <string name="text_email">Email:</string>
-
     <string name="title_all_nutritionist">Todos os nutricionistas</string>
     <string name="subtitle_all_nutritionist">Procure um nutricionista para começar sua nova rotina</string>
 
@@ -69,13 +73,20 @@
     <string name="text_validacao_lista_vazia_register_routine">Lista vazia, retorne a tela de alimentos e adicione pelo menos 1 para criar a rotina alimentar de seu paciente</string>
     <string name="text_mascara_data">dd/mm/aaaa</string>
 
+    <!-- Version app -->
+    <string name="text_version_app">Version: 1.0.0</string>
+
+    <!-- Spinners -->
     <string-array name="spinner_option_type_food">
-        <item>Carnes</item>
-        <item>Frutas</item>
-        <item>Grãos</item>
-        <item>Massas</item>
-        <item>Verduras</item>
-        <item>Legumes</item>
+        <item>Carne vermelha</item>
+        <item>Carne branca</item>
+        <item>Fruta</item>
+        <item>Grão</item>
+        <item>Massa</item>
+        <item>Frutos do mar</item>
+        <item>Verdura</item>
+        <item>Legume</item>
+        <item>Alimento pronto</item>
     </string-array>
 
     <string-array name="spinner_option_type_hour">
@@ -87,7 +98,7 @@
     <string-array name="spinner_option_gender">
         <item>Masculino</item>
         <item>Feminino</item>
-        <item>Prefiro não escolher</item>
+        <item>Prefiro não informar</item>
     </string-array>
 
 </resources>

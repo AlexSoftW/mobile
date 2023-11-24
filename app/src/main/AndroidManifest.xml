@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -17,6 +18,10 @@
         android:theme="@style/Theme.Sallusapp"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -25,42 +30,48 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.PacienteActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.NutritionistActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.CadastroActivity"
             android:exported="false" />
-
         <activity
-            android:name=".view.SettingsActivity"
+            android:name=".view.SettingsNutricionistActivity"
             android:exported="false" />
 
         <activity
-            android:name=".view.SettingsSuporteActivity"
+            android:name=".view.SettingsSuporteNutricionistActivity"
             android:exported="false" />
 
         <activity
             android:name=".view.SettingsPerfilNutricionistActivity"
             android:exported="false" />
-
         <activity
-            android:name=".view.SettingsPasswordActivity"
+            android:name=".view.SettingsPasswordNutricionistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SettingsPacienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SettingsSuportePacienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SettingsPerfilPacienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SettingsPasswordPacienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.EsqueceuSenhaActivity"
             android:exported="false" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

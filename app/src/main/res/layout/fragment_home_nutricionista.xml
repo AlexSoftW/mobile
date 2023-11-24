@@ -37,7 +37,8 @@
                 android:layout_marginTop="@dimen/small_margin"
                 android:layout_marginEnd="@dimen/large_margin"
                 android:backgroundTint="@color/white_100"
-                app:cardCornerRadius="6dp">
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -110,7 +111,8 @@
                 android:layout_marginTop="@dimen/small_margin"
                 android:layout_marginEnd="@dimen/large_margin"
                 android:backgroundTint="@color/white_100"
-                app:cardCornerRadius="6dp">
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -184,7 +186,8 @@
                 android:layout_marginTop="@dimen/small_margin"
                 android:layout_marginEnd="@dimen/large_margin"
                 android:backgroundTint="@color/white_100"
-                app:cardCornerRadius="6dp">
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -259,7 +262,8 @@
                 android:layout_marginEnd="@dimen/large_margin"
                 android:layout_marginBottom="@dimen/average_margin"
                 android:backgroundTint="@color/white_100"
-                app:cardCornerRadius="6dp">
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

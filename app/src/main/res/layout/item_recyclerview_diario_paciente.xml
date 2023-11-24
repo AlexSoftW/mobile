@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/small_margin"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -58,6 +59,7 @@
             android:layout_marginTop="@dimen/average_margin"
             android:layout_marginEnd="@dimen/average_margin"
             android:textSize="@dimen/small_font"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_calorias_item_recyclerview_diario_paciente"
             tools:text="Arroz, Feijão, Alface, Contra-filé" />
@@ -77,32 +79,16 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/button_consumido_item_recyclerview_diario_paciente"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginBottom="@dimen/small_margin"
+            android:layout_margin="@dimen/large_margin"
             android:backgroundTint="@color/red_default"
-            android:text="Consumido"
+            android:text="Consumir"
             android:textColor="@color/white_100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textview_tag_descricao_item_recyclerview_diario_paciente"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_descricao_item_recyclerview_diario_paciente"
             app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/button_nao_consumido_item_recyclerview_diario_paciente"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small_margin"
-            android:text="Não consumido"
-            android:textAllCaps="false"
-            android:textColor="@color/red_default"
-            app:layout_constraintBottom_toBottomOf="@+id/button_consumido_item_recyclerview_diario_paciente"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/button_consumido_item_recyclerview_diario_paciente"
-            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall"
-            app:strokeColor="@color/red_default" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

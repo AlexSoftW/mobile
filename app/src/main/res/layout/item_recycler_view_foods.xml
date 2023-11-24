@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
     android:layout_margin="@dimen/xx_small_margin"
-    android:layout_marginTop="@dimen/average_margin">
+    android:layout_marginTop="@dimen/average_margin"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_card_foods"
@@ -25,12 +26,13 @@
 
         <TextView
             android:id="@+id/textview_nome_item_alimento"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xx_small_margin"
             android:text="Picanha"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/imageview_item_alimento"
             app:layout_constraintTop_toBottomOf="@id/imageview_item_alimento" />
 
@@ -78,14 +80,13 @@
             android:id="@+id/textview_alimento_nao_indicado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/xx_small_margin"
-            android:layout_marginTop="@dimen/x_small_margin"
+            android:layout_marginTop="@dimen/xx_small_margin"
             android:minHeight="20dp"
             android:text="nenhum tipo de comorbidade."
             android:textSize="@dimen/x_small_font"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_nome_item_alimento" />
+            app:layout_constraintStart_toStartOf="@+id/textview_tag_indicacao_item_alimento"
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_indicacao_item_alimento" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

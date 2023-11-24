@@ -1,13 +1,18 @@
 package com.application.sallus_app.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.application.sallus_app.R
 import com.application.sallus_app.databinding.ItemRecyclerViewYoursPatientsBinding
-import com.application.sallus_app.model.FoodData
 import com.application.sallus_app.model.PacienteDetailsData
+import com.bumptech.glide.Glide
 
 class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>() {
 
@@ -34,30 +39,53 @@ class PacienteAdapter : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>
         notifyDataSetChanged()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun submitListOnlyFood(paciente: List<PacienteDetailsData>) {
-        this.pacientesList.clear()
-        this.pacientesList.addAll(paciente)
-        notifyDataSetChanged()
+    fun decodeBase64ToBitmap(baseString: String): Bitmap {
+        val decodedBytes = Base64.decode(baseString, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
 
     inner class PacienteViewHolder(private val binding: ItemRecyclerViewYoursPatientsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("PrivateResource")
         fun bind(paciente: PacienteDetailsData) {
             binding.textviewNamePatientItemYoursPatients.text = paciente.nome
 
-//            binding.imageviewGenderPatientItemYoursPatients.setImageResource(
-//                if (paciente.genero == "Masculino") {
-//                    R.drawable.ic_male_gender
-//                } else if (paciente.genero == "Feminino") {
-//                    R.drawable.ic_female_gender
-//                } else {
-//                    com.google.android.material.R.drawable.navigation_empty_icon
-//                }
-//            )
+            binding.imageviewGenderPatientItemYoursPatients.setImageResource(
+                if (paciente.genero == "Masculino") {
+                    R.drawable.ic_male_gender
+                } else if (paciente.genero == "Feminino") {
+                    R.drawable.ic_female_gender
+                } else {
+                    com.google.android.material.R.drawable.navigation_empty_icon
+                }
+            )
 
-//            binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
+            if (paciente.foto != null) {
+                val bitmapImage = decodeBase64ToBitmap(paciente.foto!!)
+
+                Glide.with(binding.root.context)
+                    .load(bitmapImage)
+                    .into(binding.imageviewPatientItemYoursPatients)
+            } else {
+                Glide.with(binding.root.context)
+                    .load(R.mipmap.default_profile)
+                    .into(binding.imageviewPatientItemYoursPatients)
+            }
+
+            binding.textviewTelephonePatientItemYoursPatients.text = paciente.telefone
+
+            binding.imagebuttonWhatsappItemYoursPatients.setOnClickListener {
+                val link = "https://api.whatsapp.com/send?phone=55${
+                    paciente.telefone.trim()
+                }&text=Olá ${paciente.nome}, tudo bem? " +
+                        "irei te atender e tirar suas dúvidas sobre sua nova rotina alimentar."
+
+                val context = binding.root.context
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+
+                context.startActivity(intent)
+            }
 
         }
     }

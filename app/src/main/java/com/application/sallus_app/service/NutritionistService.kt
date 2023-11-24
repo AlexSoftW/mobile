@@ -1,12 +1,17 @@
 package com.application.sallus_app.service
 
 import com.application.sallus_app.model.NutritionistData
+import com.application.sallus_app.model.PacienteData
 import com.application.sallus_app.model.PerfilData
 import com.application.sallus_app.model.UsuarioData
+import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Multipart
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Part
 import retrofit2.http.Path
 
 
@@ -25,11 +30,18 @@ interface NutritionistService {
     suspend fun getNutricionistaPorNome(nome: String): List<NutritionistData>
 
     @POST("nutricionistas/cadastrar")
-    suspend fun adicionarNutri(@Body nutricionista : NutritionistData): NutritionistData
+    suspend fun adicionarNutri(@Body nutricionista: NutritionistData): NutritionistData
 
     @PUT("nutricionistas")
-    suspend fun atualizarNutri(@Body dadosNutri : PerfilData)
+    suspend fun atualizarNutri(@Body dadosNutri: PerfilData)
 
-    @POST("/nutricionistas/atualizacaoSenha")
-    suspend fun atualizarSenha(@Body novaSenha : UsuarioData)
+    @PUT("nutricionistas/atualizacaoSenha")
+    suspend fun atualizarSenha(@Body novaSenha: UsuarioData)
+
+    @Multipart
+    @PATCH("nutricionistas/foto/{id}")
+    suspend fun atualizarFoto(
+        @Path("id") id: Long,
+        @Part foto: MultipartBody.Part
+    ): NutritionistData
 }

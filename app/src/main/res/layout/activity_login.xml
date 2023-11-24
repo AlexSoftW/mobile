@@ -72,12 +72,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
-                android:fontFamily="@font/lato"
                 android:text="Esqueceu a senha?"
                 android:textAlignment="textEnd"
                 android:textColor="@color/red_default"
-                android:textFontWeight="700"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:id="@+id/textview_button_esqueceu_senha"/>
 
             <Button
                 android:id="@+id/button_login"

@@ -77,7 +77,7 @@ class FragmentAddFood : Fragment() {
     private fun setupObservers() {
         foodViewModel.responseAdicionarNovoAlimentoBottomSheet.observe(viewLifecycleOwner) {
             CoroutineScope(Dispatchers.Main).launch {
-                delay(5000)
+                delay(3000)
 
                 if (it) {
                     modalLoadingBottomSheet.mostrarMensagemDeSucesso("Alimento cadastrado com sucesso!")

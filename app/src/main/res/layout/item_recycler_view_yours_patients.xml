@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/xx_small_margin"
     android:layout_marginTop="@dimen/average_margin"
-    app:cardCornerRadius="10dp">
+    android:layout_marginEnd="@dimen/xx_small_margin"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,17 +24,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageview_patient_item_yours_patients"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_image_item_yours_patients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/large_margin"
-            android:background="@mipmap/default_profile"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="4dp"
             app:layout_constraintBottom_toBottomOf="@+id/view_banner_item_yours_patients"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view_banner_item_yours_patients"
-            app:layout_constraintVertical_bias="0"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintVertical_bias="0">
+
+            <ImageView
+                android:id="@+id/imageview_patient_item_yours_patients"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/default_profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textview_name_patient_item_yours_patients"
@@ -41,8 +56,8 @@
             android:maxWidth="200dp"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/imageview_patient_item_yours_patients"
-            app:layout_constraintTop_toBottomOf="@id/imageview_patient_item_yours_patients"
+            app:layout_constraintStart_toStartOf="@id/cardview_image_item_yours_patients"
+            app:layout_constraintTop_toBottomOf="@id/cardview_image_item_yours_patients"
             tools:text="Nome do paciente" />
 
         <ImageView

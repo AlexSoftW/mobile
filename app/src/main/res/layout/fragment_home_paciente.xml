@@ -12,7 +12,7 @@
         android:layout_marginTop="@dimen/large_margin"
         android:text="navegue pela opções abaixo"
         android:textSize="@dimen/small_font"
-        android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,14 +33,16 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
                 android:layout_marginTop="@dimen/small_margin"
-                android:backgroundTint="@color/white_100">
+                android:layout_marginEnd="@dimen/large_margin"
+                android:backgroundTint="@color/white_100"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/large_margin"
-                    android:layout_marginEnd="@dimen/large_margin">
+                    android:layout_height="wrap_content">
 
                     <View
                         android:id="@+id/view_banner_color_nutritionist_card_one"
@@ -66,8 +68,8 @@
 
                     <ImageView
                         android:id="@+id/imageview_icon_card_one_nutritionist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_marginStart="@dimen/xx_small_margin"
                         android:src="@drawable/ic_patients"
                         app:layout_constraintBottom_toBottomOf="@id/textview_tag_card_one_nutritionist"
@@ -85,17 +87,18 @@
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_one"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_one_nutritionist" />
 
-                    <Button
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                         android:id="@+id/button_card_one_routine"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/xx_small_margin"
+                        android:layout_height="40dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
                         android:text="consultar"
-                        android:textStyle="bold"
+                        android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_one_nutritionist" />
-
+                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_one_nutritionist"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -104,14 +107,16 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
                 android:layout_marginTop="@dimen/small_margin"
-                android:backgroundTint="@color/white_100">
+                android:layout_marginEnd="@dimen/large_margin"
+                android:backgroundTint="@color/white_100"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/large_margin"
-                    android:layout_marginEnd="@dimen/large_margin">
+                    android:layout_height="wrap_content">
 
                     <View
                         android:id="@+id/view_banner_color_nutritionist_card_two"
@@ -137,8 +142,8 @@
 
                     <ImageView
                         android:id="@+id/imageview_icon_card_two_nutritionist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_marginStart="@dimen/xx_small_margin"
                         android:src="@drawable/ic_food"
                         app:layout_constraintBottom_toBottomOf="@id/textview_tag_card_two_nutritionist"
@@ -151,21 +156,23 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/small_margin"
-                        android:text="Veja detalhes específicos de cada alimento e veja seus benefícios e pripriedades, além de poder postar um alimento e criar diários alimentares para seus pacientes."
+                        android:text="Veja detalhes específicos de cada alimento e veja seus benefícios e propriedades."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_two"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_two_nutritionist" />
 
-                    <Button
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                         android:id="@+id/button_card_two_routine"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/xx_small_margin"
+                        android:layout_height="40dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
                         android:text="consultar"
-                        android:textStyle="bold"
+                        android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_two_nutritionist" />
+                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_two_nutritionist"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -175,14 +182,16 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
                 android:layout_marginTop="@dimen/small_margin"
-                android:backgroundTint="@color/white_100">
+                android:layout_marginEnd="@dimen/large_margin"
+                android:backgroundTint="@color/white_100"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/large_margin"
-                    android:layout_marginEnd="@dimen/large_margin">
+                    android:layout_height="wrap_content">
 
                     <View
                         android:id="@+id/view_banner_color_nutritionist_card_three"
@@ -208,8 +217,8 @@
 
                     <ImageView
                         android:id="@+id/imageview_icon_card_three_nutritionist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_marginStart="@dimen/xx_small_margin"
                         android:src="@drawable/ic_calendar_patient"
                         app:layout_constraintBottom_toBottomOf="@id/textview_tag_card_three_nutritionist"
@@ -227,16 +236,19 @@
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_three"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_three_nutritionist" />
 
-                    <Button
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                         android:id="@+id/button_card_three_routine"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/xx_small_margin"
+                        android:layout_height="40dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
                         android:text="consultar"
-                        android:textStyle="bold"
+                        android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_three_nutritionist" />
+                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_three_nutritionist"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -245,14 +257,17 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
                 android:layout_marginTop="@dimen/small_margin"
-                android:backgroundTint="@color/white_100">
+                android:layout_marginEnd="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/average_margin"
+                android:backgroundTint="@color/white_100"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="6dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/large_margin"
-                    android:layout_marginEnd="@dimen/large_margin">
+                    android:layout_height="wrap_content">
 
                     <View
                         android:id="@+id/view_banner_color_nutritionist_card_four"
@@ -278,8 +293,8 @@
 
                     <ImageView
                         android:id="@+id/imageview_icon_card_four_nutritionist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_marginStart="@dimen/xx_small_margin"
                         android:src="@drawable/ic_historico"
                         app:layout_constraintBottom_toBottomOf="@id/textview_tag_card_four_nutritionist"
@@ -297,16 +312,18 @@
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_four"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_four_nutritionist" />
 
-                    <Button
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                         android:id="@+id/button_card_four_routine"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/xx_small_margin"
+                        android:layout_height="40dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
                         android:text="consultar"
-                        android:textStyle="bold"
+                        android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_four_nutritionist" />
+                        app:layout_constraintTop_toBottomOf="@id/textview_details_card_four_nutritionist"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraSmall" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

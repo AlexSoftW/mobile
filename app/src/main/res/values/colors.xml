@@ -10,4 +10,6 @@
     <color name="grey_disabled">#616063</color>
 
     <color name="zapzap_color">#76C96A</color>
+    <color name="red_error_oppacity">#80F44336</color>
+    <color name="grey_oppacity">#8A494949</color>
 </resources>

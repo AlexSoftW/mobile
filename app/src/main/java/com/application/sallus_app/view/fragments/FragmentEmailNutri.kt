@@ -72,7 +72,8 @@ class FragmentEmailNutri : Fragment() {
                     telefone ?: "",
                     0,
                     crn ?: "",
-                    true
+                    true,
+                    ""
                 )
 
                 viewModel.addingNewNutricionista(nutriData)
