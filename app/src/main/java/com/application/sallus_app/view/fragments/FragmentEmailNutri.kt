@@ -47,7 +47,15 @@ class FragmentEmailNutri : Fragment() {
 
             binding.nextButton1.setOnClickListener {
 
-                checkInputs()
+                if (nome != null && telefone != null && endereco != null && genero != null && crn != null) {
+                    checkInputs(
+                        nome,
+                        telefone,
+                        endereco,
+                        genero,
+                        crn
+                    )
+                }
 
                 val email = binding.email.text.toString()
                 val senha = binding.senha.text.toString()
@@ -96,19 +104,54 @@ class FragmentEmailNutri : Fragment() {
         fragmentManager.popBackStack()
     }
 
-    private fun checkInputs() {
+    private fun checkInputs(
+        nome: String,
+        telefone: String,
+        endereco: String,
+        genero: String,
+        crn: String
+    ) {
         val email = binding.email.text.toString()
         val password = binding.senha.text.toString()
-        val confirmPassword = binding.confirmarSenha.text.toString()
+        val confirmSenha = binding.confirmarSenha.text.toString()
 
         if (email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.email.error = "Preencha um email válido."
         } else if (!isPasswordValid(password)) {
             binding.senha.error = "Preencha uma senha válida."
-        } else if (password != confirmPassword) {
+        } else if (password != confirmSenha) {
             binding.confirmarSenha.error = "As senhas não coincidem."
         } else {
-            Toast.makeText(context, "Teste", Toast.LENGTH_SHORT).show()
+
+            bundle.putString("Email", email)
+            bundle.putString("Senha", password)
+            bundle.putString("ConfirmarSenha", confirmSenha)
+            val fragmentDestino = FragmentEmail()
+            fragmentDestino.arguments = bundle
+            Log.d("Valores ", "Email = $email, senha = $password")
+
+            val nutriData = NutritionistData(
+                nome ?: "",
+                email,
+                password,
+                0.0,
+                0,
+                genero ?: "",
+                endereco ?: "",
+                0,
+                telefone ?: "",
+                0,
+                crn ?: "",
+                true,
+                ""
+            )
+
+            viewModel.addingNewNutricionista(nutriData)
+
+            val intent = Intent(activity, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+
         }
     }
 
