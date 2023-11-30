@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/large_margin"
                 android:layout_marginTop="@dimen/large_margin"
-                android:text="Crie a sua conta"
+                android:text="@string/text_crie_sua_conta"
                 android:textColor="@color/green_default"
                 android:textSize="30sp" />
 
@@ -46,13 +46,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="CRN">
+                android:hint="@string/text_crn">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/crn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:inputType="number"
+                    android:maxLength="7" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white_100"
-                android:text="voltar"
+                android:text="@string/text_default_voltar"
                 android:textColor="@color/red_default" />
 
             <Button
@@ -85,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/red_default"
-                android:text="proximo" />
+                android:text="@string/text_default_proximo" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

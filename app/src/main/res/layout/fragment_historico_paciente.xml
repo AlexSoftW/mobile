@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/large_margin"
         android:layout_marginTop="@dimen/large_margin"
-        android:text="Histórico"
+        android:text="@string/text_default_historico"
         android:textSize="@dimen/large_font"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/textview_subtitle_diario_historico_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sua lista de alimentos consumidos"
+        android:text="@string/text_subtitle_lista_alimentos_consumido"
         app:layout_constraintStart_toStartOf="@id/textview_title_diario_historico_paciente"
         app:layout_constraintTop_toBottomOf="@id/textview_title_diario_historico_paciente" />
 
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/average_margin"
-                android:text="Você não possuí nenhum alimento consumido."
+                android:text="@string/text_voce_nao_possui_alimento_consumido"
                 android:textAlignment="center"
                 android:textSize="@dimen/large_font" />
 

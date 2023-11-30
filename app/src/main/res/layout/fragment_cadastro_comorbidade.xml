@@ -18,11 +18,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/large_margin"
                 android:layout_marginTop="@dimen/large_margin"
-                android:text="Crie a sua conta"
+                android:text="@string/text_crie_sua_conta"
                 android:textColor="@color/green_default"
-                android:textSize="30sp">
-
-            </TextView>
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -60,27 +58,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Diabete" />
+                android:text="@string/text_diabetes" />
 
             <CheckBox
                 android:id="@+id/colesterol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Colesterol" />
+                android:text="@string/text_cholesterol" />
 
             <CheckBox
                 android:id="@+id/hipertensao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Hipertensão" />
+                android:text="@string/text_hypertension" />
 
             <CheckBox
                 android:id="@+id/nenhum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nenhum" />
+                android:text="@string/text_nenhum" />
 
         </LinearLayout>
 
@@ -96,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white_100"
-                android:text="voltar"
+                android:text="@string/text_default_voltar"
                 android:textColor="@color/red_default" />
 
             <Button
@@ -105,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/red_default"
-                android:text="proximo" />
+                android:text="@string/text_default_proximo" />
 
         </LinearLayout>
 

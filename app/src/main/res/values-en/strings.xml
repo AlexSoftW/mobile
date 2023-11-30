@@ -2,29 +2,54 @@
 <resources>
     <string name="app_name">Sallus-app</string>
 
-    <string name="text_patient">Patient</string>
-    <string name="text_nutritionist">Nutritionist</string>
-
     <!-- Alteração de senha -->
     <string name="text_configuration">Configuration</string>
     <string name="text_configuration_senha">Change password</string>
+    <string name="text_letra_maiuscula">Uppercase letter</string>
+    <string name="text_letra_minuscula">Lowercase letter</string>
+    <string name="text_caracteres_especial">Special characters</string>
+    <string name="text_minimo_caracteres_especial">least 8 characters</string>
+    <string name="text_senha_deve_conter">The password must contain</string>
     <string name="texto_senha">The password must contain:Uppercase letter Lowercase letter Number Special character At least 8 characters</string>
+    <string name="texto_informacoes_senha">Reset your password below.\nFill in your current password and then your new password.\nYour new password must contain:</string>
     <string name="selecione_comorbidade">Do you have any comorbidities? select one (or more) options</string>
     <string name="info_crn_register">We ask for this registration data so that we can validate your professional identity and ensure that there is no fraud in our application. Validation doesn\'t take long. Once you have finished registering, you will receive an approval email about the existence of your registration in the national database.</string>
+    <string name="text_titulo_esqueceu_senha">If you can\'t remember your password, fill in the fields below with your e-mail address and telephone number:</string>
+    <string name="text_email_cadastrado">Registered e-mail</string>
+    <string name="text_solicitar_senha">request a new password</string>
+    <string name="text_esqueceu_senha">Forgot your password?</string>
+    <string name="text_nova_senha">New password</string>
+    <string name="text_confirme_nova_senha">Confirm your new password</string>
+    <string name="text_salvar_alteracoes">Save changes</string>
+
+    <!-- Settings/Cadastro usuarios -->
+    <string name="text_alterar_imagem">Change image</string>
+    <string name="text_nome_completo">Full name</string>
+    <string name="text_title_suporte_problemas">Let us know your question/problem/anomaly found in our application so that we can resolve it.</string>
+    <string name="text_enviar_formulario">Send form</string>
+    <string name="text_finalizar_cadastro">Finish</string>
+    <string name="text_selecionar_perfil">Select your profile</string>
+    <string name="text_sou_paciente">I\'m patient</string>
+    <string name="text_sou_nutricionista">I\'m nutritionist</string>
 
     <!-- Alimento -->
     <string name="title_food">Foods</string>
     <string name="subtitle_food">See the full list of foods and their benefits</string>
     <string name="text_search_food_name">Search food\'s name</string>
-    <string name="text_option_meat">Meat</string>
+    <string name="text_option_red_meat">Red meat</string>
+    <string name="text_option_white_meat">White meat</string>
     <string name="text_option_fruits">Fruits</string>
     <string name="text_option_grain">Grain</string>
     <string name="text_option_pasta">Pastas</string>
+    <string name="text_option_seafood">Seafood</string>
     <string name="text_option_greenery">Greenery</string>
     <string name="text_option_vegetables">Vegetables</string>
+    <string name="text_option_ready_made_food">Ready-made foods</string>
     <string name="text_diabetes">Diabetes</string>
     <string name="text_hypertension">Hypertension</string>
     <string name="text_cholesterol">Cholesterol</string>
+    <string name="text_nenhum_tipo_comorbidade">no type of comorbidity</string>
+    <string name="text_nenhum">Nothing</string>
 
     <!-- Adicionar alimento -->
     <string name="title_add_food">Adding food</string>
@@ -36,10 +61,17 @@
     <string name="text_proteins">Proteins:</string>
     <string name="text_total_fat">Total:</string>
     <string name="text_calories">Calories:</string>
+    <string name="text_indicado_diabetico">Indicated for diabetics?</string>
+    <string name="text_indicado_hipertensao">Indicated for hypertensive?</string>
+    <string name="text_indicado_colesterol">Indicated for people with cholesterol?</string>
     <string name="text_selected_hint">*select*</string>
     <string name="text_button_back">Return</string>
     <string name="text_total_calculado">total calculated</string>
     <string name="text_button_register_food">Register food</string>
+    <string name="text_button_consumir_alimento">Consume food</string>
+    <string name="text_voce_nao_possui_rotina">You don\'t have an eating routine at the moment.</string>
+    <string name="text_voce_nao_possui_alimento_consumido">You have not consumed any food.</string>
+    <string name="text_voce_nao_possui_paciente">You don\'t have any patients at the moment.</string>
 
     <!-- Criar rotina -->
     <string name="title_food_diary">Food diary</string>
@@ -48,30 +80,77 @@
     <string name="text_anotacoes">Annotations</string>
     <string name="text_cadastrar_rotina">Register routine</string>
     <string name="text_create_routine">Create routine</string>
+    <string name="text_limpar_selecao">Clear selection</string>
+    <string name="text_remover_alimento">remove food</string>
+    <string name="text_subtitle_lista_alimentos_consumido">List of foods consumed</string>
 
     <!-- Todos pacientes -->
     <string name="text_dados_para_o_paciente">Patient data</string>
     <string name="title_yours_patients">Yours patients</string>
     <string name="subtitle_yours_patients">See the full list of your patients and start an appointment</string>
     <string name="text_comorbidity">comorbidity:</string>
-    <string name="text_telephone">Telephone:</string>
     <string name="title_your_nutritionist">Your Nutritionist</string>
-    <string name="text_email">E-mail:</string>
     <string name="title_all_nutritionist">All nutritionist</string>
     <string name="subtitle_all_nutritionist">Find a nutritionist to start your new routine</string>
 
+    <!-- Cards paciente/nutricionista da home -->
+    <string name="text_card_button_consultar">Consulting</string>
+    <string name="text_card_titulo_um_nutricionista">Patients</string>
+    <string name="text_card_subtitulo_um_nutricionista">Get in touch with your clients and create a food diary for them. We have all the tools you need for a consultation with your clients.</string>
+    <string name="text_card_titulo_dois_nutricionista">Foods</string>
+    <string name="text_card_subtitulo_dois_nutricionista">See specific details of each food and see its benefits and properties, as well as being able to post a food and create food diaries for your patients.</string>
+    <string name="text_card_titulo_tres_nutricionista">Add foods</string>
+    <string name="text_card_subtitulo_tres_nutricionista">You haven\'t found the food you\'re looking for? No problem, register a new food in our database that hasn\'t been registered yet.</string>
+    <string name="text_card_titulo_quatro_nutricionista">Create routine</string>
+    <string name="text_card_subtitulo_quatro_nutricionista">Create eating routines based on your patient\'s health conditions.</string>
+
+    <string name="text_card_titulo_um_paciente">Nutritionist</string>
+    <string name="text_card_subtitulo_um_paciente">Contact your nutritionist and ask questions at any time.</string>
+    <string name="text_card_titulo_dois_paciente">Foods</string>
+    <string name="text_card_subtitulo_dois_paciente">Take a look at the specific details of each food and see its benefits and properties.</string>
+    <string name="text_card_titulo_tres_paciente">Your routine</string>
+    <string name="text_card_subtitulo_tres_paciente">Access your eating routine and see what foods you need to consume during the day.</string>
+    <string name="text_card_titulo_quatro_paciente">History</string>
+    <string name="text_card_subtitulo_quatro_paciente">Access your history and see the foods/meals you\'ve consumed in the last 7 days.</string>
     <!-- Home/Index-->
     <string name="text_index">Your routine and well-being starts here.</string>
     <string name="text_button_index_home">start</string>
     <string name="text_carrosel_home">Trained professionals ready to serve and understand you.</string>
-    <string name="text_crn">CRN:</string>
+    <string name="text_crn">CRN</string>
+    <string name="text_bem_estar">Wellness</string>
     <string name="text_unbind_nutritionist">Unbind nutritionist</string>
+
+    <!-- Login -->
+    <string name="text_subtitle_login">Log in to \n your account:</string>
+    <string name="text_nao_tem_uma_conta">don\'t have an account? </string>
+    <string name="text_crie_sua_conta">Create account</string>
 
     <!-- Textos de validações -->
     <string name="text_validacao_botao_criar_rotina">Select at least 1 food</string>
     <string name="text_validacao_botao_finalizar_rotina">Empty list, return and add 1 food item</string>
     <string name="text_validacao_lista_vazia_register_routine">Empty list, return to the food screen and add at least 1 to create your patient\'s eating routine</string>
     <string name="text_mascara_data">mm/dd/yyyy</string>
+
+    <!-- Textos default -->
+    <string name="text_yes">Yes</string>
+    <string name="text_no">No</string>
+    <string name="text_patient">Patient</string>
+    <string name="text_nutritionist">Nutritionist</string>
+    <string name="text_default_login">Login</string>
+    <string name="text_default_sair">Exit</string>
+    <string name="text_default_proximo">Next</string>
+    <string name="text_default_voltar">Return</string>
+    <string name="text_default_cadastre">Register</string>
+    <string name="text_default_email">E-mail</string>
+    <string name="text_default_senha">Password</string>
+    <string name="text_default_telephone">Telephone</string>
+    <string name="text_default_endereco">Address</string>
+    <string name="text_default_genero">Gender</string>
+    <string name="text_default_perfil">Profile</string>
+    <string name="text_default_suporte">Support</string>
+    <string name="text_default_historico">History</string>
+    <string name="text_default_assunto">Subject</string>
+    <string name="text_default_mensagem">Message</string>
 
     <!-- Version app -->
     <string name="text_version_app">Version: 1.0.0</string>

@@ -4,26 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textview_title_home_nutritionist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/large_margin"
-        android:layout_marginTop="@dimen/large_margin"
-        android:text="navegue pela opções abaixo"
-        android:textSize="@dimen/small_font"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/textview_title_home_nutritionist"
-        app:layout_constraintTop_toBottomOf="@id/textview_title_home_nutritionist">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -59,7 +47,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/x_small_margin"
-                        android:text="Nutricionistas"
+                        android:text="@string/text_card_titulo_um_paciente"
                         android:textColor="@color/black_200"
                         android:textSize="@dimen/average_font"
                         android:textStyle="bold"
@@ -82,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/small_margin"
-                        android:text="Entre em contato com o seu nutricionista, tire dúvidas a qualquer momento."
+                        android:text="@string/text_card_subtitulo_um_paciente"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_one"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_one_nutritionist" />
@@ -94,7 +82,7 @@
                         android:layout_gravity="bottom|end"
                         android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
-                        android:text="consultar"
+                        android:text="@string/text_card_button_consultar"
                         android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textview_details_card_one_nutritionist"
@@ -133,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/x_small_margin"
-                        android:text="Alimentos"
+                        android:text="@string/text_card_titulo_dois_paciente"
                         android:textColor="@color/black_200"
                         android:textSize="@dimen/average_font"
                         android:textStyle="bold"
@@ -156,7 +144,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/small_margin"
-                        android:text="Veja detalhes específicos de cada alimento e veja seus benefícios e propriedades."
+                        android:text="@string/text_card_subtitulo_dois_paciente"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_two"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_two_nutritionist" />
@@ -168,7 +156,7 @@
                         android:layout_gravity="bottom|end"
                         android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
-                        android:text="consultar"
+                        android:text="@string/text_card_button_consultar"
                         android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textview_details_card_two_nutritionist"
@@ -208,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/x_small_margin"
-                        android:text="Sua rotina"
+                        android:text="@string/text_card_titulo_tres_paciente"
                         android:textColor="@color/black_200"
                         android:textSize="@dimen/average_font"
                         android:textStyle="bold"
@@ -231,7 +219,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/small_margin"
-                        android:text="Acesse sua rotina alimentar e veja os alimentos que você precisa consumir durante o dia."
+                        android:text="@string/text_card_subtitulo_tres_paciente"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_three"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_three_nutritionist" />
@@ -244,7 +232,7 @@
                         android:layout_gravity="bottom|end"
                         android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
-                        android:text="consultar"
+                        android:text="@string/text_card_button_consultar"
                         android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textview_details_card_three_nutritionist"
@@ -284,7 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/x_small_margin"
-                        android:text="Histórico"
+                        android:text="@string/text_card_titulo_quatro_paciente"
                         android:textColor="@color/black_200"
                         android:textSize="@dimen/average_font"
                         android:textStyle="bold"
@@ -307,7 +295,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/average_margin"
                         android:layout_marginTop="@dimen/small_margin"
-                        android:text="Acesse seu histórico e veja os alimentos/refeições que você consumiu nos últimos 7 dias."
+                        android:text="@string/text_card_subtitulo_quatro_paciente"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/view_banner_color_nutritionist_card_four"
                         app:layout_constraintTop_toBottomOf="@id/textview_tag_card_four_nutritionist" />
@@ -319,7 +307,7 @@
                         android:layout_gravity="bottom|end"
                         android:layout_marginTop="@dimen/small_margin"
                         android:backgroundTint="@color/red_default"
-                        android:text="consultar"
+                        android:text="@string/text_card_button_consultar"
                         android:textColor="@color/white_100"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textview_details_card_four_nutritionist"
