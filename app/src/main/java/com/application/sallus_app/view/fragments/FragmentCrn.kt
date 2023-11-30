@@ -38,10 +38,27 @@ class FragmentCrn : Fragment() {
     ): View? {
         binding = FragmentCadastroCrnBinding.inflate(inflater, container, false)
 
+        binding.nextButton1.setOnClickListener {
+            checkInput()
+        }
+
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
+
+        return binding.root
+    }
+
+    private fun checkInput() {
+        val crn = binding.crn.text.toString()
         val fragmentDestino = FragmentEmailNutri()
 
-        binding.nextButton1.setOnClickListener {
+        if (crn.isBlank() || crn.length != 7) {
+            binding.crn.error = "Preencha um CRN válido."
+
+        } else {
             val crn = binding.crn.text.toString()
+
             Log.d("MeuFragmentDestino", "Dados teste: $crn ")
 
             bundle.putString("Crn", crn)
@@ -53,12 +70,6 @@ class FragmentCrn : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
-
-        binding.backButton2.setOnClickListener {
-            retornarFragment()
-        }
-
-        return binding.root
     }
 
     fun retornarFragment() {

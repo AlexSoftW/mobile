@@ -47,7 +47,7 @@
             android:id="@+id/textview_tag_recommend_item_register_routine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="indicado para: "
+            android:text="@string/text_recommended_for"
             app:layout_constraintStart_toStartOf="@id/textview_name_food_item_register_routine"
             app:layout_constraintTop_toBottomOf="@id/textview_name_food_item_register_routine" />
 
@@ -83,29 +83,30 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/average_margin"
+            android:layout_marginTop="@dimen/average_margin"
             android:background="@color/green_default"
             android:gravity="center"
             android:padding="4dp"
-            android:text="Alimento pronto"
             android:textColor="@color/white_100"
             app:layout_constraintBottom_toBottomOf="@+id/cardview_circle_food_item_register_routine"
             app:layout_constraintEnd_toStartOf="@+id/button_remover_alimento_register_routine"
             app:layout_constraintHorizontal_bias="0.5"
-            android:layout_marginTop="@dimen/average_margin"
             app:layout_constraintStart_toEndOf="@+id/cardview_circle_food_item_register_routine"
-            app:layout_constraintTop_toBottomOf="@id/textview_tag_recommend_item_register_routine" />
+            app:layout_constraintTop_toBottomOf="@id/textview_tag_recommend_item_register_routine"
+            tools:text="@string/text_option_red_meat" />
 
         <TextView
             android:id="@+id/button_remover_alimento_register_routine"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:text="remover alimento"
+            android:text="@string/text_remover_alimento"
             android:textColor="@color/red_default"
             app:layout_constraintBottom_toBottomOf="@id/textview_tag_type_food_item_register_routine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textview_tag_type_food_item_register_routine" />
+            app:layout_constraintStart_toEndOf="@+id/textview_tag_type_food_item_register_routine"
+            tools:ignore="RtlHardcoded" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

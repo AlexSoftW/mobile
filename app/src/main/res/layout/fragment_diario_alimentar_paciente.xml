@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/large_margin"
         android:layout_marginTop="@dimen/large_margin"
-        android:text="Diário alimentar"
+        android:text="@string/title_food_diary"
         android:textSize="@dimen/large_font"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +19,11 @@
 
     <TextView
         android:id="@+id/textview_subtitle_diario_alimentar_paciente"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Sua lista de alimentos a serem consumidos"
+        android:layout_marginEnd="@dimen/large_margin"
+        android:text="@string/sub_title_food_diary"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textview_title_diario_alimentar_paciente"
         app:layout_constraintTop_toBottomOf="@id/textview_title_diario_alimentar_paciente" />
 
@@ -32,7 +34,7 @@
         android:layout_marginTop="@dimen/small_margin"
         android:backgroundTint="@color/grey_disabled"
         android:clickable="false"
-        android:text="Consumir alimento"
+        android:text="@string/text_button_consumir_alimento"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/textview_subtitle_diario_alimentar_paciente"
         app:layout_constraintTop_toBottomOf="@id/textview_subtitle_diario_alimentar_paciente" />
@@ -63,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/average_margin"
-                android:text="Você não possuí nenhuma rotina alimentar no momento."
+                android:text="@string/text_voce_nao_possui_rotina"
                 android:textAlignment="center"
                 android:textSize="@dimen/large_font" />
 

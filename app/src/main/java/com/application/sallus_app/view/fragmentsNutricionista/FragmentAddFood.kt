@@ -46,31 +46,49 @@ class FragmentAddFood : Fragment() {
             val isDiabetes = binding.switchOptionDiabetes.isChecked
             val isColesterol = binding.switchOptionColesterol.isChecked
             val isHipertensao = binding.switchOptionHipertensao.isChecked
-            val proteina = binding.edittextQtdProteina.text.toString().toDouble()
-            val carboidrato = binding.edittextQtdCarboidrato.text.toString().toDouble()
-            val gordTotal = binding.edittextQtdGordTotal.text.toString().toDouble()
+
+            val proteinaText = binding.edittextQtdProteina.text.toString()
+            val proteina = if (proteinaText.isNotEmpty()) proteinaText.toDouble() else 0.0
+
+            val carboidratoText = binding.edittextQtdCarboidrato.text.toString()
+            val carboidrato = if (carboidratoText.isNotEmpty()) carboidratoText.toDouble() else 0.0
+
+            val gordTotalText = binding.edittextQtdGordTotal.text.toString()
+            val gordTotal = if (gordTotalText.isNotEmpty()) gordTotalText.toDouble() else 0.0
+
             val calorias = proteina + carboidrato + gordTotal
 
-            val novoAlimento = FoodData(
-                null,
-                nomeAlimento,
-                tipoAlimento,
-                isDiabetes,
-                isColesterol,
-                isHipertensao,
-                proteina,
-                carboidrato,
-                gordTotal,
-                calorias,
-                null
-            )
+            if (nomeAlimento.isBlank()) {
+                binding.edittextFoodName.error = "Preencha o nome do alimento."
+            } else if (tipoAlimento.isBlank()) {
+                binding.spinnerTypeFood.error = "Preencha o tipo do alimento."
+            } else if (carboidrato <= 0.0) {
+                binding.edittextQtdCarboidrato.error = "Quantidade de carboidrato inferior a 1."
+            } else if (proteina <= 0.0) {
+                binding.edittextQtdProteina.error = "Quantidade de proteina inferior a 1."
+            } else if (gordTotal <= 0.0) {
+                binding.edittextQtdGordTotal.error = "Quantidade de gordura total inferior a 1."
+            } else {
+                val novoAlimento = FoodData(
+                    null,
+                    nomeAlimento,
+                    tipoAlimento,
+                    isDiabetes,
+                    isColesterol,
+                    isHipertensao,
+                    proteina,
+                    carboidrato,
+                    gordTotal,
+                    calorias,
+                    null
+                )
 
-            Log.i("dadoAlimento", "cadastrarNovoAlimento: $novoAlimento")
+                Log.i("dadoAlimento", "cadastrarNovoAlimento: $novoAlimento")
 
-//            foodViewModel.responseAdicionarNovoAlimentoBottomSheet.value = false
+                modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
+                foodViewModel.cadastrarNovoAlimento(novoAlimento)
+            }
 
-            modalLoadingBottomSheet.show(childFragmentManager, ModalLoadingBottomSheet.TAG)
-            foodViewModel.cadastrarNovoAlimento(novoAlimento)
         }
     }
 

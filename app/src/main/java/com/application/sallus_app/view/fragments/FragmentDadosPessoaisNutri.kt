@@ -18,14 +18,32 @@ class FragmentDadosPessoaisNutri : Fragment() {
     ): View? {
         binding = FragmentCadastroBinding.inflate(inflater, container, false)
 
-        val fragmentDestino = FragmentCrn()
-
         binding.proximo1.setOnClickListener {
-            val nome = binding.nomePaciente.text.toString()
-            val telefone = binding.telefone.text.toString()
-            val endereco = binding.endereco.text.toString()
-            val genero = binding.genero.text.toString()
+            checkInputs()
+        }
 
+        binding.backButton2.setOnClickListener {
+            retornarFragment()
+        }
+
+        return binding.root
+    }
+
+    private fun checkInputs() {
+        val nome = binding.nomePaciente.text.toString()
+        val telefone = binding.telefone.text.toString()
+        val endereco = binding.endereco.text.toString()
+        val genero = binding.genero.text.toString()
+
+        if (nome.isBlank()) {
+            binding.nomePaciente.error = "Preencha seu nome."
+        } else if (telefone.isBlank() || telefone.length < 9) {
+            binding.telefone.error = "Preencha um número válido."
+        } else if (endereco.isBlank()) {
+            binding.endereco.error = "Preencha o seu endereço."
+        } else if (genero.isBlank()) {
+            binding.genero.error = "Selecione o seu gênero."
+        } else {
             Log.d("MeuFragmentDestino", "Dados teste: $nome $telefone $endereco $genero")
 
             val bundle = Bundle()
@@ -34,6 +52,8 @@ class FragmentDadosPessoaisNutri : Fragment() {
             bundle.putString("Endereco", endereco)
             bundle.putString("Genero", genero)
 
+            val fragmentDestino = FragmentCrn()
+
             fragmentDestino.arguments = bundle
 
             parentFragmentManager.beginTransaction()
@@ -41,12 +61,6 @@ class FragmentDadosPessoaisNutri : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
-
-        binding.backButton2.setOnClickListener {
-            retornarFragment()
-        }
-
-        return binding.root
     }
 
     fun retornarFragment() {

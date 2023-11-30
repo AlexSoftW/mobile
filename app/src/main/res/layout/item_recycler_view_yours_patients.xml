@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
-            android:text="@string/text_telephone"
+            android:text="@string/text_default_telephone"
             android:textSize="@dimen/small_font"
             app:layout_constraintStart_toStartOf="@id/textview_tag_patient_item_yours_patients"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_patient_item_yours_patients" />
@@ -97,11 +97,11 @@
             android:id="@+id/textview_telephone_patient_item_yours_patients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(11) 91234-5678"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/textview_tag_telephone_item_yours_patients"
-            app:layout_constraintStart_toEndOf="@id/textview_tag_telephone_item_yours_patients" />
+            app:layout_constraintStart_toEndOf="@id/textview_tag_telephone_item_yours_patients"
+            tools:text="(11) 91234-5678" />
 
         <ImageButton
             android:id="@+id/imagebutton_whatsapp_item_yours_patients"

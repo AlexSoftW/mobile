@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/xx_small_margin"
-            android:text="Alterar imagem"
+            android:text="@string/text_alterar_imagem"
             android:textAlignment="center"
             android:textColor="@color/white_100"
             android:textSize="@dimen/average_font"
@@ -78,8 +78,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_settings_perfil_paciente">
 
@@ -102,7 +102,7 @@
             android:layout_marginTop="@dimen/xx_small_margin"
             android:background="@color/green_default"
             android:padding="4dp"
-            android:text="Paciente"
+            android:text="@string/text_patient"
             android:textColor="@color/white_100"
             app:layout_constraintEnd_toEndOf="@id/nome_usuario"
             app:layout_constraintStart_toStartOf="@id/nome_usuario"
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/xx_small_margin"
-            android:hint="Nome completo"
+            android:hint="@string/text_nome_completo"
             app:layout_constraintTop_toBottomOf="@+id/textview_tag_toolbar_pages">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -129,8 +129,8 @@
             android:id="@+id/textFieldEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="e-mail"
+            android:layout_marginTop="@dimen/average_margin"
+            android:hint="@string/text_default_email"
             app:layout_constraintTop_toBottomOf="@+id/textFieldNomeCompleto">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -147,8 +147,8 @@
             android:id="@+id/textFieldPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="senha"
+            android:layout_marginTop="@dimen/average_margin"
+            android:hint="@string/text_default_senha"
             app:layout_constraintTop_toBottomOf="@+id/textFieldEmail">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -169,18 +169,7 @@
             android:padding="5dp"
             app:layout_constraintTop_toBottomOf="@+id/textFieldPassword">
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/btn_redefinir_senha"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:gravity="end"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent"-->
-            <!--                android:text="Redefinir senha"-->
-            <!--                android:textColor="@color/red_default" />-->
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -192,7 +181,7 @@
                 android:id="@+id/btn_voltar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Voltar"
+                android:text="@string/text_default_voltar"
                 android:textAlignment="center"
                 android:textColor="@color/red_default"
                 app:layout_constraintBottom_toTopOf="@+id/btn_salvar_alteracao"
@@ -204,9 +193,9 @@
                 android:id="@+id/btn_salvar_alteracao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/average_margin"
                 android:backgroundTint="@color/red_default"
-                android:text="Salvar alterações"
+                android:text="@string/text_salvar_alteracoes"
                 android:textSize="@dimen/small_font"
                 app:layout_constraintBottom_toBottomOf="parent" />
 

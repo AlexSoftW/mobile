@@ -57,7 +57,7 @@
         android:id="@+id/textview_button_limpar_selecao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="limpar seleção"
+        android:text="@string/text_limpar_selecao"
         android:textColor="@color/red_default"
         android:textStyle="bold"
         android:visibility="invisible"
@@ -100,7 +100,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Carne vermelha"
+                android:text="@string/text_option_red_meat"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_carnes_vermelha_category_foods"
@@ -133,7 +133,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Carne branca"
+                android:text="@string/text_option_white_meat"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_carnes_brancas_category_foods"
@@ -166,7 +166,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Frutas"
+                android:text="@string/text_option_fruits"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_frutas_category_foods"
@@ -199,7 +199,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Grãos"
+                android:text="@string/text_option_grain"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_graos_category_foods"
@@ -232,7 +232,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Massas"
+                android:text="@string/text_option_pasta"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_massas_category_foods"
@@ -265,7 +265,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Frutos do mar"
+                android:text="@string/text_option_seafood"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_frutos_mar_category_foods"
@@ -298,7 +298,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Verduras"
+                android:text="@string/text_option_greenery"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_verduras_category_foods"
@@ -331,7 +331,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Legumes"
+                android:text="@string/text_option_vegetables"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_legumes_category_foods"
@@ -364,7 +364,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Alimentos prontos"
+                android:text="@string/text_option_ready_made_food"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/cardview_alimentos_prontos_category_foods"

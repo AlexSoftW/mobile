@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/average_margin"
-        android:text="Qtd de calorias:"
+        android:text="@string/text_calories"
         app:layout_constraintStart_toStartOf="@id/textview_nome_alimento_bottomsheet_details_food"
         app:layout_constraintTop_toBottomOf="@id/textview_nome_alimento_bottomsheet_details_food" />
 
@@ -71,7 +71,7 @@
         android:id="@+id/textview_tag_qtd_carboidratos_bottomsheet_details_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Qtd de carboidratos:"
+        android:text="@string/text_carbohydrates"
         app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_calorias_bottomsheet_details_food"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_calorias_bottomsheet_details_food" />
 
@@ -89,7 +89,7 @@
         android:id="@+id/textview_tag_qtd_proteinas_bottomsheet_details_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Qtd de proteinas:"
+        android:text="@string/text_proteins"
         app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_carboidratos_bottomsheet_details_food"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_carboidratos_bottomsheet_details_food" />
 
@@ -107,7 +107,7 @@
         android:id="@+id/textview_tag_gordura_total_bottomsheet_details_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gorduras totais:"
+        android:text="@string/text_total_fat"
         app:layout_constraintStart_toStartOf="@id/textview_tag_qtd_proteinas_bottomsheet_details_food"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_qtd_proteinas_bottomsheet_details_food" />
 
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
-        android:text="Indicado para diabéticos:"
+        android:text="@string/text_indicado_diabetico"
         app:layout_constraintStart_toStartOf="@id/textview_tag_gordura_total_bottomsheet_details_food"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_gordura_total_bottomsheet_details_food" />
 
@@ -144,7 +144,7 @@
         android:id="@+id/textview_tag_indicado_hipertensao_bottomsheet_details_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Indicado para Hipertensos:"
+        android:text="@string/text_indicado_hipertensao"
         app:layout_constraintStart_toStartOf="@id/textview_tag_indicado_diabetes_bottomsheet_details_food"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_indicado_diabetes_bottomsheet_details_food" />
 
@@ -163,7 +163,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/small_margin"
-        android:text="Indicado para quem possuí colesterol:"
+        android:text="@string/text_indicado_colesterol"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/textview_tag_indicado_hipertensao_bottomsheet_details_food"
         app:layout_constraintTop_toBottomOf="@id/textview_tag_indicado_hipertensao_bottomsheet_details_food" />

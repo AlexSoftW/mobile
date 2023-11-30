@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Perfil" />
+            android:text="@string/text_default_perfil" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Alterar senha" />
+            android:text="@string/text_configuration_senha" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Suporte" />
+            android:text="@string/text_default_suporte" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Sair" />
+            android:text="@string/text_default_sair" />
 
         <ImageView
             android:layout_width="wrap_content"

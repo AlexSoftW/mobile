@@ -3,6 +3,7 @@ package com.application.sallus_app.view.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,38 +41,15 @@ class FragmentEmailNutri : Fragment() {
             )
 
             binding.nextButton1.setOnClickListener {
-                val email = binding.email.text.toString()
-                val senha = binding.senha.text.toString()
-
-                val confirmrSenha = binding.confirmarSenha.text.toString()
-                bundle.putString("Email", email)
-                bundle.putString("Senha", senha)
-                bundle.putString("ConfirmarSenha", confirmrSenha)
-                val fragmentDestino = FragmentEmail()
-                fragmentDestino.arguments = bundle
-                Log.d("Valores ", "Email = $email, senha = $senha")
-
-                val nutriData = NutritionistData(
-                    nome ?: "",
-                    email,
-                    senha,
-                    0.0,
-                    0,
-                    genero ?: "",
-                    endereco ?: "",
-                    0,
-                    telefone ?: "",
-                    0,
-                    crn ?: "",
-                    true,
-                    ""
-                )
-
-                viewModel.addingNewNutricionista(nutriData)
-
-                val intent = Intent(activity, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
+                if (nome != null && telefone != null && endereco != null && genero != null && crn != null) {
+                    checkInputs(
+                        nome,
+                        telefone,
+                        endereco,
+                        genero,
+                        crn
+                    )
+                }
             }
         }
 
@@ -80,6 +58,70 @@ class FragmentEmailNutri : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun checkInputs(
+        nome: String,
+        telefone: String,
+        endereco: String,
+        genero: String,
+        crn: String
+    ) {
+        val email = binding.email.text.toString()
+        val password = binding.senha.text.toString()
+        val confirmSenha = binding.confirmarSenha.text.toString()
+
+        if (email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.email.error = "Preencha um email válido."
+        } else if (!isPasswordValid(password)) {
+            binding.senha.error = "Preencha uma senha válida."
+        } else if (password != confirmSenha) {
+            binding.confirmarSenha.error = "As senhas não coincidem."
+        } else {
+
+            bundle.putString("Email", email)
+            bundle.putString("Senha", password)
+            bundle.putString("ConfirmarSenha", confirmSenha)
+            val fragmentDestino = FragmentEmail()
+            fragmentDestino.arguments = bundle
+            Log.d("Valores ", "Email = $email, senha = $password")
+
+            val nutriData = NutritionistData(
+                nome ?: "",
+                email,
+                password,
+                0.0,
+                0,
+                genero ?: "",
+                endereco ?: "",
+                0,
+                telefone ?: "",
+                0,
+                crn ?: "",
+                true,
+                ""
+            )
+
+            viewModel.addingNewNutricionista(nutriData)
+
+            val intent = Intent(activity, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+
+        }
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        if (password.isBlank()) {
+            return false  // A senha está vazia, portanto, é inválida
+        }
+        val hasUppercase = password.any { it.isUpperCase() }
+        val hasLowercase = password.any { it.isLowerCase() }
+        val hasDigit = password.any { it.isDigit() }
+        val hasSpecialChar = password.any { it.isLetterOrDigit().not() }
+        val isLengthValid = password.length >= 8
+
+        return hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid
     }
 
     fun retornarFragment() {

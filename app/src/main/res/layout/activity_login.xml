@@ -17,34 +17,31 @@
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="100dp"
-                android:layout_marginLeft="25dp"
-                android:src="@mipmap/logo">
-
-            </ImageView>
+                android:layout_marginStart="@dimen/large_margin"
+                android:src="@mipmap/logo" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
+            android:layout_margin="@dimen/large_margin"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="30dp"
-                android:fontFamily="@font/lato"
-                android:text="Entre em sua \nconta:"
-                android:textSize="25dp">
+                android:layout_marginBottom="@dimen/small_margin"
+                android:text="@string/text_subtitle_login"
+                android:textSize="@dimen/large_font">
 
             </TextView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="E-mail">
+                android:hint="@string/text_default_email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/text_field_email"
@@ -54,9 +51,9 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Senha"
+                android:hint="@string/text_default_senha"
                 app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -68,54 +65,54 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/textview_button_esqueceu_senha"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:text="Esqueceu a senha?"
+                android:layout_marginBottom="@dimen/average_margin"
+                android:text="@string/text_esqueceu_senha"
                 android:textAlignment="textEnd"
                 android:textColor="@color/red_default"
-                android:textSize="15sp"
-                android:id="@+id/textview_button_esqueceu_senha"/>
+                android:textSize="@dimen/small_font" />
 
             <Button
                 android:id="@+id/button_login"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/red_default"
-                android:text="Login"
-                android:textSize="22sp"
+                android:text="@string/text_default_login"
+                android:textSize="@dimen/average_font"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressbar_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Não tem uma conta? " />
+                android:text="@string/text_nao_tem_uma_conta" />
 
             <TextView
                 android:id="@+id/textview_button_cadastrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
-                android:text=" Cadastre-se"
+                android:text="@string/text_default_cadastre"
                 android:textColor="@color/red_default"
-                android:textFontWeight="900" />
+                android:textStyle="bold" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_resultado"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="#0000BB"
-            android:textSize="35sp" />
 
     </LinearLayout>
 

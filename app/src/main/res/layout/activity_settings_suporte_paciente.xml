@@ -20,15 +20,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/small_margin"
-        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
         android:layout_weight="1"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Informe sua dúvida/problema/anomalia encontrada em nosso aplicativo, para que possamos resolver."
+            android:text="@string/text_title_suporte_problemas"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -36,21 +36,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/small_margin"
-        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
         android:layout_weight="1">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Assunto"
+            android:hint="@string/text_default_assunto"
             app:hintAnimationEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textFieldAssunto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=" " />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -58,14 +57,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/small_margin"
-        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
         android:layout_weight="1">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mensagem">
+            android:hint="@string/text_default_mensagem">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textFieldMensagem"
@@ -79,29 +78,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/small_margin"
-        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
         android:layout_weight="1"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Informe seu email:"
-            android:textColor="#919191"
-            android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/text_default_email"
             app:hintAnimationEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textFieldEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=" " />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -112,19 +103,20 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Voltar"
+        android:text="@string/text_default_voltar"
         android:textColor="@color/red_default" />
 
     <Button
         android:id="@+id/btn_enviar_formulario"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/small_margin"
-        android:layout_marginRight="@dimen/small_margin"
+        android:layout_height="32dp"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
         android:layout_marginBottom="@dimen/small_margin"
         android:layout_weight="1"
         android:backgroundTint="@color/red_default"
-        android:text="Enviar formulário"
-        android:textColor="@color/white_100" />
+        android:text="@string/text_enviar_formulario"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/small_font" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

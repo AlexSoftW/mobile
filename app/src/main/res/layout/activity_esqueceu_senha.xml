@@ -13,8 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_height="wrap_content">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -26,30 +25,28 @@
                     layout="@layout/toolbar_esqueceu_senha"
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="0dp" />
+
             </FrameLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/small_margin"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginRight="@dimen/small_margin"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/large_margin"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="@dimen/large_margin"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Caso não lembre de sua senha, preencha os campos a baixo com seu e-mail e telefone informado no cadastro:"
+                    android:text="@string/text_titulo_esqueceu_senha"
                     android:textSize="@dimen/small_font" />
 
             </LinearLayout>
@@ -57,7 +54,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="E-mail cadastrado">
+                android:hint="@string/text_email_cadastrado">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textFieldEmailCadastrado"
@@ -71,17 +68,15 @@
 
                 <Button
                     android:id="@+id/button_solicitar_senha"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/small_margin"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginRight="@dimen/small_margin"
-                    android:layout_marginBottom="@dimen/large_margin"
+                    android:layout_marginTop="@dimen/large_margin"
                     android:layout_weight="1"
                     android:backgroundTint="@color/red_default"
                     android:gravity="center"
-                    android:text="Solicitar nova senha"
+                    android:text="@string/text_solicitar_senha"
                     android:textColor="@color/white_100" />
+
             </LinearLayout>
 
         </LinearLayout>

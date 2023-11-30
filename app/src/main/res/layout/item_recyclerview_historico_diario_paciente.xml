@@ -38,7 +38,7 @@
             android:id="@+id/textview_tag_qtd_calorias_item_recyclerview_historico_diario_paciente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calorias totais:"
+            android:text="@string/text_total_fat"
             app:layout_constraintStart_toStartOf="@id/textview_nome_refeicao_item_recyclerview_historico_diario_paciente"
             app:layout_constraintTop_toBottomOf="@id/textview_nome_refeicao_item_recyclerview_historico_diario_paciente" />
 
@@ -80,9 +80,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/average_margin"
             android:layout_marginBottom="@dimen/small_margin"
-            android:drawableStart="@drawable/ic_calendar"
             android:drawablePadding="4dp"
             android:gravity="center"
+            app:drawableStartCompat="@drawable/ic_calendar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.9"

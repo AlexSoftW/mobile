@@ -2,6 +2,7 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/xx_small_margin"
@@ -29,18 +30,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/xx_small_margin"
-            android:text="Picanha"
             android:textSize="@dimen/average_font"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/imageview_item_alimento"
-            app:layout_constraintTop_toBottomOf="@id/imageview_item_alimento" />
+            app:layout_constraintTop_toBottomOf="@id/imageview_item_alimento"
+            tools:text="Picanha" />
 
         <TextView
             android:id="@+id/textview_tag_indicacao_item_alimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Indicado para:"
+            android:text="@string/text_recommended_for"
             app:layout_constraintStart_toStartOf="@id/textview_nome_item_alimento"
             app:layout_constraintTop_toBottomOf="@id/textview_nome_item_alimento" />
 
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/xx_small_margin"
             android:minHeight="20dp"
-            android:text="nenhum tipo de comorbidade."
+            android:text="@string/text_nenhum_tipo_comorbidade"
             android:textSize="@dimen/x_small_font"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textview_tag_indicacao_item_alimento"
