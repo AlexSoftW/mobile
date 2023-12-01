@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface EsqueceuSenhaService {
 
-    @POST("clientes/enviar-email/pedrohlb510@gmail.com")
+    @POST("clientes/enviar-email/{destinatario}")
     suspend fun postEsqueceuSenha(@Query("destinatario") esqueceuSenhaDados: String)
 
 }
